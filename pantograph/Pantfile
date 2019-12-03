@@ -9,6 +9,10 @@ lane :pipeline do
   target_path = '../docs'
   require 'pantograph/documentation/markdown_docs_generator'
   Pantograph::MarkdownDocsGenerator.new.generate!(target_path: File.expand_path(target_path))
+
+  # Dir.chdir('../docs') do |path|
+  #   sh('mkdocs gh-deploy --clean --verbose')
+  # end
 end
 
 # Test and Validate

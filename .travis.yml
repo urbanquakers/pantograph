@@ -1,0 +1,19 @@
+language: ruby
+
+before_install:
+  - gem install bundler
+
+cache:
+  directories:
+    - bundle
+
+rvm:
+  - 2.5.3
+
+jobs:
+  include:
+    # - stage: rspec test
+      # script: bundle exec rspec
+    - stage: execute danger
+      # if: type = pull_request
+      script: bundle exec pantograph pipeline --verbose
