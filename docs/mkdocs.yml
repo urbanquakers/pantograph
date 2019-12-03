@@ -1,0 +1,110 @@
+---
+site_name: pantograph docs
+site_url: https://johnknapprs.github.io/pantograph/
+theme:
+  name: material
+  palette:
+    primary: cyan
+    accent: pink
+copyright: Copyright &copy; 2019 <a href="https://pantograph.tools">pantograph</a>
+site_author: pantograph team
+site_description: Documentation for pantograph tools
+repo_url: https://github.com/johnknapprs/docs
+strict: true
+markdown_extensions:
+- markdown.extensions.attr_list
+- markdown_include.include
+- mdx_truly_sane_lists
+- admonition
+- codehilite
+nav:
+- Home: index.md
+- Actions: actions.md
+- Available Actions:
+  - add_extra_platforms: actions/add_extra_platforms.md
+  - artifactory: actions/artifactory.md
+  - bundle_install: actions/bundle_install.md
+  - changelog_from_git_commits: actions/changelog_from_git_commits.md
+  - clipboard: actions/clipboard.md
+  - cloc: actions/cloc.md
+  - create_pull_request: actions/create_pull_request.md
+  - danger: actions/danger.md
+  - debug: actions/debug.md
+  - default_platform: actions/default_platform.md
+  - download: actions/download.md
+  - echo: actions/echo.md
+  - ensure_bundle_exec: actions/ensure_bundle_exec.md
+  - ensure_env_vars: actions/ensure_env_vars.md
+  - ensure_git_branch: actions/ensure_git_branch.md
+  - ensure_git_status_clean: actions/ensure_git_status_clean.md
+  - erb: actions/erb.md
+  - pantograph_version: actions/pantograph_version.md
+  - get_build_number_repository: actions/get_build_number_repository.md
+  - get_github_release: actions/get_github_release.md
+  - git_add: actions/git_add.md
+  - git_branch: actions/git_branch.md
+  - git_commit: actions/git_commit.md
+  - git_pull: actions/git_pull.md
+  - git_submodule_update: actions/git_submodule_update.md
+  - git_tag_exists: actions/git_tag_exists.md
+  - github_api: actions/github_api.md
+  - gradle: actions/gradle.md
+  - import: actions/import.md
+  - import_from_git: actions/import_from_git.md
+  - is_ci: actions/is_ci.md
+  - jira: actions/jira.md
+  - lane_context: actions/lane_context.md
+  - last_git_commit: actions/last_git_commit.md
+  - last_git_tag: actions/last_git_tag.md
+  - make_changelog_from_jenkins: actions/make_changelog_from_jenkins.md
+  - min_pantograph_version: actions/min_pantograph_version.md
+  - nexus_upload: actions/nexus_upload.md
+  - notification: actions/notification.md
+  - number_of_commits: actions/number_of_commits.md
+  - opt_out_usage: actions/opt_out_usage.md
+  - println: actions/println.md
+  - prompt: actions/prompt.md
+  - push_git_tags: actions/push_git_tags.md
+  - push_to_git_remote: actions/push_to_git_remote.md
+  - puts: actions/puts.md
+  - reset_git_repo: actions/reset_git_repo.md
+  - rocket: actions/rocket.md
+  - rsync: actions/rsync.md
+  - ruby_version: actions/ruby_version.md
+  - say: actions/say.md
+  - scp: actions/scp.md
+  - set_github_release: actions/set_github_release.md
+  - sh: actions/sh.md
+  - skip_docs: actions/skip_docs.md
+  - slack: actions/slack.md
+  - sonar: actions/sonar.md
+  - ssh: actions/ssh.md
+  - twitter: actions/twitter.md
+  - update_pantograph: actions/update_pantograph.md
+  - zip: actions/zip.md
+- Create Your Own Action: create-action.md
+- FAQs: faqs.md
+- Plugins:
+  - Available Plugins: plugins/available-plugins.md
+  - Use Plugins: plugins/using-plugins.md
+  - Create Your Own Plugin: plugins/create-plugin.md
+  - Plugins Troubleshooting: plugins/plugins-troubleshooting.md
+- Best Practices:
+  - Source Control: best-practices/source-control.md
+  - Continuous Integration: best-practices/continuous-integration.md
+  - CI Integrations:
+    - Jenkins Integration: best-practices/continuous-integration/jenkins.md
+    - CircleCI Integration: best-practices/continuous-integration/circle-ci.md
+    - Travis Integration: best-practices/continuous-integration/travis.md
+    - Bamboo Integration: best-practices/continuous-integration/bamboo.md
+    - GitLab CI Integration: best-practices/continuous-integration/gitlab.md
+    - Azure DevOps Integration: best-practices/continuous-integration/azure-devops.md
+  - Keys: best-practices/keys.md
+- Advanced:
+  - pantograph: advanced/pantograph.md
+  - Pantfile: advanced/Pantfile.md
+  - Lanes: advanced/lanes.md
+  - Actions: advanced/actions.md
+  - Other: advanced/other.md
+- Deprecated:
+  - Advanced: advanced.md

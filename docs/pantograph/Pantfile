@@ -1,0 +1,134 @@
+# since we don't want to influence our own stats
+opt_out_usage
+
+lane :test do |options|
+  Dir.chdir("..") do
+    build_site unless options[:skip_building]
+    ensure_filenames
+    ensure_redirects
+    ensure_image_assets
+    ensure_assets_location
+    ensure_tool_name_formatting
+    ensure_code_samples
+  end
+end
+
+lane :post_slack_deploy_message do
+  slack(message: "Deployed a new version of [docs.pantograph.tools](https://docs.pantograph.tools)",
+        channel: "#docs",
+        default_payloads: [])
+end
+
+lane :update_available_plugins do
+  Pantograph::PluginFetcher.update_md_file!(output_path: "../docs/plugins/AvailablePlugins.md")
+end
+
+private_lane :build_site do
+  UI.message("🕗  Building page...")
+  sh("mkdocs build --strict") # to make sure building is successful
+  UI.success("✅  Build successful")
+end
+
+private_lane :ensure_filenames do
+  UI.message("🕗  Making sure file names are all lowercase...")
+  Dir["docs/**/*.md"].each do |current_file|
+    if current_file =~ /[A-Z]/ && (current_file != 'docs/advanced/Appfile.md' && current_file != 'docs/advanced/Pantfile.md')
+      UI.user_error!(".md files must not be upper case, use dash instead (file '#{current_file}')")
+    end
+  end
+  UI.success("✅  All doc files are properly named to not be camel case")
+end
+
+private_lane :ensure_redirects do
+  UI.message("🕗  Making sure the forwards are set up properly...")
+  require_relative "scripts/ci/available_redirects"
+
+  docs_redirects.each do |from, to|
+    UI.user_error!("redirects must not include an extension") if (from + to).include?(".")
+    full_to_path = File.join("docs", "#{to.chomp('/')}.md")
+    unless File.exist?(full_to_path)
+      UI.user_error!("Couldn't find file that is being redirected to '#{full_to_path}' from '#{from}'")
+    end
+  end
+  UI.success("✅  All forwards are cool")
+end
+
+private_lane :ensure_image_assets do
+  UI.message("🕗  Checking docs for dead image references...")
+  errors = []
+  Dir["docs/**/*.md"].each do |current_file|
+    content = File.read(current_file)
+    matches = []
+    ["png", "jpg", "gif"].each do |extension|
+      matches += content.scan(/\!\[.*\]\((.*\.#{extension})\)/) # markdown matches
+      matches += content.scan(/\<img.*src="(.*\.#{extension})/) # HTML matches
+    end
+    matches.each do |match|
+      # We support both relative and absolute file paths
+      if match.first.start_with?("/")
+        path = File.join(Dir.pwd, "docs", match.first)
+      else
+        path = File.join(File.expand_path("..", current_file), match.first)
+      end
+
+      if File.exist?(path)
+        UI.message("- ✔ Verified image named '#{File.basename(match.first)}'")
+        next
+      end
+
+      errors << "Image file referenced in file '#{current_file}', but can't find it locally: '#{match.first}'"
+    end
+  end
+  errors.each { |e| UI.error(e) }
+  UI.user_error!("At least one image file was not found, check out error above") unless errors.empty?
+  UI.success("✅  All image files were found")
+end
+
+# This will verify that no non-md files are inside each of the sub-directories
+# All images must be stored in the correct sub-dir
+private_lane :ensure_assets_location do
+  UI.message("🕗  Ensuring asset locations...")
+  error = false
+  Dir["docs/**/*"].each do |path|
+    next if File.directory?(path)
+    next if ['docs/css', 'docs/img', 'docs/js'].any? { |dir| path.start_with?(dir) }
+    next if File.dirname(path) == "docs" # root level
+    next if File.extname(path) == ".md"
+    error = true
+    UI.error("File '#{path}' shouldn't be in this directory, only `.md` files are allowed")
+  end
+  UI.user_error!("Found some files in a wrong directory") if error
+  UI.success("✅  All assets are in the correct subfolder")
+end
+
+# This ensures the correct formatting for the pantograph tools
+private_lane :ensure_tool_name_formatting do
+  UI.message("🕗  Verifying tool name formatting...")
+  require 'pantograph/tools'
+  errors = []
+  Dir["docs/**/*.md"].each do |path|
+    content = File.read(path)
+    Pantograph::TOOLS.each do |tool|
+      errors << "Use _#{tool}_ instead of `#{tool}` to mention a tool in the docs in '#{path}'" if content =~ /(?!| )`#{tool}`/
+      errors << "Use [_#{tool}_] instead of [#{tool}] to mention a tool in the docs in '#{path}'" if content.include?("[#{tool}]")
+      if content.include?("_#{tool.to_s.capitalize}_") || content.include?("`#{tool.to_s.capitalize}`")
+        errors << "pantograph tools have to be formatted in lower case: #{tool} in '#{path}'"
+      end
+    end
+  end
+  errors.each { |a| UI.error(a) }
+  UI.user_error!("Invalid formatting of one of the pantograph tools") unless errors.empty?
+  UI.success("✅  pantograph tools formatting is correct")
+end
+
+# Run the code samples, yo
+private_lane :ensure_code_samples do
+  UI.message("🕗  Verifying all code samples work with the latest pantograph release")
+  all_content = ""
+  files = Dir["docs/actions/*.md"]
+  files.each do |tool_sub_page_path|
+    all_content += File.read(tool_sub_page_path)
+  end
+  test_sample_code(content: all_content) # to not have to call the action 200 times
+  UI.success("✅  All pantograph code samples (from #{files.length} files) work as expected")
+end

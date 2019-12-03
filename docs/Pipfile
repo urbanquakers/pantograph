@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+markdown-include = "==0.5.1"
+mdx-truly-sane-lists = "==1.0"
+mkdocs = "==0.15.3"
+pymdown-extensions = "==1.1"
+pygments 
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

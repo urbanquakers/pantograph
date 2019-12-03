@@ -1,0 +1,12 @@
+require 'fileutils'
+require 'erb'
+require 'find'
+
+require 'pantograph/plugins/plugin_info'
+require 'pantograph/plugins/plugin_generator'
+require 'pantograph/plugins/plugin_generator_ui'
+require 'pantograph/plugins/plugin_info_collector'
+require 'pantograph/plugins/plugin_manager'
+require 'pantograph/plugins/plugin_search'
+require 'pantograph/plugins/plugin_fetcher'
+require 'pantograph/plugins/plugin_update_manager'

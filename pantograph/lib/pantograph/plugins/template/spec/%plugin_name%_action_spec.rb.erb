@@ -1,0 +1,9 @@
+describe Pantograph::Actions::<%= plugin_name.pantograph_class %>Action do
+  describe '#run' do
+    it 'prints a message' do
+      expect(Pantograph::UI).to receive(:message).with("The <%= plugin_name %> plugin is working!")
+
+      Pantograph::Actions::<%= plugin_name.pantograph_class %>Action.run(nil)
+    end
+  end
+end

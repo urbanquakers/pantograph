@@ -1,0 +1,7 @@
+lane :is_ci do
+  "laneResult"
+end
+
+lane :test_lane do
+  is_ci
+end

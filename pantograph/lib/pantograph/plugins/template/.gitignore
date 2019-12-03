@@ -1,0 +1,12 @@
+*.gem
+Gemfile.lock
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+pantograph/README.md
+pantograph/report.xml
+coverage
+test-results

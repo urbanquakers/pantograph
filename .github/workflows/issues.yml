@@ -1,0 +1,14 @@
+name: Processing issues
+on: 
+  issues:
+    types: [opened]
+
+jobs:   
+  pantograph-env:
+    name: pantograph env reminder
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@master
+    - uses: pantograph/github-actions/pantograph-env-reminder@latest
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"

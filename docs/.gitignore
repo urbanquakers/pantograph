@@ -1,0 +1,5 @@
+.DS_Store
+site/
+/pantograph/report.xml
+.keys
+*.swp
