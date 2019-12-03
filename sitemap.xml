@@ -96,11 +96,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://johnknapprs.github.io/pantograph/actions/pantograph_version/</loc>
-     <lastmod>2019-12-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://johnknapprs.github.io/pantograph/actions/get_build_number_repository/</loc>
      <lastmod>2019-12-03</lastmod>
      <changefreq>daily</changefreq>
@@ -212,6 +207,11 @@
     </url>
     <url>
      <loc>https://johnknapprs.github.io/pantograph/actions/opt_out_usage/</loc>
+     <lastmod>2019-12-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://johnknapprs.github.io/pantograph/actions/pantograph_version/</loc>
      <lastmod>2019-12-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
