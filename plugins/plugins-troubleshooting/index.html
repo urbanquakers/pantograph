@@ -1,0 +1,1689 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for pantograph tools">
+      
+      
+        <link rel="canonical" href="https://johnknapprs.github.io/pantograph/plugins/plugins-troubleshooting/">
+      
+      
+        <meta name="author" content="pantograph team">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+    
+    
+      
+        <title>Plugins Troubleshooting - pantograph docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="pink">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#pantograph-plugins-troubleshooting" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://johnknapprs.github.io/pantograph/" title="pantograph docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              pantograph docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Plugins Troubleshooting
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/johnknapprs/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://johnknapprs.github.io/pantograph/" title="pantograph docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    pantograph docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/johnknapprs/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/" title="Actions" class="md-nav__link">
+      Actions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Available Actions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Available Actions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/add_extra_platforms/" title="add_extra_platforms" class="md-nav__link">
+      add_extra_platforms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/artifactory/" title="artifactory" class="md-nav__link">
+      artifactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/bundle_install/" title="bundle_install" class="md-nav__link">
+      bundle_install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/changelog_from_git_commits/" title="changelog_from_git_commits" class="md-nav__link">
+      changelog_from_git_commits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/clipboard/" title="clipboard" class="md-nav__link">
+      clipboard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/cloc/" title="cloc" class="md-nav__link">
+      cloc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/create_pull_request/" title="create_pull_request" class="md-nav__link">
+      create_pull_request
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/danger/" title="danger" class="md-nav__link">
+      danger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/debug/" title="debug" class="md-nav__link">
+      debug
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/default_platform/" title="default_platform" class="md-nav__link">
+      default_platform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/download/" title="download" class="md-nav__link">
+      download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/echo/" title="echo" class="md-nav__link">
+      echo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/ensure_bundle_exec/" title="ensure_bundle_exec" class="md-nav__link">
+      ensure_bundle_exec
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/ensure_env_vars/" title="ensure_env_vars" class="md-nav__link">
+      ensure_env_vars
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/ensure_git_branch/" title="ensure_git_branch" class="md-nav__link">
+      ensure_git_branch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/ensure_git_status_clean/" title="ensure_git_status_clean" class="md-nav__link">
+      ensure_git_status_clean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/erb/" title="erb" class="md-nav__link">
+      erb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/pantograph_version/" title="pantograph_version" class="md-nav__link">
+      pantograph_version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/get_build_number_repository/" title="get_build_number_repository" class="md-nav__link">
+      get_build_number_repository
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/get_github_release/" title="get_github_release" class="md-nav__link">
+      get_github_release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/git_add/" title="git_add" class="md-nav__link">
+      git_add
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/git_branch/" title="git_branch" class="md-nav__link">
+      git_branch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/git_commit/" title="git_commit" class="md-nav__link">
+      git_commit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/git_pull/" title="git_pull" class="md-nav__link">
+      git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/git_submodule_update/" title="git_submodule_update" class="md-nav__link">
+      git_submodule_update
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/git_tag_exists/" title="git_tag_exists" class="md-nav__link">
+      git_tag_exists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/github_api/" title="github_api" class="md-nav__link">
+      github_api
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/gradle/" title="gradle" class="md-nav__link">
+      gradle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/import/" title="import" class="md-nav__link">
+      import
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/import_from_git/" title="import_from_git" class="md-nav__link">
+      import_from_git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/is_ci/" title="is_ci" class="md-nav__link">
+      is_ci
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/jira/" title="jira" class="md-nav__link">
+      jira
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/lane_context/" title="lane_context" class="md-nav__link">
+      lane_context
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/last_git_commit/" title="last_git_commit" class="md-nav__link">
+      last_git_commit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/last_git_tag/" title="last_git_tag" class="md-nav__link">
+      last_git_tag
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
+      make_changelog_from_jenkins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
+      min_pantograph_version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/nexus_upload/" title="nexus_upload" class="md-nav__link">
+      nexus_upload
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/notification/" title="notification" class="md-nav__link">
+      notification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/number_of_commits/" title="number_of_commits" class="md-nav__link">
+      number_of_commits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/opt_out_usage/" title="opt_out_usage" class="md-nav__link">
+      opt_out_usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/println/" title="println" class="md-nav__link">
+      println
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/prompt/" title="prompt" class="md-nav__link">
+      prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/push_git_tags/" title="push_git_tags" class="md-nav__link">
+      push_git_tags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/push_to_git_remote/" title="push_to_git_remote" class="md-nav__link">
+      push_to_git_remote
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/puts/" title="puts" class="md-nav__link">
+      puts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/reset_git_repo/" title="reset_git_repo" class="md-nav__link">
+      reset_git_repo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/rocket/" title="rocket" class="md-nav__link">
+      rocket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/rsync/" title="rsync" class="md-nav__link">
+      rsync
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/ruby_version/" title="ruby_version" class="md-nav__link">
+      ruby_version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/say/" title="say" class="md-nav__link">
+      say
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/scp/" title="scp" class="md-nav__link">
+      scp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/set_github_release/" title="set_github_release" class="md-nav__link">
+      set_github_release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/sh/" title="sh" class="md-nav__link">
+      sh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/skip_docs/" title="skip_docs" class="md-nav__link">
+      skip_docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/slack/" title="slack" class="md-nav__link">
+      slack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/sonar/" title="sonar" class="md-nav__link">
+      sonar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/ssh/" title="ssh" class="md-nav__link">
+      ssh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/twitter/" title="twitter" class="md-nav__link">
+      twitter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/update_pantograph/" title="update_pantograph" class="md-nav__link">
+      update_pantograph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actions/zip/" title="zip" class="md-nav__link">
+      zip
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../create-action/" title="Create Your Own Action" class="md-nav__link">
+      Create Your Own Action
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faqs/" title="FAQs" class="md-nav__link">
+      FAQs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../available-plugins/" title="Available Plugins" class="md-nav__link">
+      Available Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../using-plugins/" title="Use Plugins" class="md-nav__link">
+      Use Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../create-plugin/" title="Create Your Own Plugin" class="md-nav__link">
+      Create Your Own Plugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Plugins Troubleshooting
+      </label>
+    
+    <a href="./" title="Plugins Troubleshooting" class="md-nav__link md-nav__link--active">
+      Plugins Troubleshooting
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-pantograph-is-up-to-date" class="md-nav__link">
+    Make sure pantograph is up to date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-your-plugins" class="md-nav__link">
+    Update your plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-bundle-exec" class="md-nav__link">
+    Use bundle exec
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-verbose-mode" class="md-nav__link">
+    Use the --verbose mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-the-action-name-is-correct" class="md-nav__link">
+    Make sure the action name is correct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemfile-and-pluginfile" class="md-nav__link">
+    Gemfile and Pluginfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-your-own-plugin" class="md-nav__link">
+    Building your own plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-help" class="md-nav__link">
+    More help
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Best Practices
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Best Practices
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/source-control/" title="Source Control" class="md-nav__link">
+      Source Control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/continuous-integration/" title="Continuous Integration" class="md-nav__link">
+      Continuous Integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      CI Integrations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        CI Integrations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/continuous-integration/jenkins/" title="Jenkins Integration" class="md-nav__link">
+      Jenkins Integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
+      CircleCI Integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
+      Travis Integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
+      Bamboo Integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
+      GitLab CI Integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
+      Azure DevOps Integration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../best-practices/keys/" title="Keys" class="md-nav__link">
+      Keys
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Advanced
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Advanced
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/pantograph/" title="pantograph" class="md-nav__link">
+      pantograph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/Pantfile/" title="Pantfile" class="md-nav__link">
+      Pantfile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/lanes/" title="Lanes" class="md-nav__link">
+      Lanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/actions/" title="Actions" class="md-nav__link">
+      Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/other/" title="Other" class="md-nav__link">
+      Other
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Deprecated
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Deprecated
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/" title="Advanced" class="md-nav__link">
+      Advanced
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-pantograph-is-up-to-date" class="md-nav__link">
+    Make sure pantograph is up to date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-your-plugins" class="md-nav__link">
+    Update your plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-bundle-exec" class="md-nav__link">
+    Use bundle exec
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-verbose-mode" class="md-nav__link">
+    Use the --verbose mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-the-action-name-is-correct" class="md-nav__link">
+    Make sure the action name is correct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemfile-and-pluginfile" class="md-nav__link">
+    Gemfile and Pluginfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-your-own-plugin" class="md-nav__link">
+    Building your own plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-help" class="md-nav__link">
+    More help
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/johnknapprs/docs/edit/master/docs/plugins/plugins-troubleshooting.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="pantograph-plugins-troubleshooting">pantograph plugins troubleshooting</h1>
+<p>If you're having trouble calling a plugin action, here is a simple guide on how to resolve the issue:</p>
+<h3 id="make-sure-pantograph-is-up-to-date">Make sure pantograph is up to date</h3>
+<p>Run <code>pantograph -v</code> and <code>bundle exec pantograph -v</code> and make sure it's at least version 1.93.0.</p>
+<h3 id="update-your-plugins">Update your plugins</h3>
+<p>Run <code>pantograph update_plugins</code> to make sure to have all the latest plugins and their dependencies installed.</p>
+<h3 id="use-bundle-exec">Use <code>bundle exec</code></h3>
+<p>Run <em>pantograph</em> using <code>bundle exec pantograph [lane]</code> to make sure your plugins are properly loaded.</p>
+<p>This is required when you use plugins from a local path or a git remote.</p>
+<h3 id="use-the-verbose-mode">Use the <code>--verbose</code> mode</h3>
+<p>Running <code>pantograph [lane] --verbose</code> will show a lot more information that might be useful to resolve the issue.</p>
+<h3 id="make-sure-the-action-name-is-correct">Make sure the action name is correct</h3>
+<p>A plugin can contain any number of actions. Make sure to read the docs for the plugin itself!</p>
+<p>Additionally check out the source code of the plugin:</p>
+<div class="codehilite"><pre><span></span><span class="n">lib</span><span class="o">/</span><span class="n">pantograph</span><span class="o">/</span><span class="n">plugin</span><span class="o">/[</span><span class="n">plugin_name</span><span class="o">]/</span><span class="n">actions</span><span class="o">/[</span><span class="n">action_name</span><span class="o">]</span><span class="p">.</span><span class="n">rb</span><span class="w"></span>
+</pre></div>
+
+
+<p>Open the <code>[action_name].rb</code> file and make sure the name of the class on line 3 looks like this:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="o">[</span><span class="n">ActionName</span><span class="o">]</span><span class="k">Action</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">Action</span><span class="w"></span>
+</pre></div>
+
+
+<p>Note how the name of the class should be capitalised and have <code>Action</code> appended in the name. Additionally this class must be a subclass of <code>Action</code>.</p>
+<h3 id="gemfile-and-pluginfile">Gemfile and Pluginfile</h3>
+<p>Your <code>Gemfile</code> should look something like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">gem</span> <span class="s2">&quot;pantograph&quot;</span>
+
+<span class="n">plugins_path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">),</span> <span class="s1">&#39;pantograph&#39;</span><span class="p">,</span> <span class="s1">&#39;Pluginfile&#39;</span><span class="p">)</span>
+<span class="n">eval_gemfile</span><span class="p">(</span><span class="n">plugins_path</span><span class="p">)</span> <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">plugins_path</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Your <code>Pluginfile</code> should look something like this</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Autogenerated by pantograph</span>
+
+<span class="n">gem</span> <span class="s1">&#39;pantograph-plugin-ruby&#39;</span>
+</pre></div>
+
+
+<h3 id="building-your-own-plugin">Building your own plugin</h3>
+<p>If you have issues with running your local plugins during plugin development, make sure to run</p>
+<div class="codehilite"><pre><span></span><span class="err">bundle install --with development</span>
+</pre></div>
+
+
+<p>to install all required development dependencies</p>
+<h3 id="more-help">More help</h3>
+<p>If it's still not working for you, please <a href="https://github.com/pantograph/pantograph/issues/new">submit a new GitHub issue</a> with your <code>Gemfile</code>, <code>Gemfile.lock</code>, <code>Pluginfile</code>, <code>Pantfile</code> and terminal output when running <em>pantograph</em> using the <code>--verbose</code> flag.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../create-plugin/" title="Create Your Own Plugin" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Create Your Own Plugin
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../best-practices/source-control/" title="Source Control" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Source Control
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 <a href="https://pantograph.tools">pantograph</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8e03edeb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
