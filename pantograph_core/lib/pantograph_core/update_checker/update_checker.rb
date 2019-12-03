@@ -34,14 +34,10 @@ module PantographCore
 
     def self.update_available?(gem_name, current_version)
       latest = server_results[gem_name]
-      pp 'hello'
-      pp (latest and Gem::Version.new(latest) > Gem::Version.new(current_version))
-
       return (latest and Gem::Version.new(latest) > Gem::Version.new(current_version))
     end
 
     def self.show_update_status(gem_name, current_version)
-      pp 'goodbye'
       if update_available?(gem_name, current_version)
         show_update_message(gem_name, current_version)
       end
