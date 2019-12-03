@@ -117,7 +117,7 @@ module Pantograph
           Pantograph::CommandsGenerator.start
         end
       ensure
-        # PantographCore::UpdateChecker.show_update_status('pantograph', Pantograph::VERSION)
+        PantographCore::UpdateChecker.show_update_status('pantograph', Pantograph::VERSION)
       end
 
       # Since pantograph also supports the rocket and biceps emoji as executable
