@@ -26,7 +26,7 @@ describe Pantograph do
         Pantograph::SupportedPlatforms.extra = []
       end
       it "displays a warning if a platform is not supported" do
-        expect(PantographCore::UI).to receive(:important).with("Platform 'notSupportedOS' is not officially supported. Currently supported platforms are [:ios, :mac, :android].")
+        expect(PantographCore::UI).to receive(:important).with("Platform 'notSupportedOS' is not officially supported. Currently supported platforms are [:ios, :mac, :android, :gradle].")
         Pantograph::Actions::DefaultPlatformAction.run(['notSupportedOS'])
       end
 

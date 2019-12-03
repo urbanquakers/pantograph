@@ -46,7 +46,7 @@ module Pantograph
       # and not return to the original working directory
       # https://github.com/CocoaPods/Xcodeproj/issues/426
       # Setting this environment variable causes xcodeproj to work around the problem
-      ENV["FORK_XCODE_WRITING"] = "true" unless platform == 'android'
+      ENV["FORK_XCODE_WRITING"] = "true" if platform == 'ios'
 
       Pantograph::Helper::DotenvHelper.load_dot_env(env)
 

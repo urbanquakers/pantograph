@@ -2,7 +2,7 @@ require "tty-spinner"
 
 module Pantograph
   class Setup
-    # :ios or :android
+    # :ios or :gradle
     attr_accessor :platform
 
     # Path to the xcodeproj or xcworkspace
@@ -44,7 +44,7 @@ module Pantograph
       # this is used by e.g. configuration.rb to not show warnings when running produce
       ENV["PANTOGRAPH_ONBOARDING_IN_PROCESS"] = 1.to_s
 
-      spinner = TTY::Spinner.new("[:spinner] Looking for iOS and Android projects in current directory...", format: :dots)
+      spinner = TTY::Spinner.new("[:spinner] Looking for iOS and Gradle projects in current directory...", format: :dots)
       spinner.auto_spin
 
       maven_projects  = Dir["**/pom.xml"]
@@ -56,7 +56,7 @@ module Pantograph
 
       # Currently we prefer iOS app projects, as the `init` process is
       # more intelligent and does more things. The user can easily add
-      # the `:android` platform to the resulting Pantfile
+      # the `:gradle` platform to the resulting Pantfile
       if maven_projects.count > 0
         current_directory = maven_projects.find_all do |current_project_path|
           current_project_path.split(File::Separator).count == 1
@@ -91,11 +91,11 @@ module Pantograph
           had_multiple_projects_to_choose_from: had_multiple_projects_to_choose_from
         ).setup_ios
       elsif gradle_projects.count > 0
-        UI.message("Detected an Android project in the current directory...")
-        SetupAndroid.new.setup_android
+        UI.message("Detected an gradle project in the current directory...")
+        SetupGradle.new.setup_gradle
       else
-        UI.error("No iOS or Android projects were found in directory '#{Dir.pwd}'")
-        UI.error("Make sure to `cd` into the directory containing your iOS or Android app")
+        UI.error("No iOS or gradle projects were found in directory '#{Dir.pwd}'")
+        UI.error("Make sure to `cd` into the directory containing your iOS or Gradle app")
         if UI.confirm("Alternatively, would you like to manually setup a pantograph config in the current directory instead?")
           SetupIos.new(
             user: user,
@@ -254,13 +254,13 @@ module Pantograph
 
     def suggest_next_steps
       UI.header("Where to go from here?")
-      if self.platform == :android
+      if self.platform == :gradle
         UI.message("📸  Learn more about how to automatically generate localized Google Play screenshots:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/android/screenshots/".cyan)
+        UI.message("\t\thttps://docs.pantograph.tools/getting-started/gradle/screenshots/".cyan)
         UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/android/beta-deployment/".cyan)
+        UI.message("\t\thttps://docs.pantograph.tools/getting-started/gradle/beta-deployment/".cyan)
         UI.message("🚀  Learn more about how to automate the Google Play release process:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/android/release-deployment/".cyan)
+        UI.message("\t\thttps://docs.pantograph.tools/getting-started/gradle/release-deployment/".cyan)
       else
         UI.message("📸  Learn more about how to automatically generate localized App Store screenshots:")
         UI.message("\t\thttps://docs.pantograph.tools/getting-started/ios/screenshots/".cyan)
@@ -287,4 +287,4 @@ module Pantograph
 end
 
 require 'pantograph/setup/setup_ios'
-require 'pantograph/setup/setup_android'
+require 'pantograph/setup/setup_gradle'

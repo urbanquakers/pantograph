@@ -27,7 +27,7 @@ module Pantograph
 
       def self.example_code
         [
-          'default_platform(:android)'
+          'default_platform(:gradle)'
         ]
       end
 
