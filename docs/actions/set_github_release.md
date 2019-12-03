@@ -72,7 +72,7 @@ SharedValue | Description
   `SharedValues::SET_GITHUB_RELEASE_RELEASE_ID` | Release id (useful for subsequent editing)
   `SharedValues::SET_GITHUB_RELEASE_JSON` | The whole release JSON object
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

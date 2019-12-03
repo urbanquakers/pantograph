@@ -11,7 +11,7 @@ This will stop uploading the information which actions were run
 
 
 
-> By default, _pantograph_ will track what actions are being used. No personal/sensitive information is recorded.<br>Learn more at [https://docs.pantograph.tools/#metrics](https://docs.pantograph.tools/#metrics).<br>Add `opt_out_usage` at the top of your Pantfile to disable metrics collection.
+> By default, _pantograph_ will track what actions are being used. No personal/sensitive information is recorded.<br>Learn more at [https://johnknapprs.github.io/pantograph/#metrics](https://johnknapprs.github.io/pantograph/#metrics).<br>Add `opt_out_usage` at the top of your Pantfile to disable metrics collection.
 
 
 opt_out_usage ||

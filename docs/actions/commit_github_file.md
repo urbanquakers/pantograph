@@ -68,7 +68,7 @@ SharedValue | Description
   `SharedValues::COMMIT_GITHUB_FILE_SHA` | Commit SHA generated
   `SharedValues::COMMIT_GITHUB_FILE_JSON` | The whole commit JSON object response
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

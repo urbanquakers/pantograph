@@ -1,1 +1,1 @@
-#### This document was moved to our new <https://docs.pantograph.tools/plugins/available-plugins> page
+#### This document was moved to our new <https://johnknapprs.github.io/pantograph/plugins/available-plugins> page

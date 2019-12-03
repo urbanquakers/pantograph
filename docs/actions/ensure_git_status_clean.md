@@ -53,7 +53,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::GIT_REPO_WAS_CLEAN_ON_START` | Stores the fact that the git repo was clean at some point
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

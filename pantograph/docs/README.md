@@ -1,6 +1,6 @@
 -----
 
-<h4 align="center">For pantograph guides, check out the new <a href="https://docs.pantograph.tools">docs.pantograph.tools</a> page</h4>
+<h4 align="center">For pantograph guides, check out the new <a href="https://johnknapprs.github.io/pantograph">johnknapprs.github.io/pantograph</a> page</h4>
 
 -----
 

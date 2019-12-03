@@ -16,7 +16,7 @@ module PantographCore
 
     def post_event(event)
       # If our users want to opt out of usage metrics, don't post the events.
-      # Learn more at https://docs.pantograph.tools/#metrics
+      # Learn more at https://johnknapprs.github.io/pantograph/#metrics
       if Helper.test? || PantographCore::Env.truthy?("PANTOGRAPH_OPT_OUT_USAGE")
         return nil
       end

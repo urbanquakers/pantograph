@@ -1,3 +1,3 @@
 <h3 align="center">
-	The plugin docs were moved to <a href='https://docs.pantograph.tools/plugins/create-plugin/'>docs.pantograph.tools</a>
+	The plugin docs were moved to <a href='https://johnknapprs.github.io/pantograph/plugins/create-plugin/'>johnknapprs.github.io/pantograph</a>
 </h3>

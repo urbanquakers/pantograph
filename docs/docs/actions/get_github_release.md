@@ -97,7 +97,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::GET_GITHUB_RELEASE_INFO` | Contains all the information about this release
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

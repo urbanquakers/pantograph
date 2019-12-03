@@ -11,7 +11,7 @@ Runs a shell command
 
 
 
-> Allows running an arbitrary shell command.<br>Be aware of a specific behavior of `sh` action with regard to the working directory. For details, refer to [Advanced](https://docs.pantograph.tools/advanced/#directory-behavior).
+> Allows running an arbitrary shell command.<br>Be aware of a specific behavior of `sh` action with regard to the working directory. For details, refer to [Advanced](https://johnknapprs.github.io/pantograph/advanced/#directory-behavior).
 
 
 sh ||

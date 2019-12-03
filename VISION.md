@@ -14,7 +14,7 @@ Since errors are inevitable, _pantograph_ should show empathy and provide a sugg
 
 _pantograph_ saw a lot of early growth through a wide number of actions that meet a variety of needs. Actions can trigger built-in _pantograph_ tools, talk to external tools and services, and more. However, with more than 170 built-in actions, further growth here will make _pantograph_ harder to understand and get started with. Another consideration is that actions which ship with _pantograph_ represent a maintenance cost for the _pantograph_ core team.
 
-With these challenges in mind, [_pantograph_ plugin system](https://fabric.io/blog/introducing-pantograph-plugins/) allows anyone to develop, share, and use new actions built and maintained by the awesome _pantograph_ community. If you have an idea for a new _pantograph_ action, [create it as a plugin](https://docs.pantograph.tools/plugins/create-plugin/) and it’ll be automatically listed in the [_pantograph_ plugin registry](https://docs.pantograph.tools/plugins/available-plugins). The most impactful and commonly used plugins could be adopted into _pantograph_ in the future.
+With these challenges in mind, [_pantograph_ plugin system](https://fabric.io/blog/introducing-pantograph-plugins/) allows anyone to develop, share, and use new actions built and maintained by the awesome _pantograph_ community. If you have an idea for a new _pantograph_ action, [create it as a plugin](https://johnknapprs.github.io/pantograph/plugins/create-plugin/) and it’ll be automatically listed in the [_pantograph_ plugin registry](https://johnknapprs.github.io/pantograph/plugins/available-plugins). The most impactful and commonly used plugins could be adopted into _pantograph_ in the future.
 
 ## _pantograph_ Tool Responsibilities
 

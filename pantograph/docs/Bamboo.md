@@ -1,3 +1,3 @@
 <h3 align="center">
-	The Bamboo docs were moved to <a href='https://docs.pantograph.tools/best-practices/continuous-integration/#bamboo-integration'>docs.pantograph.tools</a>
+	The Bamboo docs were moved to <a href='https://johnknapprs.github.io/pantograph/best-practices/continuous-integration/#bamboo-integration'>johnknapprs.github.io/pantograph</a>
 </h3>

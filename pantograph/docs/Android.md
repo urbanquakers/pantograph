@@ -1,3 +1,3 @@
 <h3 align="center">
-	The Android docs were moved to <a href='https://docs.pantograph.tools/getting-started/android/setup/'>docs.pantograph.tools</a>
+	The Android docs were moved to <a href='https://johnknapprs.github.io/pantograph/getting-started/android/setup/'>johnknapprs.github.io/pantograph</a>
 </h3>

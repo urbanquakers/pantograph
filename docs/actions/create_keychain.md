@@ -67,7 +67,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::ORIGINAL_DEFAULT_KEYCHAIN` | The path to the default keychain
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

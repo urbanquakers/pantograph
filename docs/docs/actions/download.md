@@ -52,7 +52,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::DOWNLOAD_CONTENT` | The content of the file we just downloaded
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

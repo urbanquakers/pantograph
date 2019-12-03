@@ -65,7 +65,7 @@ SharedValue | Description
   `SharedValues::SSH_STDOUT_VALUE` | Holds the standard output of all commands
   `SharedValues::SSH_STDERR_VALUE` | Holds the standard error of all commands
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

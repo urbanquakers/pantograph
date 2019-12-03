@@ -1,7 +1,7 @@
 module Pantograph
   class ActionCollector
     def show_message
-      UI.message("Sending Crash/Success information. Learn more at https://docs.pantograph.tools/#metrics")
+      UI.message("Sending Crash/Success information. Learn more at https://johnknapprs.github.io/pantograph/#metrics")
       UI.message("No personal/sensitive data is sent. Only sharing the following:")
       UI.message(launches)
       UI.message(@error) if @error

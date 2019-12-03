@@ -69,7 +69,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::CREATE_PULL_REQUEST_HTML_URL` | The HTML URL to the created pull request
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

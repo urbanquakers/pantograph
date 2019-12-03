@@ -24,7 +24,7 @@ Author | @KrauseFx, @joshdholtz
 ## 2 Examples
 
 ```ruby
-clipboard(value: "https://docs.pantograph.tools/")
+clipboard(value: "https://johnknapprs.github.io/pantograph/")
 ```
 
 ```ruby

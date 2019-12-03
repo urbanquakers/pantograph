@@ -10,7 +10,7 @@ describe Pantograph do
       it "raises an error if unknow method is called" do
         expect do
           Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/PantfileInvalid')
-        end.to raise_exception("Could not find action, lane or variable 'laneasdf'. Check out the documentation for more details: https://docs.pantograph.tools/actions")
+        end.to raise_exception("Could not find action, lane or variable 'laneasdf'. Check out the documentation for more details: https://johnknapprs.github.io/pantograph/actions")
       end
 
       it "prints a warning if an uninstalled library is required" do
@@ -370,7 +370,7 @@ describe Pantograph do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
           expect do
             ff.runner.execute(:invalid, :ios)
-          end.to raise_error("Could not find action, lane or variable 'wrong_platform'. Check out the documentation for more details: https://docs.pantograph.tools/actions")
+          end.to raise_error("Could not find action, lane or variable 'wrong_platform'. Check out the documentation for more details: https://johnknapprs.github.io/pantograph/actions")
         end
 
         it "raises an exception when not passing a hash" do

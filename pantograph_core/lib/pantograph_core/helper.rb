@@ -400,7 +400,7 @@ module PantographCore
     end
 
     # This method is deprecated, use the `UI` class
-    # https://docs.pantograph.tools/advanced/#user-input-and-output
+    # https://johnknapprs.github.io/pantograph/advanced/#user-input-and-output
     def self.log
       UI.deprecated("Helper.log is deprecated. Use `UI` class instead")
       UI.current.log

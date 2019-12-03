@@ -73,7 +73,7 @@ SharedValue | Description
   `SharedValues::ARTIFACTORY_DOWNLOAD_URL` | The download url for file uploaded
   `SharedValues::ARTIFACTORY_DOWNLOAD_SIZE` | The reported file size for file uploaded
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

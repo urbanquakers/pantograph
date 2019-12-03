@@ -135,7 +135,7 @@ module Pantograph
       UI.message("pantograph uses UI Tests to automate generating localized screenshots of your iOS app")
       UI.message("pantograph will now create 2 helper files that are needed to get the setup running")
       UI.message("For more information on how this works and best practices, check out")
-      UI.message("\thttps://docs.pantograph.tools/getting-started/ios/screenshots/".cyan)
+      UI.message("\thttps://johnknapprs.github.io/pantograph/getting-started/ios/screenshots/".cyan)
       continue_with_enter
 
       begin
@@ -181,7 +181,7 @@ module Pantograph
 
       append_lane(["desc \"Description of what the lane does\"",
                    "lane :custom_lane do",
-                   "  # add actions here: https://docs.pantograph.tools/actions",
+                   "  # add actions here: https://johnknapprs.github.io/pantograph/actions",
                    "end"])
       self.lane_to_mention = "custom_lane"
 
@@ -285,7 +285,7 @@ module Pantograph
       UI.important("To enable pantograph to handle automatic version incrementing for you, please follow this guide:")
       UI.message("\thttps://developer.apple.com/library/content/qa/qa1827/_index.html".cyan)
       UI.important("Afterwards check out the pantograph docs on how to set up automatic build increments")
-      UI.message("\thttps://docs.pantograph.tools/getting-started/ios/beta-deployment/#best-practices".cyan)
+      UI.message("\thttps://johnknapprs.github.io/pantograph/getting-started/ios/beta-deployment/#best-practices".cyan)
     end
 
     def verify_app_exists_adp!

@@ -215,7 +215,7 @@ module PantographCore
 
       option = verify_options_key!(key)
 
-      # Same order as https://docs.pantograph.tools/advanced/#priorities-of-parameters-and-options
+      # Same order as https://johnknapprs.github.io/pantograph/advanced/#priorities-of-parameters-and-options
       value = if @values.key?(key) && !@values[key].nil?
                 @values[key]
               elsif option.env_name && !ENV[option.env_name].nil?

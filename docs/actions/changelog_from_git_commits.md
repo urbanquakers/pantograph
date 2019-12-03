@@ -73,7 +73,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::FL_CHANGELOG` | The changelog string generated from the collected git commit messages
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

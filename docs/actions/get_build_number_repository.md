@@ -53,7 +53,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::BUILD_NUMBER_REPOSITORY` | The build number from the current repository
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

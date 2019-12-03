@@ -143,7 +143,7 @@ SharedValue | Description
   `SharedValues::GRADLE_OUTPUT_JSON_OUTPUT_PATH` | The path to the most recent output.json file
   `SharedValues::GRADLE_ALL_OUTPUT_JSON_OUTPUT_PATHS` | The path to the newly generated output.json files
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

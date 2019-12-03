@@ -16,7 +16,7 @@ module Pantograph
       def self.details
         [
           "Access the pantograph lane context values.",
-          "More information about how the lane context works: [https://docs.pantograph.tools/advanced/#lane-context](https://docs.pantograph.tools/advanced/#lane-context)."
+          "More information about how the lane context works: [https://johnknapprs.github.io/pantograph/advanced/#lane-context](https://johnknapprs.github.io/pantograph/advanced/#lane-context)."
         ].join("\n")
       end
 

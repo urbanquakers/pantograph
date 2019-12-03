@@ -325,7 +325,7 @@ lane :validate_docs do
   verify_docs
 end
 
-desc "Makes sure the tests on https://docs.pantograph.tools still work with the latest version"
+desc "Makes sure the tests on https://johnknapprs.github.io/pantograph still work with the latest version"
 lane :verify_docs do
   clone_docs do
     Bundler.with_clean_env do
@@ -336,7 +336,7 @@ lane :verify_docs do
   end
 end
 
-desc "Update the actions.md on https://docs.pantograph.tools"
+desc "Update the actions.md on https://johnknapprs.github.io/pantograph"
 desc "This will also automatically submit a pull request to pantograph/docs"
 lane :update_docs do |options|
   debug = options[:debug]

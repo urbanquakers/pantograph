@@ -14,7 +14,7 @@ lane :test do |options|
 end
 
 lane :post_slack_deploy_message do
-  slack(message: "Deployed a new version of [docs.pantograph.tools](https://docs.pantograph.tools)",
+  slack(message: "Deployed a new version of [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)",
         channel: "#docs",
         default_payloads: [])
 end

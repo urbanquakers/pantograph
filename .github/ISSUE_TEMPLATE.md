@@ -4,7 +4,7 @@
 
 - [ ] Updated pantograph to the latest version
 - [ ] I read the [Contribution Guidelines](https://github.com/pantograph/pantograph/blob/master/CONTRIBUTING.md)
-- [ ] I read [docs.pantograph.tools](https://docs.pantograph.tools)
+- [ ] I read [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)
 - [ ] I searched for [existing GitHub issues](https://github.com/pantograph/pantograph/issues)
 
 ### Issue Description

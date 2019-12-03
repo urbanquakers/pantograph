@@ -31,7 +31,7 @@ module Pantograph
           UI.important("It seems that your Gem directory is not writable by your current user.")
           UI.important("pantograph would need sudo rights to update itself, however, running 'sudo pantograph' is not recommended.")
           UI.important("If you still want to use this action, please read the documentation on how to set this up:")
-          UI.important("https://docs.pantograph.tools/actions/update_pantograph/")
+          UI.important("https://johnknapprs.github.io/pantograph/actions/update_pantograph/")
           return
         end
 

@@ -5,7 +5,7 @@
 # Exit if any subcommand fails.
 set -e
 
-echo "Starting deploy to https://docs.pantograph.tools"
+echo "Starting deploy to https://johnknapprs.github.io/pantograph"
 
 # Replace all the ```ruby-skip-tests
 # with ```ruby
@@ -38,7 +38,7 @@ rm -rf *
 cp -R /tmp/fl-docs/* .
 
 # We need a CNAME file for GitHub
-echo "docs.pantograph.tools" > "CNAME"
+echo "johnknapprs.github.io/pantograph" > "CNAME"
 
 echo "Generating redirects..."
 ruby /tmp/generate_redirects.rb
@@ -53,7 +53,7 @@ git checkout master
 bundle install
 bundle exec pantograph post_slack_deploy_message
 
-echo "Deployed successfully, check out https://docs.pantograph.tools"
+echo "Deployed successfully, check out https://johnknapprs.github.io/pantograph"
 echo "If you're running this on your local machine, please make sure to reset your git user credentials (username and email) to not be the pantograph-bot-helper"
 
 exit 0

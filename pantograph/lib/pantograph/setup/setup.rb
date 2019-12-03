@@ -256,20 +256,20 @@ module Pantograph
       UI.header("Where to go from here?")
       if self.platform == :gradle
         UI.message("📸  Learn more about how to automatically generate localized Google Play screenshots:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/gradle/screenshots/".cyan)
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/gradle/screenshots/".cyan)
         UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/gradle/beta-deployment/".cyan)
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/gradle/beta-deployment/".cyan)
         UI.message("🚀  Learn more about how to automate the Google Play release process:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/gradle/release-deployment/".cyan)
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/gradle/release-deployment/".cyan)
       else
         UI.message("📸  Learn more about how to automatically generate localized App Store screenshots:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/ios/screenshots/".cyan)
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/ios/screenshots/".cyan)
         UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/ios/beta-deployment/".cyan)
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/ios/beta-deployment/".cyan)
         UI.message("🚀  Learn more about how to automate the App Store release process:")
-        UI.message("\t\thttps://docs.pantograph.tools/getting-started/ios/appstore-deployment/".cyan)
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/ios/appstore-deployment/".cyan)
         UI.message("👩‍⚕️  Learn more about how to setup code signing with pantograph")
-        UI.message("\t\thttps://docs.pantograph.tools/codesigning/getting-started/".cyan)
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/codesigning/getting-started/".cyan)
       end
 
       # we crash here, so that this never happens when a new setup method is added
@@ -281,7 +281,7 @@ module Pantograph
 
     def show_analytics_note
       UI.message("pantograph will collect the number of errors for each action to detect integration issues")
-      UI.message("No sensitive/private information will be uploaded, more information: " + "https://docs.pantograph.tools/#metrics".cyan)
+      UI.message("No sensitive/private information will be uploaded, more information: " + "https://johnknapprs.github.io/pantograph/#metrics".cyan)
     end
   end
 end

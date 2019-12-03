@@ -4,7 +4,7 @@
 
 Before submitting a new GitHub issue, please make sure to
 
-- Check out [docs.pantograph.tools](https://docs.pantograph.tools)
+- Check out [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)
 - Check out the README pages on [this repo](https://github.com/pantograph/pantograph)
 - Search for [existing GitHub issues](https://github.com/pantograph/pantograph/issues)
 
@@ -73,6 +73,6 @@ This project is licensed under the terms of the MIT license. See the [LICENSE][l
 [tools and debugging]: ToolsAndDebugging.md
 [vision]: VISION.md
 [responding to prs]: RespondingToIssuesAndPullRequests.md
-[plugins]: https://docs.pantograph.tools/plugins/create-plugin/
+[plugins]: https://johnknapprs.github.io/pantograph/plugins/create-plugin/
 [firstpr]: YourFirstPR.md
-[submit action]: https://docs.pantograph.tools/plugins/create-plugin/#submitting-the-action-to-the-pantograph-main-repo
+[submit action]: https://johnknapprs.github.io/pantograph/plugins/create-plugin/#submitting-the-action-to-the-pantograph-main-repo

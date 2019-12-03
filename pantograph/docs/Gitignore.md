@@ -1,3 +1,3 @@
 <h3 align="center">
-	The gitignore docs were moved to <a href='https://docs.pantograph.tools/best-practices/source-control/'>docs.pantograph.tools</a>
+	The gitignore docs were moved to <a href='https://johnknapprs.github.io/pantograph/best-practices/source-control/'>johnknapprs.github.io/pantograph</a>
 </h3>

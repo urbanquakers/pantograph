@@ -39,7 +39,7 @@ module Pantograph
 
       def self.example_code
         [
-          'clipboard(value: "https://docs.pantograph.tools/")',
+          'clipboard(value: "https://johnknapprs.github.io/pantograph/")',
           'clipboard(value: lane_context[SharedValues::HOCKEY_DOWNLOAD_LINK] || "")'
         ]
       end

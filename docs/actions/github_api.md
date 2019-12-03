@@ -91,7 +91,7 @@ SharedValue | Description
   `SharedValues::GITHUB_API_RESPONSE` | The full response body
   `SharedValues::GITHUB_API_JSON` | The parsed json returned from GitHub
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

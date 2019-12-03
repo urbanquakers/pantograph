@@ -128,7 +128,7 @@ module Commander
       # We're also printing the new-lines, as otherwise the message is not very visible in-between the error and the stack trace
       puts("")
       PantographCore::UI.important("Error accessing file, this might be due to pantograph's directory handling")
-      PantographCore::UI.important("Check out https://docs.pantograph.tools/advanced/#directory-behavior for more details")
+      PantographCore::UI.important("Check out https://johnknapprs.github.io/pantograph/advanced/#directory-behavior for more details")
       puts("")
       raise e
     end
@@ -194,7 +194,7 @@ module Commander
       ui.error("-----------------------------------------------------------")
       ui.error("for more details on ways to install pantograph please refer the documentation:")
       ui.error("-----------------------------------------------------------")
-      ui.error("        🚀       https://docs.pantograph.tools          🚀   ")
+      ui.error("        🚀       https://johnknapprs.github.io/pantograph          🚀   ")
       ui.error("-----------------------------------------------------------")
       ui.error("")
       ui.error("You can also install a new version of Ruby")

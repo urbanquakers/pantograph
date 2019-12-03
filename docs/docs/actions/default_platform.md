@@ -43,7 +43,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::DEFAULT_PLATFORM` | The default platform
 
-To get more information check the [Lanes documentation](https://docs.pantograph.tools/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 

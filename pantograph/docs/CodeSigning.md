@@ -1,3 +1,3 @@
 # Codesigning
 
-Moved to [docs.pantograph.tools](https://docs.pantograph.tools/codesigning/GettingStarted/)
+Moved to [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph/codesigning/GettingStarted/)
