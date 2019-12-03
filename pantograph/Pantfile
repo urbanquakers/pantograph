@@ -6,7 +6,6 @@ desc 'Pipeline'
 lane :pipeline do
   # PantographCore::UpdateChecker.start_looking_for_update
 
-  next unless is_ci?
   target_path = '../docs'
   require 'pantograph/documentation/markdown_docs_generator'
   Pantograph::MarkdownDocsGenerator.new.generate!(target_path: File.expand_path(target_path))

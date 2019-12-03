@@ -28,7 +28,7 @@ Returns | The exit code of the sonar-scanner binary
 sonar(
   project_key: "name.gretzki.awesomeApp",
   project_version: "1.0",
-  project_name: "iOS - AwesomeApp",
+  project_name: "AwesomeApp",
   sources_path: File.expand_path("../AwesomeApp")
 )
 ```

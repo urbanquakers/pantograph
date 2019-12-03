@@ -4,7 +4,7 @@ module Pantograph
     attr_accessor :package_name
 
     def setup_gradle
-      self.platform = :maven
+      self.platform = :gradle
 
       welcome_to_pantograph
 

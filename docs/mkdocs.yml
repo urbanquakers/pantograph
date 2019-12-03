@@ -38,7 +38,6 @@ nav:
   - ensure_git_branch: actions/ensure_git_branch.md
   - ensure_git_status_clean: actions/ensure_git_status_clean.md
   - erb: actions/erb.md
-  - pantograph_version: actions/pantograph_version.md
   - get_build_number_repository: actions/get_build_number_repository.md
   - get_github_release: actions/get_github_release.md
   - git_add: actions/git_add.md
@@ -62,6 +61,7 @@ nav:
   - notification: actions/notification.md
   - number_of_commits: actions/number_of_commits.md
   - opt_out_usage: actions/opt_out_usage.md
+  - pantograph_version: actions/pantograph_version.md
   - println: actions/println.md
   - prompt: actions/prompt.md
   - push_git_tags: actions/push_git_tags.md
