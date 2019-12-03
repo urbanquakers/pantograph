@@ -1,0 +1,5 @@
+markdown-include
+mdx-truly-sane-lists
+mkdocs
+pymdown-extensions
+pygments 
