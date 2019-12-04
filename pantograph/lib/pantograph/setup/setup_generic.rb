@@ -2,7 +2,7 @@ module Pantograph
   class SetupGeneric < Setup
     # attr_accessor :package_name
 
-    def setup_gradle
+    def setup_generic
       # self.platform = :generic
 
       welcome_to_pantograph
@@ -16,21 +16,24 @@ module Pantograph
       self.append_lane([
                          "desc \"Runs all the  tests\"",
                          "lane :test do",
-                         "  gradle(task: \"clean test\")",
+                         "  # Add command to execute your tests",
+                         "  sh('$shell_command_replace_me')",
                          "end"
                        ])
 
       self.append_lane([
                          "desc \"Publish new version to Artifactory\"",
                          "lane :build do",
-                         "  gradle(task: \"clean build\")",
+                         "  # Add command to build your application",
+                         "  sh('$shell_command_replace_me')",
                          "end"
                        ])
 
       self.append_lane([
                          "desc \"Deploy a new version to Artifactory\"",
                          "lane :publish do",
-                         "  gradle(task: \"clean artifactoryPublish\")",
+                         "  # Add command to deploy your application",
+                         "  sh('$shell_command_replace_me')",
                          "end"
                        ])
 
