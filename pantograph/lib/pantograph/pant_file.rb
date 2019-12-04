@@ -362,15 +362,15 @@ module Pantograph
 
     def action_launched(action_name)
       action_launch_context = PantographCore::ActionLaunchContext.context_for_action_name(action_name,
-                                                                                        pantograph_client_language: :ruby,
-                                                                                        args: ARGV)
+                                                                                          pantograph_client_language: :ruby,
+                                                                                          args: ARGV)
       PantographCore.session.action_launched(launch_context: action_launch_context)
     end
 
     def action_completed(action_name, status: nil)
       completion_context = PantographCore::ActionCompletionContext.context_for_action_name(action_name,
-                                                                                         args: ARGV,
-                                                                                         status: status)
+                                                                                           args: ARGV,
+                                                                                           status: status)
       PantographCore.session.action_completed(completion_context: completion_context)
     end
   end

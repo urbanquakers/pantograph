@@ -71,10 +71,15 @@ module Pantograph
         'Android'
       when 'mac'
         'MacOS'
+      when 'gradle'
+        'Gradle'
+      when 'maven'
+        'Maven'
+      when 'angular'
+        'Angular'
       else
         pl
       end
-
     end
 
     # @param platform [String]

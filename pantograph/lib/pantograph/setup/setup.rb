@@ -26,7 +26,7 @@ module Pantograph
     attr_accessor :lane_to_mention
 
     # Start the setup process
-    # rubocop:disable Metrics/BlockNesting
+
     def self.start(user: nil)
       if PantographCore::PantographFolder.setup? && !Helper.test?
         require 'pantograph/lane_list'
@@ -35,80 +35,44 @@ module Pantograph
         UI.important("pantograph is already set up at path `#{PantographCore::PantographFolder.path}`, see the available lanes above")
         UI.message("")
 
-        setup_ios = self.new
-        setup_ios.add_or_update_gemfile(update_gemfile_if_needed: false)
-        setup_ios.suggest_next_steps
+        setup_generic = self.new
+        setup_generic.add_or_update_gemfile(update_gemfile_if_needed: false)
+        setup_generic.suggest_next_steps
         return
       end
 
       # this is used by e.g. configuration.rb to not show warnings when running produce
       ENV["PANTOGRAPH_ONBOARDING_IN_PROCESS"] = 1.to_s
 
-      spinner = TTY::Spinner.new("[:spinner] Looking for iOS and Gradle projects in current directory...", format: :dots)
+      spinner = TTY::Spinner.new('[:spinner] Looking for iOS and Gradle projects in current directory...', format: :dots)
       spinner.auto_spin
 
-      maven_projects  = Dir["**/pom.xml"]
-      gradle_projects = Dir["**/*.gradle"] + Dir["**/*.gradle.kts"]
-
+      maven_projects   = Dir["**/pom.xml"]
+      gradle_projects  = Dir["**/*.gradle"] + Dir["**/*.gradle.kts"]
+      angular_projects = Dir['**/package.json']
       spinner.success
 
       PantographCore::PantographFolder.create_folder!
 
-      # Currently we prefer iOS app projects, as the `init` process is
-      # more intelligent and does more things. The user can easily add
-      # the `:gradle` platform to the resulting Pantfile
       if maven_projects.count > 0
-        current_directory = maven_projects.find_all do |current_project_path|
-          current_project_path.split(File::Separator).count == 1
-        end
-        chosen_project = nil
-        had_multiple_projects_to_choose_from = false
-
-        if current_directory.count == 1
-          chosen_project = current_directory.first
-        elsif current_directory.count > 1
-          if current_directory.count == 2
-            # This is a common case (e.g. with CocoaPods), where the project has an xcodeproj and an xcworkspace file
-            extensions = [File.extname(current_directory[0]), File.extname(current_directory[1])]
-            if extensions.sort == [".xcodeproj", ".xcworkspace"].sort
-              # Yep, that's this kind of setup
-              chosen_project = current_directory.find { |d| d.end_with?(".xcworkspace") }
-            end
-          end
-          chosen_project ||= UI.select("Multiple iOS projects found in current directory", current_directory)
-          had_multiple_projects_to_choose_from = true
-        else
-          UI.error("It looks like there is no iOS project in the current directory, though we did find one in a sub-directory")
-          UI.error("Please `cd` into the directory of the intended Xcode project you wish to use.")
-          UI.user_error!("Please `cd` into the directory of the intended Xcode project you wish to use and run `pantograph init` again")
-        end
-
-        UI.message("Detected an iOS/macOS project in the current directory: '#{chosen_project}'")
-
-        SetupIos.new(
-          user: user,
-          project_path: chosen_project,
-          had_multiple_projects_to_choose_from: had_multiple_projects_to_choose_from
-        ).setup_ios
+        UI.message('Detected an Maven project in the current directory...')
+        SetupMaven.new.setup_maven
       elsif gradle_projects.count > 0
-        UI.message("Detected an gradle project in the current directory...")
+        UI.message('Detected an Gradle project in the current directory...')
         SetupGradle.new.setup_gradle
+      elsif angular_projects.count > 0
+        UI.message('Detected an Angular project in the current directory...')
+        SetupAngular.new.setup_angular
       else
-        UI.error("No iOS or gradle projects were found in directory '#{Dir.pwd}'")
-        UI.error("Make sure to `cd` into the directory containing your iOS or Gradle app")
-        if UI.confirm("Alternatively, would you like to manually setup a pantograph config in the current directory instead?")
-          SetupIos.new(
-            user: user,
-            project_path: chosen_project,
-            had_multiple_projects_to_choose_from: had_multiple_projects_to_choose_from,
-            preferred_setup_method: :ios_manual
-          ).setup_ios
+        UI.error('Unable to determin project type')
+        UI.error('Make sure to `cd` into the directory containing your application')
+        if UI.confirm('Alternatively, would you like to manually setup a GENERIC pantograph config in the current directory instead?')
+          SetupGeneric.new.setup_generic
         else
-          UI.user_error!("Make sure to `cd` into the directory containing your project and then use `pantograph init` again")
+          UI.user_error!('Make sure to `cd` into the directory containing your project and then use `pantograph init` again')
         end
       end
     end
-    # rubocop:enable Metrics/BlockNesting
 
     def initialize(user: nil, project_path: nil, had_multiple_projects_to_choose_from: nil, preferred_setup_method: nil)
       self.user = user
@@ -286,5 +250,5 @@ module Pantograph
   end
 end
 
-require 'pantograph/setup/setup_ios'
+require 'pantograph/setup/setup_generic'
 require 'pantograph/setup/setup_gradle'

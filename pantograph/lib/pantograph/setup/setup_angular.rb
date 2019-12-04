@@ -1,9 +1,9 @@
 module Pantograph
-  class SetupGradle < Setup
+  class SetupAngular < Setup
     # attr_accessor :package_name
 
-    def setup_gradle
-      # self.platform = :gradle
+    def setup_angular
+      # self.platform = :generic
 
       welcome_to_pantograph
 
@@ -50,7 +50,7 @@ module Pantograph
     end
 
     def finish_up
-      # self.pantfile_content.gsub!(":generic", ":gradle")
+      # self.pantfile_content.gsub!(":generic", ":generic")
 
       super
     end

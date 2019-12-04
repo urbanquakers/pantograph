@@ -1,9 +1,9 @@
 module Pantograph
-  class SetupGradle < Setup
+  class SetupGeneric < Setup
     # attr_accessor :package_name
 
     def setup_gradle
-      # self.platform = :gradle
+      # self.platform = :generic
 
       welcome_to_pantograph
 
@@ -16,21 +16,21 @@ module Pantograph
       self.append_lane([
                          "desc \"Runs all the  tests\"",
                          "lane :test do",
-                         "  gradle(task: \"clean test\")",
+                         "  maven(task: \"clean install\")",
                          "end"
                        ])
 
       self.append_lane([
                          "desc \"Publish new version to Artifactory\"",
                          "lane :build do",
-                         "  gradle(task: \"clean build\")",
+                         "  maven(task: \"clean build\")",
                          "end"
                        ])
 
       self.append_lane([
                          "desc \"Deploy a new version to Artifactory\"",
                          "lane :publish do",
-                         "  gradle(task: \"clean artifactoryPublish\")",
+                         "  maven(task: \"clean artifactoryPublish\")",
                          "end"
                        ])
 
@@ -50,7 +50,7 @@ module Pantograph
     end
 
     def finish_up
-      # self.pantfile_content.gsub!(":generic", ":gradle")
+      # self.pantfile_content.gsub!(":generic", ":generic")
 
       super
     end

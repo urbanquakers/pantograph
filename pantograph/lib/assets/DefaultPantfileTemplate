@@ -13,8 +13,21 @@
 # Uncomment the line if you want pantograph to automatically update itself
 # update_pantograph
 
-default_platform(:ios)
-
-platform :ios do
-[[LANES]]
+before_all do |lane|
+  # Tasks here execute before every lane called
 end
+
+[[LANES]]
+
+after_all do |lane|
+  # Tasks here execute after all lanes have been completed
+end
+
+error do |_, error|
+  # When a lane fails the `error` lane is triggered
+  # Use this space to have Pantograph take action during a failure state
+  if is_ci?
+    slack(success: false, message: error)
+  end
+end
+

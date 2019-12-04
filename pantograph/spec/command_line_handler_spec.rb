@@ -7,15 +7,21 @@ describe Pantograph do
 
     it "properly handles calls with custom parameters" do
       expect(Pantograph::LaneManager).to receive(:cruise_lane).with("ios", "deploy",
-                                                                  { key: "value", build_number: '123' },
-                                                                  nil)
+                                                                    {
+                                                                      key: "value",
+                                                                      build_number: '123'
+                                                                    },
+                                                                    nil)
       Pantograph::CommandLineHandler.handle(["ios", "deploy", "key:value", "build_number:123"], {})
     end
 
     it "properly converts boolean values to real boolean variables" do
       expect(Pantograph::LaneManager).to receive(:cruise_lane).with("ios", "deploy",
-                                                                  { key: true, key2: false },
-                                                                  nil)
+                                                                    {
+                                                                      key: true,
+                                                                      key2: false
+                                                                    },
+                                                                    nil)
       Pantograph::CommandLineHandler.handle(["ios", "deploy", "key:true", "key2:false"], {})
     end
   end
