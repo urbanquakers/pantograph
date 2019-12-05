@@ -4,7 +4,7 @@ require_relative 'analytics_event_builder'
 
 module PantographCore
   class AnalyticsSession
-    GA_TRACKING = "UA-121171860-1"
+    GA_TRACKING = 'UA-153995158-1'
 
     private_constant :GA_TRACKING
     attr_accessor :session_id

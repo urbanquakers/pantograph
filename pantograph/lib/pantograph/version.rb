@@ -1,5 +1,6 @@
 module Pantograph
-  VERSION             = '0.1.7'.freeze
-  DESCRIPTION         = 'A way to automate your apps'.freeze
+  VERSION             = '0.1.8'.freeze
+  SUMMARY             = 'Another way to automate your apps'
+  DESCRIPTION         = 'A way to automate your apps, forked from Fastlane'.freeze
   RUBOCOP_REQUIREMENT = '0.49.1'.freeze
 end

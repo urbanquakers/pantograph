@@ -88,14 +88,12 @@ Require/MissingRequireStatement:
   Exclude:
     - '**/spec/**/*.rb'
     - '**/spec_helper.rb'
-    - 'spaceship/lib/spaceship/babosa_fix.rb'
     - '**/Pantfile'
     - '**/*.gemspec'
     - 'rakelib/**/*'
     - '**/*.rake'
     - '**/Rakefile'
-    - 'pantograph/**/*' # TODO: remove
-    - 'supply/**/*' # TODO: remove
+    - 'pantograph/**/test_sample_code.rb' # TODO: remove
 
 # We could potentially enable the 2 below:
 Layout/IndentHash:

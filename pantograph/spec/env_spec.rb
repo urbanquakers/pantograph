@@ -29,7 +29,7 @@ describe Pantograph do
     it "prints out the loaded gem dependencies" do
       expect(env).to include("Loaded gems")
       expect(env).to include("addressable")
-      expect(env).to include("xcpretty")
+      expect(env).to include("colored")
     end
 
     it "contains main information about the stack", requires_xcode: true do

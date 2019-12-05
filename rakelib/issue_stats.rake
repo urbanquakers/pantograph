@@ -2,7 +2,7 @@ QUERY_DAYS = (ENV["DAYS"] || 4).to_i
 
 PANTOGRAPH_MEMBERS = %w(asfalcone chaselatta pantograph-bot hemal i2amsam kimyoutora KrauseFx mfurtak MichaelDoyle mpirri ohwutup samrobbins snatchev vpolouchkine)
 
-ALL_TOOL_LABELS = %w(pantograph pantograph_core sigh produce cert gym pilot credentials_manager spaceship scan watchbuild match)
+ALL_TOOL_LABELS = %w(pantograph pantograph_core)
 
 GITHUB_TOKEN = ENV['GITHUB_SCRIPT_TOKEN'] || ENV['FL_GITHUB_RELEASE_API_TOKEN']
 
