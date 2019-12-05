@@ -95,7 +95,7 @@ module Pantograph
       new_lines = "\n\n"
       new_lines = "" unless self.pantfile_content.include?("lane :") # the first lane we don't want new lines
 
-      self.pantfile_content.gsub!("[[LANES]]", "#{new_lines}  #{lane.join("\n  ")}[[LANES]]")
+      self.pantfile_content.gsub!("[[LANES]]", "#{new_lines}#{lane.join("\n")}[[LANES]]")
     end
 
     def write_pantfile!
@@ -252,3 +252,5 @@ end
 
 require 'pantograph/setup/setup_generic'
 require 'pantograph/setup/setup_gradle'
+require 'pantograph/setup/setup_maven'
+require 'pantograph/setup/setup_angular'

@@ -26,8 +26,7 @@ end
 error do |_, error|
   # When a lane fails the `error` lane is triggered
   # Use this space to have Pantograph take action during a failure state
-  if is_ci?
-    slack(success: false, message: error)
-  end
+  next unless is_ci?
+  slack(success: false, message: error)
 end
 

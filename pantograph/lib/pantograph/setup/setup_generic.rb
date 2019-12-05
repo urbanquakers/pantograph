@@ -14,7 +14,7 @@ module Pantograph
       PantographCore::PantographFolder.create_folder!
 
       self.append_lane([
-                         "desc \"Runs all the  tests\"",
+                         "desc 'Runs all the  tests'",
                          "lane :test do",
                          "  # Add command to execute your tests",
                          "  sh('$shell_command_replace_me')",
@@ -22,7 +22,7 @@ module Pantograph
                        ])
 
       self.append_lane([
-                         "desc \"Publish new version to Artifactory\"",
+                         "desc 'Publish new version to Artifactory'",
                          "lane :build do",
                          "  # Add command to build your application",
                          "  sh('$shell_command_replace_me')",
@@ -30,7 +30,7 @@ module Pantograph
                        ])
 
       self.append_lane([
-                         "desc \"Deploy a new version to Artifactory\"",
+                         "desc 'Deploy a new version to Artifactory'",
                          "lane :publish do",
                          "  # Add command to deploy your application",
                          "  sh('$shell_command_replace_me')",

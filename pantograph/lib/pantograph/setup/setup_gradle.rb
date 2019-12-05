@@ -14,27 +14,27 @@ module Pantograph
       PantographCore::PantographFolder.create_folder!
 
       self.append_lane([
-                         "desc \"Runs all the  tests\"",
+                         "desc 'Runs all the  tests'",
                          "lane :test do",
-                         "  gradle(task: \"clean test\")",
+                         "  gradle(task: 'clean test')",
                          "end"
                        ])
 
       self.append_lane([
-                         "desc \"Publish new version to Artifactory\"",
+                         "desc 'Publish new version to Artifactory'",
                          "lane :build do",
-                         "  gradle(task: \"clean build\")",
+                         "  gradle(task: 'clean build')",
                          "end"
                        ])
 
       self.append_lane([
-                         "desc \"Deploy a new version to Artifactory\"",
+                         "desc 'Deploy a new version to Artifactory'",
                          "lane :publish do",
-                         "  gradle(task: \"clean artifactoryPublish\")",
+                         "  gradle(task: 'clean artifactoryPublish')",
                          "end"
                        ])
 
-      self.lane_to_mention = "test"
+      self.lane_to_mention = 'test'
 
       finish_up
     end

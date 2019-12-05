@@ -14,23 +14,23 @@ module Pantograph
       PantographCore::PantographFolder.create_folder!
 
       self.append_lane([
-                         "desc \"Runs all the  tests\"",
+                         "desc 'Runs all the  tests'",
                          "lane :test do",
-                         "  maven(task: \"clean install\")",
+                         "  maven(task: 'clean install')",
                          "end"
                        ])
 
       self.append_lane([
-                         "desc \"Publish new version to Artifactory\"",
+                         "desc 'Publish new version to Artifactory'",
                          "lane :build do",
-                         "  maven(task: \"clean build\")",
+                         "  maven(task: 'clean build')",
                          "end"
                        ])
 
       self.append_lane([
-                         "desc \"Deploy a new version to Artifactory\"",
+                         "desc 'Deploy a new version to Artifactory'",
                          "lane :publish do",
-                         "  maven(task: \"clean artifactoryPublish\")",
+                         "  maven(task: 'clean deploy')",
                          "end"
                        ])
 
