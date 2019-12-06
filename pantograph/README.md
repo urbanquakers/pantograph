@@ -1,6 +1,6 @@
 <h3 align="center">
   <a href="https://johnknapprs.github.io/pantograph/">
-    <img src="https://raw.githubusercontent.com/pantograph/pantograph/master/pantograph/assets/pantograph.png" width="100" />
+    <img src="https://raw.githubusercontent.com/johnknapprs/pantograph/master/pantograph/assets/pantograph.png" width="100" />
     <br />
     pantograph
   </a>

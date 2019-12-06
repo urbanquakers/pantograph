@@ -41,7 +41,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency('addressable', '>= 2.3', '< 3.0.0') # Support for URI templates
   spec.add_dependency('multipart-post', '~> 2.0.0') # Needed for uploading builds to appetize
   spec.add_dependency('word_wrap', '~> 1.0.0') # to add line breaks for tables with long strings
-  spec.add_dependency('public_suffix', '~> 2.0.0') # https://github.com/pantograph/pantograph/issues/10162
+  spec.add_dependency('public_suffix', '~> 2.0.0') # https://github.com/johnknapprs/pantograph/issues/10162
 
   # TTY dependencies
   spec.add_dependency('tty-screen', '>= 0.6.3', '< 1.0.0') # detect the terminal width

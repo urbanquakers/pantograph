@@ -247,7 +247,7 @@ lane :release do
   if ENV['SLACK_URL']
     release_notes = github_release['body']
     # markup - turn github references into links
-    release_notes.gsub!(/\(#([0-9]+)\)/, '(<https://github.com/pantograph/pantograph/issues/\1|#\1>)')
+    release_notes.gsub!(/\(#([0-9]+)\)/, '(<https://github.com/johnknapprs/pantograph/issues/\1|#\1>)')
     slack_message = "Successfully released [pantograph #{version}](#{release_url}) :rocket:"
     slack(
       channel: "releases",
@@ -263,7 +263,7 @@ lane :release do
   clubmate
 
   puts("You can now tweet:".green)
-  releases_url = "https://github.com/pantograph/pantograph/releases/tag/#{version}"
+  releases_url = "https://github.com/johnknapprs/pantograph/releases/tag/#{version}"
   puts("[pantograph] #{github_release['name']} #{releases_url}")
 
   send_mac_app_ci_reminder
@@ -291,7 +291,7 @@ lane :show_changelog do |options|
   changes = sh("git log --pretty='* %s via %aN' #{old_version}...HEAD --no-merges ..", log: $verbose).gsub("\n\n", "\n")
   changes.gsub!("[WIP]", "") # sometimes a [WIP] is merged
 
-  github_diff_url = "https://github.com/pantograph/pantograph/compare/#{old_version}...master"
+  github_diff_url = "https://github.com/johnknapprs/pantograph/compare/#{old_version}...master"
   sh("open #{github_diff_url}")
 
   puts("Changes since release #{old_version}:\n\n#{changes.cyan}")

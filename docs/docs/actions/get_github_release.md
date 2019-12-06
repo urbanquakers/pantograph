@@ -18,7 +18,7 @@ This will verify if a given release version is available on GitHub
   "url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713",
    "assets_url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713/assets",
    "upload_url"=>"https://uploads.github.com/repos/KrauseFx/pantograph/releases/1537713/assets{?name}",
-   "html_url"=>"https://github.com/pantograph/pantograph/releases/tag/1.8.0",
+   "html_url"=>"https://github.com/johnknapprs/pantograph/releases/tag/1.8.0",
    "id"=>1537713,
    "tag_name"=>"1.8.0",
    "target_commitish"=>"master",

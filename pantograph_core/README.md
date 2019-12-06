@@ -2,7 +2,7 @@ PantographCore
 ============
 
 [![Twitter: @PantographTools](https://img.shields.io/badge/contact-@PantographTools-blue.svg?style=flat)](https://twitter.com/PantographTools)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/pantograph/pantograph/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/johnknapprs/pantograph/blob/master/LICENSE)
 
 All shared code of the pantograph tools is stored in this repository.
 
@@ -71,7 +71,7 @@ UI.deprecated("The '--key' parameter is deprecated")
 ```
 
 # Code of Conduct
-Help us keep _pantograph_ open and inclusive. Please read and follow our [Code of Conduct](https://github.com/pantograph/pantograph/blob/master/CODE_OF_CONDUCT.md).
+Help us keep _pantograph_ open and inclusive. Please read and follow our [Code of Conduct](https://github.com/johnknapprs/pantograph/blob/master/CODE_OF_CONDUCT.md).
 
 # License
 This project is licensed under the terms of the MIT license. See the LICENSE file.

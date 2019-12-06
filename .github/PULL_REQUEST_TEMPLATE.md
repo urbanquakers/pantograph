@@ -3,7 +3,7 @@
 ### Checklist
 - [ ] I've run `bundle exec rspec` from the root directory to see all new and existing tests pass
 - [ ] I've followed the _pantograph_ code style and run `bundle exec rubocop -a` to ensure the code style is valid
-- [ ] I've read the [Contribution Guidelines](https://github.com/pantograph/pantograph/blob/master/CONTRIBUTING.md)
+- [ ] I've read the [Contribution Guidelines](https://github.com/johnknapprs/pantograph/blob/master/CONTRIBUTING.md)
 - [ ] I've updated the documentation if necessary.
 
 ### Motivation and Context

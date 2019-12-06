@@ -62,7 +62,7 @@ task(:issue_stats) do
 
   # Fetch only issues updated within the query time period to keep our GitHub request count reasonable
   since = QUERY_START_TIME.strftime("%Y-%m-%dT%H:%M:%SZ")
-  all_issues_since = get_all(conn, "/repos/pantograph/pantograph/issues", state: 'all', sort: 'update', direction: 'desc', per_page: 100, since: since)
+  all_issues_since = get_all(conn, "/repos/johnknapprs/pantograph/issues", state: 'all', sort: 'update', direction: 'desc', per_page: 100, since: since)
   all_issues_since.reject! { |issue| PANTOGRAPH_MEMBERS.include?(issue['user']['login']) }
 
   issues_by_labels = {}

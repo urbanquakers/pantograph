@@ -6,9 +6,9 @@ Before submitting a new GitHub issue, please make sure to
 
 - Check out [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)
 - Check out the README pages on [this repo](https://github.com/pantograph/pantograph)
-- Search for [existing GitHub issues](https://github.com/pantograph/pantograph/issues)
+- Search for [existing GitHub issues](https://github.com/johnknapprs/pantograph/issues)
 
-If the above doesn't help, please [submit an issue](https://github.com/pantograph/pantograph/issues)
+If the above doesn't help, please [submit an issue](https://github.com/johnknapprs/pantograph/issues)
 on GitHub and provide information about your setup, in particular the output of the `pantograph env` command.
 
 **Note**: If you want to report a regression in _pantograph_ (something that has worked before, but broke with a new release),

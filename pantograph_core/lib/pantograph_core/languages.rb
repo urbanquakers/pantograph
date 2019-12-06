@@ -8,7 +8,7 @@ module PantographCore
     # The new format used from September 2015 on
     # Updates should also be made to:
     # - produce/lib/produce/available_default_languages.rb
-    # See pull request for example: https://github.com/pantograph/pantograph/pull/14110
+    # See pull request for example: https://github.com/johnknapprs/pantograph/pull/14110
     ALL_LANGUAGES = ["ar-SA", "ca", "cs", "da", "de-DE", "el", "en-AU", "en-CA", "en-GB", "en-US", "es-ES", "es-MX", "fi", "fr-CA", "fr-FR", "he", "hi", "hr", "hu", "id", "it", "ja", "ko", "ms", "nl-NL", "no", "pl", "pt-BR", "pt-PT", "ro", "ru", "sk", "sv", "th", "tr", "uk", "vi", "zh-Hans", "zh-Hant"]
   end
 end

@@ -1,5 +1,5 @@
-# Source: Mix of https://github.com/pantograph/pantograph/pull/7202/files,
-# https://github.com/pantograph/pantograph/pull/11384#issuecomment-356084518 and
+# Source: Mix of https://github.com/johnknapprs/pantograph/pull/7202/files,
+# https://github.com/johnknapprs/pantograph/pull/11384#issuecomment-356084518 and
 # https://github.com/DragonBox/u3d/blob/59e471ad78ac00cb629f479dbe386c5ad2dc5075/lib/u3d_core/command_runner.rb#L88-L96
 
 class StandardError

@@ -117,7 +117,7 @@ module Commander
     end
 
     def action_completed(action_name, status: nil, exception: nil)
-      # https://github.com/pantograph/pantograph/issues/11913
+      # https://github.com/johnknapprs/pantograph/issues/11913
       # if exception.nil? || exception.pantograph_should_report_metrics?
       #   action_completion_context = PantographCore::ActionCompletionContext.context_for_action_name(action_name, args: ARGV, status: status)
       #   PantographCore.session.action_completed(completion_context: action_completion_context)
@@ -165,7 +165,7 @@ module Commander
       # SSL errors are very common when the Ruby or OpenSSL installation is somehow broken
       # We want to show a nice error message to the user here
       # We have over 20 GitHub issues just for this one error:
-      #   https://github.com/pantograph/pantograph/search?q=errno%3D0+state%3DSSLv3+read+server&type=Issues
+      #   https://github.com/johnknapprs/pantograph/search?q=errno%3D0+state%3DSSLv3+read+server&type=Issues
       suggest_ruby_reinstall(e)
       display_user_error!(e, e.to_s)
     end

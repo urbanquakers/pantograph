@@ -1,5 +1,5 @@
 <!--
-Auto generated, please only modify https://github.com/pantograph/pantograph/blob/master/pantograph/actions/plugin_scores.rb
+Auto generated, please only modify https://github.com/johnknapprs/pantograph/blob/master/pantograph/actions/plugin_scores.rb
 -->
 {!docs/includes/setup-pantograph-header.md!}
 # Available Plugins

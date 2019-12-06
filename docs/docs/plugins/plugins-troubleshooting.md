@@ -69,4 +69,4 @@ to install all required development dependencies
 
 ### More help
 
-If it's still not working for you, please [submit a new GitHub issue](https://github.com/pantograph/pantograph/issues/new) with your `Gemfile`, `Gemfile.lock`, `Pluginfile`, `Pantfile` and terminal output when running _pantograph_ using the `--verbose` flag.
+If it's still not working for you, please [submit a new GitHub issue](https://github.com/johnknapprs/pantograph/issues/new) with your `Gemfile`, `Gemfile.lock`, `Pluginfile`, `Pantfile` and terminal output when running _pantograph_ using the `--verbose` flag.

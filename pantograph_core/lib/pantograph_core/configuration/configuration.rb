@@ -219,7 +219,7 @@ module PantographCore
       value = if @values.key?(key) && !@values[key].nil?
                 @values[key]
               elsif option.env_name && !ENV[option.env_name].nil?
-                # verify! before using (see https://github.com/pantograph/pantograph/issues/14449)
+                # verify! before using (see https://github.com/johnknapprs/pantograph/issues/14449)
                 ENV[option.env_name].dup if option.verify!(option.auto_convert_value(ENV[option.env_name]))
               elsif self.config_file_options.key?(key)
                 self.config_file_options[key]
@@ -256,7 +256,7 @@ module PantographCore
       # as this will make sure to use the `fetch` method
       # that is responsible for auto converting the values into the right
       # data type
-      # Found out via https://github.com/pantograph/pantograph/issues/11243
+      # Found out via https://github.com/johnknapprs/pantograph/issues/11243
       return self[key]
     end
     # rubocop:enable Metrics/PerceivedComplexity

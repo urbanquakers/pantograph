@@ -1,6 +1,6 @@
 {
-  "url": "https://api.github.com/repos/pantograph/pantograph/releases/assets/1",
-  "browser_download_url": "https://github.com/pantograph/pantograph/releases/download/v1.0.0/TEST_FILE.md",
+  "url": "https://api.github.com/repos/johnknapprs/pantograph/releases/assets/1",
+  "browser_download_url": "https://github.com/johnknapprs/pantograph/releases/download/v1.0.0/TEST_FILE.md",
   "id": 1,
   "name": "TEST_FILE.md",
   "label": "short description",

@@ -5,7 +5,7 @@ describe Pantograph do
 
       context 'successful' do
         before do
-          stub_request(:post, "https://api.github.com/repos/pantograph/pantograph/pulls").
+          stub_request(:post, "https://api.github.com/repos/johnknapprs/pantograph/pulls").
             with(
               body: '{"title":"test PR","head":"git rev-parse --abbrev-ref HEAD","base":"master"}',
               headers: {
@@ -16,7 +16,7 @@ describe Pantograph do
             ).to_return(status: 201, body: response_body, headers: {})
 
           number = JSON.parse(response_body)["number"]
-          stub_request(:patch, "https://api.github.com/repos/pantograph/pantograph/issues/#{number}").
+          stub_request(:patch, "https://api.github.com/repos/johnknapprs/pantograph/issues/#{number}").
             with(
               body: '{"labels":["pantograph","is","awesome"]}',
               headers: {
@@ -26,7 +26,7 @@ describe Pantograph do
               }
             ).to_return(status: 200, body: "", headers: {})
 
-          stub_request(:post, "https://api.github.com/repos/pantograph/pantograph/issues/#{number}/assignees").
+          stub_request(:post, "https://api.github.com/repos/johnknapprs/pantograph/issues/#{number}/assignees").
             with(
               body: '{"assignees":["octocat","hubot","other_user"]}',
               headers: {
@@ -43,12 +43,12 @@ describe Pantograph do
               create_pull_request(
                 api_token: '123456789',
                 title: 'test PR',
-                repo: 'pantograph/pantograph',
+                repo: 'johnknapprs/pantograph',
               )
             end
           ").runner.execute(:test)
 
-          expect(result).to eq('https://github.com/pantograph/pantograph/pull/1347')
+          expect(result).to eq('https://github.com/johnknapprs/pantograph/pull/1347')
         end
 
         it 'correctly submits to github with labels' do
@@ -57,13 +57,13 @@ describe Pantograph do
               create_pull_request(
                 api_token: '123456789',
                 title: 'test PR',
-                repo: 'pantograph/pantograph',
+                repo: 'johnknapprs/pantograph',
                 labels: ['pantograph', 'is', 'awesome']
               )
             end
           ").runner.execute(:test)
 
-          expect(result).to eq('https://github.com/pantograph/pantograph/pull/1347')
+          expect(result).to eq('https://github.com/johnknapprs/pantograph/pull/1347')
         end
 
         it 'correctly submits to github with assignees' do
@@ -72,13 +72,13 @@ describe Pantograph do
               create_pull_request(
                 api_token: '123456789',
                 title: 'test PR',
-                repo: 'pantograph/pantograph',
+                repo: 'johnknapprs/pantograph',
                 assignees: ['octocat','hubot','other_user']
               )
             end
           ").runner.execute(:test)
 
-          expect(result).to eq('https://github.com/pantograph/pantograph/pull/1347')
+          expect(result).to eq('https://github.com/johnknapprs/pantograph/pull/1347')
         end
       end
     end
