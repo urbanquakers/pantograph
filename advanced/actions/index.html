@@ -1205,9 +1205,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Actions
+      </label>
+    
     <a href="./" title="Actions" class="md-nav__link md-nav__link--active">
       Actions
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-input-and-output" class="md-nav__link">
+    User input and output
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1281,6 +1310,22 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-input-and-output" class="md-nav__link">
+    User input and output
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1361,51 +1406,149 @@ brew cask install pantograph -->
 </details>
 
 <h1 id="actions">Actions</h1>
-<h1 id="interacting-with-the-user">Interacting with the user</h1>
-<p>Instead of using <code>puts</code>, <code>raise</code> and <code>gets</code>, please use the helper class <code>UI</code> across all pantograph tools:</p>
-<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;Neutral message (usually white)&#39;</span><span class="p">)</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;Successfully finished processing (usually green)&#39;</span><span class="p">)</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Wahaha, what is going on here! (usually red)&#39;</span><span class="p">)</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s1">&#39;Make sure to use Windows (usually yellow)&#39;</span><span class="p">)</span>
-
-<span class="no">UI</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Inputs&#39;</span><span class="p">)</span> <span class="c1"># a big box</span>
-
-<span class="nb">name</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;What is your name? &#39;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="no">UI</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span><span class="s2">&quot;Are you &#39;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#39;?&quot;</span><span class="p">)</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;Oh yeah&#39;</span><span class="p">)</span>
-<span class="k">else</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Wups, invalid&#39;</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="no">UI</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="s1">&#39;Your password please: &#39;</span><span class="p">)</span> <span class="c1"># password inputs are hidden</span>
-
-<span class="c1">###### A &quot;Dropdown&quot; for the user</span>
-<span class="n">project</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Select your project: &#39;</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;Test Project&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Workspace&#39;</span><span class="o">]</span><span class="p">)</span>
-
-<span class="no">UI</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Okay </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">, you selected &#39;</span><span class="si">#{</span><span class="n">project</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-
-<span class="c1">###### To run a command use</span>
-<span class="no">PantographCore</span><span class="o">::</span><span class="no">CommandExecutor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="ss">command</span><span class="p">:</span> <span class="s1">&#39;ls&#39;</span><span class="p">,</span>
-                                        <span class="ss">print_all</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
-                                        <span class="ss">error</span><span class="p">:</span> <span class="nb">proc</span> <span class="k">do</span> <span class="o">|</span><span class="n">error_output</span><span class="o">|</span>
-                                          <span class="c1"># handle error here</span>
-                                        <span class="k">end</span><span class="p">)</span>
-
-<span class="c1">###### or if you just want to receive a simple value use this only if the command doesn&#39;t take long</span>
-<span class="n">diff</span> <span class="o">=</span> <span class="no">Helper</span><span class="o">.</span><span class="n">backticks</span><span class="p">(</span><span class="s1">&#39;git diff&#39;</span><span class="p">)</span>
-
-<span class="c1">###### pantograph &quot;crash&quot; because of a user error everything that is caused by the user and is not unexpected</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;You don not have a project in the current directory&quot;</span><span class="p">)</span>
-
-<span class="c1">###### an actual crash when something unexpected happened</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">crash!</span><span class="p">(</span><span class="s1">&#39;Network timeout&#39;</span><span class="p">)</span>
-
-<span class="c1">###### a deprecation message</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s1">&#39;The &quot;--key&quot; parameter is deprecated&#39;</span><span class="p">)</span>
+<h2 id="user-input-and-output">User input and output</h2>
+<p>The <code>PantographCore::UI</code> utility may be used to display output to the user and also
+request input from an action.
+<code>UI</code> includes a number of methods to customize the output for different purposes:</p>
+<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;Hello from my_new_action.&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s1">&#39;Warning: This is a new action.&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Something unexpected happened in my_new_action. Attempting to continue.&#39;</span><span class="p">)</span>
 </pre></div>
 
 
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td>Displays an error message in red</td>
+</tr>
+<tr>
+<td>important</td>
+<td>Displays a warning or other important message in yellow</td>
+</tr>
+<tr>
+<td>success</td>
+<td>Displays a success message in green</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Displays a message in the default output color</td>
+</tr>
+<tr>
+<td>deprecated</td>
+<td>Displays a deprecation message in bold blue</td>
+</tr>
+<tr>
+<td>command</td>
+<td>Displays a command being executed in cyan</td>
+</tr>
+<tr>
+<td>command_output</td>
+<td>Displays command output in magenta</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td>Displays verbose output in the default output color</td>
+</tr>
+<tr>
+<td>header</td>
+<td>Displays a message in a box for emphasis</td>
+</tr>
+</tbody>
+</table>
+<p>Methods ending in an exclamation point (<code>!</code>) terminate execution of the current
+lane and report an error:</p>
+<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;Could not open file </span><span class="si">#{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>crash!</td>
+<td>Report a catastrophic error</td>
+</tr>
+<tr>
+<td>user_error!</td>
+<td>Rescue an exception in your action and report a nice message to the user</td>
+</tr>
+<tr>
+<td>shell_error!</td>
+<td>Report failure of a shell command</td>
+</tr>
+<tr>
+<td>build_failure!</td>
+<td>Report a build failure</td>
+</tr>
+<tr>
+<td>test_failure!</td>
+<td>Report a test failure</td>
+</tr>
+<tr>
+<td>abort_with_message!</td>
+<td>Report a failure condition that prevents continuing</td>
+</tr>
+</tbody>
+</table>
+<p>Note that these methods raise exceptions that are rescued in the runner context for
+the lane. This terminates further lane execution, so it is not necessary to return.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># No need for &quot;and return&quot; here</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;Could not open file </span><span class="si">#{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="k">return</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">nil?</span>
+</pre></div>
+
+
+<p>The following methods may be used to prompt the user for input.</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="no">UI</span><span class="o">.</span><span class="n">interactive?</span>
+  <span class="nb">name</span>       <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;Please enter your name: &#39;</span><span class="p">)</span>
+  <span class="n">is_correct</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span><span class="s1">&#39;Is this correct? &#39;</span><span class="p">)</span>
+  <span class="n">choice</span>     <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Please choose from the following list:&#39;</span><span class="p">,</span> <span class="sx">%w{alpha beta gamma}</span><span class="p">)</span>
+  <span class="n">password</span>   <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="s1">&#39;Please enter your password: &#39;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>interactive?</td>
+<td>Indicates whether interactive input is possible</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Prompt the user for string input</td>
+</tr>
+<tr>
+<td>confirm</td>
+<td>Ask the user a binary question</td>
+</tr>
+<tr>
+<td>select</td>
+<td>Prompt the user to select from a list of options</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Prompt the user for a password (masks output)</td>
+</tr>
+</tbody>
+</table>
 <h1 id="run-actions-directly">Run actions directly</h1>
 <p>If you just want to try an action without adding them to your <code>Pantfile</code> yet, you can use</p>
 <div class="codehilite"><pre><span></span>pantograph run notification message:<span class="s2">&quot;My Text&quot;</span> title:<span class="s2">&quot;The Title&quot;</span>
@@ -1709,149 +1852,6 @@ configuration file:</p>
 <li>A configuration file used in <code>load_configuration_file</code>.</li>
 <li>The <code>default_value</code> of the <code>ConfigItem</code>. If not explicitly set, this will be <code>nil</code>.</li>
 </ol>
-<h2 id="user-input-and-output">User input and output</h2>
-<p>The <code>PantographCore::UI</code> utility may be used to display output to the user and also
-request input from an action.
-<code>UI</code> includes a number of methods to customize the output for different purposes:</p>
-<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;Hello from my_new_action.&#39;</span><span class="p">)</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s1">&#39;Warning: This is a new action.&#39;</span><span class="p">)</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Something unexpected happened in my_new_action. Attempting to continue.&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<table>
-<thead>
-<tr>
-<th>method</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>error</td>
-<td>Displays an error message in red</td>
-</tr>
-<tr>
-<td>important</td>
-<td>Displays a warning or other important message in yellow</td>
-</tr>
-<tr>
-<td>success</td>
-<td>Displays a success message in green</td>
-</tr>
-<tr>
-<td>message</td>
-<td>Displays a message in the default output color</td>
-</tr>
-<tr>
-<td>deprecated</td>
-<td>Displays a deprecation message in bold blue</td>
-</tr>
-<tr>
-<td>command</td>
-<td>Displays a command being executed in cyan</td>
-</tr>
-<tr>
-<td>command_output</td>
-<td>Displays command output in magenta</td>
-</tr>
-<tr>
-<td>verbose</td>
-<td>Displays verbose output in the default output color</td>
-</tr>
-<tr>
-<td>header</td>
-<td>Displays a message in a box for emphasis</td>
-</tr>
-</tbody>
-</table>
-<p>Methods ending in an exclamation point (<code>!</code>) terminate execution of the current
-lane and report an error:</p>
-<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;Could not open file </span><span class="si">#{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<table>
-<thead>
-<tr>
-<th>method</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>crash!</td>
-<td>Report a catastrophic error</td>
-</tr>
-<tr>
-<td>user_error!</td>
-<td>Rescue an exception in your action and report a nice message to the user</td>
-</tr>
-<tr>
-<td>shell_error!</td>
-<td>Report failure of a shell command</td>
-</tr>
-<tr>
-<td>build_failure!</td>
-<td>Report a build failure</td>
-</tr>
-<tr>
-<td>test_failure!</td>
-<td>Report a test failure</td>
-</tr>
-<tr>
-<td>abort_with_message!</td>
-<td>Report a failure condition that prevents continuing</td>
-</tr>
-</tbody>
-</table>
-<p>Note that these methods raise exceptions that are rescued in the runner context for
-the lane. This terminates further lane execution, so it is not necessary to return.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># No need for &quot;and return&quot; here</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;Could not open file </span><span class="si">#{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="k">return</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">nil?</span>
-</pre></div>
-
-
-<p>The following methods may be used to prompt the user for input.</p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="no">UI</span><span class="o">.</span><span class="n">interactive?</span>
-  <span class="nb">name</span>       <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;Please enter your name: &#39;</span><span class="p">)</span>
-  <span class="n">is_correct</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span><span class="s1">&#39;Is this correct? &#39;</span><span class="p">)</span>
-  <span class="n">choice</span>     <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Please choose from the following list:&#39;</span><span class="p">,</span> <span class="sx">%w{alpha beta gamma}</span><span class="p">)</span>
-  <span class="n">password</span>   <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="s1">&#39;Please enter your password: &#39;</span><span class="p">)</span>
-<span class="k">end</span>
-</pre></div>
-
-
-<table>
-<thead>
-<tr>
-<th>method</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>interactive?</td>
-<td>Indicates whether interactive input is possible</td>
-</tr>
-<tr>
-<td>input</td>
-<td>Prompt the user for string input</td>
-</tr>
-<tr>
-<td>confirm</td>
-<td>Ask the user a binary question</td>
-</tr>
-<tr>
-<td>select</td>
-<td>Prompt the user to select from a list of options</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Prompt the user for a password (masks output)</td>
-</tr>
-</tbody>
-</table>
 <h2 id="invoking-shell-commands">Invoking shell commands</h2>
 <p>If your action needs to run a shell command, there are several methods. You can
 easily determine the exit status of the command and capture all terminal output
