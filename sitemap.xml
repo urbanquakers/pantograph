@@ -11,11 +11,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://johnknapprs.github.io/pantograph/actions/add_extra_platforms/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://johnknapprs.github.io/pantograph/actions/artifactory/</loc>
      <lastmod>2019-12-06</lastmod>
      <changefreq>daily</changefreq>
@@ -27,11 +22,6 @@
     </url>
     <url>
      <loc>https://johnknapprs.github.io/pantograph/actions/changelog_from_git_commits/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://johnknapprs.github.io/pantograph/actions/clipboard/</loc>
      <lastmod>2019-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -92,11 +82,6 @@
     </url>
     <url>
      <loc>https://johnknapprs.github.io/pantograph/actions/erb/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://johnknapprs.github.io/pantograph/actions/get_build_number_repository/</loc>
      <lastmod>2019-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -172,11 +157,6 @@
     </url>
     <url>
      <loc>https://johnknapprs.github.io/pantograph/actions/last_git_commit/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://johnknapprs.github.io/pantograph/actions/last_git_tag/</loc>
      <lastmod>2019-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -257,11 +237,6 @@
     </url>
     <url>
      <loc>https://johnknapprs.github.io/pantograph/actions/say/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://johnknapprs.github.io/pantograph/actions/scp/</loc>
      <lastmod>2019-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>

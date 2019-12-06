@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#00bcd4">
+        <meta name="theme-color" content="#7cb342">
       
     
     
@@ -77,7 +77,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="pink">
+    <body dir="ltr" data-md-color-primary="light-green" data-md-color-accent="blue-grey">
   
     <svg class="md-svg">
       <defs>
@@ -280,18 +280,6 @@
 
 
   <li class="md-nav__item">
-    <a href="add_extra_platforms/" title="add_extra_platforms" class="md-nav__link">
-      add_extra_platforms
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="artifactory/" title="artifactory" class="md-nav__link">
       artifactory
     </a>
@@ -318,18 +306,6 @@
   <li class="md-nav__item">
     <a href="changelog_from_git_commits/" title="changelog_from_git_commits" class="md-nav__link">
       changelog_from_git_commits
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="clipboard/" title="clipboard" class="md-nav__link">
-      clipboard
     </a>
   </li>
 
@@ -474,18 +450,6 @@
   <li class="md-nav__item">
     <a href="erb/" title="erb" class="md-nav__link">
       erb
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="get_build_number_repository/" title="get_build_number_repository" class="md-nav__link">
-      get_build_number_repository
     </a>
   </li>
 
@@ -666,18 +630,6 @@
   <li class="md-nav__item">
     <a href="last_git_commit/" title="last_git_commit" class="md-nav__link">
       last_git_commit
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="last_git_tag/" title="last_git_tag" class="md-nav__link">
-      last_git_tag
     </a>
   </li>
 
@@ -870,18 +822,6 @@
   <li class="md-nav__item">
     <a href="say/" title="say" class="md-nav__link">
       say
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="scp/" title="scp" class="md-nav__link">
-      scp
     </a>
   </li>
 
@@ -1642,11 +1582,6 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/last_git_tag/">last_git_tag</a></td>
-<td>Get the most recent git tag</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
 <td><a href="/actions/push_to_git_remote/">push_to_git_remote</a></td>
 <td>Push local changes to the remote branch</td>
 <td>ios, android, mac</td>
@@ -1675,11 +1610,6 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td><a href="/actions/git_add/">git_add</a></td>
 <td>Directly add the given file or all files</td>
 <td>ios, android, mac</td>
-</tr>
-<tr>
-<td><a href="/actions/get_build_number_repository/">get_build_number_repository</a></td>
-<td>Get the build number from the current repository</td>
-<td>ios, mac</td>
 </tr>
 <tr>
 <td><a href="/actions/set_github_release/">set_github_release</a></td>
@@ -1846,11 +1776,6 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/scp/">scp</a></td>
-<td>Transfer files via SCP</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
 <td><a href="/actions/rsync/">rsync</a></td>
 <td>Rsync files from :source to :destination</td>
 <td>ios, android, mac</td>
@@ -1866,33 +1791,13 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/add_extra_platforms/">add_extra_platforms</a></td>
-<td>Modify the default list of supported platforms</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
-<td><a href="/actions/clipboard/">clipboard</a></td>
-<td>Copies a given string into the clipboard. Works only on macOS</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
-<td><a href="/actions/opt_out_usage/">opt_out_usage</a></td>
-<td>This will stop uploading the information which actions were run</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
-<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
-<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
-<td><a href="/actions/println/">println</a></td>
-<td>Alias for the <code>puts</code> action</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
 <td><a href="/actions/ruby_version/">ruby_version</a></td>
 <td>Verifies the minimum ruby version required</td>
+<td>ios, android, mac</td>
+</tr>
+<tr>
+<td><a href="/actions/sh/">sh</a></td>
+<td>Runs a shell command</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
@@ -1906,6 +1811,11 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
+<td><a href="/actions/opt_out_usage/">opt_out_usage</a></td>
+<td>This will stop uploading the information which actions were run</td>
+<td>ios, android, mac</td>
+</tr>
+<tr>
 <td><a href="/actions/plugin_scores/">plugin_scores</a></td>
 <td>[31mNo description provided[0m</td>
 <td>ios, android, mac</td>
@@ -1916,8 +1826,13 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/sh/">sh</a></td>
-<td>Runs a shell command</td>
+<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
+<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
+<td>ios, android, mac</td>
+</tr>
+<tr>
+<td><a href="/actions/println/">println</a></td>
+<td>Alias for the <code>puts</code> action</td>
 <td>ios, android, mac</td>
 </tr>
 </tbody>
@@ -1974,13 +1889,13 @@ If you want to create your own action, check out the <a href="/create-action/#lo
           </a>
         
         
-          <a href="add_extra_platforms/" title="add_extra_platforms" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="artifactory/" title="artifactory" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                add_extra_platforms
+                artifactory
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
