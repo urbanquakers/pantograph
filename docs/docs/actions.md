@@ -145,15 +145,15 @@ Action | Description | Supported Platforms
 <a href="/actions/rsync/">rsync</a> | Rsync files from :source to :destination | ios, android, mac
 <a href="/actions/jira/">jira</a> | Leave a comment on JIRA tickets | ios, android, mac
 <a href="/actions/ssh/">ssh</a> | Allows remote command execution using ssh | ios, android, mac
-<a href="/actions/ruby_version/">ruby_version</a> | Verifies the minimum ruby version required | ios, android, mac
-<a href="/actions/sh/">sh</a> | Runs a shell command | ios, android, mac
-<a href="/actions/echo/">echo</a> | Alias for the `puts` action | ios, android, mac
-<a href="/actions/ensure_env_vars/">ensure_env_vars</a> | Raises an exception if the specified env vars are not set | ios, android, mac
 <a href="/actions/opt_out_usage/">opt_out_usage</a> | This will stop uploading the information which actions were run | ios, android, mac
-<a href="/actions/plugin_scores/">plugin_scores</a> | [31mNo description provided[0m | ios, android, mac
+<a href="/actions/ensure_env_vars/">ensure_env_vars</a> | Raises an exception if the specified env vars are not set | ios, android, mac
 <a href="/actions/min_pantograph_version/">min_pantograph_version</a> | Verifies the minimum pantograph version required | ios, android, mac
-<a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a> | Raises an exception if not using `bundle exec` to run pantograph | ios, android, mac
 <a href="/actions/println/">println</a> | Alias for the `puts` action | ios, android, mac
+<a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a> | Raises an exception if not using `bundle exec` to run pantograph | ios, android, mac
+<a href="/actions/sh/">sh</a> | Runs a shell command | ios, android, mac
+<a href="/actions/ruby_version/">ruby_version</a> | Verifies the minimum ruby version required | ios, android, mac
+<a href="/actions/echo/">echo</a> | Alias for the `puts` action | ios, android, mac
+<a href="/actions/plugin_scores/">plugin_scores</a> | [31mNo description provided[0m | ios, android, mac
 
 
 

@@ -4,7 +4,7 @@ site_url: https://johnknapprs.github.io/pantograph/
 theme:
   name: material
   palette:
-    primary: light green
+    primary: cyan
     accent: blue grey
 copyright: Copyright &copy; 2019 <a href="https://pantograph.tools">pantograph</a>
 site_author: pantograph team

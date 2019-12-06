@@ -238,13 +238,11 @@ Style/PerlBackrefs:
 # Disable '+ should be surrounded with a single space' for xcodebuild_spec.rb
 Layout/SpaceAroundOperators:
   Exclude:
-    - '**/spec/actions_specs/xcodebuild_spec.rb'
 
 AllCops:
   TargetRubyVersion: 2.0
   Include:
     - '*/lib/assets/*Template'
-    - '*/lib/assets/*TemplateAndroid'
   Exclude:
     - '**/lib/assets/custom_action_template.rb'
     - './vendor/**/*'
@@ -257,10 +255,8 @@ Style/FileName:
     - '**/Dangerfile'
     - '**/Brewfile'
     - '**/Gemfile'
-    - '**/Podfile'
     - '**/Rakefile'
     - '**/Pantfile'
-    - '**/Snapfile'
     - '**/*.gemspec'
 
 # We're not there yet
@@ -289,8 +285,9 @@ CrossPlatform/ForkUsage:
     - '**/plugins/template/**/*'
 
 Lint/IsStringUsage:
-  Include:
-    - 'gym/**/*'
+  Enabled: false
+  # Include:
+  #   - 'pantograph/**/*'
 
 # ( ) for method calls
 Style/MethodCallWithArgsParentheses:

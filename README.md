@@ -1,8 +1,9 @@
 # THIS IS A WORK IN PROGRESS - BROKEN FORK OF FASTLANE GEM
 
 <h3 align="center">
-  <a href="https://github.com/pantograph/pantograph/blob/master/pantograph/assets/pantograph_text.png">
-  <img src="https://github.com/pantograph/pantograph/blob/master/pantograph/assets/pantograph_text.png?raw=true" alt="pantograph Logo" width="500">
+
+  <a href="https://github.com/johnknapprs/pantograph/blob/master/docs/docs/img/pantograph_text.png">
+  <img src="https://github.com/johnknapprs/pantograph/blob/master/docs/docs/img/pantograph_text.png?raw=true" alt="pantograph Logo" width="500">
   </a>
 </h3>
 
