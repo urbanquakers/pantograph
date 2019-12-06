@@ -13,7 +13,7 @@ Please be aware we may not accept all actions submitted to be bundled with _pant
 In general we tend to accept actions that
 
 - Generally usable for a big majority of developers (e.g. basic interactions with git)
-- Solve pain points for mobile app developers (iOS and Android)
+- Solve pain points for application developers
 - have an easy to read documentation and great test coverage
 
 In general, we might not accept actions that
@@ -21,4 +21,3 @@ In general, we might not accept actions that
 - Solve specific use-cases for only a small subset of developers
 - Access the API of a third party service, the third party service should own and maintain the action
 - Complex actions, that will require a lot of work to maintain in the future
-- Everything that isn't mobile developer related

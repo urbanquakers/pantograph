@@ -2,52 +2,72 @@
 
 # Actions
 
-# Interacting with the user
+## User input and output
 
-Instead of using `puts`, `raise` and `gets`, please use the helper class `UI` across all pantograph tools:
+The `PantographCore::UI` utility may be used to display output to the user and also
+request input from an action.
+`UI` includes a number of methods to customize the output for different purposes:
 
 ```ruby
-UI.message('Neutral message (usually white)')
-UI.success('Successfully finished processing (usually green)')
-UI.error('Wahaha, what is going on here! (usually red)')
-UI.important('Make sure to use Windows (usually yellow)')
-
-UI.header('Inputs') # a big box
-
-name = UI.input('What is your name? ')
-
-if UI.confirm("Are you '#{name}'?")
-  UI.success('Oh yeah')
-else
-  UI.error('Wups, invalid')
-end
-
-UI.password('Your password please: ') # password inputs are hidden
-
-###### A "Dropdown" for the user
-project = UI.select('Select your project: ', ['Test Project', 'Test Workspace'])
-
-UI.success("Okay #{name}, you selected '#{project}'")
-
-###### To run a command use
-PantographCore::CommandExecutor.execute(command: 'ls',
-                                        print_all: true,
-                                        error: proc do |error_output|
-                                          # handle error here
-                                        end)
-
-###### or if you just want to receive a simple value use this only if the command doesn't take long
-diff = Helper.backticks('git diff')
-
-###### pantograph "crash" because of a user error everything that is caused by the user and is not unexpected
-UI.user_error!("You don not have a project in the current directory")
-
-###### an actual crash when something unexpected happened
-UI.crash!('Network timeout')
-
-###### a deprecation message
-UI.deprecated('The "--key" parameter is deprecated')
+UI.message('Hello from my_new_action.')
+UI.important('Warning: This is a new action.')
+UI.error('Something unexpected happened in my_new_action. Attempting to continue.')
 ```
+
+|method|description|
+|------|-----------|
+|error|Displays an error message in red|
+|important|Displays a warning or other important message in yellow|
+|success|Displays a success message in green|
+|message|Displays a message in the default output color|
+|deprecated|Displays a deprecation message in bold blue|
+|command|Displays a command being executed in cyan|
+|command_output|Displays command output in magenta|
+|verbose|Displays verbose output in the default output color|
+|header|Displays a message in a box for emphasis|
+
+Methods ending in an exclamation point (`!`) terminate execution of the current
+lane and report an error:
+
+```ruby
+UI.user_error!("Could not open file #{file_path}")
+```
+
+|method|description|
+|------|-----------|
+|crash!|Report a catastrophic error|
+|user_error!|Rescue an exception in your action and report a nice message to the user|
+|shell_error!|Report failure of a shell command|
+|build_failure!|Report a build failure|
+|test_failure!|Report a test failure|
+|abort_with_message!|Report a failure condition that prevents continuing|
+
+Note that these methods raise exceptions that are rescued in the runner context for
+the lane. This terminates further lane execution, so it is not necessary to return.
+
+```ruby
+# No need for "and return" here
+UI.user_error!("Could not open file #{file_path}") and return if file.nil?
+```
+
+The following methods may be used to prompt the user for input.
+
+```ruby
+if UI.interactive?
+  name       = UI.input('Please enter your name: ')
+  is_correct = UI.confirm('Is this correct? ')
+  choice     = UI.select('Please choose from the following list:', %w{alpha beta gamma})
+  password   = UI.password('Please enter your password: ')
+end
+```
+
+|method|description|
+|------|-----------|
+|interactive?|Indicates whether interactive input is possible|
+|input|Prompt the user for string input|
+|confirm|Ask the user a binary question|
+|select|Prompt the user to select from a list of options|
+|password|Prompt the user for a password (masks output)|
 
 # Run actions directly
 
@@ -394,73 +414,6 @@ Parameters are resolved from different sources in the following order:
 2. An environment variable, if the `env_name` is set.
 3. A configuration file used in `load_configuration_file`.
 4. The `default_value` of the `ConfigItem`. If not explicitly set, this will be `nil`.
-
-## User input and output
-
-The `PantographCore::UI` utility may be used to display output to the user and also
-request input from an action.
-`UI` includes a number of methods to customize the output for different purposes:
-
-```ruby
-UI.message('Hello from my_new_action.')
-UI.important('Warning: This is a new action.')
-UI.error('Something unexpected happened in my_new_action. Attempting to continue.')
-```
-
-|method|description|
-|------|-----------|
-|error|Displays an error message in red|
-|important|Displays a warning or other important message in yellow|
-|success|Displays a success message in green|
-|message|Displays a message in the default output color|
-|deprecated|Displays a deprecation message in bold blue|
-|command|Displays a command being executed in cyan|
-|command_output|Displays command output in magenta|
-|verbose|Displays verbose output in the default output color|
-|header|Displays a message in a box for emphasis|
-
-Methods ending in an exclamation point (`!`) terminate execution of the current
-lane and report an error:
-
-```ruby
-UI.user_error!("Could not open file #{file_path}")
-```
-
-|method|description|
-|------|-----------|
-|crash!|Report a catastrophic error|
-|user_error!|Rescue an exception in your action and report a nice message to the user|
-|shell_error!|Report failure of a shell command|
-|build_failure!|Report a build failure|
-|test_failure!|Report a test failure|
-|abort_with_message!|Report a failure condition that prevents continuing|
-
-Note that these methods raise exceptions that are rescued in the runner context for
-the lane. This terminates further lane execution, so it is not necessary to return.
-
-```ruby
-# No need for "and return" here
-UI.user_error!("Could not open file #{file_path}") and return if file.nil?
-```
-
-The following methods may be used to prompt the user for input.
-
-```ruby
-if UI.interactive?
-  name       = UI.input('Please enter your name: ')
-  is_correct = UI.confirm('Is this correct? ')
-  choice     = UI.select('Please choose from the following list:', %w{alpha beta gamma})
-  password   = UI.password('Please enter your password: ')
-end
-```
-
-|method|description|
-|------|-----------|
-|interactive?|Indicates whether interactive input is possible|
-|input|Prompt the user for string input|
-|confirm|Ask the user a binary question|
-|select|Prompt the user to select from a list of options|
-|password|Prompt the user for a password (masks output)|
 
 ## Invoking shell commands
 

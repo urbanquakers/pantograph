@@ -7,26 +7,33 @@ pantograph
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/pantograph/pantograph/blob/master/LICENSE){: .badge }
 [![Gem](https://img.shields.io/gem/v/pantograph.svg?style=flat)](https://rubygems.org/gems/pantograph){: .badge }
 
-_pantograph_ is the easiest way to automate beta deployments and releases for your iOS and Android apps. 🚀 It handles all tedious tasks, like generating screenshots, dealing with code signing, and releasing your application.
+_pantograph_ is another way to automate releases for your apps.
+🚀 It handles all tedious tasks, like generating screenshots, dealing with code signing, and releasing your application.
 
-You can start by creating a `Pantfile` file in your repository, here’s one that defines your beta or App Store release process:
+You can start by creating a `Pantfile` file in your repository, here’s one that defines your release process:
 
 ```ruby
-lane :beta do
-  increment_build_number
+lane :release do
+  test_app
   build_app
-  upload_to_testflight
+  deploy_app
 end
 
-lane :release do
-  capture_screenshots
-  build_app
-  upload_to_app_store       # Upload the screenshots and the binary to iTunes
-  slack                     # Let your team-mates know the new version is live
+lane :test_app do
+  gradle(task: 'clean testRelease')
+end
+
+lane :build_app do
+  gradle(task: 'clean assembleRelease')
+end
+
+lane :deploy_app do
+  artifactory
+  slack # Let your team-mates know the new version is live
 end
 ```
 
-You just defined 2 different lanes, one for beta deployment, one for App Store. To release your app in the App Store, all you have to do is
+You just defined 4 different lanes, one for release deployement. To release your app, all you have to do is:
 
 ```shell
 pantograph release
@@ -36,13 +43,12 @@ pantograph release
 
 |              | pantograph
 -------------- | ----------
-🚀 | Save **hours** every time you push a new release to the store or beta testing service
-✨ | Integrates with all your existing tools and services (more than 400 integrations)
+🚀 | Save **hours** every time you push a new release
+✨ | Integrates with many of your existing tools and services
 📖 | 100% open source under the MIT license
 🎩 | Easy setup assistant to get started in a few minutes
-⚒ | Runs on **your** machine, it's your app and your data
+⚒  | Runs on **your** machine, it's your app and your data
 👻 | Integrates with all major CI systems
-🖥 | Supports iOS, Mac, and Android apps
 🔧 | Extend and customise _pantograph_ to fit your needs, you're not dependent on anyone
 💭 | Never remember any commands any more, just _pantograph_
 🚢 | Deploy from any computer, including a CI server
@@ -70,13 +76,14 @@ For more details about how to get up and running, check out the getting started 
 
 Before submitting a new GitHub issue, please make sure to search for [existing GitHub issues](https://github.com/pantograph/pantograph/issues).
 
-If that doesn't help, please [submit an issue](https://github.com/pantograph/pantograph/issues) on GitHub and provide information about your setup, in particular the output of the `pantograph env` command.
+If that doesn't help, please [submit an issue](https://github.com/pantograph/pantograph/issues) on GitHub and provide information
+about your setup, in particular the output of the `pantograph env` command.
 
 ## System requirements
 
-Currently, _pantograph_ is officially supported to run on macOS. 
+Currently, _pantograph_ is officially supported to run on Linux and macOS. 
 
-But we are working on 🐧 Linux and 🖥️ Windows support for parts of _pantograph_. Some underlying software like Xcode or iTunes Transporter is only available for macOS, but many other tools and actions can theoretically also work on other platforms. Please see [this Github issue for further information](https://github.com/pantograph/pantograph/issues/11687).
+But we are working on 🖥️ Windows support for parts of _pantograph_. Many other tools and actions can theoretically also work on other platforms.
 
 ## _pantograph_ team
 
@@ -104,7 +111,7 @@ You can easily opt-out of metrics collection by adding `opt_out_usage` at the to
 This project is licensed under the terms of the MIT license. See the [LICENSE](https://github.com/pantograph/pantograph/blob/master/LICENSE) file.
 
 ----
-### Where to go from here?
+<!-- ### Where to go from here? -->
 <!--
 - [pantograph Getting Started guide for iOS](getting-started/ios/setup.md)
 - [pantograph Getting Started guide for Android](getting-started/android/setup.md)

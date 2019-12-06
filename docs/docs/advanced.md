@@ -10,7 +10,6 @@ This file is not used any more and its content was moved to subpages. Please fol
     var anchorMap = {
         // templates
         "A": "/advanced/actions/",
-        "B": "/advanced/Appfile/",
         "C": "/advanced/Pantfile/",
         "D": "/advanced/lanes/",
         "E": "/advanced/other/",
@@ -32,11 +31,9 @@ This file is not used any more and its content was moved to subpages. Please fol
         "load-own-actions-from-external-folder": "/advanced/Pantfile/",
         "skip-update-check-when-launching-pantograph": "/advanced/pantograph/",
         "hide-changelog-information-at-the-end-of-running-pantograph": "/advanced/pantograph/",
-        "adding-credentials": "/advanced/other/",
         "control-configuration-by-lane-and-by-platform": "/advanced/lanes/",
         "manually-manage-the-pantograph-match-repo": "/advanced/other/",
         "directory-behavior": "/advanced/pantograph/",
-        "appfile": "/advanced/Appfile/",
         "building-actions": "/advanced/actions/",
     }
     /*
@@ -121,10 +118,6 @@ This content was moved and now lives [here](/advanced/pantograph/#skip-update-ch
 
 This content was moved and now lives [here](/advanced/pantograph/#hide-changelog-information-at-the-end-of-running-pantograph).
 
-# Adding Credentials
-
-This content was moved and now lives [here](/advanced/other/#adding-credentials).
-
 # Control configuration by lane and by platform
 
 This content was moved and now lives [here](/advanced/lanes/#control-configuration-by-lane-and-by-platform).
@@ -136,10 +129,6 @@ This content was moved and now lives [here](/advanced/other/#manually-manage-the
 # Directory behavior
 
 This content was moved and now lives [here](/advanced/pantograph/#directory-behavior).
-
-# Appfile
-
-This content was moved and now lives [here](/advanced/Appfile/#appfile).
 
 # Building Actions
 
