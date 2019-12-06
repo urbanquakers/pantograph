@@ -150,7 +150,7 @@ To get more information check the [Lanes documentation](https://johnknapprs.gith
 ## Documentation
 
 To show the documentation in your terminal, run
-```no-highlight
+```shell
 pantograph action gradle
 ```
 
@@ -160,13 +160,13 @@ pantograph action gradle
 
 It is recommended to add the above action into your `Pantfile`, however sometimes you might want to run one-offs. To do so, you can run the following command from your terminal
 
-```no-highlight
+```shell
 pantograph run gradle
 ```
 
 To pass parameters, make use of the `:` symbol, for example
 
-```no-highlight
+```shell
 pantograph run gradle parameter1:"value1" parameter2:"value2"
 ```
 

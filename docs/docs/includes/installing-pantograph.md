@@ -1,15 +1,21 @@
 Install the latest Xcode command line tools:
 
-```no-highlight
+```shell
 xcode-select --install
 ```
 
 Install _pantograph_ using
 
-```sh
-# Using RubyGems
-sudo gem install pantograph -NV
+```shell
+# Install ruby via homebrew (macOS & linux only)
+brew install ruby
 
-# Alternatively using Homebrew
-brew cask install pantograph
+# Set ruby in your shell path (example uses Zsh)
+echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
+
+# Using RubyGems
+gem install pantograph
 ```
+
+<!-- # Alternatively using Homebrew
+brew cask install pantograph -->

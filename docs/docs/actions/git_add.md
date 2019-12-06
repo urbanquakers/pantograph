@@ -73,7 +73,7 @@ Key | Description | Default
 ## Documentation
 
 To show the documentation in your terminal, run
-```no-highlight
+```shell
 pantograph action git_add
 ```
 
@@ -83,13 +83,13 @@ pantograph action git_add
 
 It is recommended to add the above action into your `Pantfile`, however sometimes you might want to run one-offs. To do so, you can run the following command from your terminal
 
-```no-highlight
+```shell
 pantograph run git_add
 ```
 
 To pass parameters, make use of the `:` symbol, for example
 
-```no-highlight
+```shell
 pantograph run git_add parameter1:"value1" parameter2:"value2"
 ```
 

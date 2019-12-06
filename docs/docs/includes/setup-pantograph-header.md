@@ -29,23 +29,28 @@
 
 <p class="pantograph-setup-header">1) Install the latest Xcode command line tools</p>
 
-```no-highlight
+```shell
 xcode-select --install
 ```
 
-<p class="pantograph-setup-header">2) Install <i>pantograph</i></p>
+Install _pantograph_ using Homebrew & Rubygems
 
-```sh
+```shell
+# Install ruby via homebrew (macOS & linux only)
+brew install ruby
+
+# Set ruby in your shell path (example uses Zsh)
+echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
+
 # Using RubyGems
-sudo gem install pantograph -NV
-
-# Alternatively using Homebrew
-brew cask install pantograph
+gem install pantograph
 ```
 
+<!-- # Alternatively using Homebrew
+brew cask install pantograph -->
 <p class="pantograph-setup-header">3) Navigate to your project and run</p>
 
-```no-highlight
+```shell
 pantograph init
 ```
 

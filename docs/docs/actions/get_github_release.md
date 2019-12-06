@@ -13,7 +13,7 @@ This will verify if a given release version is available on GitHub
 
 > This will return all information about a release. For example:
 
-```no-highlight
+```json
 {
   "url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713",
    "assets_url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713/assets",
@@ -104,7 +104,7 @@ To get more information check the [Lanes documentation](https://johnknapprs.gith
 ## Documentation
 
 To show the documentation in your terminal, run
-```no-highlight
+```shell
 pantograph action get_github_release
 ```
 
@@ -114,13 +114,13 @@ pantograph action get_github_release
 
 It is recommended to add the above action into your `Pantfile`, however sometimes you might want to run one-offs. To do so, you can run the following command from your terminal
 
-```no-highlight
+```shell
 pantograph run get_github_release
 ```
 
 To pass parameters, make use of the `:` symbol, for example
 
-```no-highlight
+```shell
 pantograph run get_github_release parameter1:"value1" parameter2:"value2"
 ```
 

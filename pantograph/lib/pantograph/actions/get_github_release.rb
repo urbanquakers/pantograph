@@ -53,7 +53,7 @@ module Pantograph
 
       def self.details
         sample = <<-SAMPLE.markdown_sample
-          ```no-highlight
+          ```json
           {
             "url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713",
              "assets_url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713/assets",
