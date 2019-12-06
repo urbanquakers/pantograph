@@ -4,8 +4,8 @@ site_url: https://johnknapprs.github.io/pantograph/
 theme:
   name: material
   palette:
-    primary: cyan
-    accent: pink
+    primary: light green
+    accent: blue grey
 copyright: Copyright &copy; 2019 <a href="https://pantograph.tools">pantograph</a>
 site_author: pantograph team
 site_description: Documentation for pantograph tools
@@ -21,11 +21,9 @@ nav:
 - Home: index.md
 - Actions: actions.md
 - Available Actions:
-  - add_extra_platforms: actions/add_extra_platforms.md
   - artifactory: actions/artifactory.md
   - bundle_install: actions/bundle_install.md
   - changelog_from_git_commits: actions/changelog_from_git_commits.md
-  - clipboard: actions/clipboard.md
   - cloc: actions/cloc.md
   - create_pull_request: actions/create_pull_request.md
   - danger: actions/danger.md
@@ -38,7 +36,6 @@ nav:
   - ensure_git_branch: actions/ensure_git_branch.md
   - ensure_git_status_clean: actions/ensure_git_status_clean.md
   - erb: actions/erb.md
-  - get_build_number_repository: actions/get_build_number_repository.md
   - get_github_release: actions/get_github_release.md
   - git_add: actions/git_add.md
   - git_branch: actions/git_branch.md
@@ -54,7 +51,6 @@ nav:
   - jira: actions/jira.md
   - lane_context: actions/lane_context.md
   - last_git_commit: actions/last_git_commit.md
-  - last_git_tag: actions/last_git_tag.md
   - make_changelog_from_jenkins: actions/make_changelog_from_jenkins.md
   - min_pantograph_version: actions/min_pantograph_version.md
   - nexus_upload: actions/nexus_upload.md
@@ -71,7 +67,6 @@ nav:
   - rsync: actions/rsync.md
   - ruby_version: actions/ruby_version.md
   - say: actions/say.md
-  - scp: actions/scp.md
   - set_github_release: actions/set_github_release.md
   - sh: actions/sh.md
   - skip_docs: actions/skip_docs.md
