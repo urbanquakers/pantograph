@@ -1206,54 +1206,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../best-practices/continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1530,37 +1482,40 @@
 
 
 <h3 id="error-when-running-pantograph-with-jenkins">Error when running <em>pantograph</em> with Jenkins</h3>
-<p>This is usually caused when running Jenkins as its own user. While this is possible, you'll have to take care of creating a temporary Keychain, filling it and then using it when building your application. </p>
+<p>This is usually caused when running Jenkins as its own user.
+While this is possible, you'll have to take care of creating a temporary Keychain,
+filling it and then using it when building your application. </p>
 <p>For more information about the recommended setup with Jenkins open the <a href="/best-practices/continuous-integration/#jenkins-integration">Jenkins Guide</a>.</p>
 <h3 id="multiple-targets-of-the-same-underlying-app">Multiple targets of the same underlying app</h3>
 <p>If you have one code base, but multiple branded applications</p>
 <p>Create different <code>.env</code> files for each environment</p>
-<p>Example: Create a <code>.env.app1</code>, <code>.env.app2</code>, and <code>.env.app3</code>. Define each of these like the following...</p>
-<div class="codehilite"><pre><span></span><span class="err">DLV_FIRST_NAME=Josh</span>
-<span class="err">DLV_LAST_NAME=Holtz</span>
-<span class="err">DLV_PRIM_CATG=Business</span>
-<span class="err">DLV_SCND_CATG=Games</span>
+<p>Example: Create a <code>.env.app1</code>, <code>.env.app2</code>, and <code>.env.app3</code>. Define each of these like the following:</p>
+<div class="codehilite"><pre><span></span><span class="nv">DLV_FIRST_NAME</span><span class="o">=</span>Josh
+<span class="nv">DLV_LAST_NAME</span><span class="o">=</span>Holtz
+<span class="nv">DLV_PRIM_CATG</span><span class="o">=</span>Business
+<span class="nv">DLV_SCND_CATG</span><span class="o">=</span>Games
 </pre></div>
 
 
 <p>Now your Pantfile file should look something like this:</p>
 <div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:build</span> <span class="k">do</span> 
-  <span class="nb">puts</span> <span class="o">[</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="o">[</span>
     <span class="ss">first_name</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;DLV_FIRST_NAME&#39;</span><span class="o">]</span><span class="p">,</span>
     <span class="ss">last_name</span><span class="p">:</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;DLV_LAST_NAME&#39;</span><span class="o">]</span>
-  <span class="o">]</span>
+  <span class="o">]</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Now to run this, all you need to do is specify the environment argument when running <em>pantograph</em> and it will pull from the <code>.env</code> file that matches the same name...
-Ex: <code>pantograph build --env app1</code> will use <code>.env.app1</code>
+<p>Now to run this, all you need to do is specify the environment argument when running <em>pantograph</em> and it
+will pull from the <code>.env</code> file that matches the same name:</p>
+<p>Ex: <code>pantograph build --env app1</code> will use <code>.env.app1</code>
 Ex: <code>pantograph build --env app2</code> will use <code>.env.app2</code></p>
 <p>You can also references these environment variables almost anywhere in <em>pantograph</em>. </p>
 <p>You can even define a lane to perform actions on multiple targets:</p>
-<div class="codehilite"><pre><span></span><span class="n">desc</span> <span class="s2">&quot;Deploy both versions&quot;</span>
+<div class="codehilite"><pre><span></span><span class="n">desc</span> <span class="s1">&#39;Deploy both versions&#39;</span>
 <span class="n">lane</span> <span class="ss">:deploy_all</span> <span class="k">do</span>
-    <span class="n">sh</span> <span class="s2">&quot;pantograph deploy --env paid&quot;</span>
-    <span class="n">sh</span> <span class="s2">&quot;pantograph deploy --env free&quot;</span>
+    <span class="n">sh</span><span class="p">(</span><span class="s1">&#39;pantograph deploy --env paid&#39;</span><span class="p">)</span>
+    <span class="n">sh</span><span class="p">(</span><span class="s1">&#39;pantograph deploy --env free&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -1584,7 +1539,8 @@ Ex: <code>pantograph build --env app1,env1,env2</code> will use <code>.env.app1<
 <h3 id="user-interaction-is-not-allowed-when-using-pantograph-via-ssh">"User interaction is not allowed" when using <em>pantograph</em> via SSH</h3>
 <p>This error can occur when you run <em>pantograph</em> via SSH. To fix it check out <a href="https://stackoverflow.com/a/22637896/445598">this reply on StackOverflow</a>.</p>
 <h3 id="some-pantograph-commands-hang-indefinitely-or-produce-strange-errors-and-symbols">Some pantograph commands hang indefinitely or produce strange errors and symbols</h3>
-<p>Make sure your <code>LC_ALL</code> and <code>LANG</code> variables are set up correctly. <em>pantograph</em> requires an UTF-8 environment, so setting those variables to <code>en_US.UTF-8</code> should fix your issues.</p>
+<p>Make sure your <code>LC_ALL</code> and <code>LANG</code> variables are set up correctly. <em>pantograph</em> requires an UTF-8 environment,
+so setting those variables to <code>en_US.UTF-8</code> should fix your issues.</p>
                 
                   
                 

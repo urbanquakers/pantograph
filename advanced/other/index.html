@@ -1106,54 +1106,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../best-practices/continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1411,135 +1363,31 @@ brew cask install pantograph -->
 <h1 id="other">Other</h1>
 <p>Other advanced topics that didn't fit anywhere else:</p>
 <h1 id="environment-variables">Environment Variables</h1>
-<p>You can define environment variables in a <code>.env</code> or <code>.env.default</code> file in the same directory as your <code>Pantfile</code>. Environment variables are loaded using <a href="https://github.com/bkeepers/dotenv">dotenv</a>. Here's an example:</p>
-<div class="codehilite"><pre><span></span><span class="err">WORKSPACE=YourApp.xcworkspace</span>
-<span class="err">HOCKEYAPP_API_TOKEN=your-hockey-api-token</span>
+<p>You can define environment variables in a <code>.env</code> or <code>.env.default</code> file in the same directory as your <code>Pantfile</code>.
+Environment variables are loaded using <a href="https://github.com/bkeepers/dotenv">dotenv</a>. Here's an example:</p>
+<div class="codehilite"><pre><span></span><span class="nv">POM_PATH</span><span class="o">=</span>pom.xml
+<span class="nv">ARTIFACTORY_API_TOKEN</span><span class="o">=</span>your-artifactory-api-token
 </pre></div>
 
 
-<p><em>pantograph</em> also has a <code>--env</code> option that allows loading of environment specific <code>dotenv</code> files. <code>.env</code> and <code>.env.default</code> will be loaded before environment specific <code>dotenv</code> files are loaded. The naming convention for environment specific <code>dotenv</code> files is <code>.env.&lt;environment&gt;</code></p>
+<p><em>pantograph</em> also has a <code>--env</code> option that allows loading of environment specific <code>dotenv</code> files.
+<code>.env</code> and <code>.env.default</code> will be loaded before environment specific <code>dotenv</code> files are loaded.
+The naming convention for environment specific <code>dotenv</code> files is <code>.env.&lt;environment&gt;</code></p>
 <p>For example, <code>pantograph &lt;lane-name&gt; --env development</code> will load <code>.env</code>, <code>.env.default</code>, and <code>.env.development</code></p>
 <p>Alternatively, as environment variables are not a pantograph specific thing, you can also use standard methods to set them:</p>
-<div class="codehilite"><pre><span></span><span class="err">DELIVER_USER=&quot;felix@krausefx.com&quot; pantograph test</span>
+<div class="codehilite"><pre><span></span><span class="nv">MY_USER</span><span class="o">=</span><span class="s1">&#39;johnny@example.com&#39;</span> pantograph <span class="nb">test</span>
 </pre></div>
 
 
 <p>or</p>
-<div class="codehilite"><pre><span></span><span class="err">export DELIVER_USER=&quot;felix@krausefx.com&quot;;</span>
-<span class="err">pantograph test</span>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">MY_USER</span><span class="o">=</span><span class="s1">&#39;johnny@example.com&#39;</span>
+pantograph <span class="nb">test</span>
 </pre></div>
 
 
 <p>Although it kind of defeats the purpose of using them in the first place (not to have their content in any files), you can also set them in your <code>Pantfile</code>:</p>
-<div class="codehilite"><pre><span></span><span class="err">ENV[&quot;DELIVER_USER&quot;] = &quot;felix@krausefx.com&quot;</span>
+<div class="codehilite"><pre><span></span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;MY_USER&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;johnny@example.com&#39;</span>
 </pre></div>
-
-
-<h1 id="adding-credentials">Adding Credentials</h1>
-<p>You can add credentials for use by <em>pantograph</em> to your keychain using the <a href="https://github.com/pantograph/pantograph/tree/master/credentials_manager">CredentialsManager</a> command line interface. This is useful for situations like CI environments.</p>
-<p><strong>Adding a Credential</strong></p>
-<div class="codehilite"><pre><span></span><span class="err">pantograph pantograph-credentials add --username felix@krausefx.com</span>
-<span class="c">Password: *********</span>
-<span class="err">Credential felix@krausefx.com:********* added to keychain.</span>
-</pre></div>
-
-
-<p><strong>Removing a Credential</strong></p>
-<div class="codehilite"><pre><span></span><span class="err">pantograph pantograph-credentials remove --username felix@krausefx.com</span>
-<span class="err">password has been deleted.</span>
-</pre></div>
-
-
-<h1 id="manually-manage-the-pantograph-match-repo">Manually manage the pantograph match Repo</h1>
-<p>Most users can benefit from <em>match</em>'s automatic management of the repo that stores certificates and provisioning profiles. From time to time, it may be necessary to manually change the files in this repo.</p>
-<p>For example, <em>pantograph</em> requires admin access to the Apple Developer account to generate the appropriate files. If you are provided with an updated certificate or profile but do not have admin access, you can manually edit the repo.</p>
-<blockquote>
-<p><strong>Warning:</strong> Manually editing your <em>match</em> repo can introduce unexpected behavior and is not recommended. Proceed with caution.</p>
-</blockquote>
-<details>
-<summary>Instructions</summary>
-
-
-
-### Overview
-
-Because:
-
-1. _pantograph_ encrypts the repo, and
-2. _pantograph_ doesn't support manual edits to the repo
-
-it's necessary to manually decrypt, then modify, then encrypt, the repo to make any changes.
-
-> These instructions presuppose you already have _pantograph_ _match_ configured correctly.
-
-### 🔓 Decryption Instructions
-
-The easiest way to decrypt the repo is to use the _pantograph_ _match_ `Storage` and `Encryption` classes. You can do this from an interactive Ruby console:
-
-
-<div class="codehilite"><pre><span></span>$ bundle console
-irb<span class="o">(</span>main<span class="o">)</span>:001:0&gt;
-</pre></div>
-
-
-
-Then, require _match_ and set the appropriate parameters:
-
-
-<div class="codehilite"><pre><span></span><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">require</span> <span class="s1">&#39;match&#39;</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">git_url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/pantograph/example-certificate-repo&#39;</span>
-<span class="o">=&gt;</span> <span class="s2">&quot;https://github.com/pantograph/example-certificate-repo&quot;</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">shallow_clone</span> <span class="o">=</span> <span class="kp">false</span>
-<span class="o">=&gt;</span> <span class="kp">false</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MATCH_PASSWORD&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;example-password&#39;</span>
-<span class="o">=&gt;</span> <span class="s2">&quot;example-password&quot;</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">005</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">branch</span> <span class="o">=</span> <span class="s1">&#39;master&#39;</span>
-<span class="o">=&gt;</span> <span class="s2">&quot;master&quot;</span>
-</pre></div>
-
-
-
-Now create an instance of `Storage` and `Encryption`. The `download` method on `Storage` will clone the repo and the `decrypt_files` method on `Encryption` will decrypt the repo for you. Assign the return values to `storage` and `encrypt`, which we'll need later when we re-encrypt:
-
-
-<div class="codehilite"><pre><span></span><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">006</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">storage</span> <span class="o">=</span> <span class="no">Match</span><span class="o">::</span><span class="no">Storage</span><span class="o">.</span><span class="n">for_mode</span><span class="p">(</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="ss">git_url</span><span class="p">:</span> <span class="n">git_url</span><span class="p">,</span> <span class="ss">shallow_clone</span><span class="p">:</span> <span class="n">shallow_clone</span><span class="p">,</span> <span class="ss">git_branch</span><span class="p">:</span> <span class="n">branch</span><span class="p">,</span> <span class="ss">clone_branch_directly</span><span class="p">:</span> <span class="kp">false</span><span class="p">})</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">storage</span><span class="o">.</span><span class="n">download</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">encryption</span> <span class="o">=</span> <span class="no">Match</span><span class="o">::</span><span class="no">Encryption</span><span class="o">.</span><span class="n">for_storage_mode</span><span class="p">(</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="ss">git_url</span><span class="p">:</span> <span class="n">git_url</span><span class="p">,</span> <span class="ss">working_directory</span><span class="p">:</span> <span class="n">storage</span><span class="o">.</span><span class="n">working_directory</span><span class="p">})</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">9</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">encryption</span><span class="o">.</span><span class="n">decrypt_files</span>
-<span class="o">[</span><span class="mi">14</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">42</span><span class="o">]</span><span class="p">:</span> <span class="err">🔓</span>  <span class="no">Successfully</span> <span class="n">decrypted</span> <span class="n">certificates</span> <span class="n">repo</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">010</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">storage</span><span class="o">.</span><span class="n">working_directory</span>
-<span class="o">=&gt;</span> <span class="s2">&quot;/var/folders/ql/4rgq9x7j51n_971xb332w9lc0000gn/T/d20181105-65220-1oalh6v&quot;</span>
-</pre></div>
-
-
-
-The above example checks out the `master` (which is the default branch that _match_ uses). A common _match_ pattern is to create a separate branch per each developer team (the name of the branch being the team identifier).
-
-The directory beginning with `/var/folders` contains the decrypted git repo. Modify it as needed.
-
-If you are updating a `.p12` file, ensure it's exported from the keychain without a password, since _match_ doesn't support importing private keys with a password.
-
-> **Warning:** Do *not* commit your changes. Allow _pantograph_ to do that for you.
-
-Once your changes are made, we'll need to encrypt the repo and push it.
-
-### 🔒 Encryption Instructions
-
-In the Ruby console, call `encryption.encrypt` and `storage.save_changes!`. For example:
-
-
-<div class="codehilite"><pre><span></span><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">010</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">encryption</span><span class="o">.</span><span class="n">encrypt_files</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">011</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">files_to_commit</span> <span class="o">=</span> <span class="no">Dir</span><span class="o">[</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">storage</span><span class="o">.</span><span class="n">working_directory</span><span class="p">,</span> <span class="s2">&quot;**&quot;</span><span class="p">,</span> <span class="s2">&quot;*.{cer,p12,mobileprovision}&quot;</span><span class="p">)</span><span class="o">]</span>
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">012</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">storage</span><span class="o">.</span><span class="n">save_changes!</span><span class="p">(</span><span class="ss">files_to_commit</span><span class="p">:</span> <span class="n">files_to_commit</span><span class="p">)</span>
-</pre></div>
-
-
-
-Your changes will be encrypted, committed, and pushed.
-
-> **Note:** If your keychain doesn't include the encryption passcode, you may be prompted for it. If so, just enter the same password you used to decrypt it.
-
-</details>
                 
                   
                 

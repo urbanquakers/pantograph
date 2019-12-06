@@ -1108,54 +1108,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1346,18 +1298,17 @@
                 <h1 id="pantograph-keys">pantograph keys</h1>
 <p>This guide will show you the best ways to store and use your keys and sensitive secrets for services like Crashlytics, Slack, etc.</p>
 <h1 id="in-your-pantfile">In your Pantfile</h1>
-<div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:beta</span> <span class="k">do</span>
-  <span class="n">crashlytics</span><span class="p">(</span><span class="ss">api_token</span><span class="p">:</span> <span class="s2">&quot;123abc&quot;</span><span class="p">,</span> <span class="ss">build_secret</span><span class="p">:</span> <span class="s2">&quot;secret_key&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:notify</span> <span class="k">do</span>
+  <span class="n">slack</span><span class="p">(</span><span class="ss">slack_url</span><span class="p">:</span> <span class="s1">&#39;https://hooks.slack.com/services/T03NA19Q5/...&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
 
 <p>or if you want to only define the keys once and use it multiple times</p>
-<div class="codehilite"><pre><span></span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;CRASHLYTICS_API_TOKEN&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;123abc&quot;</span>
-<span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;CRASHLYTICS_BUILD_SECRET&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;secret_key&quot;</span>
+<div class="codehilite"><pre><span></span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;SLACK_URL&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;https://hooks.slack.com/services/T03NA19Q5/...&#39;</span>
 
-<span class="n">lane</span> <span class="ss">:beta</span> <span class="k">do</span>
-  <span class="n">crashlytics</span>
+<span class="n">lane</span> <span class="ss">:notify</span> <span class="k">do</span>
+  <span class="n">slack</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -1371,8 +1322,7 @@
 <h1 id="bash-profile">Bash Profile</h1>
 <p>To not store your keys in <code>git</code>, you can pass all parameters of all actions using environment variables.</p>
 <p>You can edit your <code>~/.bash_profile</code> to include something like</p>
-<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">SLACK_URL</span><span class="o">=</span><span class="s2">&quot;https://hooks.slack.com/services/T03NA19Q5/...&quot;</span>
-<span class="nb">export</span> <span class="nv">CRASHLYTICS_API_TOKEN</span><span class="o">=</span><span class="s2">&quot;123abc&quot;</span>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">SLACK_URL</span><span class="o">=</span><span class="s1">&#39;https://hooks.slack.com/services/T03NA19Q5/...&#39;</span>
 </pre></div>
 
 
@@ -1389,17 +1339,17 @@
 <p><a href="https://github.com/bkeepers/dotenv">dotenv</a> is a system to store your environment in a file that is project specific. Basically you have a hidden file in your project containing all the environment variables for your project.</p>
 <p>You can store a default configuration in <code>.env.default</code> which will be loaded by <em>pantograph</em> automatically.</p>
 <div class="codehilite"><pre><span></span><span class="nv">SLACK_URL</span><span class="o">=</span><span class="s2">&quot;https://hooks.slack.com/services/T03NA19Q5/...&quot;</span>
-<span class="nv">CRASHLYTICS_API_TOKEN</span><span class="o">=</span><span class="s2">&quot;123abc&quot;</span>
 </pre></div>
 
 
 <p>You might want different configurations depending on your environment.</p>
-<div class="codehilite"><pre><span></span><span class="err">pantograph beta --env development</span>
+<div class="codehilite"><pre><span></span>pantograph notify --env development
 </pre></div>
 
 
 <p>and store the configuration in <code>.env.development</code> with all keys for the development environment.</p>
-<p>Install <code>[sudo] gem install dotenv</code> or add <code>dotenv</code> to your <code>Gemfile</code>. More information about the <a href="https://johnknapprs.github.io/pantograph/getting-started/ios/setup/#use-a-gemfile">recommended way to install gems</a>.</p>
+<p>Install <code>gem install dotenv</code> or add <code>dotenv</code> to your <code>Gemfile</code>.
+More information about the <a href="https://johnknapprs.github.io/pantograph/getting-started/ios/setup/#use-a-gemfile">recommended way to install gems</a>.</p>
 <p>To get the name of the available environment variables, run <code>pantograph action [action_name]</code>.</p>
                 
                   

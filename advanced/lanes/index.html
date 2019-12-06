@@ -1106,54 +1106,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../best-practices/continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1411,9 +1363,9 @@ brew cask install pantograph -->
 <h1 id="lanes">Lanes</h1>
 <h1 id="passing-parameters">Passing Parameters</h1>
 <p>To pass parameters from the command line to your lane, use the following syntax:</p>
-<div class="codehilite"><pre><span></span><span class="n">pantograph</span><span class="w"> </span><span class="o">[</span><span class="n">lane</span><span class="o">]</span><span class="w"> </span><span class="k">key</span><span class="err">:</span><span class="k">value</span><span class="w"> </span><span class="nl">key2</span><span class="p">:</span><span class="n">value2</span><span class="w"></span>
+<div class="codehilite"><pre><span></span>pantograph <span class="o">[</span>lane<span class="o">]</span> key:value key2:value2
 
-<span class="n">pantograph</span><span class="w"> </span><span class="n">deploy</span><span class="w"> </span><span class="nl">submit</span><span class="p">:</span><span class="k">false</span><span class="w"> </span><span class="nl">build_number</span><span class="p">:</span><span class="mi">24</span><span class="w"></span>
+pantograph deploy submit:false build_number:24
 </pre></div>
 
 
@@ -1432,7 +1384,7 @@ brew cask install pantograph -->
     <span class="c1"># Only when submit is true</span>
   <span class="k">end</span>
   <span class="c1"># ...</span>
-  <span class="n">increment_build_number</span><span class="p">(</span><span class="ss">build_number</span><span class="p">:</span> <span class="n">options</span><span class="o">[</span><span class="ss">:build_number</span><span class="o">]</span><span class="p">)</span>
+  <span class="n">git_tag_exists</span><span class="p">(</span><span class="ss">tag</span><span class="p">:</span> <span class="n">options</span><span class="o">[</span><span class="ss">:build_number</span><span class="o">]</span><span class="p">)</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 
@@ -1457,20 +1409,20 @@ brew cask install pantograph -->
 <div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:deploy</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
   <span class="c1"># ...</span>
   <span class="n">build</span><span class="p">(</span><span class="ss">release</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span> <span class="c1"># that&#39;s the important bit</span>
-  <span class="n">hockey</span>
+  <span class="n">artifactory</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 
 <span class="n">lane</span> <span class="ss">:staging</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
   <span class="c1"># ...</span>
   <span class="n">build</span> <span class="c1"># it also works when you don&#39;t pass parameters</span>
-  <span class="n">hockey</span>
+  <span class="n">artifactory</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 
 <span class="n">lane</span> <span class="ss">:build</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
-  <span class="n">scheme</span> <span class="o">=</span> <span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:release</span><span class="o">]</span> <span class="p">?</span> <span class="s2">&quot;Release&quot;</span> <span class="p">:</span> <span class="s2">&quot;Staging&quot;</span><span class="p">)</span>
-  <span class="n">build_ios_app</span><span class="p">(</span><span class="ss">scheme</span><span class="p">:</span> <span class="n">scheme</span><span class="p">)</span>
+  <span class="n">scheme</span> <span class="o">=</span> <span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:release</span><span class="o">]</span> <span class="p">?</span> <span class="s1">&#39;Release&#39;</span> <span class="p">:</span> <span class="s1">&#39;Staging&#39;</span><span class="p">)</span>
+  <span class="n">custom_build_actions</span><span class="p">(</span><span class="ss">scheme</span><span class="p">:</span> <span class="n">scheme</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -1495,11 +1447,11 @@ brew cask install pantograph -->
 <p>The <code>next</code> keyword can be used to stop executing a <code>lane</code> before it reaches the end.</p>
 <div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:build</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
   <span class="k">if</span> <span class="n">cached_build_available?</span>
-    <span class="no">UI</span><span class="o">.</span><span class="n">important</span> <span class="s1">&#39;Skipping build because a cached build is available!&#39;</span>
+    <span class="no">UI</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s1">&#39;Skipping build because a cached build is available!&#39;</span><span class="p">)</span>
     <span class="k">next</span> <span class="c1"># skip doing the rest of this lane</span>
   <span class="k">end</span>
-  <span class="n">match</span>
-  <span class="n">gym</span>
+
+  <span class="n">gradle</span>
 <span class="k">end</span>
 
 <span class="n">private_lane</span> <span class="ss">:cached_build_available?</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
@@ -1511,15 +1463,16 @@ brew cask install pantograph -->
 
 <p>When <code>next</code> is used during a <code>lane</code> switch, control returns to the previous <code>lane</code> that was executing.</p>
 <div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:first_lane</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
-  <span class="nb">puts</span> <span class="s2">&quot;If you run: `pantograph first_lane`&quot;</span>
-  <span class="nb">puts</span> <span class="s2">&quot;You&#39;ll see this!&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;If you run: &quot;pantograph first_lane&quot;&#39;</span><span class="p">)</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;You&#39;ll see this!&quot;</span><span class="p">)</span>
+
   <span class="n">second_lane</span>
-  <span class="nb">puts</span> <span class="s2">&quot;As well as this!&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;As well as this!&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="n">private_lane</span> <span class="ss">:second_lane</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
   <span class="k">next</span>
-  <span class="nb">puts</span> <span class="s2">&quot;This won&#39;t be shown&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;This will not be shown&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -1541,7 +1494,8 @@ Just like <code>after_all</code>, <code>after_each</code> is not called if an er
 </pre></div>
 
 
-<p>e.g. With this scenario, <code>before_each</code> and <code>after_each</code> would be called 4 times: before the <code>deploy</code> lane, before the switch to <code>archive</code>, <code>sign</code>, and <code>upload</code>, and after each of these lanes as well.</p>
+<p>e.g. With this scenario, <code>before_each</code> and <code>after_each</code> would be called 4 times: before the <code>deploy</code> lane,
+before the switch to <code>archive</code>, <code>sign</code>, and <code>upload</code>, and after each of these lanes as well.</p>
 <div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:deploy</span> <span class="k">do</span>
   <span class="n">archive</span>
   <span class="n">sign</span>
@@ -1571,8 +1525,8 @@ Just like <code>after_all</code>, <code>after_each</code> is not called if an er
 
 
 <p>and environment variables:</p>
-<div class="codehilite"><pre><span></span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;PANTOGRAPH_PLATFORM_NAME&quot;</span><span class="o">]</span>
-<span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;PANTOGRAPH_LANE_NAME&quot;</span><span class="o">]</span>
+<div class="codehilite"><pre><span></span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;PANTOGRAPH_PLATFORM_NAME&#39;</span><span class="o">]</span>
+<span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;PANTOGRAPH_LANE_NAME&#39;</span><span class="o">]</span>
 </pre></div>
 
 
@@ -1586,12 +1540,6 @@ Just like <code>after_all</code>, <code>after_each</code> is not called if an er
 <div class="codehilite"><pre><span></span><span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">BUILD_NUMBER</span><span class="o">]</span>                <span class="c1"># Generated by `increment_build_number`</span>
 <span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">VERSION_NUMBER</span><span class="o">]</span>              <span class="c1"># Generated by `increment_version_number`</span>
 <span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">SNAPSHOT_SCREENSHOTS_PATH</span><span class="o">]</span>   <span class="c1"># Generated by _snapshot_</span>
-<span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">PRODUCE_APPLE_ID</span><span class="o">]</span>            <span class="c1"># The Apple ID of the newly created app</span>
-<span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">IPA_OUTPUT_PATH</span><span class="o">]</span>             <span class="c1"># Generated by _gym_</span>
-<span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">DSYM_OUTPUT_PATH</span><span class="o">]</span>            <span class="c1"># Generated by _gym_</span>
-<span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">SIGH_PROFILE_PATH</span><span class="o">]</span>           <span class="c1"># Generated by _sigh_</span>
-<span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">SIGH_UDID</span><span class="o">]</span>                   <span class="c1"># The UDID of the generated provisioning profile</span>
-<span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">HOCKEY_DOWNLOAD_LINK</span><span class="o">]</span>        <span class="c1"># Generated by `hockey`</span>
 <span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">GRADLE_APK_OUTPUT_PATH</span><span class="o">]</span>      <span class="c1"># Generated by `gradle`</span>
 <span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">GRADLE_ALL_APK_OUTPUT_PATHS</span><span class="o">]</span> <span class="c1"># Generated by `gradle`</span>
 <span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">GRADLE_FLAVOR</span><span class="o">]</span>               <span class="c1"># Generated by `gradle`</span>
@@ -1602,23 +1550,21 @@ Just like <code>after_all</code>, <code>after_each</code> is not called if an er
 <p>To get information about available lane variables, run <code>pantograph action [action_name]</code>.</p>
 <h1 id="private-lanes">Private lanes</h1>
 <p>Sometimes you might have a lane that is used from different lanes, for example:</p>
-<div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:production</span> <span class="k">do</span>
+<div class="codehilite"><pre><span></span><span class="n">lane</span> <span class="ss">:dev</span> <span class="k">do</span>
   <span class="c1"># ...</span>
-  <span class="n">build</span><span class="p">(</span><span class="ss">release</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
-  <span class="n">appstore</span> <span class="c1"># Deploy to the AppStore</span>
-  <span class="c1"># ...</span>
-<span class="k">end</span>
-
-<span class="n">lane</span> <span class="ss">:beta</span> <span class="k">do</span>
-  <span class="c1"># ...</span>
-  <span class="n">build</span><span class="p">(</span><span class="ss">release</span><span class="p">:</span> <span class="kp">false</span><span class="p">)</span>
-  <span class="n">crashlytics</span> <span class="c1"># Distribute to testers</span>
+  <span class="n">deploy</span><span class="p">(</span><span class="ss">environment</span><span class="p">:</span> <span class="s1">&#39;dev&#39;</span><span class="p">)</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 
-<span class="n">lane</span> <span class="ss">:build</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
+<span class="n">lane</span> <span class="ss">:production</span> <span class="k">do</span>
   <span class="c1"># ...</span>
-  <span class="n">ipa</span>
+  <span class="n">deploy</span><span class="p">(</span><span class="ss">environment</span><span class="p">:</span> <span class="s1">&#39;production&#39;</span><span class="p">)</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="n">lane</span> <span class="ss">:deploy</span> <span class="k">do</span> <span class="o">|</span><span class="n">options</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+  <span class="n">deploy_angular</span><span class="p">(</span><span class="ss">target</span><span class="p">:</span> <span class="n">options</span><span class="o">[</span><span class="ss">:environment</span><span class="o">]</span><span class="p">)</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 </pre></div>
@@ -1640,15 +1586,18 @@ Just like <code>after_all</code>, <code>after_each</code> is not called if an er
 <p>And also, you can't call the private lane using <code>pantograph build</code>.</p>
 <p>The resulting private lane can only be called from another lane using the lane switching technology.</p>
 <h1 id="control-configuration-by-lane-and-by-platform">Control configuration by lane and by platform</h1>
-<p>In general, configuration files take only the first value given for a particular configuration item. That means that for an <code>Appfile</code> like the following:</p>
-<div class="codehilite"><pre><span></span><span class="n">app_identifier</span> <span class="s2">&quot;com.used.id&quot;</span>
-<span class="n">app_identifier</span> <span class="s2">&quot;com.ignored.id&quot;</span>
+<p>In general, configuration files take only the first value given for a particular configuration item. That means that for an <code>MyConfigFile</code> like the following:</p>
+<div class="codehilite"><pre><span></span><span class="n">app_identifier</span> <span class="s1">&#39;com.used.id&#39;</span>
+<span class="n">app_identifier</span> <span class="s1">&#39;com.ignored.id&#39;</span>
 </pre></div>
 
 
-<p>the <code>app_identfier</code> will be <code>"com.used.id"</code> and the second value will be ignored. The <code>for_lane</code> and <code>for_platform</code> configuration blocks provide a limited exception to this rule.</p>
-<p>All configuration files (Appfile, Matchfile, Screengrabfile, etc.) can use <code>for_lane</code> and <code>for_platform</code> blocks to control (and override) configuration values for those circumstances.</p>
-<p><code>for_lane</code> blocks will be called when the name of lane invoked on the command line matches the one specified by the block. So, given a <code>Screengrabfile</code> like:</p>
+<p>the <code>app_identfier</code> will be <code>"com.used.id"</code> and the second value will be ignored.
+The <code>for_lane</code> and <code>for_platform</code> configuration blocks provide a limited exception to this rule.</p>
+<p>All configuration files (like: MyConfigFile) can use <code>for_lane</code> and <code>for_platform</code> blocks to control (and override)
+configuration values for those circumstances.</p>
+<p><code>for_lane</code> blocks will be called when the name of lane invoked on the command line matches the one specified by the block.
+So, given a <code>Screengrabfile</code> like:</p>
 <div class="codehilite"><pre><span></span><span class="n">locales</span> <span class="o">[</span><span class="s1">&#39;en-US&#39;</span><span class="p">,</span> <span class="s1">&#39;fr-FR&#39;</span><span class="p">,</span> <span class="s1">&#39;ja-JP&#39;</span><span class="o">]</span>
 
 <span class="n">for_lane</span> <span class="ss">:screenshots_english_only</span> <span class="k">do</span>
@@ -1661,25 +1610,8 @@ Just like <code>after_all</code>, <code>after_each</code> is not called if an er
 </pre></div>
 
 
-<p><code>locales</code> will have the values <code>['en-US', 'fr-FR', 'ja-JP']</code> by default, but will only have one value when running the <code>pantograph screenshots_english_only</code> or <code>pantograph screenshots_french_only</code>.</p>
-<p><code>for_platform</code> gives you similar control based on the platform for which you have invoked <em>pantograph</em>. So, for an <code>Appfile</code> configured like:</p>
-<div class="codehilite"><pre><span></span><span class="n">app_identifier</span> <span class="s2">&quot;com.default.id&quot;</span>
-
-<span class="n">for_lane</span> <span class="ss">:enterprise</span> <span class="k">do</span>
-  <span class="n">app_identifier</span> <span class="s2">&quot;com.forlane.enterprise&quot;</span>
-<span class="k">end</span>
-
-<span class="n">for_platform</span> <span class="ss">:mac</span> <span class="k">do</span>
-  <span class="n">app_identifier</span> <span class="s2">&quot;com.forplatform.mac&quot;</span>
-
-  <span class="n">for_lane</span> <span class="ss">:release</span> <span class="k">do</span>
-    <span class="n">app_identifier</span> <span class="s2">&quot;com.forplatform.mac.forlane.release&quot;</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-
-
-<p>you can expect the <code>app_identifier</code> to equal <code>"com.forplatform.mac.forlane.release"</code> when invoking <code>pantograph mac release</code>.</p>
+<p><code>locales</code> will have the values <code>['en-US', 'fr-FR', 'ja-JP']</code> by default, but will only have one value when running the
+<code>pantograph screenshots_english_only</code> or <code>pantograph screenshots_french_only</code>.</p>
                 
                   
                 

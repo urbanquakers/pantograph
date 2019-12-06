@@ -1030,12 +1030,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Best Practices
@@ -1075,12 +1073,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
     
     <label class="md-nav__link" for="nav-7-3">
       CI Integrations
@@ -1100,159 +1096,6 @@
   <li class="md-nav__item">
     <a href="../jenkins/" title="Jenkins Integration" class="md-nav__link">
       Jenkins Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Bamboo Integration
-      </label>
-    
-    <a href="./" title="Bamboo Integration" class="md-nav__link md-nav__link--active">
-      Bamboo Integration
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#repository-setup" class="md-nav__link">
-    Repository setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-repository-remote" class="md-nav__link">
-    Setting repository remote
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#speeding-up-build-times-with-carthage" class="md-nav__link">
-    Speeding up build times with carthage
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#artifact-plan" class="md-nav__link">
-    Artifact Plan
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stages-jobs-tasks" class="md-nav__link">
-    Stages / Jobs / Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#artifact-definitions" class="md-nav__link">
-    Artifact definitions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pantograph-plan" class="md-nav__link">
-    pantograph plan
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#build-plan-setup" class="md-nav__link">
-    Build plan setup
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
     </a>
   </li>
 
@@ -1529,12 +1372,12 @@
 <p>In bamboo under <strong>Linked Repositories</strong> (where you configure your git repo) under <strong>Advanced Settings</strong> is an option called <strong>Exclude changesets</strong></p>
 <p>This dialog will allow you to enter a regular expression that if a commit matches, a build will not be triggered.</p>
 <p>For example, if your <code>Pantfile</code> is configured to make a commit message in the style of</p>
-<div class="codehilite"><pre><span></span><span class="err">Build Version bump by pantograph to Version [0.3] Build [8]</span>
+<div class="codehilite"><pre><span></span>Build Version bump by pantograph to Version <span class="o">[</span><span class="m">0</span>.3<span class="o">]</span> Build <span class="o">[</span><span class="m">8</span><span class="o">]</span>
 </pre></div>
 
 
 <p>Then you could use the following regex to ignore these commits</p>
-<div class="codehilite"><pre><span></span><span class="err">^.*Build Version bump by pantograph.*$</span>
+<div class="codehilite"><pre><span></span>^.*Build Version bump by pantograph.*$
 </pre></div>
 
 
@@ -1605,41 +1448,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../travis/" title="Travis Integration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Travis Integration
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../gitlab/" title="GitLab CI Integration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                GitLab CI Integration
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -1201,54 +1201,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../best-practices/continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1499,8 +1451,11 @@
                 
                 
                 <h1 id="pantograph-plugins">pantograph Plugins</h1>
-<p>The instructions below require <em>pantograph</em> 1.93.0 or higher</p>
-<p><em>pantograph</em> is an open platform and we enable every developer to extend it to fit their needs. That's why we built a plugin system that allows you and your company to provide <em>pantograph</em> plugins to other <em>pantograph</em> users. You have the full power and responsibility of maintaining your plugin and keeping it up to date. This is useful if you maintain your own library or web service, and want to make sure the <em>pantograph</em> plugin is always up to date.</p>
+<p>The instructions below require <em>pantograph</em> 0.1.9 or higher</p>
+<p><em>pantograph</em> is an open platform and we enable every developer to extend it to fit their needs.
+That's why we built a plugin system that allows you and your company to provide <em>pantograph</em> plugins to other <em>pantograph</em> users.
+You have the full power and responsibility of maintaining your plugin and keeping it up to date.
+This is useful if you maintain your own library or web service, and want to make sure the <em>pantograph</em> plugin is always up to date.</p>
 <h2 id="local-actions">Local actions</h2>
 <script type="text/javascript">
 (function () {
@@ -1521,17 +1476,17 @@
 <h2 id="find-a-plugin">Find a plugin</h2>
 <p>Head over to <a href="https://johnknapprs.github.io/pantograph/plugins/available-plugins/">Available Plugins</a> for a list of plugins you can use.</p>
 <p>List all available plugins using</p>
-<div class="codehilite"><pre><span></span><span class="err">pantograph search_plugins</span>
+<div class="codehilite"><pre><span></span>pantograph search_plugins
 </pre></div>
 
 
 <p>To search for something specific</p>
-<div class="codehilite"><pre><span></span><span class="n">pantograph</span><span class="w"> </span><span class="n">search_plugins</span><span class="w"> </span><span class="o">[</span><span class="n">query</span><span class="o">]</span><span class="w"></span>
+<div class="codehilite"><pre><span></span>pantograph search_plugins <span class="o">[</span>query<span class="o">]</span>
 </pre></div>
 
 
 <h2 id="add-a-plugin-to-your-project">Add a plugin to your project</h2>
-<div class="codehilite"><pre><span></span><span class="n">pantograph</span><span class="w"> </span><span class="n">add_plugin</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]</span><span class="w"></span>
+<div class="codehilite"><pre><span></span>pantograph add_plugin <span class="o">[</span>name<span class="o">]</span>
 </pre></div>
 
 
@@ -1544,42 +1499,44 @@
 <li>You'll have 3 new files, that should all be checked into version control: <code>Gemfile</code>, <code>Gemfile.lock</code> and <code>pantograph/Pluginfile</code></li>
 </ul>
 <h3 id="plugin-source">Plugin Source</h3>
-<p>Your <code>pantograph/Pluginfile</code> contains the list of all <em>pantograph</em> plugins your project uses. The <code>Pluginfile</code> is a <a href="http://bundler.io/gemfile.html">Gemfile</a> that gets imported from your main <code>Gemfile</code>.
+<p>Your <code>pantograph/Pluginfile</code> contains the list of all <em>pantograph</em> plugins your project uses.
+The <code>Pluginfile</code> is a <a href="http://bundler.io/gemfile.html">Gemfile</a> that gets imported from your main <code>Gemfile</code>.
 You specify all dependencies, including the required version numbers:</p>
 <div class="codehilite"><pre><span></span><span class="c1"># Fetched from RubyGems.org</span>
-<span class="n">gem</span> <span class="s2">&quot;pantograph-plugin-xcversion&quot;</span>
+<span class="n">gem</span> <span class="s1">&#39;pantograph-plugin-maven&#39;</span>
 
 <span class="c1"># Fetched from GitHub</span>
-<span class="n">gem</span> <span class="s2">&quot;pantograph-plugin-xcversion&quot;</span><span class="p">,</span> <span class="ss">git</span><span class="p">:</span> <span class="s2">&quot;https://github.com/pantograph/pantograph-plugin-xcversion&quot;</span>
+<span class="n">gem</span> <span class="s1">&#39;pantograph-plugin-maven&#39;</span><span class="p">,</span> <span class="ss">git</span><span class="p">:</span> <span class="s1">&#39;https://github.com/pantograph/pantograph-plugin-maven&#39;</span>
 
 <span class="c1"># Fetched from a local directory</span>
-<span class="n">gem</span> <span class="s2">&quot;pantograph-plugin-xcversion&quot;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&quot;../pantograph-plugin-xcversion&quot;</span>
+<span class="n">gem</span> <span class="s1">&#39;pantograph-plugin-maven&#39;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s1">&#39;../pantograph-plugin-maven&#39;</span>
 
 <span class="c1"># Specify a version requirements</span>
-<span class="n">gem</span> <span class="s2">&quot;pantograph-plugin-xcversion&quot;</span><span class="p">,</span> <span class="s2">&quot;1.1.0&quot;</span>
-<span class="n">gem</span> <span class="s2">&quot;pantograph-plugin-xcversion&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;= 1.0&quot;</span>
+<span class="n">gem</span> <span class="s1">&#39;pantograph-plugin-maven&#39;</span><span class="p">,</span> <span class="s1">&#39;1.1.0&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;pantograph-plugin-maven&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0&#39;</span>
 </pre></div>
 
 
 <p><a href="http://bundler.io/gemfile.html">More information about a Gemfile</a></p>
 <h3 id="run-with-plugins">Run with plugins</h3>
 <p>Run <em>pantograph</em> using <code>bundle exec pantograph [lane]</code> to make sure your plugins are properly loaded.</p>
-<p>This is required when you use plugins from a local path or a git remote. If you have multiple versions of the same plugin loaded, you may not be using the one you specified in your <code>Pluginfile</code> or <code>Gemfile</code>.</p>
+<p>This is required when you use plugins from a local path or a git remote.
+If you have multiple versions of the same plugin loaded, you may not be using the one you specified in your <code>Pluginfile</code> or <code>Gemfile</code>.</p>
 <h2 id="install-plugins-on-another-machine">Install plugins on another machine</h2>
 <p>To make sure all plugins are installed on the local machine, run</p>
-<div class="codehilite"><pre><span></span><span class="err">pantograph install_plugins</span>
+<div class="codehilite"><pre><span></span>pantograph install_plugins
 </pre></div>
 
 
 <h2 id="update-all-plugins">Update all plugins</h2>
 <p>To make sure all plugins are updated to the latest version, run</p>
-<div class="codehilite"><pre><span></span><span class="err">pantograph update_plugins</span>
+<div class="codehilite"><pre><span></span>pantograph update_plugins
 </pre></div>
 
 
 <h2 id="remove-a-plugin">Remove a plugin</h2>
 <p>Open your <code>pantograph/Pluginfile</code> and remove the line that looks like this</p>
-<div class="codehilite"><pre><span></span><span class="n">gem</span> <span class="s2">&quot;pantograph-plugin-[plugin_name]&quot;</span>
+<div class="codehilite"><pre><span></span><span class="n">gem</span> <span class="s1">&#39;pantograph-plugin-[plugin_name]&#39;</span>
 </pre></div>
                 
                   

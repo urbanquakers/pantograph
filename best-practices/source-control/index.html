@@ -1142,54 +1142,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1385,22 +1337,21 @@
                   <h1>Source Control</h1>
                 
                 <h2 id="source-control">Source Control</h2>
-<p>It is recommended that you keep <em>pantograph</em> configuration files in the repository. You may want to add the following lines to the repository's <code>.gitignore</code> (Git) or <code>.hgignore</code> (Mercurial) file to exclude generated and temporary files:</p>
-<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="n">pantograph</span> <span class="k">specific</span>
-<span class="o">**/</span><span class="n">pantograph</span><span class="o">/</span><span class="n">report</span><span class="p">.</span><span class="n">xml</span>
+<p>It is recommended that you keep <em>pantograph</em> configuration files in the repository.
+You may want to add the following lines to the repository's <code>.gitignore</code> (Git) file to exclude generated and temporary files:</p>
+<div class="codehilite"><pre><span></span><span class="c1"># pantograph specific</span>
+**/pantograph/report.xml
 
-<span class="o">#</span> <span class="n">deliver</span> <span class="k">temporary</span> <span class="n">files</span>
-<span class="o">**/</span><span class="n">pantograph</span><span class="o">/</span><span class="n">Preview</span><span class="p">.</span><span class="n">html</span>
+<span class="c1"># generic output reports</span>
+**/pantograph/reports
 
-<span class="o">#</span> <span class="n">snapshot</span> <span class="k">generated</span> <span class="n">screenshots</span>
-<span class="o">**/</span><span class="n">pantograph</span><span class="o">/</span><span class="n">screenshots</span>
-
-<span class="o">#</span> <span class="n">scan</span> <span class="k">temporary</span> <span class="n">files</span>
-<span class="o">**/</span><span class="n">pantograph</span><span class="o">/</span><span class="n">test_output</span>
+<span class="c1"># generic testing temporary files</span>
+**/pantograph/test_output
 </pre></div>
 
 
-<p>It is also recommended that you avoid storing screenshots or other delivery artifacts in the repository. Instead, use <em>pantograph</em> to re-generate whenever needed.</p>
+<p>It is also recommended that you avoid storing screenshots or other delivery artifacts in the repository.
+Instead, use <em>pantograph</em> to re-generate whenever needed.</p>
                 
                   
                 

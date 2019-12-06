@@ -331,26 +331,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://johnknapprs.github.io/pantograph/best-practices/continuous-integration/circle-ci/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://johnknapprs.github.io/pantograph/best-practices/continuous-integration/travis/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://johnknapprs.github.io/pantograph/best-practices/continuous-integration/bamboo/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://johnknapprs.github.io/pantograph/best-practices/continuous-integration/gitlab/</loc>
-     <lastmod>2019-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://johnknapprs.github.io/pantograph/best-practices/continuous-integration/azure-devops/</loc>
      <lastmod>2019-12-06</lastmod>
      <changefreq>daily</changefreq>

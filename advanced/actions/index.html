@@ -1106,54 +1106,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../best-practices/continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../best-practices/continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1411,58 +1363,59 @@ brew cask install pantograph -->
 <h1 id="actions">Actions</h1>
 <h1 id="interacting-with-the-user">Interacting with the user</h1>
 <p>Instead of using <code>puts</code>, <code>raise</code> and <code>gets</code>, please use the helper class <code>UI</code> across all pantograph tools:</p>
-<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">message</span> <span class="s2">&quot;Neutral message (usually white)&quot;</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">success</span> <span class="s2">&quot;Successfully finished processing (usually green)&quot;</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">error</span> <span class="s2">&quot;Wahaha, what&#39;s going on here! (usually red)&quot;</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">important</span> <span class="s2">&quot;Make sure to use Windows (usually yellow)&quot;</span>
+<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;Neutral message (usually white)&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;Successfully finished processing (usually green)&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Wahaha, what is going on here! (usually red)&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s1">&#39;Make sure to use Windows (usually yellow)&#39;</span><span class="p">)</span>
 
-<span class="no">UI</span><span class="o">.</span><span class="n">header</span> <span class="s2">&quot;Inputs&quot;</span> <span class="c1"># a big box</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Inputs&#39;</span><span class="p">)</span> <span class="c1"># a big box</span>
 
-<span class="nb">name</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s2">&quot;What&#39;s your name? &quot;</span><span class="p">)</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;What is your name? &#39;</span><span class="p">)</span>
+
 <span class="k">if</span> <span class="no">UI</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span><span class="s2">&quot;Are you &#39;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#39;?&quot;</span><span class="p">)</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">success</span> <span class="s2">&quot;Oh yeah&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;Oh yeah&#39;</span><span class="p">)</span>
 <span class="k">else</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">error</span> <span class="s2">&quot;Wups, invalid&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Wups, invalid&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="no">UI</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="s2">&quot;Your password please: &quot;</span><span class="p">)</span> <span class="c1"># password inputs are hidden</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="s1">&#39;Your password please: &#39;</span><span class="p">)</span> <span class="c1"># password inputs are hidden</span>
 
 <span class="c1">###### A &quot;Dropdown&quot; for the user</span>
-<span class="n">project</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;Select your project: &quot;</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;Test Project&quot;</span><span class="p">,</span> <span class="s2">&quot;Test Workspace&quot;</span><span class="o">]</span><span class="p">)</span>
+<span class="n">project</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Select your project: &#39;</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;Test Project&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Workspace&#39;</span><span class="o">]</span><span class="p">)</span>
 
 <span class="no">UI</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Okay </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">, you selected &#39;</span><span class="si">#{</span><span class="n">project</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 
 <span class="c1">###### To run a command use</span>
-<span class="no">PantographCore</span><span class="o">::</span><span class="no">CommandExecutor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="ss">command</span><span class="p">:</span> <span class="s2">&quot;ls&quot;</span><span class="p">,</span>
-                                    <span class="ss">print_all</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+<span class="no">PantographCore</span><span class="o">::</span><span class="no">CommandExecutor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="ss">command</span><span class="p">:</span> <span class="s1">&#39;ls&#39;</span><span class="p">,</span>
+                                        <span class="ss">print_all</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
                                         <span class="ss">error</span><span class="p">:</span> <span class="nb">proc</span> <span class="k">do</span> <span class="o">|</span><span class="n">error_output</span><span class="o">|</span>
                                           <span class="c1"># handle error here</span>
                                         <span class="k">end</span><span class="p">)</span>
 
 <span class="c1">###### or if you just want to receive a simple value use this only if the command doesn&#39;t take long</span>
-<span class="n">diff</span> <span class="o">=</span> <span class="no">Helper</span><span class="o">.</span><span class="n">backticks</span><span class="p">(</span><span class="s2">&quot;git diff&quot;</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="no">Helper</span><span class="o">.</span><span class="n">backticks</span><span class="p">(</span><span class="s1">&#39;git diff&#39;</span><span class="p">)</span>
 
 <span class="c1">###### pantograph &quot;crash&quot; because of a user error everything that is caused by the user and is not unexpected</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have a project in the current directory&quot;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;You don not have a project in the current directory&quot;</span><span class="p">)</span>
 
 <span class="c1">###### an actual crash when something unexpected happened</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">crash!</span><span class="p">(</span><span class="s2">&quot;Network timeout&quot;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">crash!</span><span class="p">(</span><span class="s1">&#39;Network timeout&#39;</span><span class="p">)</span>
 
 <span class="c1">###### a deprecation message</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s2">&quot;The &#39;--key&#39; parameter is deprecated&quot;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s1">&#39;The &quot;--key&quot; parameter is deprecated&#39;</span><span class="p">)</span>
 </pre></div>
 
 
 <h1 id="run-actions-directly">Run actions directly</h1>
 <p>If you just want to try an action without adding them to your <code>Pantfile</code> yet, you can use</p>
-<div class="codehilite"><pre><span></span><span class="err">pantograph run notification message:&quot;My Text&quot; title:&quot;The Title&quot;</span>
+<div class="codehilite"><pre><span></span>pantograph run notification message:<span class="s2">&quot;My Text&quot;</span> title:<span class="s2">&quot;The Title&quot;</span>
 </pre></div>
 
 
 <p>To get the available options for any action run <code>pantograph action [action_name]</code>. You might not be able to set some kind of parameters using this method.</p>
 <h1 id="shell-values">Shell values</h1>
 <p>You can get value from shell commands:</p>
-<div class="codehilite"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">sh</span><span class="p">(</span><span class="s2">&quot;pod update&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">sh</span><span class="p">(</span><span class="s1">&#39;ls -a&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1474,8 +1427,8 @@ objects to describe supported options. Each option is declared by creating a new
 <code>ConfigItem</code>, e.g.:</p>
 <div class="codehilite"><pre><span></span><span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
   <span class="ss">key</span><span class="p">:</span> <span class="ss">:file</span><span class="p">,</span>
-  <span class="ss">env_name</span><span class="p">:</span> <span class="s2">&quot;MY_NEW_ACTION_FILE&quot;</span><span class="p">,</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s2">&quot;A file to operate on&quot;</span><span class="p">,</span>
+  <span class="ss">env_name</span><span class="p">:</span> <span class="s1">&#39;MY_NEW_ACTION_FILE&#39;</span><span class="p">,</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">&#39;A file to operate on&#39;</span><span class="p">,</span>
   <span class="ss">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
   <span class="ss">optional</span><span class="p">:</span> <span class="kp">false</span>
 <span class="p">)</span>
@@ -1483,7 +1436,7 @@ objects to describe supported options. Each option is declared by creating a new
 
 
 <p>This declares a <code>file</code> option for use with the action in a Pantfile, e.g.:</p>
-<div class="codehilite"><pre><span></span><span class="n">my_new_action</span><span class="p">(</span><span class="ss">file</span><span class="p">:</span> <span class="s2">&quot;file.txt&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">my_new_action</span><span class="p">(</span><span class="ss">file</span><span class="p">:</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1502,8 +1455,8 @@ support default conversions.</p>
 Boolean parameters, use <code>is_string: false</code>, without specifying a <code>type</code>, e.g.:</p>
 <div class="codehilite"><pre><span></span><span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
   <span class="ss">key</span><span class="p">:</span> <span class="ss">:commit</span><span class="p">,</span>
-  <span class="ss">env_name</span><span class="p">:</span> <span class="s2">&quot;MY_NEW_ACTION_COMMIT&quot;</span><span class="p">,</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s2">&quot;Commit the results if true&quot;</span><span class="p">,</span>
+  <span class="ss">env_name</span><span class="p">:</span> <span class="s1">&#39;MY_NEW_ACTION_COMMIT&#39;</span><span class="p">,</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">&#39;Commit the results if true&#39;</span><span class="p">,</span>
   <span class="ss">optional</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
   <span class="ss">default_value</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
   <span class="ss">is_string</span><span class="p">:</span> <span class="kp">false</span>
@@ -1527,26 +1480,26 @@ an array will be produced by splitting the string using the comma character
 as a delimiter:</p>
 <div class="codehilite"><pre><span></span><span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
   <span class="ss">key</span><span class="p">:</span> <span class="ss">:files</span><span class="p">,</span>
-  <span class="ss">env_name</span><span class="p">:</span> <span class="s2">&quot;MY_NEW_ACTION_FILES&quot;</span><span class="p">,</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s2">&quot;One or more files to operate on&quot;</span><span class="p">,</span>
+  <span class="ss">env_name</span><span class="p">:</span> <span class="s1">&#39;MY_NEW_ACTION_FILES&#39;</span><span class="p">,</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">&#39;One or more files to operate on&#39;</span><span class="p">,</span>
   <span class="ss">type</span><span class="p">:</span> <span class="nb">Array</span><span class="p">,</span>
   <span class="ss">optional</span><span class="p">:</span> <span class="kp">false</span>
 <span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">my_new_action</span><span class="p">(</span><span class="ss">files</span><span class="p">:</span> <span class="s2">&quot;file1.txt,file2.txt&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">my_new_action</span><span class="p">(</span><span class="ss">files</span><span class="p">:</span> <span class="s1">&#39;file1.txt,file2.txt&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<p>This is received by the action as <code>["file1.txt", "file2.txt"]</code>.</p>
+<p>This is received by the action as <code>['file1.txt', 'file2.txt']</code>.</p>
 <p>This also means a parameter that accepts an array may take a single string as an
 argument:</p>
-<div class="codehilite"><pre><span></span><span class="n">my_new_action</span><span class="p">(</span><span class="ss">files</span><span class="p">:</span> <span class="s2">&quot;file.txt&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">my_new_action</span><span class="p">(</span><span class="ss">files</span><span class="p">:</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<p>This is received by the action as <code>["file.txt"]</code>.</p>
+<p>This is received by the action as <code>['file.txt']</code>.</p>
 <p>Comma-separated lists are particularly useful when using environment variables:</p>
 <div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">MY_NEW_ACTION_FILES</span><span class="o">=</span>file1.txt,file2.txt
 </pre></div>
@@ -1569,7 +1522,7 @@ The <code>UI.user_error!</code> method is a convenient way to handle verificatio
   <span class="k">when</span> <span class="nb">String</span>
     <span class="vi">@polymorphic_option</span> <span class="o">=</span> <span class="n">value</span>
   <span class="k">when</span> <span class="nb">Array</span>
-    <span class="vi">@polymorphic_option</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="vi">@polymorphic_option</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
   <span class="k">when</span> <span class="no">Hash</span>
     <span class="vi">@polymorphic_option</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">to_s</span>
   <span class="k">else</span>
@@ -1583,7 +1536,7 @@ The <code>UI.user_error!</code> method is a convenient way to handle verificatio
 <p>If your action needs to provide a callback, specify <code>Proc</code> for the <code>type</code> field.</p>
 <div class="codehilite"><pre><span></span><span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
   <span class="ss">key</span><span class="p">:</span> <span class="ss">:callback</span><span class="p">,</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s2">&quot;Optional callback argument&quot;</span><span class="p">,</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">&#39;Optional callback argument&#39;</span><span class="p">,</span>
   <span class="ss">optional</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
   <span class="ss">type</span><span class="p">:</span> <span class="no">Proc</span>
 <span class="p">)</span>
@@ -1605,7 +1558,7 @@ output to an optional <code>error_callback</code>:</p>
   <span class="n">handle_auth_failure</span> <span class="k">if</span> <span class="n">result</span> <span class="o">=~</span> <span class="sr">/login failed/i</span>
 <span class="k">end</span>
 
-<span class="n">sh</span> <span class="s2">&quot;some_cmd&quot;</span><span class="p">,</span> <span class="ss">error_callback</span><span class="p">:</span> <span class="n">callback</span>
+<span class="n">sh</span><span class="p">(</span><span class="s1">&#39;some_cmd&#39;</span><span class="p">,</span> <span class="ss">error_callback</span><span class="p">:</span> <span class="n">callback</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1638,7 +1591,7 @@ argument verification:</p>
 <div class="codehilite"><pre><span></span><span class="n">verify_block</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
   <span class="c1"># Has to be a String to get this far</span>
   <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">error</span> <span class="s2">&quot;Invalid scheme </span><span class="si">#{</span><span class="n">uri</span><span class="o">.</span><span class="n">scheme</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">uri</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;http&quot;</span> <span class="o">||</span> <span class="n">uri</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;https&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Invalid scheme </span><span class="si">#{</span><span class="n">uri</span><span class="o">.</span><span class="n">scheme</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">uri</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s1">&#39;http&#39;</span> <span class="o">||</span> <span class="n">uri</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s1">&#39;https&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
@@ -1671,8 +1624,8 @@ in the <code>ConfigItem</code> for each. Make sure conflicting options are optio
 <p>You can also pass a <code>conflict_block</code> (a <code>Proc</code>, see above) if you want to
 implement special handling of conflicting options:</p>
 <div class="codehilite"><pre><span></span><span class="n">conflict_block</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">other</span><span class="o">|</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span> <span class="s2">&quot;Unexpected conflict with option </span><span class="si">#{</span><span class="n">other</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="o">[</span><span class="ss">:text</span><span class="p">,</span> <span class="ss">:text_file</span><span class="o">].</span><span class="n">include?</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">message</span> <span class="s2">&quot;Ignoring :text_file in favor of :text&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;Unexpected conflict with option </span><span class="si">#{</span><span class="n">other</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">unless</span> <span class="o">[</span><span class="ss">:text</span><span class="p">,</span> <span class="ss">:text_file</span><span class="o">].</span><span class="n">include?</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;Ignoring :text_file in favor of :text&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
@@ -1698,21 +1651,21 @@ is present. Make sure the <code>default_value</code> is reasonable unless it's a
 for the key to be absent.</p>
 <div class="codehilite"><pre><span></span><span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
   <span class="ss">key</span><span class="p">:</span> <span class="ss">:build_configuration</span><span class="p">,</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s2">&quot;Which build configuration to use&quot;</span><span class="p">,</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">&#39;Which build configuration to use&#39;</span><span class="p">,</span>
   <span class="ss">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
   <span class="ss">optional</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
-  <span class="ss">default_value</span><span class="p">:</span> <span class="s2">&quot;Release&quot;</span>
+  <span class="ss">default_value</span><span class="p">:</span> <span class="s1">&#39;Release&#39;</span>
 <span class="p">),</span>
 <span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
   <span class="ss">key</span><span class="p">:</span> <span class="ss">:offset</span><span class="p">,</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s2">&quot;Offset to start from&quot;</span><span class="p">,</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">&#39;Offset to start from&#39;</span><span class="p">,</span>
   <span class="ss">type</span><span class="p">:</span> <span class="nb">Integer</span><span class="p">,</span>
   <span class="ss">optional</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
   <span class="ss">default_value</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">),</span>
 <span class="no">PantographCore</span><span class="o">::</span><span class="no">ConfigItem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
   <span class="ss">key</span><span class="p">:</span> <span class="ss">:workspace</span><span class="p">,</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s2">&quot;Optional workspace path&quot;</span><span class="p">,</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">&#39;Optional workspace path&#39;</span><span class="p">,</span>
   <span class="ss">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
   <span class="ss">optional</span><span class="p">:</span> <span class="kp">true</span>
   <span class="c1"># Not every project has a workspace, so nil is a good default value here.</span>
@@ -1722,18 +1675,18 @@ for the key to be absent.</p>
 
 <p>Within the action <code>params[:build_configuration]</code> will never be nil. Specifying
 the <code>default_value</code> is preferable to something in code like:</p>
-<div class="codehilite"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:build_configuration</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;Release&quot;</span>
+<div class="codehilite"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:build_configuration</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;Release&#39;</span>
 </pre></div>
 
 
 <p>Default values are included in the documentation for action parameters.</p>
 <h3 id="configuration-files">Configuration files</h3>
-<p>Many built-in actions such as <em>deliver</em>, <em>gym</em> and <em>scan</em> support configuration files
-(<code>Deliverfile</code>, <code>Gymfile</code>, <code>Scanfile</code>). This is useful for actions with many options.
+<p>Pantograph also supports configuration files (<code>MyNewActionFile</code>).
+This is useful for actions with many options.
 To add support for a configuration file to a custom action, call <code>load_configuration_file</code>
 early, usually as the first line of <code>run</code>:</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-  <span class="n">params</span><span class="o">.</span><span class="n">load_configuration_file</span><span class="p">(</span><span class="s2">&quot;MyNewActionfile&quot;</span><span class="p">)</span>
+  <span class="n">params</span><span class="o">.</span><span class="n">load_configuration_file</span><span class="p">(</span><span class="s1">&#39;MyNewActionfile&#39;</span><span class="p">)</span>
   <span class="c1"># ...</span>
 </pre></div>
 
@@ -1743,7 +1696,7 @@ the specified file in <code>./pantograph</code>, <code>./.pantograph</code> and 
 file is evaluated by the Ruby interpreter.
 You may specify they <code>key</code> from any <code>PantographCore::ConfigItem</code> as a method call in the
 configuration file:</p>
-<div class="codehilite"><pre><span></span><span class="n">command</span> <span class="s2">&quot;ls -la&quot;</span>
+<div class="codehilite"><pre><span></span><span class="n">command</span> <span class="s1">&#39;ls -la&#39;</span>
 <span class="n">files</span> <span class="sx">%w{file1.txt file2.txt}</span>
 </pre></div>
 
@@ -1760,9 +1713,9 @@ configuration file:</p>
 <p>The <code>PantographCore::UI</code> utility may be used to display output to the user and also
 request input from an action.
 <code>UI</code> includes a number of methods to customize the output for different purposes:</p>
-<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">message</span> <span class="s2">&quot;Hello from my_new_action.&quot;</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">important</span> <span class="s2">&quot;Warning: This is a new action.&quot;</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">error</span> <span class="s2">&quot;Something unexpected happened in my_new_action. Attempting to continue.&quot;</span>
+<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s1">&#39;Hello from my_new_action.&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s1">&#39;Warning: This is a new action.&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Something unexpected happened in my_new_action. Attempting to continue.&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1814,7 +1767,7 @@ request input from an action.
 </table>
 <p>Methods ending in an exclamation point (<code>!</code>) terminate execution of the current
 lane and report an error:</p>
-<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span> <span class="s2">&quot;Could not open file </span><span class="si">#{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="codehilite"><pre><span></span><span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s2">&quot;Could not open file </span><span class="si">#{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1861,10 +1814,10 @@ the lane. This terminates further lane execution, so it is not necessary to retu
 
 <p>The following methods may be used to prompt the user for input.</p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="no">UI</span><span class="o">.</span><span class="n">interactive?</span>
-  <span class="nb">name</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">input</span> <span class="s2">&quot;Please enter your name: &quot;</span>
-  <span class="n">is_correct</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">confirm</span> <span class="s2">&quot;Is this correct? &quot;</span>
-  <span class="n">choice</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">select</span> <span class="s2">&quot;Please choose from the following list:&quot;</span><span class="p">,</span> <span class="sx">%w{alpha beta gamma}</span>
-  <span class="n">password</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">password</span> <span class="s2">&quot;Please enter your password: &quot;</span>
+  <span class="nb">name</span>       <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;Please enter your name: &#39;</span><span class="p">)</span>
+  <span class="n">is_correct</span> <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span><span class="s1">&#39;Is this correct? &#39;</span><span class="p">)</span>
+  <span class="n">choice</span>     <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Please choose from the following list:&#39;</span><span class="p">,</span> <span class="sx">%w{alpha beta gamma}</span><span class="p">)</span>
+  <span class="n">password</span>   <span class="o">=</span> <span class="no">UI</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="s1">&#39;Please enter your password: &#39;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -1907,15 +1860,15 @@ from the command.</p>
 <p>Use the Ruby <code>system</code> method call to invoke a command string. This does not
 redirect stdin, stdout or stderr, so output formatting will be unaffected. It executes
 the command in a subshell.</p>
-<div class="codehilite"><pre><span></span><span class="nb">system</span> <span class="s2">&quot;cat pantograph/Pantfile&quot;</span>
+<div class="codehilite"><pre><span></span><span class="nb">system</span><span class="p">(</span><span class="s1">&#39;cat pantograph/Pantfile&#39;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Upon command completion, the method returns true or false to indicate completion
 status. The <code>$?</code> global variable will also indicate the exit status of the
 command.</p>
-<div class="codehilite"><pre><span></span><span class="nb">system</span> <span class="s2">&quot;cat pantograph/Pantfile&quot;</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span> <span class="s2">&quot;Could not execute command&quot;</span> <span class="k">unless</span> <span class="vg">$?</span><span class="o">.</span><span class="n">exitstatus</span> <span class="o">==</span> <span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="nb">system</span><span class="p">(</span><span class="s1">&#39;cat pantograph/Pantfile&#39;</span><span class="p">)</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">user_error!</span><span class="p">(</span><span class="s1">&#39;Could not execute command&#39;</span><span class="p">)</span> <span class="k">unless</span> <span class="vg">$?</span><span class="o">.</span><span class="n">exitstatus</span> <span class="o">==</span> <span class="mi">0</span>
 </pre></div>
 
 
@@ -1924,7 +1877,7 @@ command.</p>
 <h3 id="using-backticks">Using backticks</h3>
 <p>To capture the output of a command, enclose the command in backticks:</p>
 <div class="codehilite"><pre><span></span><span class="n">pod_cmd</span> <span class="o">=</span> <span class="sb">`which pod`</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">important</span> <span class="s2">&quot;&#39;pod&#39; command not found&quot;</span> <span class="k">if</span> <span class="n">pod_cmd</span><span class="o">.</span><span class="n">empty?</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s1">&#39;&quot;pod&quot; command not found&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">pod_cmd</span><span class="o">.</span><span class="n">empty?</span>
 </pre></div>
 
 
@@ -1936,7 +1889,7 @@ global variable will indicate the completion status of the command.</p>
 <p>If the command to be executed is not found, <code>Errno::ENOENT</code> is raised.</p>
 <h3 id="using-the-sh-method">Using the sh method</h3>
 <p>You can also use the built-in <code>sh</code> method:</p>
-<div class="codehilite"><pre><span></span><span class="n">sh</span> <span class="s2">&quot;pwd&quot;</span>
+<div class="codehilite"><pre><span></span><span class="n">sh</span><span class="p">(</span><span class="s1">&#39;pwd&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1945,11 +1898,11 @@ logging of command output. All output to stdout and stderr is logged via <code>U
 <p>The <code>sh</code> method can accept a block, which will receive the <code>Process::Status</code>
 returned by the command, the complete output of the command, and an equivalent
 shell command upon completion of the command.</p>
-<div class="codehilite"><pre><span></span><span class="n">sh</span> <span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-la&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">status</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
+<div class="codehilite"><pre><span></span><span class="n">sh</span><span class="p">(</span><span class="s2">&quot;ls&#39;, &#39;-la&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">status</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">command</span><span class="o">|</span>
   <span class="k">unless</span> <span class="n">status</span><span class="o">.</span><span class="n">success?</span>
-    <span class="no">UI</span><span class="o">.</span><span class="n">error</span> <span class="s2">&quot;Command </span><span class="si">#{</span><span class="n">command</span><span class="si">}</span><span class="s2"> (pid </span><span class="si">#{</span><span class="n">status</span><span class="o">.</span><span class="n">pid</span><span class="si">}</span><span class="s2">) failed with status </span><span class="si">#{</span><span class="n">status</span><span class="o">.</span><span class="n">exitstatus</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Command </span><span class="si">#{</span><span class="n">command</span><span class="si">}</span><span class="s2"> (pid </span><span class="si">#{</span><span class="n">status</span><span class="o">.</span><span class="n">pid</span><span class="si">}</span><span class="s2">) failed with status </span><span class="si">#{</span><span class="n">status</span><span class="o">.</span><span class="n">exitstatus</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="k">end</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">message</span> <span class="s2">&quot;Output is </span><span class="si">#{</span><span class="n">result</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;Output is </span><span class="si">#{</span><span class="n">result</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -1957,8 +1910,8 @@ shell command upon completion of the command.</p>
 <p>To be notified only when an error occurs, use the <code>error_callback</code> parameter
 (a Proc):</p>
 <div class="codehilite"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">sh</span><span class="p">(</span><span class="s2">&quot;pwd&quot;</span><span class="p">,</span> <span class="ss">error_callback</span><span class="p">:</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="p">{</span> <span class="n">success</span> <span class="o">=</span> <span class="kp">false</span> <span class="p">})</span>
-<span class="no">UI</span><span class="o">.</span><span class="n">user_error</span> <span class="s2">&quot;Command failed&quot;</span> <span class="k">unless</span> <span class="n">success</span>
+<span class="n">sh</span><span class="p">(</span><span class="s1">&#39;pwd&#39;</span><span class="p">,</span> <span class="ss">error_callback</span><span class="p">:</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="p">{</span> <span class="n">success</span> <span class="o">=</span> <span class="kp">false</span> <span class="p">})</span>
+<span class="no">UI</span><span class="o">.</span><span class="n">user_error</span><span class="p">(</span><span class="s2">&quot;Command failed&quot;</span><span class="p">)</span> <span class="k">unless</span> <span class="n">success</span>
 </pre></div>
 
 
@@ -1974,9 +1927,9 @@ as the first argument to a block.</p>
 given. Then the output is available within the block, and the return value of
 <code>sh</code> is the return value of the block. This enables usage like:</p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">sh</span> <span class="n">command</span> <span class="p">{</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="o">.</span><span class="n">success?</span> <span class="p">}</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">success</span> <span class="s2">&quot;Command succeeded&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;Command succeeded&#39;</span><span class="p">)</span>
 <span class="k">else</span>
-  <span class="no">UI</span><span class="o">.</span><span class="n">error</span> <span class="s2">&quot;Command failed&quot;</span>
+  <span class="no">UI</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Command failed&#39;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -1989,14 +1942,14 @@ invoke this method as <code>Actions.sh</code>.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="nb">system</span> <span class="s2">&quot;cat </span><span class="si">#{</span><span class="n">path</span><span class="o">.</span><span class="n">shellescape</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="codehilite"><pre><span></span><span class="nb">system</span><span class="p">(</span><span class="s2">&quot;cat </span><span class="si">#{</span><span class="n">path</span><span class="o">.</span><span class="n">shellescape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>When using <code>system</code> or <code>sh</code>, pass a list of arguments instead of shell-escaping
 individual arguments.</p>
-<div class="codehilite"><pre><span></span><span class="n">sh</span> <span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;commit&quot;</span><span class="p">,</span> <span class="s2">&quot;-aqm&quot;</span><span class="p">,</span> <span class="n">commit_message</span>
-<span class="nb">system</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">path</span>
+<div class="codehilite"><pre><span></span><span class="n">sh</span><span class="p">(</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-aqm&#39;</span><span class="p">,</span> <span class="n">commit_message</span><span class="p">)</span>
+<span class="nb">system</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
 </pre></div>
 
 

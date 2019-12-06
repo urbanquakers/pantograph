@@ -1115,54 +1115,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/circle-ci/" title="CircleCI Integration" class="md-nav__link">
-      CircleCI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/travis/" title="Travis Integration" class="md-nav__link">
-      Travis Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/bamboo/" title="Bamboo Integration" class="md-nav__link">
-      Bamboo Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../best-practices/continuous-integration/gitlab/" title="GitLab CI Integration" class="md-nav__link">
-      GitLab CI Integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../best-practices/continuous-integration/azure-devops/" title="Azure DevOps Integration" class="md-nav__link">
       Azure DevOps Integration
     </a>
@@ -1632,13 +1584,13 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/github_api/">github_api</a></td>
-<td>Call a GitHub API endpoint and get the resulting JSON response</td>
+<td><a href="/actions/git_submodule_update/">git_submodule_update</a></td>
+<td>Executes a git submodule command</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/git_submodule_update/">git_submodule_update</a></td>
-<td>Executes a git submodule command</td>
+<td><a href="/actions/github_api/">github_api</a></td>
+<td>Call a GitHub API endpoint and get the resulting JSON response</td>
 <td>ios, android, mac</td>
 </tr>
 </tbody>
@@ -1796,16 +1748,6 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
-<td>Raises an exception if the specified env vars are not set</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
-<td><a href="/actions/min_pantograph_version/">min_pantograph_version</a></td>
-<td>Verifies the minimum pantograph version required</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
 <td><a href="/actions/sh/">sh</a></td>
 <td>Runs a shell command</td>
 <td>ios, android, mac</td>
@@ -1816,8 +1758,8 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
-<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
+<td><a href="/actions/println/">println</a></td>
+<td>Alias for the <code>puts</code> action</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
@@ -1826,8 +1768,8 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/println/">println</a></td>
-<td>Alias for the <code>puts</code> action</td>
+<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
+<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
@@ -1836,8 +1778,18 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
+<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
+<td>Raises an exception if the specified env vars are not set</td>
+<td>ios, android, mac</td>
+</tr>
+<tr>
 <td><a href="/actions/echo/">echo</a></td>
 <td>Alias for the <code>puts</code> action</td>
+<td>ios, android, mac</td>
+</tr>
+<tr>
+<td><a href="/actions/min_pantograph_version/">min_pantograph_version</a></td>
+<td>Verifies the minimum pantograph version required</td>
 <td>ios, android, mac</td>
 </tr>
 </tbody>
