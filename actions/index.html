@@ -1377,27 +1377,32 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <p class="pantograph-setup-header">1) Install the latest Xcode command line tools</p>
 
 
-<div class="codehilite"><pre><span></span><span class="err">xcode-select --install</span>
+<div class="codehilite"><pre><span></span>xcode-select --install
 </pre></div>
 
 
 
-<p class="pantograph-setup-header">2) Install <i>pantograph</i></p>
+Install _pantograph_ using Homebrew & Rubygems
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># Using RubyGems</span>
-sudo gem install pantograph -NV
+<div class="codehilite"><pre><span></span><span class="c1"># Install ruby via homebrew (macOS &amp; linux only)</span>
+brew install ruby
 
-<span class="c1"># Alternatively using Homebrew</span>
-brew cask install pantograph
+<span class="c1"># Set ruby in your shell path (example uses Zsh)</span>
+<span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;/usr/local/opt/ruby/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.zshrc
+
+<span class="c1"># Using RubyGems</span>
+gem install pantograph
 </pre></div>
 
 
 
+<!-- # Alternatively using Homebrew
+brew cask install pantograph -->
 <p class="pantograph-setup-header">3) Navigate to your project and run</p>
 
 
-<div class="codehilite"><pre><span></span><span class="err">pantograph init</span>
+<div class="codehilite"><pre><span></span>pantograph init
 </pre></div>
 
 
@@ -1627,13 +1632,13 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/git_submodule_update/">git_submodule_update</a></td>
-<td>Executes a git submodule command</td>
+<td><a href="/actions/github_api/">github_api</a></td>
+<td>Call a GitHub API endpoint and get the resulting JSON response</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/github_api/">github_api</a></td>
-<td>Call a GitHub API endpoint and get the resulting JSON response</td>
+<td><a href="/actions/git_submodule_update/">git_submodule_update</a></td>
+<td>Executes a git submodule command</td>
 <td>ios, android, mac</td>
 </tr>
 </tbody>
@@ -1791,8 +1796,13 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
-<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
+<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
+<td>Raises an exception if the specified env vars are not set</td>
+<td>ios, android, mac</td>
+</tr>
+<tr>
+<td><a href="/actions/min_pantograph_version/">min_pantograph_version</a></td>
+<td>Verifies the minimum pantograph version required</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
@@ -1801,28 +1811,18 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
-<td>Raises an exception if the specified env vars are not set</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
 <td><a href="/actions/opt_out_usage/">opt_out_usage</a></td>
 <td>This will stop uploading the information which actions were run</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
-<td><a href="/actions/echo/">echo</a></td>
-<td>Alias for the <code>puts</code> action</td>
+<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
+<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
 <td><a href="/actions/ruby_version/">ruby_version</a></td>
 <td>Verifies the minimum ruby version required</td>
-<td>ios, android, mac</td>
-</tr>
-<tr>
-<td><a href="/actions/min_pantograph_version/">min_pantograph_version</a></td>
-<td>Verifies the minimum pantograph version required</td>
 <td>ios, android, mac</td>
 </tr>
 <tr>
@@ -1833,6 +1833,11 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <tr>
 <td><a href="/actions/plugin_scores/">plugin_scores</a></td>
 <td>[31mNo description provided[0m</td>
+<td>ios, android, mac</td>
+</tr>
+<tr>
+<td><a href="/actions/echo/">echo</a></td>
+<td>Alias for the <code>puts</code> action</td>
 <td>ios, android, mac</td>
 </tr>
 </tbody>

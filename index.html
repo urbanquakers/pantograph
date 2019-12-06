@@ -1576,26 +1576,37 @@
 </table>
 <h2 id="getting-started">Getting Started</h2>
 <p>Install the latest Xcode command line tools:</p>
-<div class="codehilite"><pre><span></span><span class="err">xcode-select --install</span>
+<div class="codehilite"><pre><span></span>xcode-select --install
 </pre></div>
 
 
 <p>Install <em>pantograph</em> using</p>
-<div class="codehilite"><pre><span></span><span class="c1"># Using RubyGems</span>
-sudo gem install pantograph -NV
+<div class="codehilite"><pre><span></span><span class="c1"># Install ruby via homebrew (macOS &amp; linux only)</span>
+brew install ruby
 
-<span class="c1"># Alternatively using Homebrew</span>
-brew cask install pantograph
+<span class="c1"># Set ruby in your shell path (example uses Zsh)</span>
+<span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;/usr/local/opt/ruby/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.zshrc
+
+<span class="c1"># Using RubyGems</span>
+gem install pantograph
 </pre></div>
 
 
-<p>Navigate to your project and run</p>
+<!-- # Alternatively using Homebrew
+brew cask install pantograph --
+
+Navigate to your project and run
+
+
 <div class="codehilite"><pre><span></span>pantograph init
 </pre></div>
 
 
-<p><em>pantograph</em> will automatically detect your project, and ask for any missing information.</p>
-<p>For more details about how to get up and running, check out the getting started guides:</p>
+
+_pantograph_ will automatically detect your project, and ask for any missing information.
+
+For more details about how to get up and running, check out the getting started guides:
+
 <!--
 - [pantograph Getting Started guide for iOS](getting-started/ios/setup.md)
 - [pantograph Getting Started guide for Android](getting-started/android/setup.md)
