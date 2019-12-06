@@ -105,8 +105,8 @@ Action | Description | Supported Platforms
 <a href="/actions/set_github_release/">set_github_release</a> | This will create a new release on GitHub and upload assets for it | ios, android, mac
 <a href="/actions/create_pull_request/">create_pull_request</a> | This will create a new pull request on GitHub | ios, android, mac
 <a href="/actions/get_github_release/">get_github_release</a> | This will verify if a given release version is available on GitHub | ios, android, mac
-<a href="/actions/github_api/">github_api</a> | Call a GitHub API endpoint and get the resulting JSON response | ios, android, mac
 <a href="/actions/git_submodule_update/">git_submodule_update</a> | Executes a git submodule command | ios, android, mac
+<a href="/actions/github_api/">github_api</a> | Call a GitHub API endpoint and get the resulting JSON response | ios, android, mac
 
 
 
@@ -150,14 +150,14 @@ Action | Description | Supported Platforms
 <a href="/actions/ssh/">ssh</a> | Allows remote command execution using ssh | ios, android, mac
 <a href="/actions/add_extra_platforms/">add_extra_platforms</a> | Modify the default list of supported platforms | ios, android, mac
 <a href="/actions/clipboard/">clipboard</a> | Copies a given string into the clipboard. Works only on macOS | ios, android, mac
-<a href="/actions/min_pantograph_version/">min_pantograph_version</a> | Verifies the minimum pantograph version required | ios, android, mac
-<a href="/actions/plugin_scores/">plugin_scores</a> | [31mNo description provided[0m | ios, android, mac
-<a href="/actions/echo/">echo</a> | Alias for the `puts` action | ios, android, mac
+<a href="/actions/opt_out_usage/">opt_out_usage</a> | This will stop uploading the information which actions were run | ios, android, mac
 <a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a> | Raises an exception if not using `bundle exec` to run pantograph | ios, android, mac
 <a href="/actions/println/">println</a> | Alias for the `puts` action | ios, android, mac
-<a href="/actions/opt_out_usage/">opt_out_usage</a> | This will stop uploading the information which actions were run | ios, android, mac
-<a href="/actions/ensure_env_vars/">ensure_env_vars</a> | Raises an exception if the specified env vars are not set | ios, android, mac
 <a href="/actions/ruby_version/">ruby_version</a> | Verifies the minimum ruby version required | ios, android, mac
+<a href="/actions/echo/">echo</a> | Alias for the `puts` action | ios, android, mac
+<a href="/actions/ensure_env_vars/">ensure_env_vars</a> | Raises an exception if the specified env vars are not set | ios, android, mac
+<a href="/actions/plugin_scores/">plugin_scores</a> | [31mNo description provided[0m | ios, android, mac
+<a href="/actions/min_pantograph_version/">min_pantograph_version</a> | Verifies the minimum pantograph version required | ios, android, mac
 <a href="/actions/sh/">sh</a> | Runs a shell command | ios, android, mac
 
 
