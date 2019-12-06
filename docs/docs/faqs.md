@@ -26,7 +26,9 @@ If you experience slow launch times of _pantograph_, there are 2 solutions to so
 
 ### Error when running _pantograph_ with Jenkins
 
-This is usually caused when running Jenkins as its own user. While this is possible, you'll have to take care of creating a temporary Keychain, filling it and then using it when building your application. 
+This is usually caused when running Jenkins as its own user.
+While this is possible, you'll have to take care of creating a temporary Keychain,
+filling it and then using it when building your application. 
 
 For more information about the recommended setup with Jenkins open the [Jenkins Guide](/best-practices/continuous-integration/#jenkins-integration).
 
@@ -36,8 +38,9 @@ If you have one code base, but multiple branded applications
 
 Create different `.env` files for each environment
 
-Example: Create a `.env.app1`, `.env.app2`, and `.env.app3`. Define each of these like the following...
-```no-highlight
+Example: Create a `.env.app1`, `.env.app2`, and `.env.app3`. Define each of these like the following:
+
+```shell
 DLV_FIRST_NAME=Josh
 DLV_LAST_NAME=Holtz
 DLV_PRIM_CATG=Business
@@ -45,16 +48,19 @@ DLV_SCND_CATG=Games
 ```
 
 Now your Pantfile file should look something like this:
+
 ```ruby
 lane :build do 
-  puts [
+  puts([
     first_name: ENV['DLV_FIRST_NAME'],
     last_name: ENV['DLV_LAST_NAME']
-  ]
+  ])
 
 ```
 
-Now to run this, all you need to do is specify the environment argument when running _pantograph_ and it will pull from the `.env` file that matches the same name...
+Now to run this, all you need to do is specify the environment argument when running _pantograph_ and it
+will pull from the `.env` file that matches the same name:
+
 Ex: `pantograph build --env app1` will use `.env.app1`
 Ex: `pantograph build --env app2` will use `.env.app2`
 
@@ -63,10 +69,10 @@ You can also references these environment variables almost anywhere in _pantogra
 You can even define a lane to perform actions on multiple targets:
 
 ```ruby
-desc "Deploy both versions"
+desc 'Deploy both versions'
 lane :deploy_all do
-    sh "pantograph deploy --env paid"
-    sh "pantograph deploy --env free"
+    sh('pantograph deploy --env paid')
+    sh('pantograph deploy --env free')
 end
 ```
 
@@ -99,4 +105,5 @@ This error can occur when you run _pantograph_ via SSH. To fix it check out [thi
 
 ### Some pantograph commands hang indefinitely or produce strange errors and symbols 
 
-Make sure your `LC_ALL` and `LANG` variables are set up correctly. _pantograph_ requires an UTF-8 environment, so setting those variables to `en_US.UTF-8` should fix your issues.
+Make sure your `LC_ALL` and `LANG` variables are set up correctly. _pantograph_ requires an UTF-8 environment,
+so setting those variables to `en_US.UTF-8` should fix your issues.

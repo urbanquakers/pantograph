@@ -8,12 +8,12 @@ This dialog will allow you to enter a regular expression that if a commit matche
 
 For example, if your `Pantfile` is configured to make a commit message in the style of
 
-```no-highlight
+```shell
 Build Version bump by pantograph to Version [0.3] Build [8]
 ```
 Then you could use the following regex to ignore these commits
 
-```no-highlight
+```shell
 ^.*Build Version bump by pantograph.*$
 ```
 

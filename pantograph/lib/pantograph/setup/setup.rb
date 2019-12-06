@@ -18,16 +18,13 @@ module Pantograph
     # The current content of the generated Pantfile
     attr_accessor :pantfile_content
 
-    # For iOS projects that's the Apple ID email
-    attr_accessor :user
-
     # This is the lane that we tell the user to run to try the new pantograph setup
     # This needs to be setup by each setup
     attr_accessor :lane_to_mention
 
     # Start the setup process
 
-    def self.start(user: nil)
+    def self.start
       if PantographCore::PantographFolder.setup? && !Helper.test?
         require 'pantograph/lane_list'
         Pantograph::LaneList.output(PantographCore::PantographFolder.pantfile_path)
@@ -74,8 +71,7 @@ module Pantograph
       end
     end
 
-    def initialize(user: nil, project_path: nil, had_multiple_projects_to_choose_from: nil, preferred_setup_method: nil)
-      self.user = user
+    def initialize(project_path: nil, had_multiple_projects_to_choose_from: nil, preferred_setup_method: nil)
       self.project_path = project_path
       self.had_multiple_projects_to_choose_from = had_multiple_projects_to_choose_from
       self.preferred_setup_method = preferred_setup_method

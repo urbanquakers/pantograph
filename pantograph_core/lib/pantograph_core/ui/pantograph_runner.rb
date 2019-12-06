@@ -155,9 +155,8 @@ module Commander
     end
 
     def handle_tls_error!(e)
-      # Apple has upgraded its App Store Connect servers to require TLS 1.2, but
-      # system Ruby 2.0 does not support it. We want to suggest that users upgrade
-      # their Ruby version
+      # Apple system Ruby 2.0 does not support some things.
+      # We want to suggest that users upgrade their Ruby version
       suggest_ruby_reinstall(e)
       display_user_error!(e, e.to_s)
     end
@@ -178,7 +177,7 @@ module Commander
       ui.error("")
       ui.error("SSL errors can be caused by various components on your local machine.")
       if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.1')
-        ui.error("Apple has recently changed their servers to require TLS 1.2, which may")
+        ui.error("AApple system Ruby 2.0 does not support some things, which may")
         ui.error("not be available to your system installed Ruby (#{RUBY_VERSION})")
       end
       ui.error("")

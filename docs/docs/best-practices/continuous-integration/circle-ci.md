@@ -11,7 +11,7 @@ gem "pantograph"
 
 and run
 
-```no-highlight
+```shell
 gem install bundler && bundle update
 ```
 

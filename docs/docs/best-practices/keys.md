@@ -5,8 +5,8 @@ This guide will show you the best ways to store and use your keys and sensitive 
 # In your Pantfile
 
 ```ruby
-lane :beta do
-  crashlytics(api_token: "123abc", build_secret: "secret_key")
+lane :notify do
+  slack(slack_url: 'https://hooks.slack.com/services/T03NA19Q5/...')
 end
 ```
 
@@ -14,11 +14,10 @@ or if you want to only define the keys once and use it multiple times
 
 
 ```ruby
-ENV["CRASHLYTICS_API_TOKEN"] = "123abc"
-ENV["CRASHLYTICS_BUILD_SECRET"] = "secret_key"
+ENV['SLACK_URL'] = 'https://hooks.slack.com/services/T03NA19Q5/...'
 
-lane :beta do
-  crashlytics
+lane :notify do
+  slack
 end
 ```
 
@@ -35,9 +34,8 @@ To not store your keys in `git`, you can pass all parameters of all actions usin
 
 You can edit your `~/.bash_profile` to include something like
 
-```sh
-export SLACK_URL="https://hooks.slack.com/services/T03NA19Q5/..."
-export CRASHLYTICS_API_TOKEN="123abc"
+```shell
+export SLACK_URL='https://hooks.slack.com/services/T03NA19Q5/...'
 ```
 
 If you use a different shell (e.g. `zshell`) you'll need to edit `~/.zshrc` instead.
@@ -58,19 +56,19 @@ To get the name of the available environment variables, run `pantograph action [
 
 You can store a default configuration in `.env.default` which will be loaded by _pantograph_ automatically.
 
-```sh
+```shell
 SLACK_URL="https://hooks.slack.com/services/T03NA19Q5/..."
-CRASHLYTICS_API_TOKEN="123abc"
 ```
 
 You might want different configurations depending on your environment.
 
-```no-highlight
-pantograph beta --env development
+```shell
+pantograph notify --env development
 ```
 
 and store the configuration in `.env.development` with all keys for the development environment.
 
-Install `[sudo] gem install dotenv` or add `dotenv` to your `Gemfile`. More information about the [recommended way to install gems](https://johnknapprs.github.io/pantograph/getting-started/ios/setup/#use-a-gemfile).
+Install `gem install dotenv` or add `dotenv` to your `Gemfile`.
+More information about the [recommended way to install gems](https://johnknapprs.github.io/pantograph/getting-started/ios/setup/#use-a-gemfile).
 
 To get the name of the available environment variables, run `pantograph action [action_name]`.

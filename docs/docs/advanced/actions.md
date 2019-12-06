@@ -7,52 +7,53 @@
 Instead of using `puts`, `raise` and `gets`, please use the helper class `UI` across all pantograph tools:
 
 ```ruby
-UI.message "Neutral message (usually white)"
-UI.success "Successfully finished processing (usually green)"
-UI.error "Wahaha, what's going on here! (usually red)"
-UI.important "Make sure to use Windows (usually yellow)"
+UI.message('Neutral message (usually white)')
+UI.success('Successfully finished processing (usually green)')
+UI.error('Wahaha, what is going on here! (usually red)')
+UI.important('Make sure to use Windows (usually yellow)')
 
-UI.header "Inputs" # a big box
+UI.header('Inputs') # a big box
 
-name = UI.input("What's your name? ")
+name = UI.input('What is your name? ')
+
 if UI.confirm("Are you '#{name}'?")
-  UI.success "Oh yeah"
+  UI.success('Oh yeah')
 else
-  UI.error "Wups, invalid"
+  UI.error('Wups, invalid')
 end
 
-UI.password("Your password please: ") # password inputs are hidden
+UI.password('Your password please: ') # password inputs are hidden
 
 ###### A "Dropdown" for the user
-project = UI.select("Select your project: ", ["Test Project", "Test Workspace"])
+project = UI.select('Select your project: ', ['Test Project', 'Test Workspace'])
 
 UI.success("Okay #{name}, you selected '#{project}'")
 
 ###### To run a command use
-PantographCore::CommandExecutor.execute(command: "ls",
-                                    print_all: true,
+PantographCore::CommandExecutor.execute(command: 'ls',
+                                        print_all: true,
                                         error: proc do |error_output|
                                           # handle error here
                                         end)
 
 ###### or if you just want to receive a simple value use this only if the command doesn't take long
-diff = Helper.backticks("git diff")
+diff = Helper.backticks('git diff')
 
 ###### pantograph "crash" because of a user error everything that is caused by the user and is not unexpected
-UI.user_error!("You don't have a project in the current directory")
+UI.user_error!("You don not have a project in the current directory")
 
 ###### an actual crash when something unexpected happened
-UI.crash!("Network timeout")
+UI.crash!('Network timeout')
 
 ###### a deprecation message
-UI.deprecated("The '--key' parameter is deprecated")
+UI.deprecated('The "--key" parameter is deprecated')
 ```
 
 # Run actions directly
 
 If you just want to try an action without adding them to your `Pantfile` yet, you can use
 
-```no-highlight
+```shell
 pantograph run notification message:"My Text" title:"The Title"
 ```
 
@@ -62,7 +63,7 @@ To get the available options for any action run `pantograph action [action_name]
 
 You can get value from shell commands:
 ```ruby
-output = sh("pod update")
+output = sh('ls -a')
 ```
 
 # Building Actions
@@ -77,8 +78,8 @@ objects to describe supported options. Each option is declared by creating a new
 ```ruby
 PantographCore::ConfigItem.new(
   key: :file,
-  env_name: "MY_NEW_ACTION_FILE",
-  description: "A file to operate on",
+  env_name: 'MY_NEW_ACTION_FILE',
+  description: 'A file to operate on',
   type: String,
   optional: false
 )
@@ -87,13 +88,13 @@ PantographCore::ConfigItem.new(
 This declares a `file` option for use with the action in a Pantfile, e.g.:
 
 ```ruby
-my_new_action(file: "file.txt")
+my_new_action(file: 'file.txt')
 ```
 
 If the optional `env_name` is present, an environment variable with the specified
 name may also be used in place of an option in the Pantfile:
 
-```bash
+```shell
 MY_NEW_ACTION_FILE=file.txt pantograph run my_new_action
 ```
 
@@ -110,8 +111,8 @@ Boolean parameters, use `is_string: false`, without specifying a `type`, e.g.:
 ```ruby
 PantographCore::ConfigItem.new(
   key: :commit,
-  env_name: "MY_NEW_ACTION_COMMIT",
-  description: "Commit the results if true",
+  env_name: 'MY_NEW_ACTION_COMMIT',
+  description: 'Commit the results if true',
   optional: true,
   default_value: false,
   is_string: false
@@ -121,7 +122,7 @@ PantographCore::ConfigItem.new(
 When passing a string value, e.g. from an environment variable, certain set
 string values are recognized:
 
-```bash
+```shell
 MY_NEW_ACTION_COMMIT=true
 MY_NEW_ACTION_COMMIT=false
 MY_NEW_ACTION_COMMIT=yes
@@ -139,31 +140,31 @@ as a delimiter:
 ```ruby
 PantographCore::ConfigItem.new(
   key: :files,
-  env_name: "MY_NEW_ACTION_FILES",
-  description: "One or more files to operate on",
+  env_name: 'MY_NEW_ACTION_FILES',
+  description: 'One or more files to operate on',
   type: Array,
   optional: false
 )
 ```
 
 ```ruby
-my_new_action(files: "file1.txt,file2.txt")
+my_new_action(files: 'file1.txt,file2.txt')
 ```
 
-This is received by the action as `["file1.txt", "file2.txt"]`.
+This is received by the action as `['file1.txt', 'file2.txt']`.
 
 This also means a parameter that accepts an array may take a single string as an
 argument:
 
 ```ruby
-my_new_action(files: "file.txt")
+my_new_action(files: 'file.txt')
 ```
 
-This is received by the action as `["file.txt"]`.
+This is received by the action as `['file.txt']`.
 
 Comma-separated lists are particularly useful when using environment variables:
 
-```bash
+```shell
 export MY_NEW_ACTION_FILES=file1.txt,file2.txt
 ```
 
@@ -175,7 +176,7 @@ an optional `verify_block` argument (see below) or verify the argument within
 your action. If the block does not raise, the option is considered verified.
 The `UI.user_error!` method is a convenient way to handle verification failure.
 
-```Ruby
+```ruby
 PantographCore::ConfigItem.new(
   key: :polymorphic_option,
   is_string: false,
@@ -187,7 +188,7 @@ def verify_option(value)
   when String
     @polymorphic_option = value
   when Array
-    @polymorphic_option = value.join(" ")
+    @polymorphic_option = value.join(' ')
   when Hash
     @polymorphic_option = value.to_s
   else
@@ -200,10 +201,10 @@ end
 
 If your action needs to provide a callback, specify `Proc` for the `type` field.
 
-```Ruby
+```ruby
 PantographCore::ConfigItem.new(
   key: :callback,
-  description: "Optional callback argument",
+  description: 'Optional callback argument',
   optional: true,
   type: Proc
 )
@@ -212,7 +213,7 @@ PantographCore::ConfigItem.new(
 To invoke the callback in your action, use the `Proc#call` method and pass
 any arguments:
 
-```Ruby
+```ruby
 params[:callback].call(result) if params[:callback]
 ```
 
@@ -221,13 +222,13 @@ value such as `true` or `false` from your action. Use a callback for contextual
 error handling. For example, the built-in `sh` action passes the entire command
 output to an optional `error_callback`:
 
-```Ruby
+```ruby
 callback = lambda do |result|
   handle_missing_file if result =~ /file not found/i
   handle_auth_failure if result =~ /login failed/i
 end
 
-sh "some_cmd", error_callback: callback
+sh('some_cmd', error_callback: callback)
 ```
 
 ### Note on Procs
@@ -236,21 +237,21 @@ When passing a block as a parameter to an action or ConfigItem, use
 a Proc object. There are three ways to create an instance of Proc in Ruby.
 
 Using the `lambda` operator:
-```Ruby
+```ruby
 verify_block = lambda do |value|
   ...
 end
 ```
 
 Using `Proc.new`:
-```Ruby
+```ruby
 verify_block = Proc.new do |value|
   ...
 end
 ```
 
 Using the `Proc` literal notation:
-```Ruby
+```ruby
 verify_block = ->(value) { ... }
 ```
 
@@ -261,11 +262,11 @@ Note that you cannot pass a block literal as a `Proc`.
 Use a `verify_block` argument with your `ConfigItem` to provide special
 argument verification:
 
-```Ruby
+```ruby
 verify_block = lambda do |value|
   # Has to be a String to get this far
   uri = URI(value)
-  UI.error "Invalid scheme #{uri.scheme}" unless uri.scheme == "http" || uri.scheme == "https"
+  UI.error("Invalid scheme #{uri.scheme}" unless uri.scheme == 'http' || uri.scheme == 'https')
 end
 
 PantographCore::ConfigItem.new(
@@ -282,7 +283,7 @@ The `verify_block` requires a `Proc` argument (see above).
 If your action includes multiple conflicting options, use `conflicting_options`
 in the `ConfigItem` for each. Make sure conflicting options are optional.
 
-```Ruby
+```ruby
 PantographCore::ConfigItem.new(
   key: :text,
   type: String,
@@ -300,10 +301,10 @@ PantographCore::ConfigItem.new(
 You can also pass a `conflict_block` (a `Proc`, see above) if you want to
 implement special handling of conflicting options:
 
-```Ruby
+```ruby
 conflict_block = Proc.new do |other|
-  UI.user_error! "Unexpected conflict with option #{other}" unless [:text, :text_file].include?(other)
-  UI.message "Ignoring :text_file in favor of :text"
+  UI.user_error!("Unexpected conflict with option #{other}") unless [:text, :text_file].include?(other)
+  UI.message('Ignoring :text_file in favor of :text')
 end
 
 PantographCore::ConfigItem.new(
@@ -328,24 +329,24 @@ Parameters with `optional: true` will be `nil` unless a `default_value` field
 is present. Make sure the `default_value` is reasonable unless it's acceptable
 for the key to be absent.
 
-```Ruby
+```ruby
 PantographCore::ConfigItem.new(
   key: :build_configuration,
-  description: "Which build configuration to use",
+  description: 'Which build configuration to use',
   type: String,
   optional: true,
-  default_value: "Release"
+  default_value: 'Release'
 ),
 PantographCore::ConfigItem.new(
   key: :offset,
-  description: "Offset to start from",
+  description: 'Offset to start from',
   type: Integer,
   optional: true,
   default_value: 0
 ),
 PantographCore::ConfigItem.new(
   key: :workspace,
-  description: "Optional workspace path",
+  description: 'Optional workspace path',
   type: String,
   optional: true
   # Not every project has a workspace, so nil is a good default value here.
@@ -355,22 +356,22 @@ PantographCore::ConfigItem.new(
 Within the action `params[:build_configuration]` will never be nil. Specifying
 the `default_value` is preferable to something in code like:
 
-```Ruby
-config = params[:build_configuration] || "Release"
+```ruby
+config = params[:build_configuration] || 'Release'
 ```
 
 Default values are included in the documentation for action parameters.
 
 ### Configuration files
 
-Many built-in actions such as _deliver_, _gym_ and _scan_ support configuration files
-(`Deliverfile`, `Gymfile`, `Scanfile`). This is useful for actions with many options.
+Pantograph also supports configuration files (`MyNewActionFile`).
+This is useful for actions with many options.
 To add support for a configuration file to a custom action, call `load_configuration_file`
 early, usually as the first line of `run`:
 
 ```ruby
 def self.run(params)
-  params.load_configuration_file("MyNewActionfile")
+  params.load_configuration_file('MyNewActionfile')
   # ...
 ```
 
@@ -381,7 +382,7 @@ You may specify they `key` from any `PantographCore::ConfigItem` as a method cal
 configuration file:
 
 ```ruby
-command "ls -la"
+command 'ls -la'
 files %w{file1.txt file2.txt}
 ```
 
@@ -401,9 +402,9 @@ request input from an action.
 `UI` includes a number of methods to customize the output for different purposes:
 
 ```ruby
-UI.message "Hello from my_new_action."
-UI.important "Warning: This is a new action."
-UI.error "Something unexpected happened in my_new_action. Attempting to continue."
+UI.message('Hello from my_new_action.')
+UI.important('Warning: This is a new action.')
+UI.error('Something unexpected happened in my_new_action. Attempting to continue.')
 ```
 
 |method|description|
@@ -422,7 +423,7 @@ Methods ending in an exclamation point (`!`) terminate execution of the current
 lane and report an error:
 
 ```ruby
-UI.user_error! "Could not open file #{file_path}"
+UI.user_error!("Could not open file #{file_path}")
 ```
 
 |method|description|
@@ -446,10 +447,10 @@ The following methods may be used to prompt the user for input.
 
 ```ruby
 if UI.interactive?
-  name = UI.input "Please enter your name: "
-  is_correct = UI.confirm "Is this correct? "
-  choice = UI.select "Please choose from the following list:", %w{alpha beta gamma}
-  password = UI.password "Please enter your password: "
+  name       = UI.input('Please enter your name: ')
+  is_correct = UI.confirm('Is this correct? ')
+  choice     = UI.select('Please choose from the following list:', %w{alpha beta gamma})
+  password   = UI.password('Please enter your password: ')
 end
 ```
 
@@ -474,7 +475,7 @@ redirect stdin, stdout or stderr, so output formatting will be unaffected. It ex
 the command in a subshell.
 
 ```ruby
-system "cat pantograph/Pantfile"
+system('cat pantograph/Pantfile')
 ```
 
 Upon command completion, the method returns true or false to indicate completion
@@ -482,8 +483,8 @@ status. The `$?` global variable will also indicate the exit status of the
 command.
 
 ```ruby
-system "cat pantograph/Pantfile"
-UI.user_error! "Could not execute command" unless $?.exitstatus == 0
+system('cat pantograph/Pantfile')
+UI.user_error!('Could not execute command') unless $?.exitstatus == 0
 ```
 
 If the command to be executed is not found, system will return `nil`, and
@@ -495,7 +496,7 @@ To capture the output of a command, enclose the command in backticks:
 
 ```ruby
 pod_cmd = `which pod`
-UI.important "'pod' command not found" if pod_cmd.empty?
+UI.important('"pod" command not found') if pod_cmd.empty?
 ```
 
 Because you are capturing stdout, the command output will not appear at
@@ -511,7 +512,7 @@ If the command to be executed is not found, `Errno::ENOENT` is raised.
 You can also use the built-in `sh` method:
 
 ```ruby
-sh "pwd"
+sh('pwd')
 ```
 
 This is called the same way in an action as in a Pantfile. This provides consistent
@@ -522,11 +523,11 @@ returned by the command, the complete output of the command, and an equivalent
 shell command upon completion of the command.
 
 ```ruby
-sh "ls", "-la" do |status, result, command|
+sh("ls', '-la") do |status, result, command|
   unless status.success?
-    UI.error "Command #{command} (pid #{status.pid}) failed with status #{status.exitstatus}"
+    UI.error("Command #{command} (pid #{status.pid}) failed with status #{status.exitstatus}")
   end
-  UI.message "Output is #{result.inspect}"
+  UI.message("Output is #{result.inspect}")
 end
 ```
 
@@ -535,8 +536,8 @@ To be notified only when an error occurs, use the `error_callback` parameter
 
 ```ruby
 success = true
-sh("pwd", error_callback: ->(result) { success = false })
-UI.user_error "Command failed" unless success
+sh('pwd', error_callback: ->(result) { success = false })
+UI.user_error("Command failed") unless success
 ```
 
 The `result` argument to the `error_callback` is the entire string output
@@ -556,9 +557,9 @@ given. Then the output is available within the block, and the return value of
 
 ```ruby
 if sh command { |s| s.success? }
-  UI.success "Command succeeded"
+  UI.success('Command succeeded')
 else
-  UI.error "Command failed"
+  UI.error('Command failed')
 end
 ```
 
@@ -569,20 +570,20 @@ invoke this method as `Actions.sh`.
 
 Use `shellwords` to escape arguments to shell commands.
 
-```Ruby
+```ruby
 `git commit -aqm #{Shellwords.escape commit_message}`
 ```
 
-```Ruby
-system "cat #{path.shellescape}"
+```ruby
+system("cat #{path.shellescape}")
 ```
 
 When using `system` or `sh`, pass a list of arguments instead of shell-escaping
 individual arguments.
 
-```Ruby
-sh "git", "commit", "-aqm", commit_message
-system "cat", path
+```ruby
+sh('git', 'commit', '-aqm', commit_message)
+system('cat', path)
 ```
 
 ## Calling other actions

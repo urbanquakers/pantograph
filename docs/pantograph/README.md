@@ -4,29 +4,38 @@ pantograph documentation
 
 Make sure you have the latest version of the Xcode command line tools installed:
 
-```
+```shell
 xcode-select --install
 ```
 
 Install _pantograph_ using
+
+```shell
+# Intall ruby with Homebrew
+brew install ruby
+
+# Set ruby in your shell PATH
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Install Pantograph from Rubygems
+gem install pantograph
 ```
-[sudo] gem install pantograph -NV
-```
-or alternatively using `brew cask install pantograph`
+
+<!-- or alternatively using `brew cask install pantograph` -->
 
 # Available Actions
 ### test
-```
+```shell
 pantograph test
 ```
 
 ### post_slack_deploy_message
-```
+```shell
 pantograph post_slack_deploy_message
 ```
 
 ### update_available_plugins
-```
+```shell
 pantograph update_available_plugins
 ```
 
