@@ -119,7 +119,7 @@ describe PantographCore do
         it "sets the data type correctly if `is_string` is set but the type is specified" do
           config_item = PantographCore::ConfigItem.new(key: :foo,
                                                      description: 'foo',
-                                                     is_string: true,
+                                                     type: String,
                                                      type: Array)
 
           expect(config_item.data_type).to eq(Array)
@@ -128,7 +128,7 @@ describe PantographCore do
         it "sets the data type correctly if `is_string` is set but the type is not specified" do
           config_item = PantographCore::ConfigItem.new(key: :foo,
                                                      description: 'foo',
-                                                     is_string: true)
+                                                     type: String)
 
           expect(config_item.data_type).to eq(String)
         end
@@ -155,7 +155,7 @@ describe PantographCore do
           config_item = PantographCore::ConfigItem.new(key: :foo,
                                                      description: 'foo',
                                                      type: String,
-                                                     is_string: true,
+                                                     type: String,
                                                      optional: false,
                                                      sensitive: true)
           config = PantographCore::Configuration.create([config_item], {})

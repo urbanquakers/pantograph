@@ -75,7 +75,7 @@ module Pantograph
           PantographCore::ConfigItem.new(key: :multi_line_end_keyword,
                                        description: "Enable multi-line inputs by providing an end text (e.g. 'END') which will stop the user input",
                                        optional: true,
-                                       is_string: true)
+                                       type: String)
         ]
       end
 

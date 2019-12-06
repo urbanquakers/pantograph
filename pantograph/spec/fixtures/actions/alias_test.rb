@@ -24,13 +24,13 @@ module Pantograph
                                      description: "Example Param",
                                      optional: true,
                                      default_value: "Test String",
-                                     is_string: true),
+                                     type: String),
           PantographCore::ConfigItem.new(key: :example_two,
                                      short_option: "-t",
                                      description: "Example Param",
                                      optional: true,
                                      default_value: "Test String",
-                                     is_string: true)
+                                     type: String)
         ]
       end
     end

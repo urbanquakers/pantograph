@@ -25,7 +25,7 @@ module Pantograph
           PantographCore::ConfigItem.new(key: :command,
                                          description: 'Shell command to be executed',
                                          optional: false,
-                                         is_string: true),
+                                         type: String),
           PantographCore::ConfigItem.new(key: :log,
                                          description: 'Determines whether pantograph should print out the executed command itself and output of the executed command. If command line option --troubleshoot is used, then it overrides this option to true',
                                          optional: true,

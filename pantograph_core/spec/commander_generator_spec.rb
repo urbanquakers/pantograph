@@ -6,7 +6,7 @@ describe PantographCore do
           config_items = [
             PantographCore::ConfigItem.new(key: :long_option_only_string,
                                  description: "desc",
-                                   is_string: true,
+                                   type: String,
                                default_value: "blah",
                                     optional: true),
             PantographCore::ConfigItem.new(key: :bool,
@@ -46,7 +46,7 @@ describe PantographCore do
             PantographCore::ConfigItem.new(key: :string_1,
                                 short_option: '-s',
                                  description: 'String 1',
-                                   is_string: true)
+                                   type: String)
           ]
         end
 
@@ -311,7 +311,7 @@ describe PantographCore do
             PantographCore::ConfigItem.new(key: :string_1,
                                 short_option: '-s',
                                  description: 'String 1',
-                                   is_string: true),
+                                   type: String),
             PantographCore::ConfigItem.new(key: :array_1,
                                 short_option: '-a',
                                  description: 'Array 1',

@@ -22,7 +22,7 @@ describe PantographCore do
                                      description: "Metadata: A sensitive option",
                                      optional: true,
                                      sensitive: true,
-                                     is_string: true,
+                                     type: String,
                                      default_value: "Some secret"),
         PantographCore::ConfigItem.new(key: :a_hash,
                                      description: "Metadata: A hash",

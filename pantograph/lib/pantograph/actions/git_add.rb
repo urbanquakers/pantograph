@@ -54,7 +54,7 @@ module Pantograph
           # Deprecated
           PantographCore::ConfigItem.new(key: :pathspec,
                                        description: "The pathspec you want to add files from",
-                                       is_string: true,
+                                       type: String,
                                        conflicting_options: [:path],
                                        optional: true,
                                        deprecated: "Use `--path` instead")

@@ -33,19 +33,19 @@ module Pantograph
                                        description: "Port", # a short description of this parameter
                                        optional: true,
                                        default_value: "-av",
-                                       is_string: true),
+                                       type: String),
           PantographCore::ConfigItem.new(key: :source,
                                        short_option: "-S",
                                        env_name: "FL_RSYNC_SRC", # The name of the environment variable
                                        description: "source file/folder", # a short description of this parameter
                                        optional: false,
-                                       is_string: true),
+                                       type: String),
           PantographCore::ConfigItem.new(key: :destination,
                                        short_option: "-D",
                                        env_name: "FL_RSYNC_DST", # The name of the environment variable
                                        description: "destination file/folder", # a short description of this parameter
                                        optional: false,
-                                       is_string: true)
+                                       type: String)
         ]
       end
 

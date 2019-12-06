@@ -27,7 +27,7 @@ module Pantograph
                                        env_name: 'PUTS_MESSAGE',
                                        description: 'Message to be printed out',
                                        optional: true,
-                                       is_string: true)
+                                       type: String)
         ]
       end
 
