@@ -1416,7 +1416,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 -->
 
 <h1 id="gradle">gradle</h1>
-<p>All gradle related actions, including building and testing your Android app</p>
+<p>All gradle related actions, including building and testing your application</p>
 <blockquote>
 <p>Run <code>./gradlew tasks</code> to get a list of all available gradle tasks for your project</p>
 </blockquote>
@@ -1430,11 +1430,11 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <tbody>
 <tr>
 <td>Supported platforms</td>
-<td>ios, android</td>
+<td>ios, android, mac</td>
 </tr>
 <tr>
 <td>Author</td>
-<td>@KrauseFx, @lmirosevic</td>
+<td>@KrauseFx, @lmirosevic, @johnknapprs</td>
 </tr>
 <tr>
 <td>Returns</td>
@@ -1473,16 +1473,16 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </pre></div>
 
 
-<p>You can use this to automatically <a href="https://developer.android.com/studio/publish/app-signing.html">sign and zipalign</a> your app:</p>
+<p>You can use this to automatically [sign and zipalign] your app:</p>
 <div class="codehilite"><pre><span></span><span class="n">gradle</span><span class="p">(</span>
   <span class="ss">task</span><span class="p">:</span> <span class="s2">&quot;assemble&quot;</span><span class="p">,</span>
   <span class="ss">build_type</span><span class="p">:</span> <span class="s2">&quot;Release&quot;</span><span class="p">,</span>
   <span class="ss">print_command</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
   <span class="ss">properties</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;android.injected.signing.store.file&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;keystore.jks&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;android.injected.signing.store.password&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;store_password&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;android.injected.signing.key.alias&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;key_alias&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;android.injected.signing.key.password&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;key_password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app.injected.signing.store.file&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;keystore.jks&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app.injected.signing.store.password&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;store_password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app.injected.signing.key.alias&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;key_alias&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app.injected.signing.key.password&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;key_password&quot;</span><span class="p">,</span>
   <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
@@ -1513,7 +1513,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </pre></div>
 
 
-<p>Delete the build directory, generated APKs and AABs</p>
+<p>Delete the build directory, generated artifacts</p>
 <div class="codehilite"><pre><span></span><span class="n">gradle</span><span class="p">(</span>
   <span class="ss">task</span><span class="p">:</span> <span class="s2">&quot;clean&quot;</span>
 <span class="p">)</span>
@@ -1558,7 +1558,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <tr>
 <td><code>gradle_path</code></td>
 <td>The path to your <code>gradlew</code>. If you specify a relative path, it is assumed to be relative to the <code>project_dir</code></td>
-<td></td>
+<td><code>./gradlew</code></td>
 </tr>
 <tr>
 <td><code>properties</code></td>
@@ -1566,14 +1566,14 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <td></td>
 </tr>
 <tr>
+<td><code>artifact_extension</code></td>
+<td>Gradle build output filetype extension</td>
+<td><code>jar</code></td>
+</tr>
+<tr>
 <td><code>system_properties</code></td>
 <td>Gradle system properties to be exposed to the gradle script</td>
 <td></td>
-</tr>
-<tr>
-<td><code>serial</code></td>
-<td>Android serial, which device should be used for this command</td>
-<td><code>''</code></td>
 </tr>
 <tr>
 <td><code>print_command</code></td>
@@ -1601,12 +1601,8 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </thead>
 <tbody>
 <tr>
-<td><code>SharedValues::GRADLE_APK_OUTPUT_PATH</code></td>
-<td>The path to the newly generated apk file. Undefined in a multi-variant assemble scenario</td>
-</tr>
-<tr>
-<td><code>SharedValues::GRADLE_ALL_APK_OUTPUT_PATHS</code></td>
-<td>When running a multi-variant <code>assemble</code>, the array of signed apk's that were generated</td>
+<td><code>SharedValues::GRADLE_ARTIFACT_OUTPUT_PATH</code></td>
+<td>The path to the newly generated artifact file. Undefined in a multi-variant assemble scenario</td>
 </tr>
 <tr>
 <td><code>SharedValues::GRADLE_FLAVOR</code></td>
@@ -1615,22 +1611,6 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <tr>
 <td><code>SharedValues::GRADLE_BUILD_TYPE</code></td>
 <td>The build type, e.g. <code>Release</code></td>
-</tr>
-<tr>
-<td><code>SharedValues::GRADLE_AAB_OUTPUT_PATH</code></td>
-<td>The path to the most recent Android app bundle</td>
-</tr>
-<tr>
-<td><code>SharedValues::GRADLE_ALL_AAB_OUTPUT_PATHS</code></td>
-<td>The paths to the most recent Android app bundles</td>
-</tr>
-<tr>
-<td><code>SharedValues::GRADLE_OUTPUT_JSON_OUTPUT_PATH</code></td>
-<td>The path to the most recent output.json file</td>
-</tr>
-<tr>
-<td><code>SharedValues::GRADLE_ALL_OUTPUT_JSON_OUTPUT_PATHS</code></td>
-<td>The path to the newly generated output.json files</td>
 </tr>
 </tbody>
 </table>
