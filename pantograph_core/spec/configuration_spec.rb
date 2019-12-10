@@ -119,7 +119,7 @@ describe PantographCore do
         it "sets the data type correctly if `is_string` is set but the type is specified" do
           config_item = PantographCore::ConfigItem.new(key: :foo,
                                                      description: 'foo',
-                                                     type: String,
+                                                     is_string: String,
                                                      type: Array)
 
           expect(config_item.data_type).to eq(Array)
@@ -154,7 +154,7 @@ describe PantographCore do
         it "should ask using asterisks" do
           config_item = PantographCore::ConfigItem.new(key: :foo,
                                                      description: 'foo',
-                                                     type: String,
+                                                     is_string: String,
                                                      type: String,
                                                      optional: false,
                                                      sensitive: true)
@@ -542,21 +542,21 @@ describe PantographCore do
 
         it "takes the values from the environment if available" do
           c = PantographCore::ConfigItem.new(key: :test,
-                                      env_name: "FL_TEST")
+                                             env_name: "PANT_TEST")
           config = PantographCore::Configuration.create([c], {})
-          ENV["FL_TEST"] = "123value"
+          ENV["PANT_TEST"] = "123value"
           expect(config.values[:test]).to eq('123value')
-          ENV.delete("FL_TEST")
+          ENV.delete("PANT_TEST")
         end
 
         it "supports modifying the value after taken from the environment" do
           c = PantographCore::ConfigItem.new(key: :test,
-                                      env_name: "FL_TEST")
+                                             env_name: "PANT_TEST")
           config = PantographCore::Configuration.create([c], {})
-          ENV["FL_TEST"] = "123value"
+          ENV["PANT_TEST"] = "123value"
           config.values[:test].gsub!("123", "456")
           expect(config.values[:test]).to eq('456value')
-          ENV.delete("FL_TEST")
+          ENV.delete("PANT_TEST")
         end
 
         it "can push and pop configuration values" do

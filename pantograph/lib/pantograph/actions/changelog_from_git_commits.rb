@@ -1,7 +1,7 @@
 module Pantograph
   module Actions
     module SharedValues
-      FL_CHANGELOG ||= :FL_CHANGELOG
+      PANT_CHANGELOG ||= :PANT_CHANGELOG
     end
 
     class ChangelogFromGitCommitsAction < Action
@@ -43,7 +43,7 @@ module Pantograph
           end
 
           changelog = changelog.gsub("\n\n", "\n") if changelog # as there are duplicate newlines
-          Actions.lane_context[SharedValues::FL_CHANGELOG] = changelog
+          Actions.lane_context[SharedValues::PANT_CHANGELOG] = changelog
 
           if params[:quiet] == false
             puts("")
@@ -69,14 +69,14 @@ module Pantograph
 
       def self.output
         [
-          ['FL_CHANGELOG', 'The changelog string generated from the collected git commit messages']
+          ['PANT_CHANGELOG', 'The changelog string generated from the collected git commit messages']
         ]
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :between,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_BETWEEN',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_BETWEEN',
                                        description: 'Array containing two Git revision values between which to collect messages, you mustn\'t use it with :commits_count key at the same time',
                                        optional: true,
                                        is_string: false,
@@ -91,7 +91,7 @@ module Pantograph
                                          end
                                        end),
           PantographCore::ConfigItem.new(key: :commits_count,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_COUNT',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_COUNT',
                                        description: 'Number of commits to include in changelog, you mustn\'t use it with :between key at the same time',
                                        optional: true,
                                        is_string: false,
@@ -101,46 +101,46 @@ module Pantograph
                                          UI.user_error!(":commits_count must be >= 1") unless value.to_i >= 1
                                        end),
           PantographCore::ConfigItem.new(key: :path,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_PATH',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_PATH',
                                        description: 'Path of the git repository',
                                        optional: true,
                                        default_value: './'),
           PantographCore::ConfigItem.new(key: :pretty,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_PRETTY',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_PRETTY',
                                        description: 'The format applied to each commit while generating the collected value',
                                        optional: true,
                                        default_value: '%B',
                                        type: String),
           PantographCore::ConfigItem.new(key: :date_format,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_DATE_FORMAT',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_DATE_FORMAT',
                                        description: 'The date format applied to each commit while generating the collected value',
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :ancestry_path,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_ANCESTRY_PATH',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_ANCESTRY_PATH',
                                        description: 'Whether or not to use ancestry-path param',
                                        optional: true,
                                        default_value: false,
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :tag_match_pattern,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_TAG_MATCH_PATTERN',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_TAG_MATCH_PATTERN',
                                        description: 'A glob(7) pattern to match against when finding the last git tag',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :match_lightweight_tag,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_MATCH_LIGHTWEIGHT_TAG',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_MATCH_LIGHTWEIGHT_TAG',
                                        description: 'Whether or not to match a lightweight tag when searching for the last one',
                                        optional: true,
                                        default_value: true,
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :quiet,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_TAG_QUIET',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_TAG_QUIET',
                                        description: 'Whether or not to disable changelog output',
                                        optional: true,
                                        default_value: false,
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :include_merges,
                                        deprecated: "Use `:merge_commit_filtering` instead",
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_INCLUDE_MERGES',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_INCLUDE_MERGES',
                                        description: "Whether or not to include any commits that are merges",
                                        optional: true,
                                        is_string: false,
@@ -149,7 +149,7 @@ module Pantograph
                                          UI.important("The :include_merges option is deprecated. Please use :merge_commit_filtering instead") unless value.nil?
                                        end),
           PantographCore::ConfigItem.new(key: :merge_commit_filtering,
-                                       env_name: 'FL_CHANGELOG_FROM_GIT_COMMITS_MERGE_COMMIT_FILTERING',
+                                       env_name: 'PANT_CHANGELOG_FROM_GIT_COMMITS_MERGE_COMMIT_FILTERING',
                                        description: "Controls inclusion of merge commits when collecting the changelog. Valid values: #{GIT_MERGE_COMMIT_FILTERING_OPTIONS.map { |o| "`:#{o}`" }.join(', ')}",
                                        optional: true,
                                        default_value: 'include_merges',

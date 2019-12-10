@@ -6,7 +6,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 # gradle
 
 
-All gradle related actions, including building and testing your Android app
+All gradle related actions, including building and testing your application
 
 
 
@@ -16,8 +16,8 @@ All gradle related actions, including building and testing your Android app
 
 gradle ||
 ---|---
-Supported platforms | ios, android
-Author | @KrauseFx, @lmirosevic
+Supported platforms | ios, android, mac
+Author | @KrauseFx, @lmirosevic, @johnknapprs
 Returns | The output of running the gradle task
 
 
@@ -54,17 +54,17 @@ gradle(
 )
 ```
 
-You can use this to automatically [sign and zipalign](https://developer.android.com/studio/publish/app-signing.html) your app:
+You can use this to automatically [sign and zipalign] your app:
 ```ruby
 gradle(
   task: "assemble",
   build_type: "Release",
   print_command: false,
   properties: {
-    "android.injected.signing.store.file" => "keystore.jks",
-    "android.injected.signing.store.password" => "store_password",
-    "android.injected.signing.key.alias" => "key_alias",
-    "android.injected.signing.key.password" => "key_password",
+    "app.injected.signing.store.file" => "keystore.jks",
+    "app.injected.signing.store.password" => "store_password",
+    "app.injected.signing.key.alias" => "key_alias",
+    "app.injected.signing.key.password" => "key_password",
   }
 )
 ```
@@ -94,7 +94,7 @@ gradle(
 )
 ```
 
-Delete the build directory, generated APKs and AABs
+Delete the build directory, generated artifacts
 ```ruby
 gradle(
   task: "clean"
@@ -114,10 +114,10 @@ Key | Description | Default
   `build_type` | The build type that you want the task for, e.g. `Release`. Useful for some tasks such as `assemble` | 
   `flags` | All parameter flags you want to pass to the gradle command, e.g. `--exitcode --xml file.xml` | 
   `project_dir` | The root directory of the gradle project | `.`
-  `gradle_path` | The path to your `gradlew`. If you specify a relative path, it is assumed to be relative to the `project_dir` | 
+  `gradle_path` | The path to your `gradlew`. If you specify a relative path, it is assumed to be relative to the `project_dir` | `./gradlew`
   `properties` | Gradle properties to be exposed to the gradle script | 
+  `artifact_extension` | Gradle build output filetype extension | `jar`
   `system_properties` | Gradle system properties to be exposed to the gradle script | 
-  `serial` | Android serial, which device should be used for this command | `''`
   `print_command` | Control whether the generated Gradle command is printed as output before running it (true/false) | `true`
   `print_command_output` | Control whether the output produced by given Gradle command is printed while running (true/false) | `true`
 
@@ -134,14 +134,9 @@ Actions can communicate with each other using a shared hash `lane_context`, that
 
 SharedValue | Description 
 ------------|-------------
-  `SharedValues::GRADLE_APK_OUTPUT_PATH` | The path to the newly generated apk file. Undefined in a multi-variant assemble scenario
-  `SharedValues::GRADLE_ALL_APK_OUTPUT_PATHS` | When running a multi-variant `assemble`, the array of signed apk's that were generated
+  `SharedValues::GRADLE_ARTIFACT_OUTPUT_PATH` | The path to the newly generated artifact file. Undefined in a multi-variant assemble scenario
   `SharedValues::GRADLE_FLAVOR` | The flavor, e.g. `MyFlavor`
   `SharedValues::GRADLE_BUILD_TYPE` | The build type, e.g. `Release`
-  `SharedValues::GRADLE_AAB_OUTPUT_PATH` | The path to the most recent Android app bundle
-  `SharedValues::GRADLE_ALL_AAB_OUTPUT_PATHS` | The paths to the most recent Android app bundles
-  `SharedValues::GRADLE_OUTPUT_JSON_OUTPUT_PATH` | The path to the most recent output.json file
-  `SharedValues::GRADLE_ALL_OUTPUT_JSON_OUTPUT_PATHS` | The path to the newly generated output.json files
 
 To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />

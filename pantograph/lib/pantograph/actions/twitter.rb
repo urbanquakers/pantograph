@@ -11,7 +11,7 @@ module Pantograph
           config.access_token_secret = params[:access_token_secret]
         end
         client.update(params[:message])
-        UI.message(['[TWITTER]', "Successfully tweeted ", params[:message]].join(': '))
+        UI.message(['[TWITTER]', 'Successfully tweeted ', params[:message]].join(': '))
       end
 
       #####################################################
@@ -19,42 +19,42 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Post a tweet on [Twitter.com](https://twitter.com)"
+        'Post a tweet on [Twitter.com](https://twitter.com)'
       end
 
       def self.details
-        "Post a tweet on Twitter. Requires you to setup an app on [twitter.com](https://twitter.com) and obtain `consumer` and `access_token`."
+        'Post a tweet on Twitter. Requires you to setup an app on [twitter.com](https://twitter.com) and obtain `consumer` and `access_token`.'
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :consumer_key,
-                                       env_name: "FL_TW_CONSUMER_KEY",
-                                       description: "Consumer Key",
+                                       env_name: 'TW_CONSUMER_KEY',
+                                       description: 'Consumer Key',
                                        sensitive: true,
                                        type: String,
                                        optional: false),
           PantographCore::ConfigItem.new(key: :consumer_secret,
-                                       env_name: "FL_TW_CONSUMER_SECRET",
+                                       env_name: 'TW_CONSUMER_SECRET',
                                        sensitive: true,
-                                       description: "Consumer Secret",
+                                       description: 'Consumer Secret',
                                        type: String,
                                        optional: false),
           PantographCore::ConfigItem.new(key: :access_token,
-                                       env_name: "FL_TW_ACCESS_TOKEN",
+                                       env_name: 'TW_ACCESS_TOKEN',
                                        sensitive: true,
-                                       description: "Access Token",
+                                       description: 'Access Token',
                                        type: String,
                                        optional: false),
           PantographCore::ConfigItem.new(key: :access_token_secret,
-                                       env_name: "FL_TW_ACCESS_TOKEN_SECRET",
+                                       env_name: 'TW_ACCESS_TOKEN_SECRET',
                                        sensitive: true,
-                                       description: "Access Token Secret",
+                                       description: 'Access Token Secret',
                                        type: String,
                                        optional: false),
           PantographCore::ConfigItem.new(key: :message,
-                                       env_name: "FL_TW_MESSAGE",
-                                       description: "The tweet",
+                                       env_name: 'TW_MESSAGE',
+                                       description: 'The tweet',
                                        type: String,
                                        optional: false)
 
@@ -62,7 +62,7 @@ module Pantograph
       end
 
       def self.authors
-        ["hjanuschka"]
+        ['hjanuschka']
       end
 
       def self.is_supported?(platform)

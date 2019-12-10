@@ -66,78 +66,78 @@ module Pantograph
       end
 
       def self.description
-        "Send a success/error message to your [Slack](https://slack.com) group"
+        'Send a success/error message to your [Slack](https://slack.com) group'
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :message,
-                                       env_name: "FL_SLACK_MESSAGE",
-                                       description: "The message that should be displayed on Slack. This supports the standard Slack markup language",
+                                       env_name: 'SLACK_MESSAGE',
+                                       description: 'The message that should be displayed on Slack. This supports the standard Slack markup language',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :pretext,
-                                       env_name: "FL_SLACK_PRETEXT",
-                                       description: "This is optional text that appears above the message attachment block. This supports the standard Slack markup language",
+                                       env_name: 'SLACK_PRETEXT',
+                                       description: 'This is optional text that appears above the message attachment block. This supports the standard Slack markup language',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :channel,
-                                       env_name: "FL_SLACK_CHANNEL",
-                                       description: "#channel or @username",
+                                       env_name: 'SLACK_CHANNEL',
+                                       description: '#channel or @username',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :use_webhook_configured_username_and_icon,
-                                       env_name: "FL_SLACK_USE_WEBHOOK_CONFIGURED_USERNAME_AND_ICON",
+                                       env_name: 'SLACK_USE_WEBHOOK_CONFIGURED_USERNAME_AND_ICON',
                                        description: "Use webhook's default username and icon settings? (true/false)",
                                        default_value: false,
                                        is_string: false,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :slack_url,
-                                       env_name: "SLACK_URL",
+                                       env_name: 'SLACK_URL',
                                        sensitive: true,
-                                       description: "Create an Incoming WebHook for your Slack group",
+                                       description: 'Create an Incoming WebHook for your Slack group',
                                        verify_block: proc do |value|
-                                         UI.user_error!("Invalid URL, must start with https://") unless value.start_with?("https://")
+                                         UI.user_error!('Invalid URL, must start with https://') unless value.start_with?('https://')
                                        end),
           PantographCore::ConfigItem.new(key: :username,
-                                       env_name: "FL_SLACK_USERNAME",
+                                       env_name: 'SLACK_USERNAME',
                                        description: "Overrides the webhook's username property if use_webhook_configured_username_and_icon is false",
-                                       default_value: "pantograph",
+                                       default_value: 'pantograph',
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :icon_url,
-                                       env_name: "FL_SLACK_ICON_URL",
+                                       env_name: 'SLACK_ICON_URL',
                                        description: "Overrides the webhook's image property if use_webhook_configured_username_and_icon is false",
-                                       default_value: "https://s3-eu-west-1.amazonaws.com/pantograph.tools/pantograph.png",
+                                       default_value: 'https://s3-eu-west-1.amazonaws.com/pantograph.tools/pantograph.png',
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :payload,
-                                       env_name: "FL_SLACK_PAYLOAD",
+                                       env_name: 'SLACK_PAYLOAD',
                                        description: "Add additional information to this post. payload must be a hash containing any key with any value",
                                        default_value: {},
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :default_payloads,
-                                       env_name: "FL_SLACK_DEFAULT_PAYLOADS",
-                                       description: "Remove some of the default payloads. More information about the available payloads on GitHub",
+                                       env_name: 'SLACK_DEFAULT_PAYLOADS',
+                                       description: 'Remove some of the default payloads. More information about the available payloads on GitHub',
                                        optional: true,
                                        type: Array),
           PantographCore::ConfigItem.new(key: :attachment_properties,
-                                       env_name: "FL_SLACK_ATTACHMENT_PROPERTIES",
-                                       description: "Merge additional properties in the slack attachment, see https://api.slack.com/docs/attachments",
+                                       env_name: 'SLACK_ATTACHMENT_PROPERTIES',
+                                       description: 'Merge additional properties in the slack attachment, see https://api.slack.com/docs/attachments',
                                        default_value: {},
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :success,
-                                       env_name: "FL_SLACK_SUCCESS",
-                                       description: "Was this build successful? (true/false)",
+                                       env_name: 'SLACK_SUCCESS',
+                                       description: 'Was this build successful? (true/false)',
                                        optional: true,
                                        default_value: true,
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :fail_on_error,
-                                       env_name: "FL_SLACK_FAIL_ON_ERROR",
-                                       description: "Should an error sending the slack notification cause a failure? (true/false)",
+                                       env_name: 'SLACK_FAIL_ON_ERROR',
+                                       description: 'Should an error sending the slack notification cause a failure? (true/false)',
                                        optional: true,
                                        default_value: true,
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :link_names,
-                                       env_name: "FL_SLACK_LINK_NAMES",
-                                       description: "Find and link channel names and usernames (true/false)",
+                                       env_name: 'SLACK_LINK_NAMES',
+                                       description: 'Find and link channel names and usernames (true/false)',
                                        optional: true,
                                        default_value: false,
                                        is_string: false)
@@ -145,7 +145,7 @@ module Pantograph
       end
 
       def self.author
-        "KrauseFx"
+        'KrauseFx'
       end
 
       def self.example_code
@@ -179,7 +179,7 @@ module Pantograph
       end
 
       def self.details
-        "Create an Incoming WebHook and export this as `SLACK_URL`. Can send a message to **#channel** (by default), a direct message to **@username** or a message to a private group **group** with success (green) or failure (red) status."
+        'Create an Incoming WebHook and export this as `SLACK_URL`. Can send a message to **#channel** (by default), a direct message to **@username** or a message to a private group **group** with success (green) or failure (red) status.'
       end
 
       #####################################################

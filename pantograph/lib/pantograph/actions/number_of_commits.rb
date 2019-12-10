@@ -26,11 +26,11 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Return the number of commits in current git branch"
+        'Return the number of commits in current git branch'
       end
 
       def self.return_value
-        "The total number of all commits in current git branch"
+        'The total number of all commits in current git branch'
       end
 
       def self.return_type
@@ -40,19 +40,19 @@ module Pantograph
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :all,
-                                       env_name: "FL_NUMBER_OF_COMMITS_ALL",
+                                       env_name: 'NUMBER_OF_COMMITS_ALL',
                                        optional: true,
                                        is_string: false,
-                                       description: "Returns number of all commits instead of current branch")
+                                       description: 'Returns number of all commits instead of current branch')
         ]
       end
 
       def self.details
-        "You can use this action to get the number of commits of this branch. This is useful if you want to set the build number to the number of commits. See `pantograph actions number_of_commits` for more details."
+        'You can use this action to get the number of commits of this branch. This is useful if you want to set the build number to the number of commits. See `pantograph actions number_of_commits` for more details.'
       end
 
       def self.authors
-        ["onevcat", "samuelbeek"]
+        ['onevcat', 'samuelbeek']
       end
 
       def self.is_supported?(platform)

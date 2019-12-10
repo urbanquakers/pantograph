@@ -84,7 +84,7 @@ module Pantograph
     end
 
     # Lane chooser if user didn't provide a lane
-    # @param platform: is probably nil, but user might have called `pantograph android`, and only wants to list those actions
+    # @param platform: is probably nil, but user might have called `pantograph $platform`, and only wants to list those actions
     def self.choose_lane(ff, platform)
       available = []
 

@@ -142,7 +142,7 @@ module Pantograph
       #####################################################
 
       def self.description
-        "This will create a new release on GitHub and upload assets for it"
+        'This will create a new release on GitHub and upload assets for it'
       end
 
       def self.details
@@ -156,14 +156,14 @@ module Pantograph
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :repository_name,
-                                       env_name: "FL_SET_GITHUB_RELEASE_REPOSITORY_NAME",
+                                       env_name: 'SET_GITHUB_RELEASE_REPOSITORY_NAME',
                                        description: "The path to your repo, e.g. 'pantograph/pantograph'",
                                        verify_block: proc do |value|
                                          UI.user_error!("Please only pass the path, e.g. 'pantograph/pantograph'") if value.include?("github.com")
                                          UI.user_error!("Please only pass the path, e.g. 'pantograph/pantograph'") if value.split('/').count != 2
                                        end),
           PantographCore::ConfigItem.new(key: :server_url,
-                                       env_name: "FL_GITHUB_RELEASE_SERVER_URL",
+                                       env_name: 'GITHUB_RELEASE_SERVER_URL',
                                        description: "The server url. e.g. 'https://your.internal.github.host/api/v3' (Default: 'https://api.github.com')",
                                        default_value: "https://api.github.com",
                                        optional: true,
@@ -171,7 +171,7 @@ module Pantograph
                                          UI.user_error!("Please include the protocol in the server url, e.g. https://your.github.server/api/v3") unless value.include?("//")
                                        end),
           PantographCore::ConfigItem.new(key: :api_token,
-                                       env_name: "FL_GITHUB_RELEASE_API_TOKEN",
+                                       env_name: 'GITHUB_RELEASE_API_TOKEN',
                                        description: "Personal API Token for GitHub - generate one at https://github.com/settings/tokens",
                                        sensitive: true,
                                        code_gen_sensitive: true,
@@ -180,47 +180,47 @@ module Pantograph
                                        default_value_dynamic: true,
                                        optional: false),
           PantographCore::ConfigItem.new(key: :tag_name,
-                                       env_name: "FL_SET_GITHUB_RELEASE_TAG_NAME",
+                                       env_name: 'SET_GITHUB_RELEASE_TAG_NAME',
                                        description: "Pass in the tag name",
                                        type: String,
                                        optional: false),
           PantographCore::ConfigItem.new(key: :name,
-                                       env_name: "FL_SET_GITHUB_RELEASE_NAME",
+                                       env_name: 'SET_GITHUB_RELEASE_NAME',
                                        description: "Name of this release",
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :commitish,
-                                       env_name: "FL_SET_GITHUB_RELEASE_COMMITISH",
+                                       env_name: 'SET_GITHUB_RELEASE_COMMITISH',
                                        description: "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)",
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :description,
-                                       env_name: "FL_SET_GITHUB_RELEASE_DESCRIPTION",
-                                       description: "Description of this release",
+                                       env_name: 'SET_GITHUB_RELEASE_DESCRIPTION',
+                                       description: 'Description of this release',
                                        type: String,
                                        optional: true,
-                                       default_value: Actions.lane_context[SharedValues::FL_CHANGELOG],
+                                       default_value: Actions.lane_context[SharedValues::PANT_CHANGELOG],
                                        default_value_dynamic: true),
           PantographCore::ConfigItem.new(key: :is_draft,
-                                       env_name: "FL_SET_GITHUB_RELEASE_IS_DRAFT",
-                                       description: "Whether the release should be marked as draft",
+                                       env_name: 'SET_GITHUB_RELEASE_IS_DRAFT',
+                                       description: 'Whether the release should be marked as draft',
                                        optional: true,
                                        default_value: false,
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :is_prerelease,
-                                       env_name: "FL_SET_GITHUB_RELEASE_IS_PRERELEASE",
-                                       description: "Whether the release should be marked as prerelease",
+                                       env_name: 'SET_GITHUB_RELEASE_IS_PRERELEASE',
+                                       description: 'Whether the release should be marked as prerelease',
                                        optional: true,
                                        default_value: false,
                                        is_string: false),
           PantographCore::ConfigItem.new(key: :upload_assets,
-                                       env_name: "FL_SET_GITHUB_RELEASE_UPLOAD_ASSETS",
-                                       description: "Path to assets to be uploaded with the release",
+                                       env_name: 'SET_GITHUB_RELEASE_UPLOAD_ASSETS',
+                                       description: 'Path to assets to be uploaded with the release',
                                        optional: true,
                                        is_string: false,
                                        type: Array,
                                        verify_block: proc do |value|
-                                         UI.user_error!("upload_assets must be an Array of paths to assets") unless value.kind_of?(Array)
+                                         UI.user_error!('upload_assets must be an Array of paths to assets') unless value.kind_of?(Array)
                                        end)
         ]
       end
@@ -235,7 +235,7 @@ module Pantograph
 
       def self.return_value
         [
-          "A hash containing all relevant information of this release",
+          'A hash containing all relevant information of this release',
           "Access things like 'html_url', 'tag_name', 'name', 'body'"
         ].join("\n")
       end
@@ -245,7 +245,7 @@ module Pantograph
       end
 
       def self.authors
-        ["czechboy0", "tommeier"]
+        ['czechboy0', 'tommeier']
       end
 
       def self.is_supported?(platform)

@@ -14,13 +14,13 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Allows to Generate output files based on ERB templates"
+        'Allows to Generate output files based on ERB templates'
       end
 
       def self.details
         [
-          "Renders an ERB template with `:placeholders` given as a hash via parameter.",
-          "If no `:destination` is set, it returns the rendered template as string."
+          'Renders an ERB template with `:placeholders` given as a hash via parameter.',
+          'If no `:destination` is set, it returns the rendered template as string.'
         ].join("\n")
       end
 
@@ -28,21 +28,21 @@ module Pantograph
         [
 
           PantographCore::ConfigItem.new(key: :template,
-                                       short_option: "-T",
-                                       env_name: "FL_ERB_SRC",
-                                       description: "ERB Template File",
+                                       short_option: '-T',
+                                       env_name: 'ERB_SRC',
+                                       description: 'ERB Template File',
                                        optional: false,
                                        type: String),
           PantographCore::ConfigItem.new(key: :destination,
-                                       short_option: "-D",
-                                       env_name: "FL_ERB_DST",
-                                       description: "Destination file",
+                                       short_option: '-D',
+                                       env_name: 'ERB_DST',
+                                       description: 'Destination file',
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :placeholders,
-                                       short_option: "-p",
-                                       env_name: "FL_ERB_PLACEHOLDERS",
-                                       description: "Placeholders given as a hash",
+                                       short_option: '-p',
+                                       env_name: 'ERB_PLACEHOLDERS',
+                                       description: 'Placeholders given as a hash',
                                        default_value: {},
                                        is_string: false,
                                        type: Hash)

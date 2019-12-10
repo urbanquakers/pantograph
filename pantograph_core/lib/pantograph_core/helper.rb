@@ -106,7 +106,7 @@ module PantographCore
 
     # Logs base directory
     def self.buildlog_path
-      return ENV["FL_BUILDLOG_PATH"] || "~/Library/Logs"
+      return ENV["PANT_BUILDLOG_PATH"] || "~/Library/Logs"
     end
 
     # Xcode

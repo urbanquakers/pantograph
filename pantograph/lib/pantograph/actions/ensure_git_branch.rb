@@ -20,20 +20,20 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Raises an exception if not on a specific git branch"
+        'Raises an exception if not on a specific git branch'
       end
 
       def self.details
         [
-          "This action will check if your git repo is checked out to a specific branch.",
-          "You may only want to make releases from a specific branch, so `ensure_git_branch` will stop a lane if it was accidentally executed on an incorrect branch."
+          'This action will check if your git repo is checked out to a specific branch.',
+          'You may only want to make releases from a specific branch, so `ensure_git_branch` will stop a lane if it was accidentally executed on an incorrect branch.'
         ].join("\n")
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :branch,
-                                       env_name: "FL_ENSURE_GIT_BRANCH_NAME",
+                                       env_name: 'ENSURE_GIT_BRANCH_NAME',
                                        description: "The branch that should be checked for. String that can be either the full name of the branch or a regex to match",
                                        type: String,
                                        default_value: 'master')

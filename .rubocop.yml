@@ -314,3 +314,6 @@ Style/MethodCallWithArgsParentheses:
     - 'context'
     - 'before'
     - 'after'
+
+Style/AsciiComments:
+  Enabled: false

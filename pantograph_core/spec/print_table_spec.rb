@@ -126,7 +126,7 @@ describe PantographCore do
       end
 
       it "doesn't transform if the env variable is set" do
-        PantographSpec::Env.with_env_values("FL_SKIP_TABLE_TRANSFORM" => "1") do
+        PantographSpec::Env.with_env_values('SKIP_TABLE_TRANSFORM' => '1') do
           value = PantographCore::PrintTable.print_values(config: @config, hide_keys: [:output, :a_bool, :a_sensitive], transform: :truncate_middle)
           expect(value[:rows][0][1]).to_not(include("..."))
         end

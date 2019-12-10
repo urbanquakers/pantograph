@@ -4,7 +4,7 @@ PANTOGRAPH_MEMBERS = %w(asfalcone chaselatta pantograph-bot hemal i2amsam kimyou
 
 ALL_TOOL_LABELS = %w(pantograph pantograph_core)
 
-GITHUB_TOKEN = ENV['GITHUB_SCRIPT_TOKEN'] || ENV['FL_GITHUB_RELEASE_API_TOKEN']
+GITHUB_TOKEN = ENV['GITHUB_SCRIPT_TOKEN'] || ENV['GITHUB_RELEASE_API_TOKEN']
 
 BASE_URL = 'https://api.github.com'.freeze
 

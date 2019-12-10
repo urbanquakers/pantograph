@@ -56,7 +56,7 @@ Key | Description | Default
   `context_path` | Appends to the url (ex: "/jira") | `''`
   `username` | Username for JIRA instance | 
   `password` | Password for Jira | 
-  `ticket_id` | Ticket ID for Jira, i.e. IOS-123 | 
+  `ticket_id` | Ticket ID for Jira, i.e. APP-123 | 
   `comment_text` | Text to add to the ticket as a comment | 
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>

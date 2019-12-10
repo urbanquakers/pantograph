@@ -37,34 +37,34 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Compress a file or folder to a zip"
+        'Compress a file or folder to a zip'
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :path,
-                                       env_name: "FL_ZIP_PATH",
-                                       description: "Path to the directory or file to be zipped",
+                                       env_name: 'ZIP_PATH',
+                                       description: 'Path to the directory or file to be zipped',
                                        verify_block: proc do |value|
                                          UI.user_error!("Couldn't find file/folder at path '#{File.expand_path(value)}'") unless File.exist?(value)
                                        end),
           PantographCore::ConfigItem.new(key: :output_path,
-                                       env_name: "FL_ZIP_OUTPUT_NAME",
+                                       env_name: 'ZIP_OUTPUT_NAME',
                                        description: "The name of the resulting zip file",
                                        optional: true),
           PantographCore::ConfigItem.new(key: :verbose,
-                                       env_name: "FL_ZIP_VERBOSE",
-                                       description: "Enable verbose output of zipped file",
+                                       env_name: 'ZIP_VERBOSE',
+                                       description: 'Enable verbose output of zipped file',
                                        default_value: true,
                                        type: Boolean,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :password,
-                                       env_name: "FL_ZIP_PASSWORD",
-                                       description: "Encrypt the contents of the zip archive using a password",
+                                       env_name: 'ZIP_PASSWORD',
+                                       description: 'Encrypt the contents of the zip archive using a password',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :symlinks,
-                                       env_name: "FL_ZIP_SYMLINKS",
-                                       description: "Store symbolic links as such in the zip archive",
+                                       env_name: 'ZIP_SYMLINKS',
+                                       description: 'Store symbolic links as such in the zip archive',
                                        optional: true,
                                        type: Boolean,
                                        default_value: false)
@@ -101,7 +101,7 @@ module Pantograph
       end
 
       def self.return_value
-        "The path to the output zip file"
+        'The path to the output zip file'
       end
 
       def self.return_type
@@ -109,7 +109,7 @@ module Pantograph
       end
 
       def self.authors
-        ["KrauseFx"]
+        ['KrauseFx']
       end
 
       def self.is_supported?(platform)

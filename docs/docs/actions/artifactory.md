@@ -30,7 +30,7 @@ artifactory(
   endpoint: "https://artifactory.example.com/artifactory/",
   file: "example.ipa",  # File to upload
   repo: "angular_artifacts",      # Artifactory repo
-  repo_path: "/ios/appname/example-major.minor.ipa"   # Path to place the artifact including its filename
+  repo_path: "/project/appname/example-major.minor.jar"   # Path to place the artifact including its filename
 )
 ```
 

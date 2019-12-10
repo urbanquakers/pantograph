@@ -58,7 +58,7 @@ module PantographCore
         if PantographCore::Helper.ci? || PantographCore::Helper.test?
           return false
         end
-        return !PantographCore::Env.truthy?("FL_SKIP_TABLE_TRANSFORM")
+        return !PantographCore::Env.truthy?('SKIP_TABLE_TRANSFORM')
       end
 
       def transform_row(column, transform, max_value_length)

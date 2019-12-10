@@ -26,7 +26,7 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Download a file from a remote server (e.g. JSON file)"
+        'Download a file from a remote server (e.g. JSON file)'
       end
 
       def self.details
@@ -40,7 +40,7 @@ module Pantograph
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :url,
-                                       env_name: "FL_DOWNLOAD_URL",
+                                       env_name: 'DOWNLOAD_URL',
                                        description: "The URL that should be downloaded",
                                        verify_block: proc do |value|
                                          UI.important("The URL doesn't start with http or https") unless value.start_with?("http")
@@ -65,7 +65,7 @@ module Pantograph
       end
 
       def self.authors
-        ["KrauseFx"]
+        ['KrauseFx']
       end
 
       def self.is_supported?(platform)

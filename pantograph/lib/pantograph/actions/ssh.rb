@@ -76,50 +76,50 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Allows remote command execution using ssh"
+        'Allows remote command execution using ssh'
       end
 
       def self.details
-        "Lets you execute remote commands via ssh using username/password or ssh-agent. If one of the commands in command-array returns non 0, it fails."
+        'Lets you execute remote commands via ssh using username/password or ssh-agent. If one of the commands in command-array returns non 0, it fails.'
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :username,
-                                       short_option: "-u",
-                                       env_name: "FL_SSH_USERNAME",
-                                       description: "Username",
+                                       short_option: '-u',
+                                       env_name: 'SSH_USERNAME',
+                                       description: 'Username',
                                        type: String),
           PantographCore::ConfigItem.new(key: :password,
-                                       short_option: "-p",
-                                       env_name: "FL_SSH_PASSWORD",
+                                       short_option: '-p',
+                                       env_name: 'SSH_PASSWORD',
                                        sensitive: true,
-                                       description: "Password",
+                                       description: 'Password',
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :host,
-                                       short_option: "-H",
-                                       env_name: "FL_SSH_HOST",
-                                       description: "Hostname",
+                                       short_option: '-H',
+                                       env_name: 'SSH_HOST',
+                                       description: 'Hostname',
                                        type: String),
           PantographCore::ConfigItem.new(key: :port,
-                                       short_option: "-P",
-                                       env_name: "FL_SSH_PORT",
-                                       description: "Port",
+                                       short_option: '-P',
+                                       env_name: 'SSH_PORT',
+                                       description: 'Port',
                                        optional: true,
-                                       default_value: "22",
+                                       default_value: '22',
                                        type: String),
           PantographCore::ConfigItem.new(key: :commands,
-                                       short_option: "-C",
-                                       env_name: "FL_SSH_COMMANDS",
-                                       description: "Commands",
+                                       short_option: '-C',
+                                       env_name: 'SSH_COMMANDS',
+                                       description: 'Commands',
                                        optional: true,
                                        is_string: false,
                                        type: Array),
           PantographCore::ConfigItem.new(key: :log,
-                                       short_option: "-l",
-                                       env_name: "FL_SSH_LOG",
-                                       description: "Log commands and output",
+                                       short_option: '-l',
+                                       env_name: 'SSH_LOG',
+                                       description: 'Log commands and output',
                                        optional: true,
                                        default_value: true,
                                        is_string: false)
@@ -134,7 +134,7 @@ module Pantograph
       end
 
       def self.authors
-        ["hjanuschka"]
+        ['hjanuschka']
       end
 
       def self.is_supported?(platform)

@@ -95,7 +95,7 @@ module Pantograph
         SAMPLE
 
         [
-          "This will return all information about a release. For example:".markdown_preserve_newlines,
+          'This will return all information about a release. For example:'.markdown_preserve_newlines,
           sample
         ].join("\n")
       end
@@ -109,27 +109,27 @@ module Pantograph
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :url,
-                                       env_name: "FL_GET_GITHUB_RELEASE_URL",
-                                       description: "The path to your repo, e.g. 'KrauseFx/pantograph'",
+                                       env_name: 'GET_GITHUB_RELEASE_URL',
+                                       description: "The path to your repo, e.g. 'johnknapprs/pantograph'",
                                        verify_block: proc do |value|
-                                         UI.user_error!("Please only pass the path, e.g. 'KrauseFx/pantograph'") if value.include?("github.com")
+                                         UI.user_error!("Please only pass the path, e.g. 'KrauseFx/pantograph'") if value.include?('github.com')
                                          UI.user_error!("Please only pass the path, e.g. 'KrauseFx/pantograph'") if value.split('/').count != 2
                                        end),
           PantographCore::ConfigItem.new(key: :server_url,
-                                       env_name: "FL_GITHUB_RELEASE_SERVER_URL",
+                                       env_name: 'GITHUB_RELEASE_SERVER_URL',
                                        description: "The server url. e.g. 'https://your.github.server/api/v3' (Default: 'https://api.github.com')",
                                        default_value: "https://api.github.com",
                                        optional: true,
                                        verify_block: proc do |value|
-                                         UI.user_error!("Please include the protocol in the server url, e.g. https://your.github.server") unless value.include?("//")
+                                         UI.user_error!('Please include the protocol in the server url, e.g. https://your.github.server') unless value.include?("//")
                                        end),
           PantographCore::ConfigItem.new(key: :version,
-                                       env_name: "FL_GET_GITHUB_RELEASE_VERSION",
-                                       description: "The version tag of the release to check"),
+                                       env_name: 'GET_GITHUB_RELEASE_VERSION',
+                                       description: 'The version tag of the release to check'),
           PantographCore::ConfigItem.new(key: :api_token,
-                                       env_name: "FL_GITHUB_RELEASE_API_TOKEN",
+                                       env_name: 'GITHUB_RELEASE_API_TOKEN',
                                        sensitive: true,
-                                       description: "GitHub Personal Token (required for private repositories)",
+                                       description: 'GitHub Personal Token (required for private repositories)',
                                        optional: true)
         ]
       end

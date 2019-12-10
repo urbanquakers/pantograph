@@ -77,7 +77,7 @@ puts release["name"]
 
 Key | Description | Default
 ----|-------------|--------
-  `url` | The path to your repo, e.g. 'KrauseFx/pantograph' | 
+  `url` | The path to your repo, e.g. 'johnknapprs/pantograph' | 
   `server_url` | The server url. e.g. 'https://your.github.server/api/v3' (Default: 'https://api.github.com') | `https://api.github.com`
   `version` | The version tag of the release to check | 
   `api_token` | GitHub Personal Token (required for private repositories) | 

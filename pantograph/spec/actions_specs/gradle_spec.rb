@@ -77,12 +77,11 @@ describe Pantograph do
             flavor: 'WorldDomination',
             build_type: 'Release',
             properties: {'versionCode' => 200},
-            serial: 'abc123',
             gradle_path: '#{gradle_path}'
           )
         end").runner.execute(:build)
 
-        expect(result).to eq("ANDROID_SERIAL=abc123 #{gradle_path.shellescape} assembleWorldDominationRelease -p . -PversionCode=200")
+        expect(result).to eq("#{gradle_path.shellescape} assembleWorldDominationRelease -p . -PversionCode=200")
       end
 
       it "correctly escapes multiple properties and types" do
@@ -93,14 +92,6 @@ describe Pantograph do
         end").runner.execute(:build)
 
         expect(result).to eq("#{File.expand_path('README.md').shellescape} assembleWorldDominationRelease -p . -PversionCode=200 -P#{notes_key.shellescape}=#{notes_result.shellescape} -Dorg.gradle.daemon=true")
-      end
-
-      it "correctly uses the serial" do
-        result = Pantograph::PantFile.new.parse("lane :build do
-          gradle(task: 'assemble', flavor: 'WorldDomination', build_type: 'Release', properties: { 'versionCode' => 200}, serial: 'abc123', gradle_path: './README.md')
-        end").runner.execute(:build)
-
-        expect(result).to eq("ANDROID_SERIAL=abc123 #{File.expand_path('README.md').shellescape} assembleWorldDominationRelease -p . -PversionCode=200")
       end
 
       it "supports multiple flavors" do

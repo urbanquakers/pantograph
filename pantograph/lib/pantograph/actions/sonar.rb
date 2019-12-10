@@ -44,93 +44,93 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Invokes sonar-scanner to programmatically run SonarQube analysis"
+        'Invokes sonar-scanner to programmatically run SonarQube analysis'
       end
 
       def self.details
         [
-          "See [http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) for details.",
-          "It can process unit test results if formatted as junit report as shown in [xctest](https://johnknapprs.github.io/pantograph/actions/xctest/) action. It can also integrate coverage reports in Cobertura format, which can be transformed into by the [slather](https://johnknapprs.github.io/pantograph/actions/slather/) action."
+          'See [http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) for details.',
+          'It can process unit test results if formatted as junit report as shown in [xctest](https://johnknapprs.github.io/pantograph/actions/xctest/) action. It can also integrate coverage reports in Cobertura format, which can be transformed into by the [slather](https://johnknapprs.github.io/pantograph/actions/slather/) action.'
         ].join("\n")
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :project_configuration_path,
-                                        env_name: "FL_SONAR_RUNNER_PROPERTIES_PATH",
-                                        description: "The path to your sonar project configuration file; defaults to `sonar-project.properties`", # default is enforced by sonar-scanner binary
+                                        env_name: 'SONAR_RUNNER_PROPERTIES_PATH',
+                                        description: 'The path to your sonar project configuration file; defaults to `sonar-project.properties`', # default is enforced by sonar-scanner binary
                                         optional: true,
                                         verify_block: proc do |value|
                                           UI.user_error!("Couldn't find file at path '#{value}'") unless value.nil? || File.exist?(value)
                                         end),
           PantographCore::ConfigItem.new(key: :project_key,
-                                       env_name: "FL_SONAR_RUNNER_PROJECT_KEY",
-                                       description: "The key sonar uses to identify the project, e.g. `name.gretzki.awesomeApp`. Must either be specified here or inside the sonar project configuration file",
+                                       env_name: 'SONAR_RUNNER_PROJECT_KEY',
+                                       description: 'The key sonar uses to identify the project, e.g. `name.gretzki.awesomeApp`. Must either be specified here or inside the sonar project configuration file',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :project_name,
-                                       env_name: "FL_SONAR_RUNNER_PROJECT_NAME",
-                                       description: "The name of the project that gets displayed on the sonar report page. Must either be specified here or inside the sonar project configuration file",
+                                       env_name: 'SONAR_RUNNER_PROJECT_NAME',
+                                       description: 'The name of the project that gets displayed on the sonar report page. Must either be specified here or inside the sonar project configuration file',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :project_version,
-                                       env_name: "FL_SONAR_RUNNER_PROJECT_VERSION",
+                                       env_name: 'SONAR_RUNNER_PROJECT_VERSION',
                                        description: "The project's version that gets displayed on the sonar report page. Must either be specified here or inside the sonar project configuration file",
                                        optional: true),
           PantographCore::ConfigItem.new(key: :sources_path,
-                                       env_name: "FL_SONAR_RUNNER_SOURCES_PATH",
-                                       description: "Comma-separated paths to directories containing source files. Must either be specified here or inside the sonar project configuration file",
+                                       env_name: 'SONAR_RUNNER_SOURCES_PATH',
+                                       description: 'Comma-separated paths to directories containing source files. Must either be specified here or inside the sonar project configuration file',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :project_language,
-                                       env_name: "FL_SONAR_RUNNER_PROJECT_LANGUAGE",
-                                       description: "Language key, e.g. objc",
+                                       env_name: 'SONAR_RUNNER_PROJECT_LANGUAGE',
+                                       description: 'Language key, e.g. objc',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :source_encoding,
-                                       env_name: "FL_SONAR_RUNNER_SOURCE_ENCODING",
-                                       description: "Used encoding of source files, e.g., UTF-8",
+                                       env_name: 'SONAR_RUNNER_SOURCE_ENCODING',
+                                       description: 'Used encoding of source files, e.g., UTF-8',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :sonar_runner_args,
-                                       env_name: "FL_SONAR_RUNNER_ARGS",
-                                       description: "Pass additional arguments to sonar-scanner. Be sure to provide the arguments with a leading `-D` e.g. FL_SONAR_RUNNER_ARGS=\"-Dsonar.verbose=true\"",
+                                       env_name: 'SONAR_RUNNER_ARGS',
+                                       description: 'Pass additional arguments to sonar-scanner. Be sure to provide the arguments with a leading `-D` e.g. SONAR_RUNNER_ARGS=\"-Dsonar.verbose=true\"',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :sonar_login,
-                                       env_name: "FL_SONAR_LOGIN",
-                                       description: "Pass the Sonar Login token (e.g: xxxxxxprivate_token_XXXXbXX7e)",
+                                       env_name: 'SONAR_LOGIN',
+                                       description: 'Pass the Sonar Login token (e.g: xxxxxxprivate_token_XXXXbXX7e)',
                                        optional: true,
                                        type: String,
                                        sensitive: true),
           PantographCore::ConfigItem.new(key: :sonar_url,
-                                       env_name: "FL_SONAR_URL",
-                                       description: "Pass the url of the Sonar server",
+                                       env_name: 'SONAR_URL',
+                                       description: 'Pass the url of the Sonar server',
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :branch_name,
-                                       env_name: "FL_SONAR_RUNNER_BRANCH_NAME",
-                                       description: "Pass the branch name which is getting scanned",
+                                       env_name: 'SONAR_RUNNER_BRANCH_NAME',
+                                       description: 'Pass the branch name which is getting scanned',
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :pull_request_branch,
-                                       env_name: "FL_SONAR_RUNNER_PULL_REQUEST_BRANCH",
-                                       description: "The name of the branch that contains the changes to be merged",
+                                       env_name: 'SONAR_RUNNER_PULL_REQUEST_BRANCH',
+                                       description: 'The name of the branch that contains the changes to be merged',
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :pull_request_base,
-                                       env_name: "FL_SONAR_RUNNER_PULL_REQUEST_BASE",
-                                       description: "The long-lived branch into which the PR will be merged",
+                                       env_name: 'SONAR_RUNNER_PULL_REQUEST_BASE',
+                                       description: 'The long-lived branch into which the PR will be merged',
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :pull_request_key,
-                                       env_name: "FL_SONAR_RUNNER_PULL_REQUEST_KEY",
-                                       description: "Unique identifier of your PR. Must correspond to the key of the PR in GitHub or TFS",
+                                       env_name: 'SONAR_RUNNER_PULL_REQUEST_KEY',
+                                       description: 'Unique identifier of your PR. Must correspond to the key of the PR in GitHub or TFS',
                                        optional: true,
                                        type: String)
         ]
       end
 
       def self.return_value
-        "The exit code of the sonar-scanner binary"
+        'The exit code of the sonar-scanner binary'
       end
 
       def self.authors
-        ["c_gretzki"]
+        ['c_gretzki']
       end
 
       def self.is_supported?(platform)

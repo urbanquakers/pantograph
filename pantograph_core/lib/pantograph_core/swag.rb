@@ -37,7 +37,7 @@ module PantographCore
     end
 
     def self.should_be_shown?
-      return false unless PantographCore::Env.truthy?("FL_ENABLE_LOGO_ANIMATION")
+      return false unless PantographCore::Env.truthy?('ENABLE_LOGO_ANIMATION')
       return false if Helper.ci?
       return false unless UI.interactive?
       return true
@@ -47,7 +47,7 @@ module PantographCore
       return unless should_be_shown?
       # sound is disabled as i didn't find a royality free nice midi :(
       @output = StringIO.new
-      # if PantographCore::Env.truthy?("FL_DO_SOUND")
+      # if PantographCore::Env.truthy?("DO_SOUND")
       #  @sound_thr = Thread.new do
       #    audio = File.join(PantographCore::ROOT, "lib/assets/sound.xm")
       #    pipe = IO.popen("timidity #{audio.shellescape}")

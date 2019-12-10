@@ -33,19 +33,19 @@ module Pantograph
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :force,
-                                       env_name: "FL_PUSH_GIT_FORCE",
-                                       description: "Force push to remote",
+                                       env_name: 'PUSH_GIT_FORCE',
+                                       description: 'Force push to remote',
                                        is_string: false,
                                        default_value: false,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :remote,
-                                       env_name: "FL_GIT_PUSH_REMOTE",
-                                       description: "The remote to push tags to",
-                                       default_value: "origin",
+                                       env_name: 'GIT_PUSH_REMOTE',
+                                       description: 'The remote to push tags to',
+                                       default_value: 'origin',
                                        optional: true),
           PantographCore::ConfigItem.new(key: :tag,
-                                       env_name: "FL_GIT_PUSH_TAG",
-                                       description: "The tag to push to remote",
+                                       env_name: 'GIT_PUSH_TAG',
+                                       description: 'The tag to push to remote',
                                        optional: true)
         ]
       end

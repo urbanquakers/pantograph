@@ -28,19 +28,19 @@ module Pantograph
         sudo_needed = !File.writable?(gem_dir)
 
         if sudo_needed
-          UI.important("It seems that your Gem directory is not writable by your current user.")
+          UI.important('It seems that your Gem directory is not writable by your current user.')
           UI.important("pantograph would need sudo rights to update itself, however, running 'sudo pantograph' is not recommended.")
-          UI.important("If you still want to use this action, please read the documentation on how to set this up:")
-          UI.important("https://johnknapprs.github.io/pantograph/actions/update_pantograph/")
+          UI.important('If you still want to use this action, please read the documentation on how to set this up:')
+          UI.important('https://johnknapprs.github.io/pantograph/actions/update_pantograph/')
           return
         end
 
         unless updater.respond_to?(:highest_installed_gems)
-          UI.important("The update_pantograph action requires rubygems version 2.1.0 or greater.")
-          UI.important("Please update your version of ruby gems before proceeding.")
-          UI.command "gem install rubygems-update"
-          UI.command "update_rubygems"
-          UI.command "gem update --system"
+          UI.important('The update_pantograph action requires rubygems version 2.1.0 or greater.')
+          UI.important('Please update your version of ruby gems before proceeding.')
+          UI.command('gem install rubygems-update')
+          UI.command('update_rubygems')
+          UI.command('gem update --system')
           return
         end
 
@@ -89,7 +89,7 @@ module Pantograph
         UI.message("pantograph.tools successfully updated! I will now restart myself... 😴")
 
         # Set no_update to true so we don't try to update again
-        exec("FL_NO_UPDATE=true #{$PROGRAM_NAME} #{ARGV.join(' ')}")
+        exec("PANT_NO_UPDATE=true #{$PROGRAM_NAME} #{ARGV.join(' ')}")
       end
 
       def self.show_information_about_nightly_builds
@@ -108,7 +108,7 @@ module Pantograph
       end
 
       def self.description
-        "Makes sure pantograph-tools are up-to-date when running pantograph"
+        'Makes sure pantograph-tools are up-to-date when running pantograph'
       end
 
       def self.details
@@ -135,25 +135,25 @@ module Pantograph
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :nightly,
-                                       env_name: "FL_UPDATE_PANTOGRAPH_NIGHTLY",
-                                       description: "Opt-in to install and use nightly pantograph builds",
+                                       env_name: 'PANT_UPDATE_PANTOGRAPH_NIGHTLY',
+                                       description: 'Opt-in to install and use nightly pantograph builds',
                                        is_string: false,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :no_update,
-                                       env_name: "FL_NO_UPDATE",
+                                       env_name: 'PANT_NO_UPDATE',
                                        description: "Don't update during this run. This is used internally",
                                        is_string: false,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :tools,
-                                       env_name: "FL_TOOLS_TO_UPDATE",
-                                       description: "Comma separated list of pantograph tools to update (e.g. `pantograph,sigh`)",
+                                       env_name: 'PANT_TOOLS_TO_UPDATE',
+                                       description: 'Comma separated list of pantograph tools to update (e.g. `pantograph,sigh`)',
                                        deprecated: true,
                                        optional: true)
         ]
       end
 
       def self.authors
-        ["milch", "KrauseFx"]
+        ['milch', 'KrauseFx']
       end
 
       def self.is_supported?(platform)

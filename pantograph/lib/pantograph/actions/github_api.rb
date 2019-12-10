@@ -79,26 +79,26 @@ module Pantograph
         def available_options
           [
             PantographCore::ConfigItem.new(key: :server_url,
-                                         env_name: "FL_GITHUB_API_SERVER_URL",
+                                         env_name: 'GITHUB_API_SERVER_URL',
                                          description: "The server url. e.g. 'https://your.internal.github.host/api/v3' (Default: 'https://api.github.com')",
-                                         default_value: "https://api.github.com",
+                                         default_value: 'https://api.github.com',
                                          optional: true,
                                          verify_block: proc do |value|
                                            UI.user_error!("Please include the protocol in the server url, e.g. https://your.github.server/api/v3") unless value.include?("//")
                                          end),
             PantographCore::ConfigItem.new(key: :api_token,
-                                         env_name: "FL_GITHUB_API_TOKEN",
-                                         description: "Personal API Token for GitHub - generate one at https://github.com/settings/tokens",
+                                         env_name: 'GITHUB_API_TOKEN',
+                                         description: 'Personal API Token for GitHub - generate one at https://github.com/settings/tokens',
                                          sensitive: true,
                                          code_gen_sensitive: true,
                                          type: String,
-                                         default_value: ENV["GITHUB_API_TOKEN"],
+                                         default_value: ENV['GITHUB_API_TOKEN'],
                                          default_value_dynamic: true,
                                          optional: false),
             PantographCore::ConfigItem.new(key: :http_method,
-                                         env_name: "FL_GITHUB_API_HTTP_METHOD",
-                                         description: "The HTTP method. e.g. GET / POST",
-                                         default_value: "GET",
+                                         env_name: 'GITHUB_API_HTTP_METHOD',
+                                         description: 'The HTTP method. e.g. GET / POST',
+                                         default_value: 'GET',
                                          optional: true,
                                          verify_block: proc do |value|
                                            unless %w(GET POST PUT DELETE HEAD CONNECT PATCH).include?(value.to_s.upcase)
@@ -106,22 +106,22 @@ module Pantograph
                                            end
                                          end),
             PantographCore::ConfigItem.new(key: :body,
-                                         env_name: "FL_GITHUB_API_REQUEST_BODY",
-                                         description: "The request body in JSON or hash format",
+                                         env_name: 'GITHUB_API_REQUEST_BODY',
+                                         description: 'The request body in JSON or hash format',
                                          is_string: false,
                                          default_value: {},
                                          optional: true),
             PantographCore::ConfigItem.new(key: :raw_body,
-                                         env_name: "FL_GITHUB_API_REQUEST_RAW_BODY",
-                                         description: "The request body taken verbatim instead of as JSON, useful for file uploads",
+                                         env_name: 'GITHUB_API_REQUEST_RAW_BODY',
+                                         description: 'The request body taken verbatim instead of as JSON, useful for file uploads',
                                          type: String,
                                          optional: true),
             PantographCore::ConfigItem.new(key: :path,
-                                         env_name: "FL_GITHUB_API_PATH",
+                                         env_name: 'GITHUB_API_PATH',
                                          description: "The endpoint path. e.g. '/repos/:owner/:repo/readme'",
                                          optional: true),
             PantographCore::ConfigItem.new(key: :url,
-                                         env_name: "FL_GITHUB_API_URL",
+                                         env_name: 'GITHUB_API_URL',
                                          description: "The complete full url - used instead of path. e.g. 'https://uploads.github.com/repos/pantograph...'",
                                          optional: true,
                                          verify_block: proc do |value|
@@ -133,13 +133,13 @@ module Pantograph
                                          default_value: {},
                                          optional: true),
             PantographCore::ConfigItem.new(key: :headers,
-                                         description: "Optional headers to apply",
+                                         description: 'Optional headers to apply',
                                          is_string: false,
                                          default_value: {},
                                          optional: true),
             PantographCore::ConfigItem.new(key: :secure,
-                                         env_name: "FL_GITHUB_API_SECURE",
-                                         description: "Optionally disable secure requests (ssl_verify_peer)",
+                                         env_name: 'GITHUB_API_SECURE',
+                                         description: 'Optionally disable secure requests (ssl_verify_peer)',
                                          type: Boolean,
                                          default_value: true,
                                          optional: true)
@@ -155,11 +155,11 @@ module Pantograph
         end
 
         def return_value
-          "A hash including the HTTP status code (:status), the response body (:body), and if valid JSON has been returned the parsed JSON (:json)."
+          'A hash including the HTTP status code (:status), the response body (:body), and if valid JSON has been returned the parsed JSON (:json).'
         end
 
         def authors
-          ["tommeier"]
+          ['tommeier']
         end
 
         def example_code
@@ -227,7 +227,7 @@ module Pantograph
           elsif body.kind_of?(Array)
             body.to_json
           else
-            UI.user_error!("Please provide valid JSON, or a hash as request body") unless parse_json(body)
+            UI.user_error!('Please provide valid JSON, or a hash as request body') unless parse_json(body)
             body
           end
         end

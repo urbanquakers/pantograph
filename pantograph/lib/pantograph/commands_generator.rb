@@ -115,7 +115,7 @@ module Pantograph
         c.option('-u STRING', '--user STRING', String, 'iOS projects only: Your Apple ID')
 
         c.action do |args, options|
-          Pantograph::Setup.start(user: options.user)
+          Pantograph::Setup.start
         end
       end
 

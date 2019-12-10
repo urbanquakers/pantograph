@@ -41,61 +41,61 @@ module Pantograph
       end
 
       def self.description
-        "Push local changes to the remote branch"
+        'Push local changes to the remote branch'
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :local_branch,
-                                       env_name: "FL_GIT_PUSH_LOCAL_BRANCH",
-                                       description: "The local branch to push from. Defaults to the current branch",
+                                       env_name: 'GIT_PUSH_LOCAL_BRANCH',
+                                       description: 'The local branch to push from. Defaults to the current branch',
                                        default_value_dynamic: true,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :remote_branch,
-                                       env_name: "FL_GIT_PUSH_REMOTE_BRANCH",
-                                       description: "The remote branch to push to. Defaults to the local branch",
+                                       env_name: 'GIT_PUSH_REMOTE_BRANCH',
+                                       description: 'The remote branch to push to. Defaults to the local branch',
                                        default_value_dynamic: true,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :force,
-                                       env_name: "FL_PUSH_GIT_FORCE",
-                                       description: "Force push to remote",
+                                       env_name: 'PUSH_GIT_FORCE',
+                                       description: 'Force push to remote',
                                        type: Boolean,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :force_with_lease,
-                                       env_name: "FL_PUSH_GIT_FORCE_WITH_LEASE",
-                                       description: "Force push with lease to remote",
+                                       env_name: 'PUSH_GIT_FORCE_WITH_LEASE',
+                                       description: 'Force push with lease to remote',
                                        type: Boolean,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :tags,
-                                       env_name: "FL_PUSH_GIT_TAGS",
-                                       description: "Whether tags are pushed to remote",
+                                       env_name: 'PUSH_GIT_TAGS',
+                                       description: 'Whether tags are pushed to remote',
                                        type: Boolean,
                                        default_value: true),
           PantographCore::ConfigItem.new(key: :remote,
-                                       env_name: "FL_GIT_PUSH_REMOTE",
-                                       description: "The remote to push to",
+                                       env_name: 'GIT_PUSH_REMOTE',
+                                       description: 'The remote to push to',
                                        default_value: 'origin'),
           PantographCore::ConfigItem.new(key: :no_verify,
-                                       env_name: "FL_GIT_PUSH_USE_NO_VERIFY",
-                                       description: "Whether or not to use --no-verify",
+                                       env_name: 'GIT_PUSH_USE_NO_VERIFY',
+                                       description: 'Whether or not to use --no-verify',
                                        type: Boolean,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :set_upstream,
-                                       env_name: "FL_GIT_PUSH_USE_SET_UPSTREAM",
-                                       description: "Whether or not to use --set-upstream",
+                                       env_name: 'GIT_PUSH_USE_SET_UPSTREAM',
+                                       description: 'Whether or not to use --set-upstream',
                                        type: Boolean,
                                        default_value: false)
         ]
       end
 
       def self.author
-        "lmirosevic"
+        'lmirosevic'
       end
 
       def self.details
         [
           "Lets you push your local commits to a remote git repo. Useful if you make local changes such as adding a version bump commit (using `commit_version_bump`) or a git tag (using 'add_git_tag') on a CI server, and you want to push those changes back to your canonical/main repo.",
-          "If this is a new branch, use the `set_upstream` option to set the remote branch as upstream."
+          'If this is a new branch, use the `set_upstream` option to set the remote branch as upstream.'
         ].join("\n")
       end
 

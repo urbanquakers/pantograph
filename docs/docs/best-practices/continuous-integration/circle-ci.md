@@ -54,7 +54,7 @@ jobs:
       xcode: "9.0"
     working_directory: /Users/distiller/project
     environment:
-      FL_OUTPUT_DIR: output
+      OUTPUT_DIR: output
       PANTOGRAPH_LANE: test
     shell: /bin/bash --login -o pipefail
     steps:

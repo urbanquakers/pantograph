@@ -26,9 +26,8 @@ module Pantograph
       end
 
       # Run a certain action
-      def trigger(task: nil, flags: nil, serial: nil, print_command: true, print_command_output: true)
-        android_serial = (serial != "") ? "ANDROID_SERIAL=#{serial}" : nil
-        command = [android_serial, escaped_gradle_path, task, flags].compact.join(" ")
+      def trigger(task: nil, flags: nil, print_command: true, print_command_output: true)
+        command = [escaped_gradle_path, task, flags].compact.join(" ")
         Action.sh(command, print_command: print_command, print_command_output: print_command_output)
       end
 

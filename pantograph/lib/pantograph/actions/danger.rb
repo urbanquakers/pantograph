@@ -29,75 +29,75 @@ module Pantograph
       end
 
       def self.description
-        "Runs `danger` for the project"
+        'Runs `danger` for the project'
       end
 
       def self.details
         [
-          "Formalize your Pull Request etiquette.",
-          "More information: [https://github.com/danger/danger](https://github.com/danger/danger)."
+          'Formalize your Pull Request etiquette.',
+          'More information: [https://github.com/danger/danger](https://github.com/danger/danger).'
         ].join("\n")
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :use_bundle_exec,
-                                       env_name: "FL_DANGER_USE_BUNDLE_EXEC",
-                                       description: "Use bundle exec when there is a Gemfile presented",
+                                       env_name: 'DANGER_USE_BUNDLE_EXEC',
+                                       description: 'Use bundle exec when there is a Gemfile presented',
                                        is_string: false,
                                        default_value: true),
           PantographCore::ConfigItem.new(key: :verbose,
-                                       env_name: "FL_DANGER_VERBOSE",
-                                       description: "Show more debugging information",
+                                       env_name: 'DANGER_VERBOSE',
+                                       description: 'Show more debugging information',
                                        is_string: false,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :danger_id,
-                                       env_name: "FL_DANGER_ID",
-                                       description: "The identifier of this Danger instance",
+                                       env_name: 'DANGER_ID',
+                                       description: 'The identifier of this Danger instance',
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :dangerfile,
-                                       env_name: "FL_DANGER_DANGERFILE",
-                                       description: "The location of your Dangerfile",
+                                       env_name: 'DANGER_DANGERFILE',
+                                       description: 'The location of your Dangerfile',
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :github_api_token,
-                                       env_name: "FL_DANGER_GITHUB_API_TOKEN",
-                                       description: "GitHub API token for danger",
+                                       env_name: 'DANGER_GITHUB_API_TOKEN',
+                                       description: 'GitHub API token for danger',
                                        sensitive: true,
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :fail_on_errors,
-                                       env_name: "FL_DANGER_FAIL_ON_ERRORS",
-                                       description: "Should always fail the build process, defaults to false",
+                                       env_name: 'DANGER_FAIL_ON_ERRORS',
+                                       description: 'Should always fail the build process, defaults to false',
                                        is_string: false,
                                        optional: true,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :new_comment,
-                                       env_name: "FL_DANGER_NEW_COMMENT",
-                                       description: "Makes Danger post a new comment instead of editing its previous one",
+                                       env_name: 'DANGER_NEW_COMMENT',
+                                       description: 'Makes Danger post a new comment instead of editing its previous one',
                                        is_string: false,
                                        optional: true,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :remove_previous_comments,
-                                       env_name: "FL_DANGER_REMOVE_PREVIOUS_COMMENT",
-                                       description: "Makes Danger remove all previous comment and create a new one in the end of the list",
+                                       env_name: 'DANGER_REMOVE_PREVIOUS_COMMENT',
+                                       description: 'Makes Danger remove all previous comment and create a new one in the end of the list',
                                        is_string: false,
                                        optional: true,
                                        default_value: false),
           PantographCore::ConfigItem.new(key: :base,
-                                       env_name: "FL_DANGER_BASE",
-                                       description: "A branch/tag/commit to use as the base of the diff. [master|dev|stable]",
+                                       env_name: 'DANGER_BASE',
+                                       description: 'A branch/tag/commit to use as the base of the diff. [master|dev|stable]',
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :head,
-                                       env_name: "FL_DANGER_HEAD",
-                                       description: "A branch/tag/commit to use as the head. [master|dev|stable]",
+                                       env_name: 'DANGER_HEAD',
+                                       description: 'A branch/tag/commit to use as the head. [master|dev|stable]',
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :pr,
-                                       env_name: "FL_DANGER_PR",
-                                       description: "Run danger on a specific pull request. e.g. \"https://github.com/danger/danger/pull/518\"",
+                                       env_name: 'DANGER_PR',
+                                       description: 'Run danger on a specific pull request. e.g. \"https://github.com/danger/danger/pull/518\"',
                                        type: String,
                                        optional: true)
         ]
@@ -124,7 +124,7 @@ module Pantograph
       end
 
       def self.authors
-        ["KrauseFx"]
+        ['KrauseFx']
       end
     end
   end

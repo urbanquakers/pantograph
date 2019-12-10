@@ -2,7 +2,7 @@ require "tty-spinner"
 
 module Pantograph
   class Setup
-    # :ios or :gradle
+    # :maven, :gradle, or other
     attr_accessor :platform
 
     # Path to the xcodeproj or xcworkspace
@@ -41,7 +41,7 @@ module Pantograph
       # this is used by e.g. configuration.rb to not show warnings when running produce
       ENV["PANTOGRAPH_ONBOARDING_IN_PROCESS"] = 1.to_s
 
-      spinner = TTY::Spinner.new('[:spinner] Looking for iOS and Gradle projects in current directory...', format: :dots)
+      spinner = TTY::Spinner.new('[:spinner] Looking for projects in current directory...', format: :dots)
       spinner.auto_spin
 
       maven_projects   = Dir["**/pom.xml"]
@@ -224,12 +224,12 @@ module Pantograph
       else
         # UI.message("📸  Learn more about how to automatically generate localized App Store screenshots:")
         # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/ios/screenshots/".cyan)
-        UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
-        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/ios/beta-deployment/".cyan)
+        # UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
+        # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/ios/beta-deployment/".cyan)
         # UI.message("🚀  Learn more about how to automate the App Store release process:")
         # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/ios/appstore-deployment/".cyan)
-        UI.message("👩‍⚕️  Learn more about how to setup code signing with pantograph")
-        UI.message("\t\thttps://johnknapprs.github.io/pantograph/codesigning/getting-started/".cyan)
+        # UI.message("👩‍⚕️  Learn more about how to setup code signing with pantograph")
+        # UI.message("\t\thttps://johnknapprs.github.io/pantograph/codesigning/getting-started/".cyan)
       end
 
       # we crash here, so that this never happens when a new setup method is added

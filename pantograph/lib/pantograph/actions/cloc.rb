@@ -22,49 +22,49 @@ module Pantograph
       end
 
       def self.description
-        "Generates a Code Count that can be read by Jenkins (xml format)"
+        'Generates a Code Count that can be read by Jenkins (xml format)'
       end
 
       def self.details
         [
-          "This action will run cloc to generate a SLOC report that the Jenkins SLOCCount plugin can read.",
-          "See [https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin) and [https://github.com/AlDanial/cloc](https://github.com/AlDanial/cloc) for more information."
+          'This action will run cloc to generate a SLOC report that the Jenkins SLOCCount plugin can read.',
+          'See [https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin) and [https://github.com/AlDanial/cloc](https://github.com/AlDanial/cloc) for more information.'
         ].join("\n")
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :binary_path,
-                                       env_name: "FL_CLOC_BINARY_PATH",
-                                       description: "Where the cloc binary lives on your system (full path including 'cloc')",
+                                       env_name: 'CLOC_BINARY_PATH',
+                                       description: 'Where the cloc binary lives on your system (full path including "cloc")',
                                        optional: true,
                                        type: String,
                                        default_value: '/usr/local/bin/cloc'),
           PantographCore::ConfigItem.new(key: :exclude_dir,
-                                       env_name: "FL_CLOC_EXCLUDE_DIR",
-                                       description: "Comma separated list of directories to exclude", # a short description of this parameter
+                                       env_name: 'CLOC_EXCLUDE_DIR',
+                                       description: 'Comma separated list of directories to exclude', # a short description of this parameter
                                        optional: true,
                                        type: String),
           PantographCore::ConfigItem.new(key: :output_directory,
-                                       env_name: "FL_CLOC_OUTPUT_DIRECTORY",
-                                       description: "Where to put the generated report file",
+                                       env_name: 'CLOC_OUTPUT_DIRECTORY',
+                                       description: 'Where to put the generated report file',
                                        type: String,
                                        default_value: "build"),
           PantographCore::ConfigItem.new(key: :source_directory,
-                                      env_name: "FL_CLOC_SOURCE_DIRECTORY",
-                                      description: "Where to look for the source code (relative to the project root folder)",
+                                      env_name: 'CLOC_SOURCE_DIRECTORY',
+                                      description: 'Where to look for the source code (relative to the project root folder)',
                                       type: String,
-                                      default_value: ""),
+                                      default_value: ''),
           PantographCore::ConfigItem.new(key: :xml,
-                                      env_name: "FL_CLOC_XML",
-                                      description: "Should we generate an XML File (if false, it will generate a plain text file)?",
+                                      env_name: 'CLOC_XML',
+                                      description: 'Should we generate an XML File (if false, it will generate a plain text file)?',
                                       is_string: false,
                                       default_value: true)
         ]
       end
 
       def self.authors
-        ["intere"]
+        ['intere']
       end
 
       def self.is_supported?(platform)
