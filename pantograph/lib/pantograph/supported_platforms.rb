@@ -11,7 +11,7 @@ module Pantograph
       end
     end
 
-    @default = [:ios, :mac, :android, :gradle]
+    @default = [:mac, :linux, :windows]
     @extra = []
 
     def self.all

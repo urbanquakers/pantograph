@@ -57,7 +57,7 @@ This will verify if a given release version is available on GitHub
 
 get_github_release ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx, @czechboy0, @jaleksynas, @tommeier
 
 

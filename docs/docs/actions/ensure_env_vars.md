@@ -16,7 +16,7 @@ Raises an exception if the specified env vars are not set
 
 ensure_env_vars ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @revolter
 
 

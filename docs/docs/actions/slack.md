@@ -16,7 +16,7 @@ Send a success/error message to your [Slack](https://slack.com) group
 
 slack ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

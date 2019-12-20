@@ -18,9 +18,9 @@ error do |lane, exception|
   File.write('/tmp/pantograph/error', lane)
 end
 
-platform :ios do
-  desc "run_ios runner"
-  lane :run_ios do
+platform :mac do
+  desc "run_mac runner"
+  lane :run_mac do
     lane1
     lane2
   end

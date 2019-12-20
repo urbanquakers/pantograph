@@ -16,7 +16,7 @@ Generate a changelog using the Changes section from the current Jenkins build
 
 make_changelog_from_jenkins ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @mandrizzle
 
 

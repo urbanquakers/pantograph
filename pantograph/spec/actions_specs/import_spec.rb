@@ -5,7 +5,7 @@ describe Pantograph do
         ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/ImportPantfile')
 
         expect(ff.runner.execute(:main_lane)).to eq('such main') # from the original Pantfile
-        expect(ff.runner.execute(:extended, :ios)).to eq('extended') # from the original Pantfile
+        expect(ff.runner.execute(:extended, :mac)).to eq('extended') # from the original Pantfile
         expect(ff.runner.execute(:test)).to eq(1) # fro the imported Pantfile
 
         # This should not raise an exception
@@ -14,7 +14,7 @@ describe Pantograph do
       it "overwrites existing lanes" do
         ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/ImportPantfile')
 
-        expect(ff.runner.execute(:empty, :ios)).to eq("Overwrite")
+        expect(ff.runner.execute(:empty, :mac)).to eq("Overwrite")
       end
 
       it "raises an exception when no path is given" do

@@ -196,7 +196,7 @@ describe Pantograph::PluginGenerator do
       expect(action_class.details).to eq(details)
       expect(action_class.authors).to eq([author])
       expect(action_class.available_options).to eq([])
-      expect(action_class.is_supported?(:ios)).to be(true)
+      expect(action_class.is_supported?(:mac)).to be(true)
     end
 
     it "creates a complete, valid gemspec" do

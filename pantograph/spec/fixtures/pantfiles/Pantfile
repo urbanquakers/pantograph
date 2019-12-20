@@ -2,14 +2,14 @@
 
 FileUtils.mkdir_p("/tmp/pantograph/")
 
-default_platform(:ios)
+default_platform(:mac)
 
 lane(:test) do
   File.write("/tmp/pantograph/tests.txt", Time.now.to_s)
   1
 end
 
-platform(:ios) do
+platform(:mac) do
   lane(:beta) do
     File.write("/tmp/pantograph/mac_beta.txt", Time.now.to_s)
     team_id('123')

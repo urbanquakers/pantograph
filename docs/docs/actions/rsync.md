@@ -16,7 +16,7 @@ Rsync files from :source to :destination
 
 rsync ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @hjanuschka
 
 

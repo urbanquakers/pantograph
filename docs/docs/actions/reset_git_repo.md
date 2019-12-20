@@ -19,7 +19,7 @@ Resets git repo to a clean state by discarding uncommitted changes
 
 reset_git_repo ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @lmirosevic
 
 

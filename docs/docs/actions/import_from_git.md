@@ -16,7 +16,7 @@ Import another Pantfile from a remote git repository to use its lanes
 
 import_from_git ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @fabiomassimo, @KrauseFx, @Liquidsoul
 
 

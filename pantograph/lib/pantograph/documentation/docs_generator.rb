@@ -65,18 +65,12 @@ module Pantograph
     def self.formatted_platform(pl)
       pl = pl.to_s
       case pl
-      when 'ios'
-        'iOS'
-      when 'android'
-        'Android'
       when 'mac'
         'MacOS'
-      when 'gradle'
-        'Gradle'
-      when 'maven'
-        'Maven'
-      when 'angular'
-        'Angular'
+      when 'linux'
+        'Linux'
+      when 'windows'
+        'Windows'
       else
         pl
       end

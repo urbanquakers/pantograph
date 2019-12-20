@@ -16,7 +16,7 @@ Directly add the given file or all files
 
 git_add ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @4brunu, @antondomashnev
 
 

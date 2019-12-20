@@ -16,7 +16,7 @@ Raises an exception if there are uncommitted git changes
 
 ensure_git_status_clean ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @lmirosevic, @antondomashnev
 
 

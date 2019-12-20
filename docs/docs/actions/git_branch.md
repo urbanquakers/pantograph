@@ -16,7 +16,7 @@ Returns the name of the current git branch, possibly as managed by CI ENV vars
 
 git_branch ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

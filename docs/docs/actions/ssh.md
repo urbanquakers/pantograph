@@ -16,7 +16,7 @@ Allows remote command execution using ssh
 
 ssh ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @hjanuschka
 
 

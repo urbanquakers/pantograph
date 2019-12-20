@@ -16,7 +16,7 @@ Invokes sonar-scanner to programmatically run SonarQube analysis
 
 sonar ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @c_gretzki
 Returns | The exit code of the sonar-scanner binary
 
@@ -48,7 +48,7 @@ Key | Description | Default
   `sources_path` | Comma-separated paths to directories containing source files. Must either be specified here or inside the sonar project configuration file | 
   `project_language` | Language key, e.g. objc | 
   `source_encoding` | Used encoding of source files, e.g., UTF-8 | 
-  `sonar_runner_args` | Pass additional arguments to sonar-scanner. Be sure to provide the arguments with a leading `-D` e.g. FL_SONAR_RUNNER_ARGS="-Dsonar.verbose=true" | 
+  `sonar_runner_args` | Pass additional arguments to sonar-scanner. Be sure to provide the arguments with a leading `-D` e.g. SONAR_RUNNER_ARGS=\"-Dsonar.verbose=true\" | 
   `sonar_login` | Pass the Sonar Login token (e.g: xxxxxxprivate_token_XXXXbXX7e) | 
   `sonar_url` | Pass the url of the Sonar server | 
   `branch_name` | Pass the branch name which is getting scanned | 

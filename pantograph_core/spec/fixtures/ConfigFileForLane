@@ -4,16 +4,16 @@ for_lane "enterprise" do
   app_identifier "com.forlane.enterprise"
 end
 
-for_platform "ios" do
-  app_identifier "com.forplatform.ios"
+for_platform "mac" do
+  app_identifier "com.forplatform.mac"
 
   for_lane "release" do
-    app_identifier "com.forplatformios.forlanerelease"
-    app_identifier "com.forplatformios.ignored"
+    app_identifier "com.forplatformmac.forlanerelease"
+    app_identifier "com.forplatformmac.ignored"
   end
 
   for_lane "explode" do
-    app_identifier "com.forplatformios.boom"
+    app_identifier "com.forplatformmac.boom"
     raise "oh noes!"
   end
 end

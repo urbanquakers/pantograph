@@ -1,9 +1,9 @@
 # Needs to have this name
 
-platform :ios do
+platform :windows do
 end
 
-platform :android do
+platform :linux do
   desc "I'm a lane"
   lane :lane do
     UI.message("I'm a lane")

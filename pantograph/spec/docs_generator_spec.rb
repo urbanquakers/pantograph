@@ -12,7 +12,7 @@ describe Pantograph do
       expect(output).to include('gem install pantograph')
       expect(output).to include('# Available Actions')
       expect(output).to include('### test')
-      expect(output).to include('# iOS')
+      expect(output).to include('# MacOS')
       expect(output).to include('pantograph test')
       expect(output).to include('## mac')
       expect(output).to include('----')
@@ -30,9 +30,9 @@ describe Pantograph do
 
       expect(output).to include('gem install pantograph')
       expect(output).to include('# Available Actions')
-      expect(output).to include('## Android')
-      expect(output).to include('### android lane')
-      expect(output).to include('pantograph android lane')
+      expect(output).to include('## Linux')
+      expect(output).to include('### linux lane')
+      expect(output).to include('pantograph linux lane')
       expect(output).to include("I'm a lane")
 
       expect(output).not_to(include('## iOS'))

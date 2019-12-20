@@ -69,9 +69,9 @@ module Pantograph
         # 
         #  true
         # 
-        #  platform == :ios
+        #  platform == :linux
         # 
-        #  [:ios, :mac].include?(platform)
+        #  [:linux, :mac].include?(platform)
         # 
         true
       end

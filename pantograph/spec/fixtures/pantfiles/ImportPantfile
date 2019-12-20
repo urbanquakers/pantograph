@@ -5,7 +5,7 @@ lane :main_lane do
   "such main"
 end
 
-platform :ios do
+platform :mac do
   # override a lane
   override_lane :empty do
     "Overwrite"

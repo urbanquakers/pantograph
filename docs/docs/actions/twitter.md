@@ -16,7 +16,7 @@ Post a tweet on [Twitter.com](https://twitter.com)
 
 twitter ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @hjanuschka
 
 

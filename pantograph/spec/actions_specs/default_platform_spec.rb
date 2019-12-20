@@ -2,8 +2,8 @@ describe Pantograph do
   describe Pantograph::PantFile do
     describe "Default Platform Action" do
       it "stores the default platform and converts to a symbol" do
-        Pantograph::Actions::DefaultPlatformAction.run(['ios'])
-        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::DEFAULT_PLATFORM]).to eq(:ios)
+        Pantograph::Actions::DefaultPlatformAction.run(['mac'])
+        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::DEFAULT_PLATFORM]).to eq(:mac)
       end
 
       it "raises an error if no platform is given" do
@@ -14,9 +14,9 @@ describe Pantograph do
 
       it "works as expected inside a Pantfile" do
         Pantograph::PantFile.new.parse("lane :test do
-          default_platform :ios
+          default_platform :mac
         end").runner.execute(:test)
-        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::DEFAULT_PLATFORM]).to eq(:ios)
+        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::DEFAULT_PLATFORM]).to eq(:mac)
       end
     end
     describe "Extra platforms" do
@@ -26,7 +26,7 @@ describe Pantograph do
         Pantograph::SupportedPlatforms.extra = []
       end
       it "displays a warning if a platform is not supported" do
-        expect(PantographCore::UI).to receive(:important).with("Platform 'notSupportedOS' is not officially supported. Currently supported platforms are [:ios, :mac, :android, :gradle].")
+        expect(PantographCore::UI).to receive(:important).with("Platform 'notSupportedOS' is not officially supported. Currently supported platforms are [:mac, :linux, :windows].")
         Pantograph::Actions::DefaultPlatformAction.run(['notSupportedOS'])
       end
 

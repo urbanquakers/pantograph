@@ -6,7 +6,7 @@ lane :so_shared do |values|
   File.write(path, values)
 end
 
-platform :ios do
+platform :mac do
   lane :lane1 do
     str = lane2(parameter1: 'parameter')
     File.write(path, str)
@@ -41,7 +41,7 @@ platform :ios do
   end
 end
 
-platform :mac do
+platform :linux do
   lane :wrong_platform do
 
   end

@@ -16,7 +16,7 @@ Leave a comment on JIRA tickets
 
 jira ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @iAmChrisTruman
 
 

@@ -16,7 +16,7 @@ This action speaks the given text out loud
 
 say ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

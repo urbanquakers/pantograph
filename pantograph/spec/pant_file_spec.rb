@@ -110,7 +110,7 @@ describe Pantograph do
       end
 
       it "raises an exception if key doesn't exist at all" do
-        expect(UI).to receive(:user_error!).with("Could not find 'asdf'. Available lanes: test, anotherroot, mac beta, ios beta, ios release, android beta, android witherror, android unsupported_action")
+        expect(UI).to receive(:user_error!).with("Could not find 'asdf'. Available lanes: test, anotherroot, mac beta, windows beta, windows release, linux beta, linux witherror, linux unsupported_action")
         @ff.is_platform_block?("asdf")
       end
 
@@ -165,7 +165,7 @@ describe Pantograph do
         @ff.runner.execute('beta', 'mac')
 
         expect(File.exist?('/tmp/pantograph/mac_beta.txt')).to eq(true)
-        expect(File.exist?('/tmp/pantograph/before_all_android.txt')).to eq(false)
+        expect(File.exist?('/tmp/pantograph/before_all_linux.txt')).to eq(false)
         expect(File.exist?('/tmp/pantograph/before_all.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/before_each_beta.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/after_each_beta.txt')).to eq(true)
@@ -173,41 +173,41 @@ describe Pantograph do
         expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::LANE_NAME]).to eq("mac beta")
       end
 
-      it "calls a block for a given platform (android - beta)" do
-        @ff.runner.execute('beta', 'android')
+      it "calls a block for a given platform (linux - beta)" do
+        @ff.runner.execute('beta', 'linux')
 
-        expect(File.exist?('/tmp/pantograph/android_beta.txt')).to eq(true)
-        expect(File.exist?('/tmp/pantograph/before_all_android.txt')).to eq(true)
-        expect(File.exist?('/tmp/pantograph/after_all_android.txt')).to eq(true)
+        expect(File.exist?('/tmp/pantograph/linux_beta.txt')).to eq(true)
+        expect(File.exist?('/tmp/pantograph/before_all_linux.txt')).to eq(true)
+        expect(File.exist?('/tmp/pantograph/after_all_linux.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/before_all.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/before_each_beta.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/after_each_beta.txt')).to eq(true)
 
-        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::LANE_NAME]).to eq("android beta")
+        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::LANE_NAME]).to eq("linux beta")
       end
 
-      it "calls all error blocks if multiple are given (android - witherror)" do
+      it "calls all error blocks if multiple are given (linux - witherror)" do
         expect do
-          @ff.runner.execute('witherror', 'android')
+          @ff.runner.execute('witherror', 'linux')
         end.to raise_error('my exception')
 
-        expect(File.exist?('/tmp/pantograph/before_all_android.txt')).to eq(true)
-        expect(File.exist?('/tmp/pantograph/after_all_android.txt')).to eq(false)
-        expect(File.exist?('/tmp/pantograph/android_error.txt')).to eq(true)
+        expect(File.exist?('/tmp/pantograph/before_all_linux.txt')).to eq(true)
+        expect(File.exist?('/tmp/pantograph/after_all_linux.txt')).to eq(false)
+        expect(File.exist?('/tmp/pantograph/linux_error.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/error.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/before_all.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/before_each_witherror.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/after_each_witherror.txt')).to eq(false)
 
-        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::PLATFORM_NAME]).to eq(:android)
+        expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::PLATFORM_NAME]).to eq(:linux)
       end
 
       it "allows calls without a platform (nil - anotherroot)" do
         @ff.runner.execute('anotherroot')
 
-        expect(File.exist?('/tmp/pantograph/before_all_android.txt')).to eq(false)
-        expect(File.exist?('/tmp/pantograph/after_all_android.txt')).to eq(false)
-        expect(File.exist?('/tmp/pantograph/android_error.txt')).to eq(false)
+        expect(File.exist?('/tmp/pantograph/before_all_linux.txt')).to eq(false)
+        expect(File.exist?('/tmp/pantograph/after_all_linux.txt')).to eq(false)
+        expect(File.exist?('/tmp/pantograph/linux_error.txt')).to eq(false)
         expect(File.exist?('/tmp/pantograph/error.txt')).to eq(false)
         expect(File.exist?('/tmp/pantograph/before_all.txt')).to eq(true)
         expect(File.exist?('/tmp/pantograph/another_root.txt')).to eq(true)
@@ -218,10 +218,10 @@ describe Pantograph do
         expect(Pantograph::Actions.lane_context[Pantograph::Actions::SharedValues::PLATFORM_NAME]).to eq(nil)
       end
 
-      # it "logs a warning if and unsupported action is called on an non officially supported platform" do
-      #   expect(PantographCore::UI).to receive(:important).with("Action 'frameit' isn't known to support operating system 'android'.")
-      #   @ff.runner.execute('unsupported_action', 'android')
-      # end
+      it "logs a warning if and unsupported action is called on an non officially supported platform" do
+        expect(PantographCore::UI).to receive(:important).with("Action 'sonar' isn't known to support operating system 'linux'.")
+        @ff.runner.execute('unsupported_action', 'linux')
+      end
     end
 
     describe "Different Pantfiles" do
@@ -288,7 +288,7 @@ describe Pantograph do
 
       it "before_each and after_each are called every time" do
         ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/PantfileLaneBlocks')
-        ff.runner.execute(:run_ios, :ios)
+        ff.runner.execute(:run_mac, :mac)
 
         expect(File.exist?('/tmp/pantograph/before_all')).to eq(true)
         expect(File.exist?('/tmp/pantograph/after_all')).to eq(true)
@@ -333,35 +333,35 @@ describe Pantograph do
       describe "supports switching lanes" do
         it "use case 1: passing parameters to another lane and getting the result" do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
-          ff.runner.execute(:lane1, :ios)
+          ff.runner.execute(:lane1, :mac)
 
           expect(File.read("/tmp/deliver_result.txt")).to eq("Lane 2 + parameter")
         end
 
         it "use case 2: passing no parameter to a lane that takes parameters" do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
-          ff.runner.execute(:lane3, :ios)
+          ff.runner.execute(:lane3, :mac)
 
           expect(File.read("/tmp/deliver_result.txt")).to eq("Lane 2 + ")
         end
 
         it "use case 3: Calling a lane directly which takes parameters" do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
-          ff.runner.execute(:lane4, :ios)
+          ff.runner.execute(:lane4, :mac)
 
           expect(File.read("/tmp/deliver_result.txt")).to eq("{}")
         end
 
         it "use case 4: Passing parameters to another lane" do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
-          ff.runner.execute(:lane5, :ios)
+          ff.runner.execute(:lane5, :mac)
 
           expect(File.read("/tmp/deliver_result.txt")).to eq("{:key=>:value}")
         end
 
         it "use case 5: Calling a method outside of the current platform" do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
-          ff.runner.execute(:call_general_lane, :ios)
+          ff.runner.execute(:call_general_lane, :mac)
 
           expect(File.read("/tmp/deliver_result.txt")).to eq("{:random=>:value}")
         end
@@ -369,14 +369,14 @@ describe Pantograph do
         it "calling a lane that doesn't exist" do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
           expect do
-            ff.runner.execute(:invalid, :ios)
+            ff.runner.execute(:invalid, :mac)
           end.to raise_error("Could not find action, lane or variable 'wrong_platform'. Check out the documentation for more details: https://johnknapprs.github.io/pantograph/actions")
         end
 
         it "raises an exception when not passing a hash" do
           ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/SwitcherPantfile')
           expect do
-            ff.runner.execute(:invalid_parameters, :ios)
+            ff.runner.execute(:invalid_parameters, :mac)
           end.to raise_error("Parameters for a lane must always be a hash")
         end
       end

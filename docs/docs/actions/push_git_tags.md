@@ -16,7 +16,7 @@ Push local tags to the remote - this will only push tags
 
 push_git_tags ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @vittoriom
 
 

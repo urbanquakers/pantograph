@@ -1,6 +1,6 @@
 FileUtils.mkdir_p("/tmp/pantograph/")
 
-default_platform :ios
+default_platform :mac
 
 desc "Run all the tests"
 lane :test do
@@ -15,31 +15,30 @@ platform :mac do
   desc "This will **not** send an email to all testers, it will only be uploaded to the new TestFlight."
   lane :beta do
     File.write("/tmp/pantograph/mac_beta.txt", Time.now.to_s)
-  end
-  
+  end 
 end
 
-platform :ios do
-  desc "Submit a new version to the App Store"
+platform :windows do
+
+  desc "Submit a new version to the Microsoft Store"
   lane :beta do
-    File.write("/tmp/pantograph/ios_beta.txt", Time.now.to_s)
+    File.write("/tmp/pantograph/mac_beta.txt", Time.now.to_s)
   end
 
   lane :release do
-    File.write("/tmp/pantograph/ios_release.txt", Time.now.to_s)
+    File.write("/tmp/pantograph/mac_release.txt", Time.now.to_s)
   end
-
 end
 
-platform :android do
+platform :linux do
 
   before_all do
-    File.write("/tmp/pantograph/before_all_android.txt", Time.now.to_s)
+    File.write("/tmp/pantograph/before_all_linux.txt", Time.now.to_s)
   end
 
   desc "Upload something to Google"
   lane :beta do
-    File.write("/tmp/pantograph/android_beta.txt", Time.now.to_s)
+    File.write("/tmp/pantograph/linux_beta.txt", Time.now.to_s)
   end
 
   private_lane :such_private do
@@ -51,15 +50,15 @@ platform :android do
   end
 
   lane :unsupported_action do
-    adb_devices
+    cloc
   end
 
   after_all do
-    File.write("/tmp/pantograph/after_all_android.txt", Time.now.to_s)
+    File.write("/tmp/pantograph/after_all_linux.txt", Time.now.to_s)
   end
 
   error do
-    File.write("/tmp/pantograph/android_error.txt", Time.now.to_s)
+    File.write("/tmp/pantograph/linux_error.txt", Time.now.to_s)
   end
 end
 

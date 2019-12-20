@@ -6,11 +6,11 @@ describe Pantograph do
       end
 
       it "lists all available lanes" do
-        expect(@ff.runner.available_lanes).to eq(["test", "anotherroot", "mac beta", "ios beta", "ios release", "android beta", "android witherror", "android unsupported_action"])
+        expect(@ff.runner.available_lanes).to eq(["test", "anotherroot", "mac beta", "windows beta", "windows release", "linux beta", "linux witherror", "linux unsupported_action"])
       end
 
       it "allows filtering of results" do
-        expect(@ff.runner.available_lanes('android')).to eq(["android beta", "android witherror", "android unsupported_action"])
+        expect(@ff.runner.available_lanes('linux')).to eq(["linux beta", "linux witherror", "linux unsupported_action"])
       end
 
       it "returns an empty array if invalid input is given" do
@@ -18,7 +18,7 @@ describe Pantograph do
       end
 
       it "doesn't show private lanes" do
-        expect(@ff.runner.available_lanes).to_not(include('android such_private'))
+        expect(@ff.runner.available_lanes).to_not(include('linux such_private'))
       end
 
       # describe "step_name override" do

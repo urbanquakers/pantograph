@@ -73,7 +73,7 @@ describe Pantograph do
           rocket: "🚀",
           pwd: Dir.pwd
         }
-        expect(ff.runner.execute(:something, :ios)).to eq(response)
+        expect(ff.runner.execute(:something, :mac)).to eq(response)
         expect(Pantograph::Actions.executed_actions.map { |a| a[:name] }).to eq(['from'])
       end
 
@@ -82,7 +82,7 @@ describe Pantograph do
         ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/PantfileActionFromActionWithOtherAction')
         Pantograph::Actions.executed_actions.clear
 
-        ff.runner.execute(:something, :ios)
+        ff.runner.execute(:something, :mac)
         expect(Pantograph::Actions.executed_actions.map { |a| a[:name] }).to eq(['from', 'example'])
       end
 
@@ -90,7 +90,7 @@ describe Pantograph do
         Pantograph::Actions.load_external_actions("./pantograph/spec/fixtures/actions")
         ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/PantfileActionFromActionInvalid')
         expect do
-          ff.runner.execute(:something, :ios)
+          ff.runner.execute(:something, :mac)
         end.to raise_error("To call another action from an action use `other_action.rocket` instead")
       end
     end

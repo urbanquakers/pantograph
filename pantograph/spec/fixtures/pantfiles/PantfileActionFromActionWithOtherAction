@@ -1,4 +1,4 @@
-platform :ios do
+platform :mac do
   lane :something do
     action_from_action
     example_action

@@ -16,7 +16,7 @@ Verifies the minimum ruby version required
 
 ruby_version ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @sebastianvarela
 
 

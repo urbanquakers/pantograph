@@ -16,7 +16,7 @@ Ask the user for a value or for confirmation
 
 prompt ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

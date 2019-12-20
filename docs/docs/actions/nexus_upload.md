@@ -16,7 +16,7 @@ Upload a file to [Sonatype Nexus platform](https://www.sonatype.com)
 
 nexus_upload ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @xfreebird, @mdio
 
 

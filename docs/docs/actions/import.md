@@ -16,7 +16,7 @@ Import another Pantfile to use its lanes
 
 import ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

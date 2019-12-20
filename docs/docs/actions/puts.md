@@ -16,7 +16,7 @@ Prints out the given text
 
 puts ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

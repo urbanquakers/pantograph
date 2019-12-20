@@ -16,7 +16,7 @@ Allows to Generate output files based on ERB templates
 
 erb ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @hjanuschka
 
 

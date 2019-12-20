@@ -16,7 +16,7 @@ Runs a shell command
 
 sh ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 Returns | Outputs the string and executes it. When running in tests, it returns the actual command instead of executing it
 

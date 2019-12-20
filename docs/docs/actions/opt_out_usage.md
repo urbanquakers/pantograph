@@ -16,7 +16,7 @@ This will stop uploading the information which actions were run
 
 opt_out_usage ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

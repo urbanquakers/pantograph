@@ -23,7 +23,7 @@ After the above changes, restart your terminal, then run `mkdir $GEM_HOME` to cr
 
 update_pantograph ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @milch, @KrauseFx
 
 

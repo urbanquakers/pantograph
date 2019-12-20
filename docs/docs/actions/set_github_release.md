@@ -16,7 +16,7 @@ This will create a new release on GitHub and upload assets for it
 
 set_github_release ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @czechboy0, @tommeier
 Returns | A hash containing all relevant information of this release<br>Access things like 'html_url', 'tag_name', 'name', 'body'
 

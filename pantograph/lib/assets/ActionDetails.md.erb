@@ -19,7 +19,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 
 <%= action.action_name %> ||
 ---|---
-Supported platforms | <%= [:ios, :android, :mac].find_all { |a| action.is_supported?(a) }.join(", ") %>
+Supported platforms | <%= [:mac, :linux, :windows].find_all { |a| action.is_supported?(a) }.join(", ") %>
 Author | @<%= Array(action.author || action.authors).join(", @") %>
 <%- unless action.return_value.to_s.empty? -%>
 Returns | <%= action.return_value.gsub("\n", "<br>") %>

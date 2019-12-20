@@ -33,7 +33,7 @@ module Pantograph
 
       if !platform && lane
         # Either, the user runs a specific lane in root or want to auto complete the available lanes for a platform
-        # e.g. `pantograph ios` should list all available iOS actions
+        # e.g. `pantograph mac` should list all available mac actions
         if ff.is_platform_block?(lane)
           platform = lane
           lane = nil
@@ -46,7 +46,7 @@ module Pantograph
       # and not return to the original working directory
       # https://github.com/CocoaPods/Xcodeproj/issues/426
       # Setting this environment variable causes xcodeproj to work around the problem
-      ENV["FORK_XCODE_WRITING"] = "true" if platform == 'ios'
+      ENV["FORK_XCODE_WRITING"] = "true" if platform == 'mac'
 
       Pantograph::Helper::DotenvHelper.load_dot_env(env)
 

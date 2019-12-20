@@ -28,8 +28,11 @@ module PantographCore
     end
 
     def build_tool_version
-      if platform == :android
-        return 'android'
+      case platform 
+      when :linux 
+        return 'linux'
+      when :windows
+        return 'windows'
       else
         return "Xcode #{Helper.xcode_version}"
       end

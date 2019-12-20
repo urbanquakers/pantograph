@@ -3,13 +3,13 @@ lane :test do
   puts "test"
 end
 
-platform :ios do
+platform :mac do
   lane :apple do
     puts "apple"
   end
 end
 
-platform :android do
+platform :linux do
   lane :robot do
     puts "robot"
   end

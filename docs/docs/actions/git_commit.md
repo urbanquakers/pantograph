@@ -16,7 +16,7 @@ Directly commit the given file with the given message
 
 git_commit ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

@@ -16,7 +16,7 @@ Checks if the git tag with the given name exists in the current repo
 
 git_tag_exists ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @antondomashnev
 Returns | Boolean value whether the tag exists or not
 

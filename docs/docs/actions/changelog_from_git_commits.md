@@ -16,7 +16,7 @@ Collect git commit messages into a changelog
 
 changelog_from_git_commits ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @mfurtak, @asfalcone, @SiarheiFedartsou, @allewun
 Returns | Returns a String containing your formatted git commits
 

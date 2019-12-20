@@ -16,7 +16,7 @@ Raises an exception if not on a specific git branch
 
 ensure_git_branch ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @dbachrach, @Liquidsoul
 
 

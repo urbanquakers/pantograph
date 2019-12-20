@@ -92,9 +92,9 @@ module Pantograph
       # you can do things like
       #  true
       #
-      #  platform == :ios
+      #  platform == :linux
       #
-      #  [:ios, :mac].include?(platform)
+      #  [:linux, :mac].include?(platform)
       #
       UI.crash!("Implementing `is_supported?` for all actions is mandatory. Please update #{self}")
     end

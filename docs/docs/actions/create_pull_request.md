@@ -16,7 +16,7 @@ This will create a new pull request on GitHub
 
 create_pull_request ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @seei, @tommeier, @marumemomo
 Returns | The pull request URL when successful
 

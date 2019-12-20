@@ -16,7 +16,7 @@ Push local changes to the remote branch
 
 push_to_git_remote ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @lmirosevic
 
 

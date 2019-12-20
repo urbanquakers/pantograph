@@ -16,7 +16,7 @@ Return the number of commits in current git branch
 
 number_of_commits ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @onevcat, @samuelbeek
 Returns | The total number of all commits in current git branch
 

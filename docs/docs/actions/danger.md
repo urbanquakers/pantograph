@@ -16,7 +16,7 @@ Runs `danger` for the project
 
 danger ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 
@@ -54,7 +54,7 @@ Key | Description | Default
   `remove_previous_comments` | Makes Danger remove all previous comment and create a new one in the end of the list | `false`
   `base` | A branch/tag/commit to use as the base of the diff. [master\|dev\|stable] | 
   `head` | A branch/tag/commit to use as the head. [master\|dev\|stable] | 
-  `pr` | Run danger on a specific pull request. e.g. "https://github.com/danger/danger/pull/518" | 
+  `pr` | Run danger on a specific pull request. e.g. \"https://github.com/danger/danger/pull/518\" | 
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 

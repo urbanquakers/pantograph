@@ -16,7 +16,7 @@ Alias for the `min_pantograph_version` action
 
 pantograph_version ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

@@ -16,7 +16,7 @@ Download a file from a remote server (e.g. JSON file)
 
 download ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

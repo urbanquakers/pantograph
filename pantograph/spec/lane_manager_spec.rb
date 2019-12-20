@@ -75,16 +75,16 @@ describe Pantograph do
 
         it "Successfully handles exceptions" do
           expect do
-            ff = Pantograph::LaneManager.cruise_lane('ios', 'crashy')
+            ff = Pantograph::LaneManager.cruise_lane('mac', 'crashy')
           end.to raise_error('my exception')
         end
 
         it "Uses the default platform if given" do
-          ff = Pantograph::LaneManager.cruise_lane(nil, 'empty') # look, without `ios`
+          ff = Pantograph::LaneManager.cruise_lane(nil, 'empty') # look, without `mac`
           lanes = ff.runner.lanes
           expect(lanes[nil][:test].description).to eq([])
-          expect(lanes[:ios][:crashy].description).to eq(["This action does nothing", "but crash"])
-          expect(lanes[:ios][:empty].description).to eq([])
+          expect(lanes[:mac][:crashy].description).to eq(["This action does nothing", "but crash"])
+          expect(lanes[:mac][:empty].description).to eq([])
         end
 
         it "Supports running a lane without a platform even when there is a default_platform" do
@@ -105,8 +105,8 @@ describe Pantograph do
           ff = Pantograph::LaneManager.cruise_lane(nil, 'test', nil, nil, path)
           lanes = ff.runner.lanes
           expect(lanes[nil][:test].description).to eq(["test description for cruise lanes"])
-          expect(lanes[:ios][:apple].description).to eq([])
-          expect(lanes[:android][:robot].description).to eq([])
+          expect(lanes[:mac][:apple].description).to eq([])
+          expect(lanes[:linux][:robot].description).to eq([])
         end
 
         it "Does output a summary table when PANTOGRAPH_SKIP_ACTION_SUMMARY ENV variable is not set" do

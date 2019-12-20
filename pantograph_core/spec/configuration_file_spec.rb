@@ -15,7 +15,7 @@ describe PantographCore do
                                        description: "desc",
                                        is_string: false,
                                        optional: true),
-          PantographCore::ConfigItem.new(key: :ios_version,
+          PantographCore::ConfigItem.new(key: :mac_version,
                                        description: "desc",
                                        default_value: "123"),
           PantographCore::ConfigItem.new(key: :app_identifier,
@@ -81,13 +81,13 @@ describe PantographCore do
 
       it "supports modifying of frozen strings that are returned via blocks too" do
         # Test that a value can be modified (this isn't the case by default if it's set via ENV)
-        ios_version = "9.1"
-        PantographSpec::Env.with_env_values('SOMETHING_RANDOM_IOS_VERSION' => ios_version) do
+        mac_version = "9.1"
+        PantographSpec::Env.with_env_values('SOMETHING_RANDOM_IOS_VERSION' => mac_version) do
           config = PantographCore::Configuration.create(options, {})
           config.load_configuration_file('ConfigFileEnv')
-          expect(config[:ios_version]).to eq(ios_version)
-          config[:ios_version].gsub!(".1", ".2")
-          expect(config[:ios_version]).to eq("9.2")
+          expect(config[:mac_version]).to eq(mac_version)
+          config[:mac_version].gsub!(".1", ".2")
+          expect(config[:mac_version]).to eq("9.2")
         end
       end
 
@@ -181,29 +181,29 @@ describe PantographCore do
         end
 
         it "reads platform setting when lane doesn't match or no for_lane" do
-          PantographSpec::Env.with_env_values('PANTOGRAPH_PLATFORM_NAME' => 'ios', 'PANTOGRAPH_LANE_NAME' => 'debug') do
+          PantographSpec::Env.with_env_values('PANTOGRAPH_PLATFORM_NAME' => 'mac', 'PANTOGRAPH_LANE_NAME' => 'debug') do
             config = PantographCore::Configuration.create(options, {})
             config.load_configuration_file('ConfigFileForLane')
 
-            expect(config[:app_identifier]).to eq("com.forplatform.ios")
+            expect(config[:app_identifier]).to eq("com.forplatform.mac")
           end
         end
 
         it "reads platform and lane setting" do
-          PantographSpec::Env.with_env_values('PANTOGRAPH_PLATFORM_NAME' => 'ios', 'PANTOGRAPH_LANE_NAME' => 'release') do
+          PantographSpec::Env.with_env_values('PANTOGRAPH_PLATFORM_NAME' => 'mac', 'PANTOGRAPH_LANE_NAME' => 'release') do
             config = PantographCore::Configuration.create(options, {})
             config.load_configuration_file('ConfigFileForLane')
 
-            expect(config[:app_identifier]).to eq("com.forplatformios.forlanerelease")
+            expect(config[:app_identifier]).to eq("com.forplatformmac.forlanerelease")
           end
         end
 
         it "allows exceptions in blocks to escape but the configuration is still intact" do
-          PantographSpec::Env.with_env_values('PANTOGRAPH_PLATFORM_NAME' => 'ios', 'PANTOGRAPH_LANE_NAME' => 'explode') do
+          PantographSpec::Env.with_env_values('PANTOGRAPH_PLATFORM_NAME' => 'mac', 'PANTOGRAPH_LANE_NAME' => 'explode') do
             config = PantographCore::Configuration.create(options, {})
 
             expect { config.load_configuration_file('ConfigFileForLane') }.to raise_error("oh noes!")
-            expect(config[:app_identifier]).to eq("com.forplatformios.boom")
+            expect(config[:app_identifier]).to eq("com.forplatformmac.boom")
           end
         end
       end

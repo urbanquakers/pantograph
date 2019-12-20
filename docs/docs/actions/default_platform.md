@@ -16,7 +16,7 @@ Defines a default platform to not have to specify the platform
 
 default_platform ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 

@@ -16,7 +16,7 @@ Skip the creation of the pantograph/README.md file when running pantograph
 
 skip_docs ||
 ---|---
-Supported platforms | ios, android, mac
+Supported platforms | mac, linux, windows
 Author | @KrauseFx
 
 
