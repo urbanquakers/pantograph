@@ -29,15 +29,17 @@ module Pantograph
       end
 
       def self.available_options
-        # Define all options your action supports. 
-        
+        # Define all options your action supports.
+
         # Below a few examples
         [
           PantographCore::ConfigItem.new(key: :api_token,
                                        env_name: '[[NAME_UP]]_API_TOKEN', # The name of the environment variable
                                        description: 'API Token for [[NAME_CLASS]]', # a short description of this parameter
                                        verify_block: proc do |value|
-                                          UI.user_error!('No API token for [[NAME_CLASS]] given, pass using `api_token: "token"`') unless (value and not value.empty?)
+                                         unless (value and not value.empty?)
+                                           UI.user_error!('No API token for [[NAME_CLASS]] given, pass using `api_token: "token"`')
+                                         end
                                        end),
           PantographCore::ConfigItem.new(key: :development,
                                        env_name: '[[NAME_UP]]_DEVELOPMENT',
@@ -66,15 +68,44 @@ module Pantograph
 
       def self.is_supported?(platform)
         # you can do things like
-        # 
+        #
         #  true
-        # 
+        #
         #  platform == :linux
-        # 
+        #
         #  [:linux, :mac].include?(platform)
-        # 
+        #
         true
       end
+
+      # Is printed out in the Steps: output in the terminal
+      # Return nil if you don't want any logging in the terminal/JUnit Report
+      def self.step_text
+        self.action_name
+      end
+
+      # Returns an array of string of sample usage of this action
+      def self.example_code
+        [
+          '[[NAME]] # example 1',
+
+          '# example 2
+           [[NAME]](
+           api_token: "myToken",
+           development: "true"
+          )'
+        ]
+      end
+
+      def category
+        # Available Categories: ./pantograph/lib/pantograph/action.rb
+        :undefined
+      end
+
+      # If category == :deprecated, uncomment to include a message for user
+      # def self.deprecated_notes
+      #   nil
+      # end
     end
   end
 end

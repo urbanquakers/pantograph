@@ -10,13 +10,13 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Import another Pantfile to use its lanes"
+        'Import another Pantfile to use its lanes'
       end
 
       def self.details
         [
-          "This is useful if you have shared lanes across multiple apps and you want to store a Pantfile in a separate folder.",
-          "The path must be relative to the Pantfile this is called from."
+          'This is useful if you have shared lanes across multiple apps and you want to store a Pantfile in a separate folder.',
+          'The path must be relative to the Pantfile this is called from.'
         ].join("\n")
       end
 
@@ -28,7 +28,7 @@ module Pantograph
       end
 
       def self.authors
-        ["KrauseFx"]
+        ['KrauseFx']
       end
 
       def self.is_supported?(platform)

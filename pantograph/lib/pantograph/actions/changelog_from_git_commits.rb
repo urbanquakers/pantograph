@@ -161,7 +161,7 @@ module Pantograph
       end
 
       def self.return_value
-        "Returns a String containing your formatted git commits"
+        'Returns a String containing your formatted git commits'
       end
 
       def self.return_type

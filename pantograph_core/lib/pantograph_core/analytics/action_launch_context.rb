@@ -28,8 +28,8 @@ module PantographCore
     end
 
     def build_tool_version
-      case platform 
-      when :linux 
+      case platform
+      when :linux
         return 'linux'
       when :windows
         return 'windows'

@@ -224,8 +224,8 @@ module Pantograph
       else
         # UI.message("📸  Learn more about how to automatically generate localized App Store screenshots:")
         # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/mac/screenshots/".cyan)
-        # UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
-        # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/mac/beta-deployment/".cyan)
+        UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
+        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/mac/beta-deployment/".cyan)
         # UI.message("🚀  Learn more about how to automate the App Store release process:")
         # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/mac/appstore-deployment/".cyan)
         # UI.message("👩‍⚕️  Learn more about how to setup code signing with pantograph")

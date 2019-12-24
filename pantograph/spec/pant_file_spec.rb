@@ -219,7 +219,7 @@ describe Pantograph do
       end
 
       it "logs a warning if and unsupported action is called on an non officially supported platform" do
-        expect(PantographCore::UI).to receive(:important).with("Action 'sonar' isn't known to support operating system 'linux'.")
+        expect(PantographCore::UI).to receive(:important).with("Action 'cloc' isn't known to support operating system 'linux'.")
         @ff.runner.execute('unsupported_action', 'linux')
       end
     end
