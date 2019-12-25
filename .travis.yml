@@ -12,8 +12,11 @@ rvm:
 
 jobs:
   include:
-    # - stage: rspec test
-      # script: bundle exec rspec
-    - stage: execute danger
-      # if: type = pull_request
+    - stage: rspec test
+      script: bundle exec rspec
+    - stage: publish docs
+      if: branch = master
       script: bundle exec pantograph pipeline --verbose
+    # - stage: publish gem
+      # if: branch = master
+      # script: gem build pantograph.gemspec && gem push 

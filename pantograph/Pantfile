@@ -6,20 +6,13 @@ desc 'Pipeline'
 lane :pipeline do
   # PantographCore::UpdateChecker.start_looking_for_update
 
-  gradle(
-    task: 'clean build',
-    project_dir: 'examples/gradle_example',
-    artifact_extension: '.tar'
-  )
-
-  puts lane_context
   target_path = '../docs'
   require 'pantograph/documentation/markdown_docs_generator'
   Pantograph::MarkdownDocsGenerator.new.generate!(target_path: File.expand_path(target_path))
 
-  # Dir.chdir('../docs') do |path|
-  #   sh('mkdocs gh-deploy --clean --verbose')
-  # end
+  Dir.chdir('../docs') do |path|
+    sh('mkdocs gh-deploy --clean --verbose')
+  end
 end
 
 # Test and Validate

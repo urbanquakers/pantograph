@@ -214,23 +214,12 @@ module Pantograph
 
     def suggest_next_steps
       UI.header("Where to go from here?")
-      if self.platform == :gradle
-        UI.message("📸  Learn more about how to automatically generate localized Google Play screenshots:")
-        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/gradle/screenshots/".cyan)
-        UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
-        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/gradle/beta-deployment/".cyan)
-        UI.message("🚀  Learn more about how to automate the Google Play release process:")
-        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/gradle/release-deployment/".cyan)
-      else
-        # UI.message("📸  Learn more about how to automatically generate localized App Store screenshots:")
-        # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/mac/screenshots/".cyan)
-        UI.message("👩‍✈️  Learn more about distribution to beta testing services:")
-        UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/mac/beta-deployment/".cyan)
-        # UI.message("🚀  Learn more about how to automate the App Store release process:")
-        # UI.message("\t\thttps://johnknapprs.github.io/pantograph/getting-started/mac/appstore-deployment/".cyan)
-        # UI.message("👩‍⚕️  Learn more about how to setup code signing with pantograph")
-        # UI.message("\t\thttps://johnknapprs.github.io/pantograph/codesigning/getting-started/".cyan)
-      end
+      UI.message("📸  Learn more about Pantograph Official Actions")
+      UI.message("\t\thttps://johnknapprs.github.io/pantograph/actions/".cyan)
+      UI.message("👩‍✈️  Learn more about Pantograph Lane Features")
+      UI.message("\t\thttps://johnknapprs.github.io/pantograph/advanced/lanes/".cyan)
+      UI.message("🚀  Check out the entire documentation site for Pantograph")
+      UI.message("\t\thttps://johnknapprs.github.io/pantograph/".cyan)
 
       # we crash here, so that this never happens when a new setup method is added
       return if self.lane_to_mention.to_s.length == 0
