@@ -1,18 +1,4 @@
 describe Pantograph::Actions::GitBranchAction do
-  describe "CI set ENV values" do
-    Pantograph::Actions::SharedValues::GIT_BRANCH_ENV_VARS.each do |env_var|
-      it "can control the output of the action with #{env_var}" do
-        PantographSpec::Env.with_env_values(env_var => "#{env_var}-branch-name") do
-          result = Pantograph::PantFile.new.parse("lane :test do
-            git_branch
-          end").runner.execute(:test)
-
-          expect(result).to eq("#{env_var}-branch-name")
-        end
-      end
-    end
-  end
-
   describe "with no CI set ENV values" do
     it "gets the value from Git directly" do
       expect(Pantograph::Actions::GitBranchAction).to receive(:`)

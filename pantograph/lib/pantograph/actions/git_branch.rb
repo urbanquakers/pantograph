@@ -1,13 +1,13 @@
 module Pantograph
   module Actions
     module SharedValues
-      GIT_BRANCH_ENV_VARS = %w(GIT_BRANCH BRANCH_NAME TRAVIS_BRANCH BITRISE_GIT_BRANCH CI_BUILD_REF_NAME CI_COMMIT_REF_NAME WERCKER_GIT_BRANCH BUILDKITE_BRANCH).freeze
+      GIT_BRANCH_NAME = :GIT_BRANCH_NAME
     end
 
     class GitBranchAction < Action
       def self.run(params)
-        env_name = SharedValues::GIT_BRANCH_ENV_VARS.find { |env_var| PantographCore::Env.truthy?(env_var) }
-        ENV.fetch(env_name.to_s) { `git symbolic-ref HEAD --short 2>/dev/null`.strip }
+        branch_name = `git symbolic-ref HEAD --short 2>/dev/null`.strip
+        Actions.lane_context[SharedValues::GIT_BRANCH_NAME] = branch_name
       end
 
       #####################################################
@@ -15,11 +15,11 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Returns the name of the current git branch, possibly as managed by CI ENV vars"
+        'Returns the name of the current git branch'
       end
 
       def self.details
-        "If no branch could be found, this action will return an empty string"
+        'If no branch could be found, this action will return an empty string'
       end
 
       def self.available_options
@@ -28,12 +28,12 @@ module Pantograph
 
       def self.output
         [
-          ['GIT_BRANCH_ENV_VARS', 'The git branch environment variables']
+          ['GIT_BRANCH_NAME', 'The git branch name']
         ]
       end
 
       def self.authors
-        ["KrauseFx"]
+        ['johnknapprs']
       end
 
       def self.is_supported?(platform)
