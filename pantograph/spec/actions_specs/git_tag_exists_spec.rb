@@ -10,22 +10,6 @@ describe Pantograph do
         end").runner.execute(:test)
       end
 
-      it "executes the correct git command remote" do
-        allow(Pantograph::Actions).to receive(:sh)
-          .with("git ls-remote -q --exit-code origin refs/tags/1.2.0", anything)
-          .and_return("12345")
-        result = Pantograph::PantFile.new.parse("lane :test do
-          git_tag_exists(tag: '1.2.0', remote: true)
-        end").runner.execute(:test)
-
-        allow(Pantograph::Actions).to receive(:sh)
-          .with("git ls-remote -q --exit-code huga refs/tags/1.2.0", anything)
-          .and_return("12345")
-        result = Pantograph::PantFile.new.parse("lane :test do
-          git_tag_exists(tag: '1.2.0', remote: true, remote_name: 'huga')
-        end").runner.execute(:test)
-      end
-
       it "logs the command if verbose" do
         PantographSpec::Env.with_verbose(true) do
           allow(Pantograph::Actions).to receive(:sh)

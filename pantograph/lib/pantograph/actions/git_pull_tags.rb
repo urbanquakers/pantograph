@@ -1,16 +1,14 @@
 module Pantograph
   module Actions
-    class GitPullAction < Action
+    class GitPullTagsAction < Action
       def self.run(params)
-        Actions.sh('git pull')
+        Actions.sh('git fetch --tags')
       end
 
       def self.description
-        'Executes a simple git pull command'
+        'Executes a simple `git fetch --tags` command'
       end
 
-      def self.available_options
-      end
 
       def self.authors
         ['johnknapprs']
@@ -22,7 +20,7 @@ module Pantograph
 
       def self.example_code
         [
-          'git_pull'
+          'git_pull_tags'
         ]
       end
 

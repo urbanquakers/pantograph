@@ -1,20 +1,20 @@
 module Pantograph
   module Actions
     class GitTagExistsAction < Action
+      module SharedValues
+        GIT_TAG_EXISTS ||= :GIT_TAG_EXISTS
+      end
+
       def self.run(params)
-        tag_ref = "refs/tags/#{params[:tag].shellescape}"
-        if params[:remote]
-          command = "git ls-remote -q --exit-code #{params[:remote_name].shellescape} #{tag_ref}"
-        else
-          command = "git rev-parse -q --verify #{tag_ref}"
-        end
-        exists = true
+        tag_exists = true
+
         Actions.sh(
-          command,
+          "git rev-parse -q --verify refs/tags/#{params[:tag].shellescape}",
           log: PantographCore::Globals.verbose?,
-          error_callback: ->(result) { exists = false }
+          error_callback: ->(result) { tag_exists = false }
         )
-        exists
+
+        Actions.lane_context[SharedValues::GIT_TAG_EXISTS] = tag_exists
       end
 
       #####################################################
@@ -22,36 +22,30 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Checks if the git tag with the given name exists in the current repo"
+        'Checks if the git tag with the given name exists'
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :tag,
-                                       description: "The tag name that should be checked"),
-          PantographCore::ConfigItem.new(key: :remote,
-                                       description: "Whether to check remote. Defaults to `false`",
-                                       type: Boolean,
-                                       default_value: false,
-                                       optional: true),
-          PantographCore::ConfigItem.new(key: :remote_name,
-                                       description: "The remote to check. Defaults to `origin`",
-                                       default_value: 'origin',
-                                       optional: true)
+                                         env_name: 'GIT_TAG_EXISTS_TAG',
+                                         description: 'The tag name that should be checked',
+                                         is_string: true)
         ]
       end
 
       def self.return_value
-        "Boolean value whether the tag exists or not"
+        'Returns Boolean value whether the tag exists'
       end
 
       def self.output
         [
+          ['GIT_TAG_EXISTS', 'Boolean value whether tag exists']
         ]
       end
 
       def self.authors
-        ["antondomashnev"]
+        ['johnknapprs']
       end
 
       def self.is_supported?(platform)
@@ -61,7 +55,7 @@ module Pantograph
       def self.example_code
         [
           'if git_tag_exists(tag: "1.1.0")
-            UI.message("Found it 🚀")
+            UI.message("Git Tag Exists!")
           end'
         ]
       end

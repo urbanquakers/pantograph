@@ -2,23 +2,18 @@ module Pantograph
   module Actions
     class ClocAction < Action
       def self.run(params)
-        cloc_binary = params[:binary_path]
-        exclude_dirs = params[:exclude_dir].nil? ? '' : "--exclude-dir=#{params[:exclude_dir]}"
-        xml_format = params[:xml]
-        out_dir = params[:output_directory]
-        output_file = xml_format ? "#{out_dir}/cloc.xml" : "#{out_dir}/cloc.txt"
-        source_directory = params[:source_directory]
+        output_type = params[:output_type]
 
-        command = [
-          cloc_binary,
-          exclude_dirs,
-          '--by-file',
-          xml_format ? '--xml ' : '',
-          "--out=#{output_file}",
-          source_directory
-        ].join(' ').strip
+        cloc_cmd = []
+        cloc_cmd << params[:binary_path]
+        cloc_cmd << params[:source_directory]
+        cloc_cmd << "--exclude-dir=#{params[:exclude_dir]}" if params[:exclude_dir]
+        cloc_cmd << '--by-file' if params[:list_each_file]
+        cloc_cmd << "--#{output_type}"
+        cloc_cmd << "--report-file=#{params[:output_directory]}/cloc.#{output_type}"
+        cloc_cmd = cloc_cmd.join(' ').strip
 
-        Actions.sh(command)
+        Actions.sh(cloc_cmd)
       end
 
       def self.description
@@ -27,44 +22,49 @@ module Pantograph
 
       def self.details
         [
-          'This action will run cloc to generate a SLOC report that the Jenkins SLOCCount plugin can read.',
-          'See [https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin) and [https://github.com/AlDanial/cloc](https://github.com/AlDanial/cloc) for more information.'
+          'This action will run cloc to generate a code count report',
+          'See [https://github.com/AlDanial/cloc](https://github.com/AlDanial/cloc) for more information.'
         ].join("\n")
       end
 
       def self.available_options
         [
           PantographCore::ConfigItem.new(key: :binary_path,
-                                       env_name: 'CLOC_BINARY_PATH',
-                                       description: 'Where the cloc binary lives on your system (full path including "cloc")',
-                                       optional: true,
-                                       type: String,
-                                       default_value: '/usr/local/bin/cloc'),
+                                         env_name: 'CLOC_BINARY_PATH',
+                                         description: 'Where the cloc binary lives on your system (full path including "cloc")',
+                                         optional: true,
+                                         is_string: true,
+                                         default_value: '/usr/local/bin/cloc'),
           PantographCore::ConfigItem.new(key: :exclude_dir,
-                                       env_name: 'CLOC_EXCLUDE_DIR',
-                                       description: 'Comma separated list of directories to exclude', # a short description of this parameter
-                                       optional: true,
-                                       type: String),
-          PantographCore::ConfigItem.new(key: :output_directory,
-                                       env_name: 'CLOC_OUTPUT_DIRECTORY',
-                                       description: 'Where to put the generated report file',
-                                       type: String,
-                                       default_value: "build"),
+                                         env_name: 'CLOC_EXCLUDE_DIR',
+                                         description: 'Comma separated list of directories to exclude',
+                                         optional: true,
+                                         is_string: true),
           PantographCore::ConfigItem.new(key: :source_directory,
-                                      env_name: 'CLOC_SOURCE_DIRECTORY',
-                                      description: 'Where to look for the source code (relative to the project root folder)',
-                                      type: String,
-                                      default_value: ''),
-          PantographCore::ConfigItem.new(key: :xml,
-                                      env_name: 'CLOC_XML',
-                                      description: 'Should we generate an XML File (if false, it will generate a plain text file)?',
-                                      is_string: false,
-                                      default_value: true)
+                                         env_name: 'CLOC_SOURCE_DIRECTORY',
+                                         description: 'Starting point for Cloc analysis',
+                                         is_string: true,
+                                         default_value: '.'),
+          PantographCore::ConfigItem.new(key: :output_directory,
+                                         env_name: 'CLOC_OUTPUT_DIRECTORY',
+                                         description: 'Where to put the generated report file',
+                                         is_string: true,
+                                         default_value: 'pantograph/reports'),
+          PantographCore::ConfigItem.new(key: :output_type,
+                                         env_name: 'CLOC_OUTPUT_TYPE',
+                                         description: 'Output file type: xml, yaml, cvs, json',
+                                         is_string: true,
+                                         default_value: 'yaml'),
+          PantographCore::ConfigItem.new(key: :list_each_file,
+                                         env_name: 'CLOC_LIST_EACH_FILE',
+                                         description: 'List each individual file in cloc report',
+                                         is_string: false,
+                                         default_value: true)
         ]
       end
 
       def self.authors
-        ['intere']
+        ['johnknapprs']
       end
 
       def self.is_supported?(platform)
@@ -73,11 +73,14 @@ module Pantograph
 
       def self.example_code
         [
-          'cloc(
-             exclude_dir: "ThirdParty,Resources",
-             output_directory: "reports",
-             source_directory: "MyCoolApp"
-          )'
+          '  # Generate JSON report of project code count
+          cloc(
+             exclude_dir: "build",
+             source_directory: ".",
+             output_directory: "pantograph/reports",
+             output_type: "json"
+          )
+          '
         ]
       end
 

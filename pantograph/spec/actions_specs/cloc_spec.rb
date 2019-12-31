@@ -6,7 +6,7 @@ describe Pantograph do
             cloc
           end").runner.execute(:test)
 
-        expect(result).to eq("/usr/local/bin/cloc  --by-file --xml  --out=build/cloc.xml")
+        expect(result).to eq("/usr/local/bin/cloc . --by-file --yaml --report-file=pantograph/reports/cloc.yaml")
       end
 
       it 'does set the exclude directories' do
@@ -14,7 +14,7 @@ describe Pantograph do
             cloc(exclude_dir: 'test1,test2,build')
           end").runner.execute(:test)
 
-        expect(result).to eq("/usr/local/bin/cloc --exclude-dir=test1,test2,build --by-file --xml  --out=build/cloc.xml")
+        expect(result).to eq("/usr/local/bin/cloc . --exclude-dir=test1,test2,build --by-file --yaml --report-file=pantograph/reports/cloc.yaml")
       end
 
       it 'does set the output directory' do
@@ -22,23 +22,23 @@ describe Pantograph do
             cloc(output_directory: '/tmp')
           end").runner.execute(:test)
 
-        expect(result).to eq("/usr/local/bin/cloc  --by-file --xml  --out=/tmp/cloc.xml")
+        expect(result).to eq("/usr/local/bin/cloc . --by-file --yaml --report-file=/tmp/cloc.yaml")
       end
 
       it 'does set the source directory' do
         result = Pantograph::PantFile.new.parse("lane :test do
-            cloc(source_directory: 'MyCoolApp')
+            cloc(source_directory: 'MyApp')
           end").runner.execute(:test)
 
-        expect(result).to eq("/usr/local/bin/cloc  --by-file --xml  --out=build/cloc.xml MyCoolApp")
+        expect(result).to eq("/usr/local/bin/cloc MyApp --by-file --yaml --report-file=pantograph/reports/cloc.yaml")
       end
 
-      it 'does switch to plain text when xml is toggled off' do
+      it 'does switch to xml when output_type is set to xml' do
         result = Pantograph::PantFile.new.parse("lane :test do
-            cloc(xml: false)
+            cloc(output_type: 'xml')
           end").runner.execute(:test)
 
-        expect(result).to eq("/usr/local/bin/cloc  --by-file  --out=build/cloc.txt")
+        expect(result).to eq("/usr/local/bin/cloc . --by-file --xml --report-file=pantograph/reports/cloc.xml")
       end
     end
   end

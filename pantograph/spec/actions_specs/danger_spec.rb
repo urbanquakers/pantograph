@@ -10,7 +10,7 @@ describe Pantograph do
           danger
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --fail-on-errors=false")
       end
 
       it "no bundle exec" do
@@ -18,7 +18,7 @@ describe Pantograph do
           danger(use_bundle_exec: false)
         end").runner.execute(:test)
 
-        expect(result).to eq("danger")
+        expect(result).to eq("danger --dangerfile=Dangerfile --fail-on-errors=false")
       end
 
       it "appends verbose" do
@@ -26,7 +26,7 @@ describe Pantograph do
           danger(verbose: true)
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --verbose")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --verbose --fail-on-errors=false")
       end
 
       it "sets github token" do
@@ -34,7 +34,7 @@ describe Pantograph do
           danger(github_api_token: '1234')
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --fail-on-errors=false")
         expect(ENV['DANGER_GITHUB_API_TOKEN']).to eq("1234")
       end
 
@@ -43,7 +43,7 @@ describe Pantograph do
           danger(danger_id: 'unit-tests')
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --danger_id=unit-tests")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --danger_id=unit-tests --fail-on-errors=false")
       end
 
       it "appends dangerfile" do
@@ -51,7 +51,7 @@ describe Pantograph do
           danger(dangerfile: 'test/OtherDangerfile')
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --dangerfile=test/OtherDangerfile")
+        expect(result).to eq("bundle exec danger --dangerfile=test/OtherDangerfile --fail-on-errors=false")
       end
 
       it "appends fail-on-errors flag when set" do
@@ -59,15 +59,7 @@ describe Pantograph do
           danger(fail_on_errors: true)
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --fail-on-errors=true")
-      end
-
-      it "does not append fail-on-errors flag when unset" do
-        result = Pantograph::PantFile.new.parse("lane :test do
-          danger(fail_on_errors: false)
-        end").runner.execute(:test)
-
-        expect(result).to eq("bundle exec danger")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --fail-on-errors=true")
       end
 
       it "appends new-comment flag when set" do
@@ -75,7 +67,7 @@ describe Pantograph do
           danger(new_comment: true)
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --new-comment")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --new-comment --fail-on-errors=false")
       end
 
       it "does not append new-comment flag when unset" do
@@ -83,7 +75,7 @@ describe Pantograph do
           danger(new_comment: false)
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --fail-on-errors=false")
       end
 
       it "appends remove-previous-comments flag when set" do
@@ -91,7 +83,7 @@ describe Pantograph do
           danger(remove_previous_comments: true)
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --remove-previous-comments")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --remove-previous-comments --fail-on-errors=false")
       end
 
       it "does not append remove-previous-comments flag when unset" do
@@ -99,7 +91,7 @@ describe Pantograph do
           danger(remove_previous_comments: false)
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --fail-on-errors=false")
       end
 
       it "appends base" do
@@ -107,7 +99,7 @@ describe Pantograph do
           danger(base: 'master')
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --base=master")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --base=master --fail-on-errors=false")
       end
 
       it "appends head" do
@@ -115,7 +107,7 @@ describe Pantograph do
           danger(head: 'master')
         end").runner.execute(:test)
 
-        expect(result).to eq("bundle exec danger --head=master")
+        expect(result).to eq("bundle exec danger --dangerfile=Dangerfile --head=master --fail-on-errors=false")
       end
     end
   end
