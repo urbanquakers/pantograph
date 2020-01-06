@@ -472,18 +472,6 @@
 
 
   <li class="md-nav__item">
-    <a href="git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="git_branch/" title="git_branch" class="md-nav__link">
       git_branch
     </a>
@@ -510,6 +498,18 @@
   <li class="md-nav__item">
     <a href="git_pull/" title="git_pull" class="md-nav__link">
       git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
     </a>
   </li>
 
@@ -604,6 +604,18 @@
 
 
   <li class="md-nav__item">
+    <a href="is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -640,32 +652,8 @@
 
 
   <li class="md-nav__item">
-    <a href="make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -726,6 +714,18 @@
   <li class="md-nav__item">
     <a href="prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1453,9 +1453,9 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 </thead>
 <tbody>
 <tr>
-<td><a href="/actions/nexus_upload/">nexus_upload</a></td>
-<td>Upload a file to <a href="https://www.sonatype.com">Sonatype Nexus platform</a></td>
-<td>mac, linux, windows</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1505,12 +1505,12 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <tbody>
 <tr>
 <td><a href="/actions/ensure_git_status_clean/">ensure_git_status_clean</a></td>
-<td>Raises an exception if there are uncommitted git changes</td>
+<td>Raises error if there are uncommitted git changes</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
 <td><a href="/actions/git_branch/">git_branch</a></td>
-<td>Returns the name of the current git branch, possibly as managed by CI ENV vars</td>
+<td>Returns the name of the current git branch</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
@@ -1545,7 +1545,7 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 </tr>
 <tr>
 <td><a href="/actions/git_tag_exists/">git_tag_exists</a></td>
-<td>Checks if the git tag with the given name exists in the current repo</td>
+<td>Checks if the git tag with the given name exists</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
@@ -1564,8 +1564,8 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/git_add/">git_add</a></td>
-<td>Directly add the given file or all files</td>
+<td><a href="/actions/danger/">danger</a></td>
+<td>Runs <code>danger</code> for the project</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
@@ -1589,8 +1589,13 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
+<td><a href="/actions/git_pull_tags/">git_pull_tags</a></td>
+<td>Executes a simple <code>git fetch --tags</code> command</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
 <td><a href="/actions/git_submodule_update/">git_submodule_update</a></td>
-<td>Executes a git submodule command</td>
+<td>Execute git submodule command</td>
 <td>mac, linux, windows</td>
 </tr>
 </tbody>
@@ -1693,11 +1698,6 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/danger/">danger</a></td>
-<td>Runs <code>danger</code> for the project</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
 <td><a href="/actions/artifactory/">artifactory</a></td>
 <td>This action uploads an artifact to artifactory</td>
 <td>mac, linux, windows</td>
@@ -1723,11 +1723,6 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/make_changelog_from_jenkins/">make_changelog_from_jenkins</a></td>
-<td>Generate a changelog using the Changes section from the current Jenkins build</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
 <td><a href="/actions/cloc/">cloc</a></td>
 <td>Generates a Code Count that can be read by Jenkins (xml format)</td>
 <td>mac</td>
@@ -1748,18 +1743,28 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
-<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/plugin_scores/">plugin_scores</a></td>
-<td>[31mNo description provided[0m</td>
+<td><a href="/actions/prompt_secure/">prompt_secure</a></td>
+<td>Ask the user for a value or for confirmation</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
 <td><a href="/actions/sh/">sh</a></td>
 <td>Runs a shell command</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
+<td>Raises an exception if the specified env vars are not set</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/opt_out_usage/">opt_out_usage</a></td>
+<td>This will stop uploading the information which actions were run</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/min_pantograph_version/">min_pantograph_version</a></td>
+<td>Verifies the minimum pantograph version required</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
@@ -1773,23 +1778,23 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/min_pantograph_version/">min_pantograph_version</a></td>
-<td>Verifies the minimum pantograph version required</td>
+<td><a href="/actions/is_verbose/">is_verbose</a></td>
+<td>Returns Boolean whether <code>--verbose</code> flag was set</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
-<td>Raises an exception if the specified env vars are not set</td>
+<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
+<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/plugin_scores/">plugin_scores</a></td>
+<td>[1;31mNo description provided[0m</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
 <td><a href="/actions/ruby_version/">ruby_version</a></td>
 <td>Verifies the minimum ruby version required</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/opt_out_usage/">opt_out_usage</a></td>
-<td>This will stop uploading the information which actions were run</td>
 <td>mac, linux, windows</td>
 </tr>
 </tbody>

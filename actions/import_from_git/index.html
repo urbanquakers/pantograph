@@ -465,18 +465,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../git_branch/" title="git_branch" class="md-nav__link">
       git_branch
     </a>
@@ -503,6 +491,18 @@
   <li class="md-nav__item">
     <a href="../git_pull/" title="git_pull" class="md-nav__link">
       git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
     </a>
   </li>
 
@@ -600,8 +600,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#2-examples" class="md-nav__link">
-    2 Examples
+  <a href="#3-examples" class="md-nav__link">
+    3 Examples
   </a>
   
 </li>
@@ -663,6 +663,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -699,32 +711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -785,6 +773,18 @@
   <li class="md-nav__item">
     <a href="../prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1343,8 +1343,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#2-examples" class="md-nav__link">
-    2 Examples
+  <a href="#3-examples" class="md-nav__link">
+    3 Examples
   </a>
   
 </li>
@@ -1404,7 +1404,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <h1 id="import_from_git">import_from_git</h1>
 <p>Import another Pantfile from a remote git repository to use its lanes</p>
 <blockquote>
-<p>This is useful if you have shared lanes across multiple apps and you want to store the Pantfile in a remote git repository.</p>
+<p>This is useful when sharing the same lanes across multiple projects</p>
 </blockquote>
 <table>
 <thead>
@@ -1420,26 +1420,34 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td>Author</td>
-<td>@fabiomassimo, @KrauseFx, @Liquidsoul</td>
+<td>@fabiomassimo, @KrauseFx, @Liquidsoul, @johnknapprs</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-examples">2 Examples</h2>
-<div class="codehilite"><pre><span></span><span class="n">import_from_git</span><span class="p">(</span>
-  <span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;git@github.com:pantograph/pantograph.git&quot;</span><span class="p">,</span> <span class="c1"># The URL of the repository to import the Pantfile from.</span>
-  <span class="ss">branch</span><span class="p">:</span> <span class="s2">&quot;HEAD&quot;</span><span class="p">,</span> <span class="c1"># The branch to checkout on the repository</span>
-  <span class="ss">path</span><span class="p">:</span> <span class="s2">&quot;pantograph/Pantfile&quot;</span><span class="p">,</span> <span class="c1"># The path of the Pantfile in the repository</span>
-  <span class="ss">version</span><span class="p">:</span> <span class="s2">&quot;~&gt; 1.0.0&quot;</span> <span class="c1"># The version to checkout on the repository. Optimistic match operator can be used to select the latest version within constraints.</span>
-<span class="p">)</span>
+<h2 id="3-examples">3 Examples</h2>
+<div class="codehilite"><pre><span></span> <span class="c1"># Simple import on master branch</span>
+  <span class="n">import_from_git</span><span class="p">(</span>
+    <span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;git@github.com:johnknapprs/pantograph.git&quot;</span>
+  <span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">import_from_git</span><span class="p">(</span>
-  <span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;git@github.com:pantograph/pantograph.git&quot;</span><span class="p">,</span> <span class="c1"># The URL of the repository to import the Pantfile from.</span>
-  <span class="ss">branch</span><span class="p">:</span> <span class="s2">&quot;HEAD&quot;</span><span class="p">,</span> <span class="c1"># The branch to checkout on the repository</span>
-  <span class="ss">path</span><span class="p">:</span> <span class="s2">&quot;pantograph/Pantfile&quot;</span><span class="p">,</span> <span class="c1"># The path of the Pantfile in the repository</span>
-  <span class="ss">version</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;&gt;= 1.1.0&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt; 2.0.0&quot;</span><span class="o">]</span> <span class="c1"># The version to checkout on the repository. Multiple conditions can be used to select the latest version within constraints.</span>
-<span class="p">)</span>
+<div class="codehilite"><pre><span></span> <span class="c1"># Import a Pantfile with an Optimistic version match operator</span>
+  <span class="n">import_from_git</span><span class="p">(</span>
+    <span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;git@github.com:johnknapprs/pantograph.git&quot;</span><span class="p">,</span>
+    <span class="ss">branch</span><span class="p">:</span> <span class="s2">&quot;master&quot;</span><span class="p">,</span>
+    <span class="ss">path</span><span class="p">:</span> <span class="s2">&quot;pantograph/Pantfile&quot;</span><span class="p">,</span>
+    <span class="ss">version</span><span class="p">:</span> <span class="s2">&quot;~&gt; 1.0.0&quot;</span>
+  <span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span> <span class="c1"># Import a Pantfile with multiple version conditions</span>
+  <span class="n">import_from_git</span><span class="p">(</span>
+    <span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;git@github.com:johnknapprs/pantograph.git&quot;</span><span class="p">,</span> <span class="c1"># The URL of the repository to import the Pantfile from.</span>
+    <span class="ss">branch</span><span class="p">:</span> <span class="s2">&quot;development&quot;</span><span class="p">,</span> <span class="c1"># The branch to checkout on the repository</span>
+    <span class="ss">version</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;&gt;= 1.1.0&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt; 2.0.0&quot;</span><span class="o">]</span>
+  <span class="p">)</span>
 </pre></div>
 
 
@@ -1461,7 +1469,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <tr>
 <td><code>branch</code></td>
 <td>The branch or tag to check-out on the repository</td>
-<td><code>HEAD</code></td>
+<td><code>master</code></td>
 </tr>
 <tr>
 <td><code>path</code></td>
@@ -1470,7 +1478,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td><code>version</code></td>
-<td>The version to checkout on the repository. Optimistic match operator or multiple conditions can be used to select the latest version within constraints</td>
+<td>The version to checkout on the repository. Optimistic match operator or multiple conditions can be used to select the version within constraints</td>
 <td></td>
 </tr>
 </tbody>

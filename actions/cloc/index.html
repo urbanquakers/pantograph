@@ -531,18 +531,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../git_branch/" title="git_branch" class="md-nav__link">
       git_branch
     </a>
@@ -569,6 +557,18 @@
   <li class="md-nav__item">
     <a href="../git_pull/" title="git_pull" class="md-nav__link">
       git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
     </a>
   </li>
 
@@ -663,6 +663,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -699,32 +711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -785,6 +773,18 @@
   <li class="md-nav__item">
     <a href="../prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1404,7 +1404,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <h1 id="cloc">cloc</h1>
 <p>Generates a Code Count that can be read by Jenkins (xml format)</p>
 <blockquote>
-<p>This action will run cloc to generate a SLOC report that the Jenkins SLOCCount plugin can read.<br>See <a href="https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin</a> and <a href="https://github.com/AlDanial/cloc">https://github.com/AlDanial/cloc</a> for more information.</p>
+<p>This action will run cloc to generate a code count report<br>See <a href="https://github.com/AlDanial/cloc">https://github.com/AlDanial/cloc</a> for more information.</p>
 </blockquote>
 <table>
 <thead>
@@ -1420,15 +1420,17 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td>Author</td>
-<td>@intere</td>
+<td>@johnknapprs</td>
 </tr>
 </tbody>
 </table>
 <h2 id="1-example">1 Example</h2>
-<div class="codehilite"><pre><span></span><span class="n">cloc</span><span class="p">(</span>
-   <span class="ss">exclude_dir</span><span class="p">:</span> <span class="s2">&quot;ThirdParty,Resources&quot;</span><span class="p">,</span>
-   <span class="ss">output_directory</span><span class="p">:</span> <span class="s2">&quot;reports&quot;</span><span class="p">,</span>
-   <span class="ss">source_directory</span><span class="p">:</span> <span class="s2">&quot;MyCoolApp&quot;</span>
+<div class="codehilite"><pre><span></span>  <span class="c1"># Generate JSON report of project code count</span>
+<span class="n">cloc</span><span class="p">(</span>
+   <span class="ss">exclude_dir</span><span class="p">:</span> <span class="s2">&quot;build&quot;</span><span class="p">,</span>
+   <span class="ss">source_directory</span><span class="p">:</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+   <span class="ss">output_directory</span><span class="p">:</span> <span class="s2">&quot;pantograph/reports&quot;</span><span class="p">,</span>
+   <span class="ss">output_type</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -1454,18 +1456,23 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <td></td>
 </tr>
 <tr>
+<td><code>source_directory</code></td>
+<td>Starting point for Cloc analysis</td>
+<td><code>.</code></td>
+</tr>
+<tr>
 <td><code>output_directory</code></td>
 <td>Where to put the generated report file</td>
-<td><code>build</code></td>
+<td><code>pantograph/reports</code></td>
 </tr>
 <tr>
-<td><code>source_directory</code></td>
-<td>Where to look for the source code (relative to the project root folder)</td>
-<td><code>''</code></td>
+<td><code>output_type</code></td>
+<td>Output file type: xml, yaml, cvs, json</td>
+<td><code>yaml</code></td>
 </tr>
 <tr>
-<td><code>xml</code></td>
-<td>Should we generate an XML File (if false, it will generate a plain text file)?</td>
+<td><code>list_each_file</code></td>
+<td>List each individual file in cloc report</td>
 <td><code>true</code></td>
 </tr>
 </tbody>

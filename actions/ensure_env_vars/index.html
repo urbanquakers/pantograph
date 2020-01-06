@@ -531,18 +531,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../git_branch/" title="git_branch" class="md-nav__link">
       git_branch
     </a>
@@ -569,6 +557,18 @@
   <li class="md-nav__item">
     <a href="../git_pull/" title="git_pull" class="md-nav__link">
       git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
     </a>
   </li>
 
@@ -663,6 +663,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -699,32 +711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -785,6 +773,18 @@
   <li class="md-nav__item">
     <a href="../prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1403,9 +1403,6 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 
 <h1 id="ensure_env_vars">ensure_env_vars</h1>
 <p>Raises an exception if the specified env vars are not set</p>
-<blockquote>
-<p>This action will check if some environment variables are set.</p>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -1420,13 +1417,13 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td>Author</td>
-<td>@revolter</td>
+<td>@johnknapprs</td>
 </tr>
 </tbody>
 </table>
 <h2 id="1-example">1 Example</h2>
 <div class="codehilite"><pre><span></span><span class="n">ensure_env_vars</span><span class="p">(</span>
-  <span class="ss">env_vars</span><span class="p">:</span> <span class="o">[</span><span class="s1">&#39;GITHUB_USER_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;GITHUB_API_TOKEN&#39;</span><span class="o">]</span>
+  <span class="ss">vars</span><span class="p">:</span> <span class="o">[</span><span class="s1">&#39;GITHUB_USER_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;GITHUB_API_TOKEN&#39;</span><span class="o">]</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -1442,8 +1439,8 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </thead>
 <tbody>
 <tr>
-<td><code>env_vars</code></td>
-<td>The environment variables names that should be checked</td>
+<td><code>vars</code></td>
+<td>The ENV variables keys to verify</td>
 <td></td>
 </tr>
 </tbody>

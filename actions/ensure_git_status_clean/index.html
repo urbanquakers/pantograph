@@ -463,13 +463,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#lane-variables" class="md-nav__link">
     Lane Variables
   </a>
@@ -538,18 +531,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../git_branch/" title="git_branch" class="md-nav__link">
       git_branch
     </a>
@@ -576,6 +557,18 @@
   <li class="md-nav__item">
     <a href="../git_pull/" title="git_pull" class="md-nav__link">
       git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
     </a>
   </li>
 
@@ -670,6 +663,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -706,32 +711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -792,6 +773,18 @@
   <li class="md-nav__item">
     <a href="../prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1357,13 +1350,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#lane-variables" class="md-nav__link">
     Lane Variables
   </a>
@@ -1416,10 +1402,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 -->
 
 <h1 id="ensure_git_status_clean">ensure_git_status_clean</h1>
-<p>Raises an exception if there are uncommitted git changes</p>
-<blockquote>
-<p>A sanity check to make sure you are working in a repo that is clean.<br>Especially useful to put at the beginning of your Pantfile in the <code>before_all</code> block, if some of your other actions will touch your filesystem, do things to your git repo, or just as a general reminder to save your work.<br>Also needed as a prerequisite for some other actions like <code>reset_git_repo</code>.</p>
-</blockquote>
+<p>Raises error if there are uncommitted git changes</p>
 <table>
 <thead>
 <tr>
@@ -1434,38 +1417,18 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td>Author</td>
-<td>@lmirosevic, @antondomashnev</td>
+<td>@lmirosevic, @antondomashnev, @johnknapprs</td>
 </tr>
 </tbody>
 </table>
 <h2 id="1-example">1 Example</h2>
-<div class="codehilite"><pre><span></span><span class="n">ensure_git_status_clean</span>
+<div class="codehilite"><pre><span></span><span class="n">before_all</span> <span class="k">do</span>
+   <span class="c1"># Prevent pantograph from running lanes when git is in a dirty state</span>
+   <span class="n">ensure_git_status_clean</span>
+ <span class="k">end</span>
 </pre></div>
 
 
-<h2 id="parameters">Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>show_uncommitted_changes</code></td>
-<td>The flag whether to show uncommitted changes if the repo is dirty</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>show_diff</code></td>
-<td>The flag whether to show the git diff if the repo is dirty</td>
-<td><code>false</code></td>
-</tr>
-</tbody>
-</table>
-<p><em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em></p>
 <hr />
 
 <h2 id="lane-variables">Lane Variables</h2>
@@ -1479,8 +1442,8 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </thead>
 <tbody>
 <tr>
-<td><code>SharedValues::GIT_REPO_WAS_CLEAN_ON_START</code></td>
-<td>Stores the fact that the git repo was clean at some point</td>
+<td><code>SharedValues::ENSURE_GIT_STATUS_CLEAN</code></td>
+<td>Returns <code>true</code> if status clean when executed</td>
 </tr>
 </tbody>
 </table>

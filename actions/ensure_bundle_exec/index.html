@@ -420,8 +420,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-example" class="md-nav__link">
-    1 Example
+  <a href="#2-examples" class="md-nav__link">
+    2 Examples
   </a>
   
 </li>
@@ -524,18 +524,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../git_branch/" title="git_branch" class="md-nav__link">
       git_branch
     </a>
@@ -562,6 +550,18 @@
   <li class="md-nav__item">
     <a href="../git_pull/" title="git_pull" class="md-nav__link">
       git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
     </a>
   </li>
 
@@ -656,6 +656,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -692,32 +704,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -778,6 +766,18 @@
   <li class="md-nav__item">
     <a href="../prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1336,8 +1336,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-example" class="md-nav__link">
-    1 Example
+  <a href="#2-examples" class="md-nav__link">
+    2 Examples
   </a>
   
 </li>
@@ -1390,7 +1390,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <h1 id="ensure_bundle_exec">ensure_bundle_exec</h1>
 <p>Raises an exception if not using <code>bundle exec</code> to run pantograph</p>
 <blockquote>
-<p>This action will check if you are using bundle exec to run pantograph.<br>You can put it into <code>before_all</code> and make sure that pantograph is run using <code>bundle exec pantograph</code> command.</p>
+<p>This action will check if you are using bundle exec to run pantograph.</p>
 </blockquote>
 <table>
 <thead>
@@ -1406,12 +1406,19 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td>Author</td>
-<td>@rishabhtayal</td>
+<td>@rishabhtayal, @johnknapprs</td>
 </tr>
 </tbody>
 </table>
-<h2 id="1-example">1 Example</h2>
+<h2 id="2-examples">2 Examples</h2>
 <div class="codehilite"><pre><span></span><span class="n">ensure_bundle_exec</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span> <span class="c1"># always check before running a lane</span>
+<span class="n">before_all</span> <span class="k">do</span>
+  <span class="n">ensure_bundle_exec</span>
+<span class="k">end</span>
 </pre></div>
 
 

@@ -463,18 +463,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -579,6 +567,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../git_submodule_update/" title="git_submodule_update" class="md-nav__link">
       git_submodule_update
     </a>
@@ -663,6 +663,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -699,32 +711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -785,6 +773,18 @@
   <li class="md-nav__item">
     <a href="../prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1402,7 +1402,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 -->
 
 <h1 id="git_branch">git_branch</h1>
-<p>Returns the name of the current git branch, possibly as managed by CI ENV vars</p>
+<p>Returns the name of the current git branch</p>
 <blockquote>
 <p>If no branch could be found, this action will return an empty string</p>
 </blockquote>
@@ -1420,7 +1420,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td>Author</td>
-<td>@KrauseFx</td>
+<td>@johnknapprs</td>
 </tr>
 </tbody>
 </table>
@@ -1442,8 +1442,8 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </thead>
 <tbody>
 <tr>
-<td><code>SharedValues::GIT_BRANCH_ENV_VARS</code></td>
-<td>The git branch environment variables</td>
+<td><code>SharedValues::GIT_BRANCH_NAME</code></td>
+<td>The git branch name</td>
 </tr>
 </tbody>
 </table>
@@ -1497,7 +1497,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../git_add/" title="git_add" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../get_github_release/" title="get_github_release" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1506,7 +1506,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                git_add
+                get_github_release
               </span>
             </div>
           </a>

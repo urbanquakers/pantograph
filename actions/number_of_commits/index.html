@@ -465,18 +465,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../git_add/" title="git_add" class="md-nav__link">
-      git_add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../git_branch/" title="git_branch" class="md-nav__link">
       git_branch
     </a>
@@ -503,6 +491,18 @@
   <li class="md-nav__item">
     <a href="../git_pull/" title="git_pull" class="md-nav__link">
       git_pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git_pull_tags/" title="git_pull_tags" class="md-nav__link">
+      git_pull_tags
     </a>
   </li>
 
@@ -597,6 +597,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../is_verbose/" title="is_verbose" class="md-nav__link">
+      is_verbose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../jira/" title="jira" class="md-nav__link">
       jira
     </a>
@@ -633,32 +645,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../make_changelog_from_jenkins/" title="make_changelog_from_jenkins" class="md-nav__link">
-      make_changelog_from_jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-nav__link">
       min_pantograph_version
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nexus_upload/" title="nexus_upload" class="md-nav__link">
-      nexus_upload
     </a>
   </li>
 
@@ -705,6 +693,13 @@
         <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lane-variables" class="md-nav__link">
+    Lane Variables
   </a>
   
 </li>
@@ -785,6 +780,18 @@
   <li class="md-nav__item">
     <a href="../prompt/" title="prompt" class="md-nav__link">
       prompt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prompt_secure/" title="prompt_secure" class="md-nav__link">
+      prompt_secure
     </a>
   </li>
 
@@ -1357,6 +1364,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lane-variables" class="md-nav__link">
+    Lane Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     Documentation
   </a>
@@ -1403,9 +1417,6 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 
 <h1 id="number_of_commits">number_of_commits</h1>
 <p>Return the number of commits in current git branch</p>
-<blockquote>
-<p>You can use this action to get the number of commits of this branch. This is useful if you want to set the build number to the number of commits. See <code>pantograph actions number_of_commits</code> for more details.</p>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -1420,7 +1431,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tr>
 <tr>
 <td>Author</td>
-<td>@onevcat, @samuelbeek</td>
+<td>@onevcat, @samuelbeek, @johnknapprs</td>
 </tr>
 <tr>
 <td>Returns</td>
@@ -1429,7 +1440,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </tbody>
 </table>
 <h2 id="2-examples">2 Examples</h2>
-<div class="codehilite"><pre><span></span><span class="n">increment_build_number</span><span class="p">(</span><span class="ss">build_number</span><span class="p">:</span> <span class="n">number_of_commits</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;VERSION_NAME&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="n">number_of_commits</span>
 </pre></div>
 
 
@@ -1458,6 +1469,24 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 <p><em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em></p>
 <hr />
 
+<h2 id="lane-variables">Lane Variables</h2>
+<p>Actions can communicate with each other using a shared hash <code>lane_context</code>, that can be accessed in other actions, plugins or your lanes: <code>lane_context[SharedValues:XYZ]</code>. The <code>number_of_commits</code> action generates the following Lane Variables:</p>
+<table>
+<thead>
+<tr>
+<th>SharedValue</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>To get more information check the <a href="https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context">Lanes documentation</a>.
+<hr /></p>
 <h2 id="documentation">Documentation</h2>
 <p>To show the documentation in your terminal, run</p>
 <div class="codehilite"><pre><span></span>pantograph action number_of_commits
@@ -1506,7 +1535,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../nexus_upload/" title="nexus_upload" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../min_pantograph_version/" title="min_pantograph_version" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1515,7 +1544,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                nexus_upload
+                min_pantograph_version
               </span>
             </div>
           </a>
