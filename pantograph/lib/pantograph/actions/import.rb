@@ -15,7 +15,7 @@ module Pantograph
 
       def self.details
         [
-          'This is useful if you have shared lanes across multiple apps and you want to store a Pantfile in a separate folder.',
+          'This is useful when sharing the same lanes across multiple projects',
           'The path must be relative to the Pantfile this is called from.'
         ].join("\n")
       end

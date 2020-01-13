@@ -11,7 +11,7 @@ Is the current run being executed on a CI system, like Jenkins or Travis
 
 
 
-> The return value of this method is true if pantograph is currently executed on Travis, Jenkins, Circle or a similar CI service
+> Return `true` if pantograph is currently executed on Travis, Jenkins, or a similar CI service
 
 
 is_ci ||

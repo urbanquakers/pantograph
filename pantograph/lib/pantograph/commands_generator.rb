@@ -84,7 +84,7 @@ module Pantograph
       ].join("\n")
       program :help, 'Author', 'Felix Krause <pantograph@krausefx.com>'
       program :help, 'Website', 'https://pantograph.tools'
-      program :help, 'GitHub', 'https://github.com/pantograph/pantograph'
+      program :help, 'GitHub', 'https://github.com/johnknapprs/pantograph'
       program :help_formatter, :compact
 
       global_option('--verbose') { PantographCore::Globals.verbose = true }

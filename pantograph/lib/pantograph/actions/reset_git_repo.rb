@@ -5,7 +5,7 @@ module Pantograph
     # Does a hard reset and clean on the repo
     class ResetGitRepoAction < Action
       def self.run(params)
-        if params[:force] || Actions.lane_context[SharedValues::GIT_REPO_WAS_CLEAN_ON_START]
+        if params[:force] || Actions.lane_context[SharedValues::ENSURE_GIT_STATUS_CLEAN]
           paths = params[:files]
 
           return paths if Helper.test?

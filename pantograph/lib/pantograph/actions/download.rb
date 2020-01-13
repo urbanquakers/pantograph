@@ -31,20 +31,21 @@ module Pantograph
 
       def self.details
         [
-          "Specify the URL to download and get the content as a return value.",
-          "Automatically parses JSON into a Ruby data structure.",
-          "For more advanced networking code, use the Ruby functions instead: [http://docs.ruby-lang.org/en/2.0.0/Net/HTTP.html](http://docs.ruby-lang.org/en/2.0.0/Net/HTTP.html)."
+          'Specify the URL to download and get the content as a return value.',
+          'Automatically parses JSON into a Ruby data structure.'
         ].join("\n")
       end
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :url,
-                                       env_name: 'DOWNLOAD_URL',
-                                       description: "The URL that should be downloaded",
-                                       verify_block: proc do |value|
-                                         UI.important("The URL doesn't start with http or https") unless value.start_with?("http")
-                                       end)
+          PantographCore::ConfigItem.new(
+            key: :url,
+            env_name: 'DOWNLOAD_URL',
+            description: 'The URL that should be downloaded',
+            verify_block: proc do |value|
+              UI.important('The URL does not start with http or https') unless value.start_with?('http')
+            end
+          )
         ]
       end
 

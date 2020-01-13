@@ -24,7 +24,9 @@ Author | @KrauseFx
 ## 1 Example
 
 ```ruby
-opt_out_usage # add this to the top of your Pantfile
+ # add this to the top of your Pantfile
+  opt_out_usage
+
 ```
 
 

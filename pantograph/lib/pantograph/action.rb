@@ -112,7 +112,7 @@ module Pantograph
 
     # Documentation category, available values defined in AVAILABLE_CATEGORIES
     def self.category
-      :undefined
+      :misc
     end
 
     # instead of "AddGitAction", this will return "add_git" to print it to the user

@@ -11,13 +11,13 @@ Raises an exception if the specified env vars are not set
 
 
 
-> This action will check if some environment variables are set.
+
 
 
 ensure_env_vars ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @revolter
+Author | @johnknapprs
 
 
 
@@ -25,7 +25,7 @@ Author | @revolter
 
 ```ruby
 ensure_env_vars(
-  env_vars: ['GITHUB_USER_NAME', 'GITHUB_API_TOKEN']
+  vars: ['GITHUB_USER_NAME', 'GITHUB_API_TOKEN']
 )
 ```
 
@@ -37,7 +37,7 @@ ensure_env_vars(
 
 Key | Description | Default
 ----|-------------|--------
-  `env_vars` | The environment variables names that should be checked | 
+  `vars` | The ENV variables keys to verify | 
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 

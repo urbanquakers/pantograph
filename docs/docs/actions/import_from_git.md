@@ -11,34 +11,45 @@ Import another Pantfile from a remote git repository to use its lanes
 
 
 
-> This is useful if you have shared lanes across multiple apps and you want to store the Pantfile in a remote git repository.
+> This is useful when sharing the same lanes across multiple projects
 
 
 import_from_git ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @fabiomassimo, @KrauseFx, @Liquidsoul
+Author | @fabiomassimo, @KrauseFx, @Liquidsoul, @johnknapprs
 
 
 
-## 2 Examples
+## 3 Examples
 
 ```ruby
-import_from_git(
-  url: "git@github.com:pantograph/pantograph.git", # The URL of the repository to import the Pantfile from.
-  branch: "HEAD", # The branch to checkout on the repository
-  path: "pantograph/Pantfile", # The path of the Pantfile in the repository
-  version: "~> 1.0.0" # The version to checkout on the repository. Optimistic match operator can be used to select the latest version within constraints.
-)
+ # Simple import on master branch
+  import_from_git(
+    url: "git@github.com:johnknapprs/pantograph.git"
+  )
+
 ```
 
 ```ruby
-import_from_git(
-  url: "git@github.com:pantograph/pantograph.git", # The URL of the repository to import the Pantfile from.
-  branch: "HEAD", # The branch to checkout on the repository
-  path: "pantograph/Pantfile", # The path of the Pantfile in the repository
-  version: [">= 1.1.0", "< 2.0.0"] # The version to checkout on the repository. Multiple conditions can be used to select the latest version within constraints.
-)
+ # Import a Pantfile with an Optimistic version match operator
+  import_from_git(
+    url: "git@github.com:johnknapprs/pantograph.git",
+    branch: "master",
+    path: "pantograph/Pantfile",
+    version: "~> 1.0.0"
+  )
+
+```
+
+```ruby
+ # Import a Pantfile with multiple version conditions
+  import_from_git(
+    url: "git@github.com:johnknapprs/pantograph.git", # The URL of the repository to import the Pantfile from.
+    branch: "development", # The branch to checkout on the repository
+    version: [">= 1.1.0", "< 2.0.0"]
+  )
+
 ```
 
 
@@ -50,9 +61,9 @@ import_from_git(
 Key | Description | Default
 ----|-------------|--------
   `url` | The URL of the repository to import the Pantfile from | 
-  `branch` | The branch or tag to check-out on the repository | `HEAD`
+  `branch` | The branch or tag to check-out on the repository | `master`
   `path` | The path of the Pantfile in the repository | `pantograph/Pantfile`
-  `version` | The version to checkout on the repository. Optimistic match operator or multiple conditions can be used to select the latest version within constraints | 
+  `version` | The version to checkout on the repository. Optimistic match operator or multiple conditions can be used to select the version within constraints | 
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 

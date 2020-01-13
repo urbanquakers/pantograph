@@ -17,7 +17,7 @@ Return last git commit hash, abbreviated commit hash, commit message and author
 last_git_commit ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @ngutman
+Author | @ngutman, @johnknapprs
 Returns | Returns the following dict: {commit_hash: "commit hash", abbreviated_commit_hash: "abbreviated commit hash" author: "Author", author_email: "author email", message: "commit message"}
 
 

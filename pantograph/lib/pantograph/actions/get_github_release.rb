@@ -144,7 +144,7 @@ module Pantograph
 
       def self.example_code
         [
-          'release = get_github_release(url: "pantograph/pantograph", version: "1.0.0")
+          'release = get_github_release(url: "johnknapprs/pantograph", version: "1.0.0")
           puts release["name"]'
         ]
       end

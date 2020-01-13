@@ -1,9 +1,9 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/prompt.rb
+To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/prompt_secure.rb
 -->
 
-# prompt
+# prompt_secure
 
 
 Ask the user for a value or for confirmation
@@ -14,7 +14,7 @@ Ask the user for a value or for confirmation
 > You can use `prompt` to ask the user for a value or to just let the user confirm the next step.<br>When this is executed on a CI service, the passed `ci_input` value will be returned.<br>This action also supports multi-line inputs using the `multi_line_end_keyword` option.
 
 
-prompt ||
+prompt_secure ||
 ---|---
 Supported platforms | mac, linux, windows
 Author | @KrauseFx, @johnknapprs
@@ -61,7 +61,7 @@ Key | Description | Default
 
 To show the documentation in your terminal, run
 ```shell
-pantograph action prompt
+pantograph action prompt_secure
 ```
 
 <hr />
@@ -71,13 +71,13 @@ pantograph action prompt
 It is recommended to add the above action into your `Pantfile`, however sometimes you might want to run one-offs. To do so, you can run the following command from your terminal
 
 ```shell
-pantograph run prompt
+pantograph run prompt_secure
 ```
 
 To pass parameters, make use of the `:` symbol, for example
 
 ```shell
-pantograph run prompt parameter1:"value1" parameter2:"value2"
+pantograph run prompt_secure parameter1:"value1" parameter2:"value2"
 ```
 
 It's important to note that the CLI supports primitive types like integers, floats, booleans, and strings. Arrays can be passed as a comma delimited string (e.g. `param:"1,2,3"`). Hashes are not currently supported.
@@ -88,7 +88,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/prompt.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/prompt_secure.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

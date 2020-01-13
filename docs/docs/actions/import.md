@@ -11,7 +11,7 @@ Import another Pantfile to use its lanes
 
 
 
-> This is useful if you have shared lanes across multiple apps and you want to store a Pantfile in a separate folder.<br>The path must be relative to the Pantfile this is called from.
+> This is useful when sharing the same lanes across multiple projects<br>The path must be relative to the Pantfile this is called from.
 
 
 import ||

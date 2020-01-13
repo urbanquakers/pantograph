@@ -1,17 +1,15 @@
 module Pantograph
   module Actions
-    module SharedValues
-    end
-
     # Raises an exception and stop the lane execution if the repo is not on a specific branch
     class EnsureGitBranchAction < Action
       def self.run(params)
-        branch = params[:branch]
-        branch_expr = /#{branch}/
-        if Actions.git_branch =~ branch_expr
-          UI.success("Git branch matches `#{branch}`, all good! 💪")
+        target_branch  = params[:branch]
+        current_branch = Helper::Git.current_branch
+
+        if current_branch =~ /#{target_branch}/
+          UI.success("Git branch matches `#{target_branch}`, all good! 💪")
         else
-          UI.user_error!("Git is not on a branch matching `#{branch}`. Current branch is `#{Actions.git_branch}`! Please ensure the repo is checked out to the correct branch.")
+          UI.user_error!("Git is not on a branch matching `#{target_branch}`. Current branch is `#{current_branch}`!")
         end
       end
 
@@ -32,11 +30,13 @@ module Pantograph
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :branch,
-                                       env_name: 'ENSURE_GIT_BRANCH_NAME',
-                                       description: "The branch that should be checked for. String that can be either the full name of the branch or a regex to match",
-                                       type: String,
-                                       default_value: 'master')
+          PantographCore::ConfigItem.new(
+            key: :branch,
+            env_name: 'ENSURE_GIT_BRANCH_NAME',
+            description: 'The branch that should be checked for. String that can be either the full name of the branch or a regex to match',
+            type: String,
+            default_value: 'master'
+          )
         ]
       end
 
@@ -45,7 +45,7 @@ module Pantograph
       end
 
       def self.author
-        ['dbachrach', 'Liquidsoul']
+        ['dbachrach', 'Liquidsoul', 'johnknapprs']
       end
 
       def self.example_code

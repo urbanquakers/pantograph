@@ -25,7 +25,7 @@ module Pantograph
           return Pantograph.const_get(plugin_name.pantograph_class)::VERSION
         rescue => ex
           UI.verbose(ex)
-          return "undefined"
+          return 'undefined'
         end
       end
 

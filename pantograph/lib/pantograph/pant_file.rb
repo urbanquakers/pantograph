@@ -236,14 +236,18 @@ module Pantograph
     end
 
     def import(path = nil)
-      UI.user_error!("Please pass a path to the `import` action") unless path
+      if path.nil?
+        UI.user_error!("Please pass a path to the `import` action")
+      end
 
       path = path.dup.gsub("~", Dir.home)
       unless Pathname.new(path).absolute? # unless an absolute path
         path = File.join(File.expand_path('..', @path), path)
       end
 
-      UI.user_error!("Could not find Pantfile at path '#{path}'") unless File.exist?(path)
+      unless File.exist?(path)
+        UI.user_error!("Could not find Pantfile at path '#{path}'")
+      end
 
       # First check if there are local actions to import in the same directory as the Pantfile
       actions_path = File.join(File.expand_path("..", path), 'actions')
@@ -262,8 +266,10 @@ module Pantograph
     # @param branch [String] The branch to checkout in the repository
     # @param path [String] The path to the Pantfile
     # @param version [String, Array] Version requirement for repo tags
-    def import_from_git(url: nil, branch: 'HEAD', path: 'pantograph/Pantfile', version: nil)
-      UI.user_error!("Please pass a path to the `import_from_git` action") if url.to_s.length == 0
+    def import_from_git(url: nil, branch: 'master', path: 'pantograph/Pantfile', version: nil)
+      if url.to_s.length == 0
+        UI.user_error!("Please pass the git url to the `import_from_git` action")
+      end
 
       Actions.execute_action('import_from_git') do
         require 'tmpdir'
@@ -271,17 +277,15 @@ module Pantograph
         action_launched('import_from_git')
 
         # Checkout the repo
-        repo_name = url.split("/").last
+        repo_name      = url.split('/').last
         checkout_param = branch
 
-        Dir.mktmpdir("fl_clone") do |tmp_path|
+        Dir.mktmpdir('pant_clone') do |tmp_path|
           clone_folder = File.join(tmp_path, repo_name)
 
-          branch_option = "--branch #{branch}" if branch != 'HEAD'
-
-          UI.message("Cloning remote git repo...")
+          UI.message('Cloning remote git repo...')
           Helper.with_env_values('GIT_TERMINAL_PROMPT' => '0') do
-            Actions.sh("git clone #{url.shellescape} #{clone_folder.shellescape} --depth 1 -n #{branch_option}")
+            Actions.sh("git clone #{url.shellescape} #{clone_folder.shellescape} --depth 1 -n --branch #{branch}")
           end
 
           unless version.nil?
@@ -294,20 +298,22 @@ module Pantograph
           Actions.sh("cd #{clone_folder.shellescape} && git checkout #{checkout_param.shellescape} #{path.shellescape}")
 
           # We also want to check out all the local actions of this pantograph setup
-          containing = path.split(File::SEPARATOR)[0..-2]
-          containing = "." if containing.count == 0
+          containing     = path.split(File::SEPARATOR)[0..-2]
+          containing     = "." if containing.count == 0
           actions_folder = File.join(containing, "actions")
+
           begin
             Actions.sh("cd #{clone_folder.shellescape} && git checkout #{checkout_param.shellescape} #{actions_folder.shellescape}")
           rescue
             # We don't care about a failure here, as local actions are optional
           end
 
-          return_value = import(File.join(clone_folder, path))
+          import(File.join(clone_folder, path))
 
-          action_completed('import_from_git', status: PantographCore::ActionCompletionStatus::SUCCESS)
-
-          return return_value
+          action_completed(
+            'import_from_git',
+            status: PantographCore::ActionCompletionStatus::SUCCESS
+          )
         end
       end
     end

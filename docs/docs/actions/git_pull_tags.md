@@ -1,30 +1,30 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/pantograph_version.rb
+To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/git_pull_tags.rb
 -->
 
-# pantograph_version
+# git_pull_tags
 
 
-Alias for the `min_pantograph_version` action
+Executes a simple `git fetch --tags` command
 
 
 
 
-> Add this to your `Pantfile` to require a certain version of _pantograph_.
 
 
-pantograph_version ||
+
+git_pull_tags ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx, @johnknapprs
+Author | @johnknapprs
 
 
 
 ## 1 Example
 
 ```ruby
-min_pantograph_version("0.14.0")
+git_pull_tags
 ```
 
 
@@ -39,7 +39,7 @@ min_pantograph_version("0.14.0")
 
 To show the documentation in your terminal, run
 ```shell
-pantograph action pantograph_version
+pantograph action git_pull_tags
 ```
 
 <hr />
@@ -49,13 +49,13 @@ pantograph action pantograph_version
 It is recommended to add the above action into your `Pantfile`, however sometimes you might want to run one-offs. To do so, you can run the following command from your terminal
 
 ```shell
-pantograph run pantograph_version
+pantograph run git_pull_tags
 ```
 
 To pass parameters, make use of the `:` symbol, for example
 
 ```shell
-pantograph run pantograph_version parameter1:"value1" parameter2:"value2"
+pantograph run git_pull_tags parameter1:"value1" parameter2:"value2"
 ```
 
 It's important to note that the CLI supports primitive types like integers, floats, booleans, and strings. Arrays can be passed as a comma delimited string (e.g. `param:"1,2,3"`). Hashes are not currently supported.
@@ -66,7 +66,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/pantograph_version.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/git_pull_tags.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

@@ -5,26 +5,19 @@ module Pantograph
         Actions.verify_gem!('jira-ruby')
         require 'jira-ruby'
 
-        site         = params[:url]
-        auth_type    = :basic
-        context_path = params[:context_path]
-        username     = params[:username]
-        password     = params[:password]
-        ticket_id    = params[:ticket_id]
-        comment_text = params[:comment_text]
+        client = JIRA::Client.new(
+          {
+            site: params[:url],
+            context_path: params[:context_path],
+            auth_type: :basic,
+            username: params[:username],
+            password: params[:password]
+          }
+        )
 
-        options = {
-                    site: site,
-                    context_path: context_path,
-                    auth_type: auth_type,
-                    username: username,
-                    password: password
-                  }
-
-        client = JIRA::Client.new(options)
-        issue = client.Issue.find(ticket_id)
+        issue   = client.Issue.find(params[:ticket_id])
         comment = issue.comments.build
-        comment.save({ 'body' => comment_text })
+        comment.save({ 'body' => params[:comment_text] })
       end
 
       #####################################################
@@ -32,47 +25,49 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Leave a comment on JIRA tickets"
+        'Leave a comment on JIRA tickets'
       end
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :url,
-                                      env_name: 'JIRA_SITE',
-                                      description: 'URL for Jira instance',
-                                       verify_block: proc do |value|
-                                         UI.user_error!("No url for Jira given, pass using `url: 'url'`") if value.to_s.length == 0
-                                       end),
-          PantographCore::ConfigItem.new(key: :context_path,
-                                      env_name: 'JIRA_CONTEXT_PATH',
-                                      description: "Appends to the url (ex: \"/jira\")",
-                                      optional: true,
-                                      default_value: ""),
-          PantographCore::ConfigItem.new(key: :username,
-                                       env_name: 'JIRA_USERNAME',
-                                       description: 'Username for JIRA instance',
-                                       verify_block: proc do |value|
-                                         UI.user_error!('No username') if value.to_s.length == 0
-                                       end),
-          PantographCore::ConfigItem.new(key: :password,
-                                       env_name: 'JIRA_PASSWORD',
-                                       description: 'Password for Jira',
-                                       sensitive: true,
-                                       verify_block: proc do |value|
-                                         UI.user_error!("No password") if value.to_s.length == 0
-                                       end),
-          PantographCore::ConfigItem.new(key: :ticket_id,
-                                       env_name: 'JIRA_TICKET_ID',
-                                       description: 'Ticket ID for Jira, i.e. APP-123',
-                                       verify_block: proc do |value|
-                                         UI.user_error!("No Ticket specified") if value.to_s.length == 0
-                                       end),
-          PantographCore::ConfigItem.new(key: :comment_text,
-                                       env_name: 'JIRA_COMMENT_TEXT',
-                                       description: 'Text to add to the ticket as a comment',
-                                       verify_block: proc do |value|
-                                         UI.user_error!('No comment specified') if value.to_s.length == 0
-                                       end)
+          PantographCore::ConfigItem.new(
+            key: :url,
+            env_name: 'JIRA_SITE',
+            description: 'URL for Jira instance',
+            optional: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :context_path,
+            env_name: 'JIRA_CONTEXT_PATH',
+            description: "Appends to the url (ex: \"/jira\")",
+            optional: true,
+            default_value: ''
+          ),
+          PantographCore::ConfigItem.new(
+            key: :username,
+            env_name: 'JIRA_USERNAME',
+            description: 'Username for JIRA instance',
+            optional: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :password,
+            env_name: 'JIRA_PASSWORD',
+            description: 'Password for Jira',
+            sensitive: true,
+            optional: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :ticket_id,
+            env_name: 'JIRA_TICKET_ID',
+            description: 'Ticket ID for Jira, i.e. APP-123',
+            optional: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :comment_text,
+            env_name: 'JIRA_COMMENT_TEXT',
+            description: 'Text to add to the ticket as a comment',
+            optional: false
+          )
         ]
       end
 

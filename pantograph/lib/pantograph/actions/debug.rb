@@ -7,7 +7,7 @@ module Pantograph
       end
 
       def self.description
-        "Print out an overview of the lane context values"
+        'Print out an overview of the lane context values'
       end
 
       def self.is_supported?(platform)
@@ -25,7 +25,7 @@ module Pantograph
       end
 
       def self.author
-        "KrauseFx"
+        'KrauseFx'
       end
     end
   end

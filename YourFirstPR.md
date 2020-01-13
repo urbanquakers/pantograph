@@ -47,7 +47,7 @@ After your contribution is merged, it’s not immediately available to all users
 
 <!-- Links -->
 [you can do this]: https://github.com/johnknapprs/pantograph/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22complexity%3A+you+can+do+this%22+
-[pantograph repo]: https://github.com/pantograph/pantograph
+[pantograph repo]: https://github.com/johnknapprs/pantograph
 [pr template]: .github/PULL_REQUEST_TEMPLATE.md
 [bundler]: https://bundler.io
 [bundler help]: https://bundler.io/v1.12/#getting-started

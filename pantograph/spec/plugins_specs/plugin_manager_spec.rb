@@ -113,8 +113,8 @@ describe Pantograph do
 
         it "supports specifying a custom git URL" do
           expect(PantographCore::UI.ui_object).to receive(:select).and_return("Git URL")
-          expect(PantographCore::UI.ui_object).to receive(:input).and_return("https://github.com/pantograph/pantograph")
-          expect(plugin_manager.gem_dependency_suffix("pantograph")).to eq(", git: 'https://github.com/pantograph/pantograph'")
+          expect(PantographCore::UI.ui_object).to receive(:input).and_return("https://github.com/johnknapprs/pantograph")
+          expect(plugin_manager.gem_dependency_suffix("pantograph")).to eq(", git: 'https://github.com/johnknapprs/pantograph'")
         end
 
         it "supports falling back to RubyGems" do

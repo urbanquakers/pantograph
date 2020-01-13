@@ -11,7 +11,7 @@ Access lane context values
 
 
 
-> Access the pantograph lane context values.<br>More information about how the lane context works: [https://johnknapprs.github.io/pantograph/advanced/#lane-context](https://johnknapprs.github.io/pantograph/advanced/#lane-context).
+> More information about how the lane context works: [https://johnknapprs.github.io/pantograph/advanced/#lane-context](https://johnknapprs.github.io/pantograph/advanced/#lane-context)
 
 
 lane_context ||
@@ -24,7 +24,7 @@ Author | @KrauseFx
 ## 2 Examples
 
 ```ruby
-lane_context[SharedValues::BUILD_NUMBER]
+lane_context[:BUILD_NUMBER]
 ```
 
 ```ruby

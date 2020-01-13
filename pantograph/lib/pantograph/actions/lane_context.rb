@@ -10,14 +10,14 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Access lane context values"
+        'Access lane context values'
       end
 
       def self.details
         [
-          "Access the pantograph lane context values.",
-          "More information about how the lane context works: [https://johnknapprs.github.io/pantograph/advanced/#lane-context](https://johnknapprs.github.io/pantograph/advanced/#lane-context)."
-        ].join("\n")
+          'More information about how the lane context works:',
+          '[https://johnknapprs.github.io/pantograph/advanced/#lane-context](https://johnknapprs.github.io/pantograph/advanced/#lane-context)'
+        ].join(' ')
       end
 
       def self.available_options
@@ -33,7 +33,7 @@ module Pantograph
       end
 
       def self.authors
-        ["KrauseFx"]
+        ['KrauseFx']
       end
 
       def self.is_supported?(platform)
@@ -47,7 +47,7 @@ module Pantograph
 
       def self.example_code
         [
-          'lane_context[SharedValues::BUILD_NUMBER]',
+          'lane_context[:BUILD_NUMBER]',
           'lane_context[SharedValues::IPA_OUTPUT_PATH]'
         ]
       end

@@ -11,20 +11,20 @@ Verifies the minimum pantograph version required
 
 
 
-> Add this to your `Pantfile` to require a certain version of _pantograph_.<br>Use it if you use an action that just recently came out and you need it.
+> Add this to your `Pantfile` to require a certain version of _pantograph_.
 
 
 min_pantograph_version ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx
+Author | @KrauseFx, @johnknapprs
 
 
 
 ## 1 Example
 
 ```ruby
-min_pantograph_version("1.50.0")
+min_pantograph_version("0.14.0")
 ```
 
 

@@ -6,39 +6,32 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 # ensure_git_status_clean
 
 
-Raises an exception if there are uncommitted git changes
+Raises error if there are uncommitted git changes
 
 
 
 
-> A sanity check to make sure you are working in a repo that is clean.<br>Especially useful to put at the beginning of your Pantfile in the `before_all` block, if some of your other actions will touch your filesystem, do things to your git repo, or just as a general reminder to save your work.<br>Also needed as a prerequisite for some other actions like `reset_git_repo`.
+
 
 
 ensure_git_status_clean ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @lmirosevic, @antondomashnev
+Author | @lmirosevic, @antondomashnev, @johnknapprs
 
 
 
 ## 1 Example
 
 ```ruby
-ensure_git_status_clean
+before_all do
+   # Prevent pantograph from running lanes when git is in a dirty state
+   ensure_git_status_clean
+ end
 ```
 
 
 
-
-
-## Parameters
-
-Key | Description | Default
-----|-------------|--------
-  `show_uncommitted_changes` | The flag whether to show uncommitted changes if the repo is dirty | `false`
-  `show_diff` | The flag whether to show the git diff if the repo is dirty | `false`
-
-<em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 
 
 <hr />
@@ -51,7 +44,7 @@ Actions can communicate with each other using a shared hash `lane_context`, that
 
 SharedValue | Description 
 ------------|-------------
-  `SharedValues::GIT_REPO_WAS_CLEAN_ON_START` | Stores the fact that the git repo was clean at some point
+  `SharedValues::ENSURE_GIT_STATUS_CLEAN` | Returns `true` if status clean when executed
 
 To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />

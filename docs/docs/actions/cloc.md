@@ -11,24 +11,27 @@ Generates a Code Count that can be read by Jenkins (xml format)
 
 
 
-> This action will run cloc to generate a SLOC report that the Jenkins SLOCCount plugin can read.<br>See [https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin) and [https://github.com/AlDanial/cloc](https://github.com/AlDanial/cloc) for more information.
+> This action will run cloc to generate a code count report<br>See [https://github.com/AlDanial/cloc](https://github.com/AlDanial/cloc) for more information.
 
 
 cloc ||
 ---|---
 Supported platforms | mac
-Author | @intere
+Author | @johnknapprs
 
 
 
 ## 1 Example
 
 ```ruby
+  # Generate JSON report of project code count
 cloc(
-   exclude_dir: "ThirdParty,Resources",
-   output_directory: "reports",
-   source_directory: "MyCoolApp"
+   exclude_dir: "build",
+   source_directory: ".",
+   output_directory: "pantograph/reports",
+   output_type: "json"
 )
+
 ```
 
 
@@ -41,9 +44,10 @@ Key | Description | Default
 ----|-------------|--------
   `binary_path` | Where the cloc binary lives on your system (full path including "cloc") | `/usr/local/bin/cloc`
   `exclude_dir` | Comma separated list of directories to exclude | 
-  `output_directory` | Where to put the generated report file | `build`
-  `source_directory` | Where to look for the source code (relative to the project root folder) | `''`
-  `xml` | Should we generate an XML File (if false, it will generate a plain text file)? | `true`
+  `source_directory` | Starting point for Cloc analysis | `.`
+  `output_directory` | Where to put the generated report file | `pantograph/reports`
+  `output_type` | Output file type: xml, yaml, cvs, json | `yaml`
+  `list_each_file` | List each individual file in cloc report | `true`
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 

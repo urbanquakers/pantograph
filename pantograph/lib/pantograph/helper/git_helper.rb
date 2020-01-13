@@ -132,4 +132,33 @@ module Pantograph
       end
     end
   end
+
+  module Helper
+    module Git
+      # Returns the current git branch - can be replaced using the environment variable `GIT_BRANCH`
+      def self.current_branch
+        return ENV['GIT_BRANCH'] if ENV['GIT_BRANCH'].to_s.length > 0 # set by Jenkins
+        s = Actions.sh("git rev-parse --abbrev-ref HEAD", log: false).chomp
+        return s.to_s.strip if s.to_s.length > 0
+        nil
+      rescue
+        nil
+      end
+
+      def self.repo_status
+        Actions.sh('git status --porcelain')
+      end
+
+      def self.repo_clean?
+        repo_status.empty?
+      end
+
+      def self.is_git?
+        Actions.sh('git rev-parse HEAD', log: false)
+        return true
+      rescue
+        UI.user_error!("Not in a git repository.")
+      end
+    end
+  end
 end

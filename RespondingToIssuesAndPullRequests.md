@@ -33,7 +33,7 @@ Each tool has it’s own label, e.g. _pantograph_, `pantograph_core` and _gym_.
 
 ### Recommended setup for testing the code
 
-- Clone the _pantograph_ repository by running  `git clone git@github.com:pantograph/pantograph.git` in your terminal
+- Clone the _pantograph_ repository by running  `git clone git@github.com:johnknapprs/pantograph.git` in your terminal
 - For each PR you want to review, make sure to add the user’s fork as a remote
   - `git remote add <GITHUB_USERNAME> git@github.com:<GITHUB_USERNAME>/pantograph.git`
 - Then, check out the branch for the user’s PR

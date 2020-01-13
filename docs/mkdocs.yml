@@ -37,10 +37,10 @@ nav:
   - ensure_git_status_clean: actions/ensure_git_status_clean.md
   - erb: actions/erb.md
   - get_github_release: actions/get_github_release.md
-  - git_add: actions/git_add.md
   - git_branch: actions/git_branch.md
   - git_commit: actions/git_commit.md
   - git_pull: actions/git_pull.md
+  - git_pull_tags: actions/git_pull_tags.md
   - git_submodule_update: actions/git_submodule_update.md
   - git_tag_exists: actions/git_tag_exists.md
   - github_api: actions/github_api.md
@@ -48,17 +48,17 @@ nav:
   - import: actions/import.md
   - import_from_git: actions/import_from_git.md
   - is_ci: actions/is_ci.md
+  - is_verbose: actions/is_verbose.md
   - jira: actions/jira.md
   - lane_context: actions/lane_context.md
   - last_git_commit: actions/last_git_commit.md
-  - make_changelog_from_jenkins: actions/make_changelog_from_jenkins.md
   - min_pantograph_version: actions/min_pantograph_version.md
-  - nexus_upload: actions/nexus_upload.md
   - number_of_commits: actions/number_of_commits.md
   - opt_out_usage: actions/opt_out_usage.md
   - pantograph_version: actions/pantograph_version.md
   - println: actions/println.md
   - prompt: actions/prompt.md
+  - prompt_secure: actions/prompt_secure.md
   - push_git_tags: actions/push_git_tags.md
   - push_to_git_remote: actions/push_to_git_remote.md
   - puts: actions/puts.md

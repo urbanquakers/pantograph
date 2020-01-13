@@ -46,7 +46,7 @@ describe Pantograph do
           Pantograph::PantFile.new.parse("lane :test do
             min_pantograph_version
           end").runner.execute(:test)
-        end.to raise_error("Please pass minimum pantograph version as parameter to min_pantograph_version")
+        end.to raise_error('Please provide minimum pantograph version')
       end
     end
   end

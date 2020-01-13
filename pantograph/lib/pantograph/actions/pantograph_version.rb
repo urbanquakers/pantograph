@@ -1,4 +1,4 @@
-require "pantograph/actions/min_pantograph_version"
+require 'pantograph/actions/min_pantograph_version'
 
 module Pantograph
   module Actions
@@ -8,7 +8,7 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Alias for the `min_pantograph_version` action"
+        'Alias for the `min_pantograph_version` action'
       end
     end
   end

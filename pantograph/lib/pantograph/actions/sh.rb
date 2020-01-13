@@ -10,13 +10,13 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Runs a shell command"
+        'Runs a shell command'
       end
 
       def self.details
         [
-          "Allows running an arbitrary shell command.",
-          "Be aware of a specific behavior of `sh` action with regard to the working directory. For details, refer to [Advanced](https://johnknapprs.github.io/pantograph/advanced/#directory-behavior)."
+          'Allows running an arbitrary shell command.',
+          'Be aware of a specific behavior of `sh` action with regard to the working directory. For details, refer to [Advanced](https://johnknapprs.github.io/pantograph/advanced/#directory-behavior).'
         ].join("\n")
       end
 

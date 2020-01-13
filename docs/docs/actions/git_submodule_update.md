@@ -6,7 +6,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 # git_submodule_update
 
 
-Executes a git submodule command
+Execute git submodule command
 
 
 
@@ -17,7 +17,7 @@ Executes a git submodule command
 git_submodule_update ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @braunico
+Author | @johnknapprs
 
 
 
@@ -27,8 +27,8 @@ Author | @braunico
 
 Key | Description | Default
 ----|-------------|--------
-  `recursive` | Should the submodules be updated recursively | `false`
-  `init` | Should the submodules be initiated before update | `false`
+  `recursive` | Add the `--recursive` flag | `false`
+  `init` | Add the `--init` flag | `false`
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 

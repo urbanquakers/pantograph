@@ -1,24 +1,17 @@
 module Pantograph
   module Actions
-    class NumberOfCommitsAction < Action
-      def self.is_git?
-        Actions.sh('git rev-parse HEAD')
-        return true
-      rescue
-        return false
-      end
+    module SharedValues
+      NUMBER_OF_COMMITS = :NUMBER_OF_COMMITS
+    end
 
+    class NumberOfCommitsAction < Action
       def self.run(params)
-        if is_git?
-          if params[:all]
-            command = 'git rev-list --all --count'
-          else
-            command = 'git rev-list HEAD --count'
-          end
-        else
-          UI.user_error!("Not in a git repository.")
-        end
-        return Actions.sh(command).strip.to_i
+        Pantograph::Helper::Git.is_git?
+
+        type    = params[:all] ? '--all' : 'HEAD'
+        commits = Actions.sh("git rev-list #{type} --count").strip.to_i
+
+        Actions.lane_context[:NUMBER_OF_COMMITS] = commits
       end
 
       #####################################################
@@ -29,8 +22,7 @@ module Pantograph
         'Return the number of commits in current git branch'
       end
 
-      def self.return_value
-        'The total number of all commits in current git branch'
+      def self.details
       end
 
       def self.return_type
@@ -39,20 +31,28 @@ module Pantograph
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :all,
-                                       env_name: 'NUMBER_OF_COMMITS_ALL',
-                                       optional: true,
-                                       is_string: false,
-                                       description: 'Returns number of all commits instead of current branch')
+          PantographCore::ConfigItem.new(
+            key: :all,
+            env_name: 'NUMBER_OF_COMMITS_ALL',
+            optional: true,
+            is_string: false,
+            description: 'Returns number of all commits instead of current branch'
+          )
         ]
       end
 
-      def self.details
-        'You can use this action to get the number of commits of this branch. This is useful if you want to set the build number to the number of commits. See `pantograph actions number_of_commits` for more details.'
+      def self.return_value
+        'The total number of all commits in current git branch'
+      end
+
+      def self.output
+        [
+          'NUMBER_OF_COMMITS', 'Total number of git commits'
+        ]
       end
 
       def self.authors
-        ['onevcat', 'samuelbeek']
+        ['onevcat', 'samuelbeek', 'johnknapprs']
       end
 
       def self.is_supported?(platform)
@@ -61,9 +61,13 @@ module Pantograph
 
       def self.example_code
         [
-          'increment_build_number(build_number: number_of_commits)',
-          'build_number = number_of_commits(all: true)
-          increment_build_number(build_number: build_number)'
+          '
+          ENV["VERSION_NAME"] = number_of_commits
+          ',
+          '
+          build_number = number_of_commits(all: true)
+          increment_build_number(build_number: build_number)
+          '
         ]
       end
 

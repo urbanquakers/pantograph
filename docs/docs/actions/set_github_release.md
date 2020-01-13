@@ -26,7 +26,7 @@ Returns | A hash containing all relevant information of this release<br>Access t
 
 ```ruby
 github_release = set_github_release(
-  repository_name: "pantograph/pantograph",
+  repository_name: "johnknapprs/pantograph",
   api_token: ENV["GITHUB_TOKEN"],
   name: "Super New actions",
   tag_name: "v1.22.0",
@@ -44,7 +44,7 @@ github_release = set_github_release(
 
 Key | Description | Default
 ----|-------------|--------
-  `repository_name` | The path to your repo, e.g. 'pantograph/pantograph' | 
+  `repository_name` | The path to your repo, e.g. 'johnknapprs/pantograph' | 
   `server_url` | The server url. e.g. 'https://your.internal.github.host/api/v3' (Default: 'https://api.github.com') | `https://api.github.com`
   `api_token` | Personal API Token for GitHub - generate one at https://github.com/settings/tokens | [*](#parameters-legend-dynamic)
   `tag_name` | Pass in the tag name | 

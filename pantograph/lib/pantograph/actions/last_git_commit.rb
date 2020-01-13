@@ -10,7 +10,7 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Return last git commit hash, abbreviated commit hash, commit message and author"
+        'Return last git commit hash, abbreviated commit hash, commit message and author'
       end
 
       def self.return_value
@@ -21,8 +21,8 @@ module Pantograph
         :hash_of_strings
       end
 
-      def self.author
-        "ngutman"
+      def self.authors
+        ['ngutman', 'johnknapprs']
       end
 
       def self.is_supported?(platform)

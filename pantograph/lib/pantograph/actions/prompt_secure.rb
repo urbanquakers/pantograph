@@ -1,6 +1,6 @@
 module Pantograph
   module Actions
-    class PromptAction < Action
+    class PromptSecureAction < Action
       def self.run(params)
         if params[:boolean]
           return Helper.ci? ? params[:ci_input] : UI.confirm(params[:text])
@@ -59,23 +59,23 @@ module Pantograph
         [
           PantographCore::ConfigItem.new(
             key: :text,
-            description: "The text that will be displayed to the user",
-            default_value: "Please enter some text: "
+            description: 'The text that will be displayed to the user',
+            default_value: 'Please enter some text: '
           ),
           PantographCore::ConfigItem.new(
             key: :ci_input,
-            description: "The default text that will be used when being executed on a CI service",
+            description: 'The default text that will be used when being executed on a CI service',
             default_value: ''
           ),
           PantographCore::ConfigItem.new(
             key: :boolean,
-            description: "Is that a boolean question (yes/no)? This will add (y/n) at the end",
+            description: 'Is that a boolean question (yes/no)? This will add (y/n) at the end',
             default_value: false,
             is_string: false
           ),
           PantographCore::ConfigItem.new(
             key: :secure_text,
-            description: "Is that a secure text (yes/no)?",
+            description: 'Is that a secure text (yes/no)?',
             default_value: false,
             is_string: false
           ),

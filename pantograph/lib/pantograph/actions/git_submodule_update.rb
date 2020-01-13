@@ -2,10 +2,13 @@ module Pantograph
   module Actions
     class GitSubmoduleUpdateAction < Action
       def self.run(params)
-        commands = ["git submodule update"]
-        commands += ["--init"] if params[:init]
-        commands += ["--recursive"] if params[:recursive]
-        Actions.sh(commands.join(' '))
+        cmd = []
+        cmd << 'git submodule update'
+        cmd << '--init'      if params[:init]
+        cmd << '--recursive' if params[:recursive]
+        cmd = cmd.join(' ')
+
+        Actions.sh(cmd)
       end
 
       #####################################################
@@ -13,20 +16,24 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Executes a git submodule command"
+        'Execute git submodule command'
       end
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :recursive,
-           description: "Should the submodules be updated recursively",
-           type: Boolean,
-           default_value: false),
-          PantographCore::ConfigItem.new(key: :init,
-           description: "Should the submodules be initiated before update",
-           type: Boolean,
-           is_string: false,
-           default_value: false)
+          PantographCore::ConfigItem.new(
+            key: :recursive,
+            description: 'Add the `--recursive` flag',
+            type: Boolean,
+            default_value: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :init,
+            description: 'Add the `--init` flag',
+            type: Boolean,
+            is_string: false,
+            default_value: false
+          )
         ]
       end
 
@@ -37,11 +44,11 @@ module Pantograph
       end
 
       def self.authors
-        ["braunico"]
+        ['johnknapprs']
       end
 
       def self.is_supported?(platform)
-        return true
+        true
       end
 
       def self.category

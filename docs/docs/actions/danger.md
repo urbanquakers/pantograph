@@ -11,13 +11,13 @@ Runs `danger` for the project
 
 
 
-> Formalize your Pull Request etiquette.<br>More information: [https://github.com/danger/danger](https://github.com/danger/danger).
+> Stop Saying your Forgot in Source Control<br>More information: [https://github.com/danger/danger](https://github.com/danger/danger).
 
 
 danger ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx
+Author | @KrauseFx, @johnknapprs
 
 
 
@@ -47,7 +47,7 @@ Key | Description | Default
   `use_bundle_exec` | Use bundle exec when there is a Gemfile presented | `true`
   `verbose` | Show more debugging information | `false`
   `danger_id` | The identifier of this Danger instance | 
-  `dangerfile` | The location of your Dangerfile | 
+  `dangerfile` | The location of your Dangerfile | `Dangerfile`
   `github_api_token` | GitHub API token for danger | 
   `fail_on_errors` | Should always fail the build process, defaults to false | `false`
   `new_comment` | Makes Danger post a new comment instead of editing its previous one | `false`

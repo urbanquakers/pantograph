@@ -6,8 +6,7 @@ module Pantograph
 
     class GitBranchAction < Action
       def self.run(params)
-        branch_name = `git symbolic-ref HEAD --short 2>/dev/null`.strip
-        Actions.lane_context[SharedValues::GIT_BRANCH_NAME] = branch_name
+        Actions.lane_context[SharedValues::GIT_BRANCH_NAME] = Helper::Git.current_branch
       end
 
       #####################################################

@@ -67,7 +67,7 @@ You specify all dependencies, including the required version numbers:
 gem 'pantograph-plugin-maven'
 
 # Fetched from GitHub
-gem 'pantograph-plugin-maven', git: 'https://github.com/pantograph/pantograph-plugin-maven'
+gem 'pantograph-plugin-maven', git: 'https://github.com/johnknapprs/pantograph-plugin-maven'
 
 # Fetched from a local directory
 gem 'pantograph-plugin-maven', path: '../pantograph-plugin-maven'

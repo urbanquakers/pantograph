@@ -27,10 +27,12 @@ module Pantograph
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :tag,
-                                         env_name: 'GIT_TAG_EXISTS_TAG',
-                                         description: 'The tag name that should be checked',
-                                         is_string: true)
+          PantographCore::ConfigItem.new(
+            key: :tag,
+            env_name: 'GIT_TAG_EXISTS_TAG',
+            description: 'The tag name that should be checked',
+            is_string: true
+          )
         ]
       end
 

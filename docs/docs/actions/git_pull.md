@@ -17,31 +17,18 @@ Executes a simple git pull command
 git_pull ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx, @JaviSoto
+Author | @johnknapprs
 
 
 
-## 2 Examples
+## 1 Example
 
 ```ruby
 git_pull
 ```
 
-```ruby
-git_pull(only_tags: true) # only the tags, no commits
-```
 
 
-
-
-
-## Parameters
-
-Key | Description | Default
-----|-------------|--------
-  `only_tags` | Simply pull the tags, and not bring new commits to the current branch from the remote | `false`
-
-<em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 
 
 <hr />

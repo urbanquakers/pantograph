@@ -6,7 +6,7 @@ describe Pantograph do
           Pantograph::PantFile.new.parse("lane :test do
             import_from_git
           end").runner.execute(:test)
-        end.to raise_error("Please pass a path to the `import_from_git` action")
+        end.to raise_error("Please pass the git url to the `import_from_git` action")
       end
     end
   end

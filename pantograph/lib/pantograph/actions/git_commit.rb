@@ -32,19 +32,27 @@ module Pantograph
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :path,
-                                       description: "The file you want to commit",
-                                       is_string: false),
-          PantographCore::ConfigItem.new(key: :message,
-                                       description: "The commit message that should be used"),
-          PantographCore::ConfigItem.new(key: :skip_git_hooks,
-                                       description: "Set to true to pass --no-verify to git",
-                                       type: Boolean,
-                                       optional: true),
-          PantographCore::ConfigItem.new(key: :allow_nothing_to_commit,
-                                       description: "Set to true to allow commit without any git changes",
-                                       type: Boolean,
-                                       optional: true)
+          PantographCore::ConfigItem.new(
+            key: :path,
+            description: "The file you want to commit",
+            is_string: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :message,
+            description: "The commit message that should be used"
+          ),
+          PantographCore::ConfigItem.new(
+            key: :skip_git_hooks,
+            description: "Set to true to pass --no-verify to git",
+            type: Boolean,
+            optional: true
+          ),
+          PantographCore::ConfigItem.new(
+            key: :allow_nothing_to_commit,
+            description: "Set to true to allow commit without any git changes",
+            type: Boolean,
+            optional: true
+          )
         ]
       end
 

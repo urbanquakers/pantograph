@@ -10,7 +10,7 @@
 [![Twitter: @PantographTools](https://img.shields.io/badge/contact-@PantographTools-blue.svg?style=flat)](https://twitter.com/PantographTools)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/johnknapprs/pantograph/blob/master/LICENSE)
 [![Gem](https://img.shields.io/gem/v/pantograph.svg?style=flat)](https://rubygems.org/gems/pantograph)
-[![Build Status](https://img.shields.io/circleci/project/github/johnknapprs/pantograph/master.svg)](https://circleci.com/gh/pantograph/pantograph)
+[![Build Status](https://img.shields.io/circleci/project/github/johnknapprs/pantograph/master.svg)](https://circleci.com/gh/johnknapprs/pantograph)
 [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/johnknapprs/pantograph/blob/master/CONTRIBUTING.md)
 
 _pantograph_ is a tool for iOS and Android developers to automate tedious tasks like generating screenshots, dealing with provisioning profiles, and releasing your application.

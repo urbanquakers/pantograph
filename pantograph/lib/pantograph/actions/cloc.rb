@@ -29,37 +29,49 @@ module Pantograph
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :binary_path,
-                                         env_name: 'CLOC_BINARY_PATH',
-                                         description: 'Where the cloc binary lives on your system (full path including "cloc")',
-                                         optional: true,
-                                         is_string: true,
-                                         default_value: '/usr/local/bin/cloc'),
-          PantographCore::ConfigItem.new(key: :exclude_dir,
-                                         env_name: 'CLOC_EXCLUDE_DIR',
-                                         description: 'Comma separated list of directories to exclude',
-                                         optional: true,
-                                         is_string: true),
-          PantographCore::ConfigItem.new(key: :source_directory,
-                                         env_name: 'CLOC_SOURCE_DIRECTORY',
-                                         description: 'Starting point for Cloc analysis',
-                                         is_string: true,
-                                         default_value: '.'),
-          PantographCore::ConfigItem.new(key: :output_directory,
-                                         env_name: 'CLOC_OUTPUT_DIRECTORY',
-                                         description: 'Where to put the generated report file',
-                                         is_string: true,
-                                         default_value: 'pantograph/reports'),
-          PantographCore::ConfigItem.new(key: :output_type,
-                                         env_name: 'CLOC_OUTPUT_TYPE',
-                                         description: 'Output file type: xml, yaml, cvs, json',
-                                         is_string: true,
-                                         default_value: 'yaml'),
-          PantographCore::ConfigItem.new(key: :list_each_file,
-                                         env_name: 'CLOC_LIST_EACH_FILE',
-                                         description: 'List each individual file in cloc report',
-                                         is_string: false,
-                                         default_value: true)
+          PantographCore::ConfigItem.new(
+            key: :binary_path,
+            env_name: 'CLOC_BINARY_PATH',
+            description: 'Where the cloc binary lives on your system (full path including "cloc")',
+            optional: true,
+            is_string: true,
+            default_value: '/usr/local/bin/cloc'
+          ),
+          PantographCore::ConfigItem.new(
+            key: :exclude_dir,
+            env_name: 'CLOC_EXCLUDE_DIR',
+            description: 'Comma separated list of directories to exclude',
+            optional: true,
+            is_string: true
+          ),
+          PantographCore::ConfigItem.new(
+            key: :source_directory,
+            env_name: 'CLOC_SOURCE_DIRECTORY',
+            description: 'Starting point for Cloc analysis',
+            is_string: true,
+            default_value: '.'
+          ),
+          PantographCore::ConfigItem.new(
+            key: :output_directory,
+            env_name: 'CLOC_OUTPUT_DIRECTORY',
+            description: 'Where to put the generated report file',
+            is_string: true,
+            default_value: 'pantograph/reports'
+          ),
+          PantographCore::ConfigItem.new(
+            key: :output_type,
+            env_name: 'CLOC_OUTPUT_TYPE',
+            description: 'Output file type: xml, yaml, cvs, json',
+            is_string: true,
+            default_value: 'yaml'
+          ),
+          PantographCore::ConfigItem.new(
+            key: :list_each_file,
+            env_name: 'CLOC_LIST_EACH_FILE',
+            description: 'List each individual file in cloc report',
+            is_string: false,
+            default_value: true
+          )
         ]
       end
 

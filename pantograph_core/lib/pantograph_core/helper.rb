@@ -67,16 +67,29 @@ module PantographCore
     # @return [boolean] true if building in a known CI environment
     def self.ci?
       # Check for Jenkins, Travis CI, ... environment variables
-      ['JENKINS_HOME', 'JENKINS_URL', 'TRAVIS', 'CIRCLECI', 'CI', 'APPCENTER_BUILD_ID', 'TEAMCITY_VERSION', 'GO_PIPELINE_NAME', 'bamboo_buildKey', 'GITLAB_CI', 'XCS', 'TF_BUILD', 'GITHUB_ACTION', 'GITHUB_ACTIONS'].each do |current|
-        return true if ENV.key?(current)
-      end
-      return false
+      ci_vars = [
+        'JENKINS_HOME',
+        'JENKINS_URL',
+        'TRAVIS',
+        'CIRCLECI',
+        'CI',
+        'APPCENTER_BUILD_ID',
+        'TEAMCITY_VERSION',
+        'GO_PIPELINE_NAME',
+        'bamboo_buildKey',
+        'GITLAB_CI', 'XCS',
+        'TF_BUILD',
+        'GITHUB_ACTION',
+        'GITHUB_ACTIONS'
+      ]
+
+      ci_vars.any? { |var| ENV.key?(var) }
     end
 
     def self.operating_system
-      return "macOS" if RUBY_PLATFORM.downcase.include?("darwin")
+      return "macOS"   if RUBY_PLATFORM.downcase.include?("darwin")
       return "Windows" if RUBY_PLATFORM.downcase.include?("mswin")
-      return "Linux" if RUBY_PLATFORM.downcase.include?("linux")
+      return "Linux"   if RUBY_PLATFORM.downcase.include?("linux")
       return "Unknown"
     end
 

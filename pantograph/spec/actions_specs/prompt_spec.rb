@@ -3,7 +3,7 @@ describe Pantograph do
     describe "prompt" do
       it "uses the CI value if necessary" do
         # make prompt think we're running in CI mode
-        expect(PantographCore::UI).to receive(:interactive?).with(no_args).and_return(false)
+        expect(Pantograph::Helper).to receive(:ci?).with(no_args).and_return(true)
 
         result = Pantograph::PantFile.new.parse("lane :test do
           prompt(text: 'text', ci_input: 'ci')
@@ -13,7 +13,7 @@ describe Pantograph do
 
       it "reads full lines from $stdin until encountering multi_line_end_keyword" do
         # make prompt think we're running in interactive, non-CI mode
-        expect(PantographCore::UI).to receive(:interactive?).with(no_args).and_return(true)
+        expect(Pantograph::Helper).to receive(:ci?).with(no_args).and_return(false)
 
         expect($stdin).to receive(:gets).with(no_args).and_return("First line\n", "Second lineEND\n")
         result = Pantograph::PantFile.new.parse("lane :test do

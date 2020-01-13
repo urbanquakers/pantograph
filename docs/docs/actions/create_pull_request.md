@@ -27,7 +27,7 @@ Returns | The pull request URL when successful
 ```ruby
 create_pull_request(
   api_token: "secret",      # optional, defaults to ENV["GITHUB_API_TOKEN"]
-  repo: "pantograph/pantograph",
+  repo: "johnknapprs/pantograph",
   title: "Amazing new feature",
   head: "my-feature",       # optional, defaults to current branch name
   base: "master", # optional, defaults to "master"

@@ -20,8 +20,7 @@ module PantographCore
     end
 
     def self.verbose?
-      return nil unless @verbose
-      return true
+      @verbose ? true : nil
     end
   end
 end

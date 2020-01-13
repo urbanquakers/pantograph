@@ -33,19 +33,23 @@ module Pantograph
 
         # Below a few examples
         [
-          PantographCore::ConfigItem.new(key: :api_token,
-                                       env_name: '[[NAME_UP]]_API_TOKEN', # The name of the environment variable
-                                       description: 'API Token for [[NAME_CLASS]]', # a short description of this parameter
-                                       verify_block: proc do |value|
-                                         unless (value and not value.empty?)
-                                           UI.user_error!('No API token for [[NAME_CLASS]] given, pass using `api_token: "token"`')
-                                         end
-                                       end),
-          PantographCore::ConfigItem.new(key: :development,
-                                       env_name: '[[NAME_UP]]_DEVELOPMENT',
-                                       description: 'Create a development certificate instead of a distribution one',
-                                       is_string: false, # true: verifies the input is a string, false: every kind of value
-                                       default_value: false) # the default value if the user didn't provide one
+          PantographCore::ConfigItem.new(
+            key: :api_token,
+            env_name: '[[NAME_UP]]_API_TOKEN', # The name of the environment variable
+            description: 'API Token for [[NAME_CLASS]]', # a short description of this parameter
+            verify_block: proc do |value|
+              unless (value and not value.empty?)
+                UI.user_error!('No API token for [[NAME_CLASS]] given, pass using `api_token: "token"`')
+              end
+            end
+          ),
+          PantographCore::ConfigItem.new(
+            key: :development,
+            env_name: '[[NAME_UP]]_DEVELOPMENT',
+            description: 'Create a development certificate instead of a distribution one',
+            is_string: false, # true: verifies the input is a string, false: every kind of value
+            default_value: false # the default value if the user didn't provide one
+          )
         ]
       end
 
@@ -99,7 +103,7 @@ module Pantograph
 
       def category
         # Available Categories: ./pantograph/lib/pantograph/action.rb
-        :undefined
+        :misc
       end
 
       # If category == :deprecated, uncomment to include a message for user

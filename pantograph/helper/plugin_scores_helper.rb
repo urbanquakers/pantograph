@@ -236,7 +236,7 @@ module Pantograph
 
         # Everything from the GitHub API (e.g. open issues and stars)
         def append_github_data
-          # e.g. https://api.github.com/repos/pantograph/pantograph
+          # e.g. https://api.github.com/repos/johnknapprs/pantograph
           url = self.homepage.gsub("github.com/", "api.github.com/repos/")
           url = url[0..-2] if url.end_with?("/") # what is this, 2001? We got to remove the trailing `/` otherwise GitHub will fail
           puts("Fetching #{url}")

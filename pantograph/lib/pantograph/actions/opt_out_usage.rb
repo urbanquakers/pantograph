@@ -2,24 +2,24 @@ module Pantograph
   module Actions
     class OptOutUsageAction < Action
       def self.run(params)
-        ENV['PANTOGRAPH_OPT_OUT_USAGE'] = "YES"
-        UI.message("Disabled upload of used actions")
+        ENV['PANTOGRAPH_OPT_OUT_USAGE'] = 'YES'
+        UI.message('Disabled upload of used actions')
       end
 
       def self.description
-        "This will stop uploading the information which actions were run"
+        'This will stop uploading the information which actions were run'
       end
 
       def self.details
         [
-          "By default, _pantograph_ will track what actions are being used. No personal/sensitive information is recorded.",
-          "Learn more at [https://johnknapprs.github.io/pantograph/#metrics](https://johnknapprs.github.io/pantograph/#metrics).",
-          "Add `opt_out_usage` at the top of your Pantfile to disable metrics collection."
+          'By default, _pantograph_ will track what actions are being used. No personal/sensitive information is recorded.',
+          'Learn more at [https://johnknapprs.github.io/pantograph/#metrics](https://johnknapprs.github.io/pantograph/#metrics).',
+          'Add `opt_out_usage` at the top of your Pantfile to disable metrics collection.'
         ].join("\n")
       end
 
-      def self.author
-        "KrauseFx"
+      def self.authors
+        ['KrauseFx']
       end
 
       def self.is_supported?(platform)
@@ -28,8 +28,14 @@ module Pantograph
 
       def self.example_code
         [
-          'opt_out_usage # add this to the top of your Pantfile'
+          ' # add this to the top of your Pantfile
+            opt_out_usage
+          '
         ]
+      end
+
+      def self.step_text
+        'Disabled Usage Data Tracking'
       end
 
       def self.category

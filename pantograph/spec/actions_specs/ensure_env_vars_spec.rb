@@ -9,13 +9,14 @@ describe Pantograph do
         context 'and env var is set' do
           before :each do
             allow(ENV).to receive(:[]).and_return('valid')
+            ENV['FIRST'] = 'true'
           end
 
           it 'outputs success message' do
-            expect(PantographCore::UI).to receive(:success).with('Environment variable \'FIRST\' is set!')
+            expect(PantographCore::UI).to receive(:success).with('ENV variable(s) \'FIRST\' set!')
 
             Pantograph::PantFile.new.parse('lane :test do
-              ensure_env_vars(env_vars: [\'FIRST\'])
+              ensure_env_vars(vars: [\'FIRST\'])
             end').runner.execute(:test)
           end
         end
@@ -23,13 +24,15 @@ describe Pantograph do
         context 'and env vars are set' do
           before :each do
             allow(ENV).to receive(:[]).and_return('valid')
+            ENV['FIRST']  = 'true'
+            ENV['SECOND'] = 'true'
           end
 
           it 'outputs success message' do
-            expect(PantographCore::UI).to receive(:success).with('Environment variables \'FIRST\', \'SECOND\' are set!')
+            expect(PantographCore::UI).to receive(:success).with('ENV variable(s) \'FIRST\', \'SECOND\' set!')
 
             Pantograph::PantFile.new.parse('lane :test do
-              ensure_env_vars(env_vars: [\'FIRST\', \'SECOND\'])
+              ensure_env_vars(vars: [\'FIRST\', \'SECOND\'])
             end').runner.execute(:test)
           end
         end
@@ -38,10 +41,10 @@ describe Pantograph do
           it 'outputs error message' do
             expect do
               Pantograph::PantFile.new.parse('lane :test do
-                ensure_env_vars(env_vars: [\'MISSING\'])
+                ensure_env_vars(vars: [\'MISSING\'])
               end').runner.execute(:test)
             end.to raise_error(PantographCore::Interface::PantographError) do |error|
-              expect(error.message).to eq('Missing environment variable \'MISSING\'')
+              expect(error.message).to eq("Unable to find ENV Variable(s):\nMISSING")
             end
           end
         end
@@ -54,10 +57,10 @@ describe Pantograph do
           it 'outputs error message' do
             expect do
               Pantograph::PantFile.new.parse('lane :test do
-                ensure_env_vars(env_vars: [\'MISSING\'])
+                ensure_env_vars(vars: [\'MISSING\'])
               end').runner.execute(:test)
             end.to raise_error(PantographCore::Interface::PantographError) do |error|
-              expect(error.message).to eq('Missing environment variable \'MISSING\'')
+              expect(error.message).to eq("Unable to find ENV Variable(s):\nMISSING")
             end
           end
         end
@@ -68,10 +71,10 @@ describe Pantograph do
           it 'outputs error message' do
             expect do
               Pantograph::PantFile.new.parse('lane :test do
-                ensure_env_vars(env_vars: [])
+                ensure_env_vars(vars: [])
               end').runner.execute(:test)
             end.to raise_error(PantographCore::Interface::PantographError) do |error|
-              expect(error.message).to eq('Specify at least one environment variable name')
+              expect(error.message).to eq('Specify at least one environment variable key')
             end
           end
         end

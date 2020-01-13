@@ -11,13 +11,13 @@ Return the number of commits in current git branch
 
 
 
-> You can use this action to get the number of commits of this branch. This is useful if you want to set the build number to the number of commits. See `pantograph actions number_of_commits` for more details.
+
 
 
 number_of_commits ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @onevcat, @samuelbeek
+Author | @onevcat, @samuelbeek, @johnknapprs
 Returns | The total number of all commits in current git branch
 
 
@@ -25,12 +25,16 @@ Returns | The total number of all commits in current git branch
 ## 2 Examples
 
 ```ruby
-increment_build_number(build_number: number_of_commits)
+
+ENV["VERSION_NAME"] = number_of_commits
+
 ```
 
 ```ruby
+
 build_number = number_of_commits(all: true)
 increment_build_number(build_number: build_number)
+
 ```
 
 
@@ -48,6 +52,17 @@ Key | Description | Default
 
 <hr />
 
+
+
+## Lane Variables
+
+Actions can communicate with each other using a shared hash `lane_context`, that can be accessed in other actions, plugins or your lanes: `lane_context[SharedValues:XYZ]`. The `number_of_commits` action generates the following Lane Variables:
+
+SharedValue | Description 
+------------|-------------
+
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
+<hr />
 
 
 ## Documentation

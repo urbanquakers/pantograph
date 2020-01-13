@@ -1,16 +1,20 @@
 module Pantograph
   module Actions
-    module SharedValues
-    end
-
     # Raises an exception and stop the lane execution if not using bundle exec to run pantograph
     class EnsureBundleExecAction < Action
       def self.run(params)
         return if PluginManager.new.gemfile_path.nil?
         if PantographCore::Helper.bundler?
-          UI.success("Using bundled pantograph ✅")
+          UI.success('Using bundled pantograph ✅')
         else
-          UI.user_error!("pantograph detected a Gemfile in the current directory. However it seems like you don't use `bundle exec`. Use `bundle exec pantograph #{ARGV.join(' ')}`")
+          error_message = [
+            'pantograph detected a Gemfile in the current directory.',
+            'However it seems like you did not use `bundle exec`.',
+            "Use `bundle exec pantograph #{ARGV.join(' ')}`"
+          ]
+          error_message = error_message.join(' ')
+
+          UI.user_error!(error_message)
         end
       end
 
@@ -19,13 +23,12 @@ module Pantograph
       #####################################################
 
       def self.description
-        "Raises an exception if not using `bundle exec` to run pantograph"
+        'Raises an exception if not using `bundle exec` to run pantograph'
       end
 
       def self.details
         [
-          "This action will check if you are using bundle exec to run pantograph.",
-          "You can put it into `before_all` and make sure that pantograph is run using `bundle exec pantograph` command."
+          'This action will check if you are using bundle exec to run pantograph.'
         ].join("\n")
       end
 
@@ -38,12 +41,17 @@ module Pantograph
       end
 
       def self.author
-        ['rishabhtayal']
+        ['rishabhtayal', 'johnknapprs']
       end
 
       def self.example_code
         [
-          "ensure_bundle_exec"
+          'ensure_bundle_exec',
+          ' # always check before running a lane
+          before_all do
+            ensure_bundle_exec
+          end
+          '
         ]
       end
 

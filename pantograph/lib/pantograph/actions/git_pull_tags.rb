@@ -9,7 +9,6 @@ module Pantograph
         'Executes a simple `git fetch --tags` command'
       end
 
-
       def self.authors
         ['johnknapprs']
       end

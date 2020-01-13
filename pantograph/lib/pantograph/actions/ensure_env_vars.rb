@@ -2,17 +2,15 @@ module Pantograph
   module Actions
     class EnsureEnvVarsAction < Action
       def self.run(params)
-        variables = params[:env_vars]
-
-        variables.each do |variable|
-          next unless ENV[variable].to_s.strip.empty?
-
-          UI.user_error!("Missing environment variable '#{variable}'")
+        null_keys = params[:vars].reject do |var|
+          ENV.key?(var)
         end
 
-        is_one = variables.length == 1
+        if null_keys.any?
+          UI.user_error!("Unable to find ENV Variable(s):\n#{null_keys.join("\n")}")
+        end
 
-        UI.success("Environment variable#{is_one ? '' : 's'} '#{variables.join('\', \'')}' #{is_one ? 'is' : 'are'} set!")
+        UI.success("ENV variable(s) '#{params[:vars].join('\', \'')}' set!")
       end
 
       def self.description
@@ -20,28 +18,29 @@ module Pantograph
       end
 
       def self.details
-        'This action will check if some environment variables are set.'
       end
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :env_vars,
-                                       description: 'The environment variables names that should be checked',
-                                       type: Array,
-                                       verify_block: proc do |value|
-                                         UI.user_error!('Specify at least one environment variable name') if value.empty?
-                                       end)
+          PantographCore::ConfigItem.new(
+            key: :vars,
+            description: 'The ENV variables keys to verify',
+            type: Array,
+            verify_block: proc do |value|
+              UI.user_error!('Specify at least one environment variable key') if value.empty?
+            end
+          )
         ]
       end
 
       def self.authors
-        ['revolter']
+        ['johnknapprs']
       end
 
       def self.example_code
         [
           'ensure_env_vars(
-            env_vars: [\'GITHUB_USER_NAME\', \'GITHUB_API_TOKEN\']
+            vars: [\'GITHUB_USER_NAME\', \'GITHUB_API_TOKEN\']
           )'
         ]
       end

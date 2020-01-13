@@ -95,7 +95,7 @@ module Pantograph
       end
 
       if available.empty?
-        UI.user_error!("It looks like you don't have any lanes to run just yet. Check out how to get started here: https://github.com/pantograph/pantograph 🚀")
+        UI.user_error!("It looks like you don't have any lanes to run just yet. Check out how to get started here: https://github.com/johnknapprs/pantograph 🚀")
       end
 
       rows = []

@@ -6,7 +6,9 @@ module Pantograph
 
     class DefaultPlatformAction < Action
       def self.run(params)
-        UI.user_error!("You forgot to pass the default platform") if params.first.nil?
+        if params.first.nil?
+          UI.user_error!('You forgot to pass the default platform')
+        end
 
         platform = params.first.to_sym
 
@@ -16,7 +18,7 @@ module Pantograph
       end
 
       def self.description
-        "Defines a default platform to not have to specify the platform"
+        'Defines a default platform to not have to specify the platform'
       end
 
       def self.output
@@ -36,7 +38,7 @@ module Pantograph
       end
 
       def self.author
-        "KrauseFx"
+        'KrauseFx'
       end
 
       def self.is_supported?(platform)

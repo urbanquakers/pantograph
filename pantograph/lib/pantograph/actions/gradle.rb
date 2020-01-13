@@ -27,7 +27,9 @@ module Pantograph
                       end
 
         # Ensure we ended up with a valid path to gradle
-        UI.user_error!("Couldn't find gradlew at path '#{File.expand_path(gradle_path)}'") unless File.exist?(gradle_path)
+        unless File.exist?(gradle_path)
+          UI.user_error!("Couldn't find gradlew at path '#{File.expand_path(gradle_path)}'")
+        end
 
         # Construct our flags
         flags = []
@@ -93,63 +95,85 @@ module Pantograph
 
       def self.available_options
         [
-          PantographCore::ConfigItem.new(key: :task,
-                                       env_name: 'GRADLE_TASK',
-                                       description: 'The gradle task you want to execute, e.g. `assemble`, `bundle` or `test`. For tasks such as `assembleMyFlavorRelease` you should use gradle(task: \'assemble\', flavor: \'Myflavor\', build_type: \'Release\')',
-                                       optional: false,
-                                       type: String),
-          PantographCore::ConfigItem.new(key: :flavor,
-                                       env_name: 'GRADLE_FLAVOR',
-                                       description: 'The flavor that you want the task for, e.g. `MyFlavor`. If you are running the `assemble` task in a multi-flavor project, and you rely on Actions.lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH] then you must specify a flavor here or else this value will be undefined',
-                                       optional: true,
-                                       type: String),
-          PantographCore::ConfigItem.new(key: :build_type,
-                                       env_name: 'GRADLE_BUILD_TYPE',
-                                       description: 'The build type that you want the task for, e.g. `Release`. Useful for some tasks such as `assemble`',
-                                       optional: true,
-                                       type: String),
-          PantographCore::ConfigItem.new(key: :flags,
-                                       env_name: 'GRADLE_FLAGS',
-                                       description: 'All parameter flags you want to pass to the gradle command, e.g. `--exitcode --xml file.xml`',
-                                       optional: true,
-                                       type: String),
-          PantographCore::ConfigItem.new(key: :project_dir,
-                                       env_name: 'GRADLE_PROJECT_DIR',
-                                       description: 'The root directory of the gradle project',
-                                       default_value: '.',
-                                       type: String),
-          PantographCore::ConfigItem.new(key: :gradle_path,
-                                       env_name: 'GRADLE_PATH',
-                                       description: 'The path to your `gradlew`. If you specify a relative path, it is assumed to be relative to the `project_dir`',
-                                       optional: true,
-                                       type: String,
-                                       default_value: './gradlew'),
-          PantographCore::ConfigItem.new(key: :properties,
-                                       env_name: 'GRADLE_PROPERTIES',
-                                       description: 'Gradle properties to be exposed to the gradle script',
-                                       optional: true,
-                                       is_string: false),
-          PantographCore::ConfigItem.new(key: :artifact_extension,
-                                       env_name: 'GRADLE_ARTIFACT_EXTENSION',
-                                       description: 'Gradle build output filetype extension',
-                                       optional: true,
-                                       is_string: true,
-                                       default_value: 'jar'),
-          PantographCore::ConfigItem.new(key: :system_properties,
-                                       env_name: 'GRADLE_SYSTEM_PROPERTIES',
-                                       description: 'Gradle system properties to be exposed to the gradle script',
-                                       optional: true,
-                                       is_string: false),
-          PantographCore::ConfigItem.new(key: :print_command,
-                                       env_name: 'GRADLE_PRINT_COMMAND',
-                                       description: 'Control whether the generated Gradle command is printed as output before running it (true/false)',
-                                       is_string: false,
-                                       default_value: true),
-          PantographCore::ConfigItem.new(key: :print_command_output,
-                                       env_name: 'GRADLE_PRINT_COMMAND_OUTPUT',
-                                       description: 'Control whether the output produced by given Gradle command is printed while running (true/false)',
-                                       is_string: false,
-                                       default_value: true)
+          PantographCore::ConfigItem.new(
+            key: :task,
+            env_name: 'GRADLE_TASK',
+            description: 'The gradle task you want to execute, e.g. `assemble`, `bundle` or `test`. For tasks such as `assembleMyFlavorRelease` you should use gradle(task: \'assemble\', flavor: \'Myflavor\', build_type: \'Release\')',
+            optional: false,
+            type: String
+          ),
+          PantographCore::ConfigItem.new(
+            key: :flavor,
+            env_name: 'GRADLE_FLAVOR',
+            description: 'The flavor that you want the task for, e.g. `MyFlavor`. If you are running the `assemble` task in a multi-flavor project, and you rely on Actions.lane_context[SharedValues::GRADLE_ARTIFACT  _OUTPUT_PATH] then you must specify a flavor here or else this value will be undefined',
+            optional: true,
+            type: String
+          ),
+          PantographCore::ConfigItem.new(
+            key: :build_type,
+            env_name: 'GRADLE_BUILD_TYPE',
+            description: 'The build type that you want the task for, e.g. `Release`. Useful for some tasks such as `assemble`',
+            optional: true,
+            type: String
+          ),
+          PantographCore::ConfigItem.new(
+            key: :flags,
+            env_name: 'GRADLE_FLAGS',
+            description: 'All parameter flags you want to pass to the gradle command, e.g. `--exitcode --xml file.xml`',
+            optional: true,
+            type: String
+          ),
+          PantographCore::ConfigItem.new(
+            key: :project_dir,
+            env_name: 'GRADLE_PROJECT_DIR',
+            description: 'The root directory of the gradle project',
+            default_value: '.',
+            type: String
+          ),
+          PantographCore::ConfigItem.new(
+            key: :gradle_path,
+            env_name: 'GRADLE_PATH',
+            description: 'The path to your `gradlew`. If you specify a relative path, it is assumed to be relative to the `project_dir`',
+            optional: true,
+            type: String,
+            default_value: './gradlew'
+          ),
+          PantographCore::ConfigItem.new(
+            key: :properties,
+            env_name: 'GRADLE_PROPERTIES',
+            description: 'Gradle properties to be exposed to the gradle script',
+            optional: true,
+            is_string: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :artifact_extension,
+            env_name: 'GRADLE_ARTIFACT_EXTENSION',
+            description: 'Gradle build output filetype extension',
+            optional: true,
+            is_string: true,
+            default_value: 'jar'
+          ),
+          PantographCore::ConfigItem.new(
+            key: :system_properties,
+            env_name: 'GRADLE_SYSTEM_PROPERTIES',
+            description: 'Gradle system properties to be exposed to the gradle script',
+            optional: true,
+            is_string: false
+          ),
+          PantographCore::ConfigItem.new(
+            key: :print_command,
+            env_name: 'GRADLE_PRINT_COMMAND',
+            description: 'Control whether the generated Gradle command is printed as output before running it (true/false)',
+            is_string: false,
+            default_value: true
+          ),
+          PantographCore::ConfigItem.new(
+            key: :print_command_output,
+            env_name: 'GRADLE_PRINT_COMMAND_OUTPUT',
+            description: 'Control whether the output produced by given Gradle command is printed while running (true/false)',
+            is_string: false,
+            default_value: true
+          )
         ]
       end
 

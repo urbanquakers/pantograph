@@ -119,10 +119,7 @@ module PantographCore
     #####################################################
 
     def interactive?
-      interactive = true
-      interactive = false if $stdout.isatty == false
-      interactive = false if Helper.ci?
-      return interactive
+      ($stdout.isatty == false || Helper.ci?) ? false : true
     end
 
     def input(message)

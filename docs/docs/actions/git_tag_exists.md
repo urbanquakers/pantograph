@@ -6,7 +6,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 # git_tag_exists
 
 
-Checks if the git tag with the given name exists in the current repo
+Checks if the git tag with the given name exists
 
 
 
@@ -17,8 +17,8 @@ Checks if the git tag with the given name exists in the current repo
 git_tag_exists ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @antondomashnev
-Returns | Boolean value whether the tag exists or not
+Author | @johnknapprs
+Returns | Returns Boolean value whether the tag exists
 
 
 
@@ -26,7 +26,7 @@ Returns | Boolean value whether the tag exists or not
 
 ```ruby
 if git_tag_exists(tag: "1.1.0")
-  UI.message("Found it 🚀")
+  UI.message("Git Tag Exists!")
 end
 ```
 
@@ -39,14 +39,24 @@ end
 Key | Description | Default
 ----|-------------|--------
   `tag` | The tag name that should be checked | 
-  `remote` | Whether to check remote. Defaults to `false` | `false`
-  `remote_name` | The remote to check. Defaults to `origin` | `origin`
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 
 
 <hr />
 
+
+
+## Lane Variables
+
+Actions can communicate with each other using a shared hash `lane_context`, that can be accessed in other actions, plugins or your lanes: `lane_context[SharedValues:XYZ]`. The `git_tag_exists` action generates the following Lane Variables:
+
+SharedValue | Description 
+------------|-------------
+  `SharedValues::GIT_TAG_EXISTS` | Boolean value whether tag exists
+
+To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
+<hr />
 
 
 ## Documentation

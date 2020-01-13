@@ -11,20 +11,28 @@ Raises an exception if not using `bundle exec` to run pantograph
 
 
 
-> This action will check if you are using bundle exec to run pantograph.<br>You can put it into `before_all` and make sure that pantograph is run using `bundle exec pantograph` command.
+> This action will check if you are using bundle exec to run pantograph.
 
 
 ensure_bundle_exec ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @rishabhtayal
+Author | @rishabhtayal, @johnknapprs
 
 
 
-## 1 Example
+## 2 Examples
 
 ```ruby
 ensure_bundle_exec
+```
+
+```ruby
+ # always check before running a lane
+before_all do
+  ensure_bundle_exec
+end
+
 ```
 
 

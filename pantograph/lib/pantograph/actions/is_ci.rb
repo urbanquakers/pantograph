@@ -14,7 +14,7 @@ module Pantograph
       end
 
       def self.details
-        'The return value of this method is true if pantograph is currently executed on Travis, Jenkins, Circle or a similar CI service'
+        'Return `true` if pantograph is currently executed on Travis, Jenkins, or a similar CI service'
       end
 
       def self.available_options
