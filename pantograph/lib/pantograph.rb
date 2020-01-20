@@ -1,7 +1,6 @@
 require 'pantograph_core'
 
 require 'pantograph/version'
-require 'pantograph/features'
 require 'pantograph/shells'
 require 'pantograph/tools'
 require 'pantograph/documentation/actions_list'

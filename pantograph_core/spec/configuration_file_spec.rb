@@ -82,7 +82,7 @@ describe PantographCore do
       it "supports modifying of frozen strings that are returned via blocks too" do
         # Test that a value can be modified (this isn't the case by default if it's set via ENV)
         mac_version = "9.1"
-        PantographSpec::Env.with_env_values('SOMETHING_RANDOM_IOS_VERSION' => mac_version) do
+        PantographSpec::Env.with_env_values('SOMETHING_RANDOM_APP_VERSION' => mac_version) do
           config = PantographCore::Configuration.create(options, {})
           config.load_configuration_file('ConfigFileEnv')
           expect(config[:mac_version]).to eq(mac_version)

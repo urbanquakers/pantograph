@@ -47,7 +47,7 @@ module Pantograph
 
       def self.output
         [
-          'NUMBER_OF_COMMITS', 'Total number of git commits'
+          ['NUMBER_OF_COMMITS', 'Total number of git commits']
         ]
       end
 

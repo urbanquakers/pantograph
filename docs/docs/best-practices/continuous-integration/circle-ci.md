@@ -24,7 +24,7 @@ Next, add the following to your `Pantfile`:
 # pantograph/Pantfile
 
 ...
-platform :ios do
+platform :android do
   before_all do
     setup_circle_ci
   end

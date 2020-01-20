@@ -112,7 +112,7 @@ module Pantograph
         c.syntax = 'pantograph init'
         c.description = 'Helps you with your initial pantograph setup'
 
-        c.option('-u STRING', '--user STRING', String, 'iOS projects only: Your Apple ID')
+        # c.option('-u STRING', '--user STRING', String, 'Provide a username')
 
         c.action do |args, options|
           Pantograph::Setup.start

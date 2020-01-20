@@ -67,10 +67,10 @@ _pantograph_ will automatically detect your project, and ask for any missing inf
 
 For more details about how to get up and running, check out the getting started guides:
 
-<!--
-- [pantograph Getting Started guide for iOS](getting-started/ios/setup.md)
-- [pantograph Getting Started guide for Android](getting-started/android/setup.md)
--->
+
+- [pantograph Getting Started guide for Gradle](getting-started/TODO/setup.md)
+- [pantograph Getting Started guide for Multi-lane pipeline](getting-started/TODO/setup.md)
+
 
 ## Questions and support
 
@@ -111,8 +111,3 @@ You can easily opt-out of metrics collection by adding `opt_out_usage` at the to
 This project is licensed under the terms of the MIT license. See the [LICENSE](https://github.com/johnknapprs/pantograph/blob/master/LICENSE) file.
 
 ----
-<!-- ### Where to go from here? -->
-<!--
-- [pantograph Getting Started guide for iOS](getting-started/ios/setup.md)
-- [pantograph Getting Started guide for Android](getting-started/android/setup.md)
--->

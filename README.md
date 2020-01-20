@@ -13,7 +13,7 @@
 [![Build Status](https://img.shields.io/circleci/project/github/johnknapprs/pantograph/master.svg)](https://circleci.com/gh/johnknapprs/pantograph)
 [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/johnknapprs/pantograph/blob/master/CONTRIBUTING.md)
 
-_pantograph_ is a tool for iOS and Android developers to automate tedious tasks like generating screenshots, dealing with provisioning profiles, and releasing your application.
+_pantograph_ is a tool for developers to automate tedious tasks
 
 <hr />
 <h2 align="center">

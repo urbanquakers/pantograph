@@ -1,6 +1,6 @@
 # _pantograph_’s Philosophy
 
-_pantograph_ automates the beta and release deployment process for your iOS or Android apps, including build, code signing, automatic screenshot capture, and distribution of your app binaries.
+_pantograph_ automates the process for your apps, including config, test,build, and deploy
 
 _pantograph_ will continue to evolve in ways that make it indispensable for, and focused on these needs.
 
@@ -20,12 +20,18 @@ With these challenges in mind, [_pantograph_ plugin system](https://fabric.io/bl
 
 Each _pantograph_ tool has a specific purpose and should be kept focused on the functionality required for that task.
 
-* [boarding](https://github.com/pantograph/boarding): The easiest way to invite your TestFlight beta testers
+## _pantograph_ Roadmap
 
-## _pantograph_’s Relationship with [Google](https://google.com)
-
-Google supports app development teams with the best tools for building, understanding, and growing their mobile app businesses through [Firebase](https://firebase.google.com) and [Fabric](https://get.fabric.io/).
-
-Google has recognized _pantograph_ as the best tool for tackling tough beta and release deployment challenges. The team’s mission is to make _pantograph_ the de facto tool to automate beta deployments and app store releases for iOS and Android apps.
-
-Google intends to keep _pantograph_ open source and available as a standalone tool for users who are not using Firebase or Fabric. Google is also committed to increasing use of _pantograph_ by promoting it through other products and websites, and developing integrations with Firebase and Fabric tools to help them work better together.
+| Goal                      | Completed |
+| ------------------------- | --------- |
+| 80% > Test Coverage       |           |
+| 80% > Yard Doc Coverage   |           |
+| Markdown Linting          |           |
+| Fix Plugin Functionality  |           |
+| Improve Contrib Process   |           |
+| Linux First Class Citizen |           |
+| Homebrew Tap              |           |
+| Fix CI/CD Process         |           |
+| Resolve Tool Concept      |           |
+| Twitter Publication Notif |           |
+| Docs include blogs        |           |

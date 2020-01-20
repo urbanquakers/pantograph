@@ -80,9 +80,6 @@ RSpec.configure do |config|
     config.define_derived_metadata(:requires_xcodebuild) do |meta|
       meta[:skip] = "Skipped: Requires `xcodebuild` to be installed (which is not possible on this platform and no workaround has been implemented)"
     end
-    config.define_derived_metadata(:requires_plistbuddy) do |meta|
-      meta[:skip] = "Skipped: Requires `plistbuddy` to be installed (which is not possible on this platform and no workaround has been implemented)"
-    end
     config.define_derived_metadata(:requires_keychain) do |meta|
       meta[:skip] = "Skipped: Requires `keychain` to be installed (which is not possible on this platform and no workaround has been implemented)"
     end

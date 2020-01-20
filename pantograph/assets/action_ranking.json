@@ -158,9 +158,6 @@
   "action": "s3",
   "index": 105
 }, {
-  "action": "pantograph-plugin-versioning/get_version_number_from_plist",
-  "index": 106
-}, {
   "action": "sonar",
   "index": 107
 }, {
@@ -194,9 +191,6 @@
   "action": "pod_lib_lint",
   "index": 117
 }, {
-  "action": "pantograph-plugin-versioning/increment_version_number_in_plist",
-  "index": 118
-}, {
   "action": "mailgun",
   "index": 119
 }, {
@@ -217,9 +211,6 @@
 }, {
   "action": "rocket",
   "index": 125
-}, {
-  "action": "pantograph-plugin-versioning/get_build_number_from_plist",
-  "index": 126
 }, {
   "action": "debug",
   "index": 127
@@ -250,9 +241,6 @@
 }, {
   "action": "update_url_schemes",
   "index": 136
-}, {
-  "action": "pantograph-plugin-appicon/android_appicon",
-  "index": 137
 }, {
   "action": "pantograph-plugin-synx/synx",
   "index": 138
@@ -437,12 +425,6 @@
   "action": "read_podspec",
   "index": 199
 }, {
-  "action": "pantograph-plugin-versioning/get_info_plist_path",
-  "index": 200
-}, {
-  "action": "pantograph-plugin-get_android_version/get_android_version",
-  "index": 201
-}, {
   "action": "pantograph-plugin-msbuild/assembly_info_poke_version",
   "index": 202
 }, {
@@ -470,12 +452,6 @@
   "action": "pantograph-plugin-latest_hockey_build_number/latest_hockey_build_number",
   "index": 210
 }, {
-  "action": "pantograph-plugin-android_versioning/get_version_code",
-  "index": 211
-}, {
-  "action": "pantograph-plugin-android_versioning/set_value_in_build",
-  "index": 212
-}, {
   "action": "jazzy",
   "index": 213
 }, {
@@ -493,9 +469,6 @@
 }, {
   "action": "pantograph-plugin-find_replace_string/find_replace_string",
   "index": 218
-}, {
-  "action": "pantograph-plugin-android_versioning/get_version_name",
-  "index": 219
 }, {
   "action": "nexus_upload",
   "index": 220
@@ -581,17 +554,11 @@
   "action": "pantograph-plugin-tenant_config/tenant_config_setup_resources",
   "index": 339
 }, {
-  "action": "pantograph-plugin-tenant_config/tenant_config_setup_info_plist",
-  "index": 340
-}, {
   "action": "pantograph-plugin-tenant_config/tenant_config_setup_xcassets",
   "index": 341
 }, {
   "action": "verify_pod_keys",
   "index": 342
-}, {
-  "action": "pantograph-plugin-s3_android/s3_android",
-  "index": 343
 }, {
   "action": "pantograph-plugin-scarif/rm_github_release",
   "index": 344

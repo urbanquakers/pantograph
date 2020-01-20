@@ -16,16 +16,6 @@ pantograph-plugin-versioning:
     description: Increment build number in xcodeproj
     details: 
   - !ruby/object:PantographCore::Helper::PluginScoresHelper::PantographPluginAction
-    name: get_version_number_from_plist
-    category: 
-    description: Get the version number of your project
-    details: " "
-  - !ruby/object:PantographCore::Helper::PluginScoresHelper::PantographPluginAction
-    name: get_build_number_from_plist
-    category: 
-    description: Get the build number of your project
-    details: " "
-  - !ruby/object:PantographCore::Helper::PluginScoresHelper::PantographPluginAction
     name: ci_build_number
     category: building
     description: Detects current build number defined by CI system
@@ -1973,12 +1963,6 @@ pantograph-plugin-code_static_analyzer:
     description: This analyzer detect warnings, errors and check syntax in ruby files.
       This is based on rubocop
     details: You can use this action to do cool things...
-  - !ruby/object:PantographCore::Helper::PluginScoresHelper::PantographPluginAction
-    name: cpd_analyzer
-    category: 
-    description: This analyzer detect copy paste code (it uses PMD CPD)
-    details: 'Important: Always use ''language'' parameter except the needed language
-      isn''t available in list of supported languages'
   - !ruby/object:PantographCore::Helper::PluginScoresHelper::PantographPluginAction
     name: clang_analyzer
     category: 
