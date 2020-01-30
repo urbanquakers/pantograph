@@ -28,7 +28,7 @@ lane_context[:BUILD_NUMBER]
 ```
 
 ```ruby
-lane_context[SharedValues::IPA_OUTPUT_PATH]
+lane_context[SharedValues::NUMBER_OF_COMMITS]
 ```
 
 

@@ -28,7 +28,7 @@ jira(
   url: "https://bugs.yourdomain.com",
   username: "Your username",
   password: "Your password",
-  ticket_id: "Ticket ID, i.e. IOS-123",
+  ticket_id: "Ticket ID, i.e. APP-123",
   comment_text: "Text to post as a comment"
 )
 ```
@@ -39,7 +39,7 @@ jira(
   context_path: "/jira",
   username: "Your username",
   password: "Your password",
-  ticket_id: "Ticket ID, i.e. IOS-123",
+  ticket_id: "Ticket ID, i.e. APP-123",
   comment_text: "Text to post as a comment"
 )
 ```

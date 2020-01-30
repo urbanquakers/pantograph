@@ -32,7 +32,7 @@ describe Pantograph do
 
         notifier, attachments = Pantograph::Actions::SlackAction.run(arguments)
 
-        expect(notifier.config.defaults[:username]).to eq('pantograph')
+        expect(notifier.config.defaults[:username]).to eq('pantograph_bot')
         expect(notifier.config.defaults[:channel]).to eq(channel)
 
         expect(attachments[:color]).to eq('danger')
@@ -69,7 +69,7 @@ describe Pantograph do
 
         notifier, attachments = Pantograph::Actions::SlackAction.run(arguments)
 
-        expect(notifier.config.defaults[:username]).to eq('pantograph')
+        expect(notifier.config.defaults[:username]).to eq('pantograph_bot')
         expect(notifier.config.defaults[:channel]).to eq(channel)
 
         expect(attachments[:color]).to eq('danger')
@@ -187,7 +187,7 @@ describe Pantograph do
 
         notifier, attachments = Pantograph::Actions::SlackAction.run(arguments)
 
-        expect(notifier.config.defaults[:username]).to eq('pantograph')
+        expect(notifier.config.defaults[:username]).to eq('pantograph_bot')
         expect(notifier.config.defaults[:channel]).to eq(channel)
 
         expect(attachments[:color]).to eq('danger')
@@ -215,7 +215,7 @@ describe Pantograph do
 
         notifier, attachments = Pantograph::Actions::SlackAction.run(arguments)
 
-        expect(notifier.config.defaults[:username]).to eq('pantograph')
+        expect(notifier.config.defaults[:username]).to eq('pantograph_bot')
         expect(notifier.config.defaults[:channel]).to eq(channel)
 
         expect(attachments[:color]).to eq('danger')

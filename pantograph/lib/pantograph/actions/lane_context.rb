@@ -48,7 +48,7 @@ module Pantograph
       def self.example_code
         [
           'lane_context[:BUILD_NUMBER]',
-          'lane_context[SharedValues::IPA_OUTPUT_PATH]'
+          'lane_context[SharedValues::NUMBER_OF_COMMITS]'
         ]
       end
 

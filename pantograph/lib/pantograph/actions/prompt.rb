@@ -108,7 +108,7 @@ module Pantograph
             multi_line_end_keyword: "END"
           )
 
-          crashlytics(notes: changelog)'
+          puts changelog'
         ]
       end
 

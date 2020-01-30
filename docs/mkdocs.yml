@@ -35,6 +35,7 @@ nav:
   - ensure_env_vars: actions/ensure_env_vars.md
   - ensure_git_branch: actions/ensure_git_branch.md
   - ensure_git_status_clean: actions/ensure_git_status_clean.md
+  - ensure_no_debug_code: actions/ensure_no_debug_code.md
   - erb: actions/erb.md
   - get_github_release: actions/get_github_release.md
   - git_branch: actions/git_branch.md

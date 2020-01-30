@@ -33,7 +33,7 @@ ENV["VERSION_NAME"] = number_of_commits
 ```ruby
 
 build_number = number_of_commits(all: true)
-increment_build_number(build_number: build_number)
+puts build_number
 
 ```
 
@@ -60,6 +60,7 @@ Actions can communicate with each other using a shared hash `lane_context`, that
 
 SharedValue | Description 
 ------------|-------------
+  `SharedValues::NUMBER_OF_COMMITS` | Total number of git commits
 
 To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />

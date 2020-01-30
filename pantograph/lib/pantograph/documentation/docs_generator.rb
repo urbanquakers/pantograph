@@ -44,7 +44,7 @@ module Pantograph
         output << ""
       end
 
-      output << "This README.md is auto-generated and will be re-generated every time [pantograph](https://pantograph.tools) is run."
+      output << "This README.md is auto-generated and will be re-generated every time [_pantograph_](https://pantograph.tools) is run."
       output << "More information about pantograph can be found on [pantograph.tools](https://pantograph.tools)."
       output << "The documentation of pantograph can be found on [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)."
       output << ""

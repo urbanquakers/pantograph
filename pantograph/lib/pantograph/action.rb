@@ -58,7 +58,7 @@ module Pantograph
     def self.output
       # Return the keys you provide on the shared area
       # [
-      #   ['IPA_OUTPUT_PATH', 'The path to the newly generated ipa file']
+      #   ['NUMBER_OF_COMMITS', 'The path to the newly generated ipa file']
       # ]
       nil
     end

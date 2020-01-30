@@ -49,7 +49,7 @@ module Pantograph
       end
 
       def self.details
-        "Print an ascii Rocket :rocket:. Useful after using _crashlytics_ or _pilot_ to indicate that your new build has been shipped to outer-space."
+        "Print an ascii Rocket :rocket:. Useful to indicate that your new build has been shipped to outer-space."
       end
 
       def self.available_options

@@ -35,3 +35,9 @@ Each _pantograph_ tool has a specific purpose and should be kept focused on the 
 | Resolve Tool Concept      |           |
 | Twitter Publication Notif |           |
 | Docs include blogs        |           |
+| Impv action Example Code  |           |
+
+- Resolve old References in Code Examples
+  - crashlytics
+  - increment_build_number
+- Remove Swift References

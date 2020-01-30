@@ -99,7 +99,7 @@ module Pantograph
           PantographCore::ConfigItem.new(key: :username,
                                        env_name: 'SLACK_USERNAME',
                                        description: "Overrides the webhook's username property if use_webhook_configured_username_and_icon is false",
-                                       default_value: 'pantograph',
+                                       default_value: 'pantograph_bot',
                                        type: String,
                                        optional: true),
           PantographCore::ConfigItem.new(key: :icon_url,
