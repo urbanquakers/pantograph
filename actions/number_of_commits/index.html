@@ -441,6 +441,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../ensure_no_debug_code/" title="ensure_no_debug_code" class="md-nav__link">
+      ensure_no_debug_code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../erb/" title="erb" class="md-nav__link">
       erb
     </a>
@@ -1445,7 +1457,7 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 
 
 <div class="codehilite"><pre><span></span><span class="n">build_number</span> <span class="o">=</span> <span class="n">number_of_commits</span><span class="p">(</span><span class="ss">all</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
-<span class="n">increment_build_number</span><span class="p">(</span><span class="ss">build_number</span><span class="p">:</span> <span class="n">build_number</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">build_number</span>
 </pre></div>
 
 
@@ -1480,8 +1492,8 @@ To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td><code>SharedValues::NUMBER_OF_COMMITS</code></td>
+<td>Total number of git commits</td>
 </tr>
 </tbody>
 </table>

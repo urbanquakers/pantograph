@@ -268,41 +268,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#questions-and-support" class="md-nav__link">
-    Questions and support
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-requirements" class="md-nav__link">
-    System requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pantograph-team" class="md-nav__link">
-    pantograph team
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#metrics" class="md-nav__link">
-    Metrics
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    License
-  </a>
-  
-</li>
-      
       
       
       
@@ -509,6 +474,18 @@
   <li class="md-nav__item">
     <a href="actions/ensure_git_status_clean/" title="ensure_git_status_clean" class="md-nav__link">
       ensure_git_status_clean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="actions/ensure_no_debug_code/" title="ensure_no_debug_code" class="md-nav__link">
+      ensure_no_debug_code
     </a>
   </li>
 
@@ -1368,41 +1345,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#questions-and-support" class="md-nav__link">
-    Questions and support
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-requirements" class="md-nav__link">
-    System requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pantograph-team" class="md-nav__link">
-    pantograph team
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#metrics" class="md-nav__link">
-    Metrics
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    License
-  </a>
-  
-</li>
-      
       
       
       
@@ -1536,19 +1478,26 @@ _pantograph_ will automatically detect your project, and ask for any missing inf
 
 For more details about how to get up and running, check out the getting started guides:
 
-<!--
-- [pantograph Getting Started guide for iOS](getting-started/ios/setup.md)
-- [pantograph Getting Started guide for Android](getting-started/android/setup.md)
--->
 
-<h2 id="questions-and-support">Questions and support</h2>
-<p>Before submitting a new GitHub issue, please make sure to search for <a href="https://github.com/johnknapprs/pantograph/issues">existing GitHub issues</a>.</p>
-<p>If that doesn't help, please <a href="https://github.com/johnknapprs/pantograph/issues">submit an issue</a> on GitHub and provide information
-about your setup, in particular the output of the <code>pantograph env</code> command.</p>
-<h2 id="system-requirements">System requirements</h2>
-<p>Currently, <em>pantograph</em> is officially supported to run on Linux and macOS. </p>
-<p>But we are working on 🖥️ Windows support for parts of <em>pantograph</em>. Many other tools and actions can theoretically also work on other platforms.</p>
-<h2 id="pantograph-team"><em>pantograph</em> team</h2>
+- [pantograph Getting Started guide for Gradle](getting-started/TODO/setup.md)
+- [pantograph Getting Started guide for Multi-lane pipeline](getting-started/TODO/setup.md)
+
+
+## Questions and support
+
+Before submitting a new GitHub issue, please make sure to search for [existing GitHub issues](https://github.com/johnknapprs/pantograph/issues).
+
+If that doesn't help, please [submit an issue](https://github.com/johnknapprs/pantograph/issues) on GitHub and provide information
+about your setup, in particular the output of the `pantograph env` command.
+
+## System requirements
+
+Currently, _pantograph_ is officially supported to run on Linux and macOS. 
+
+But we are working on 🖥️ Windows support for parts of _pantograph_. Many other tools and actions can theoretically also work on other platforms.
+
+## _pantograph_ team
+
 <table>
 <tr>
 <td>
@@ -1557,22 +1506,22 @@ about your setup, in particular the output of the <code>pantograph env</code> co
 </td>
 </table>
 
-<p>Special thanks to all <a href="https://github.com/johnknapprs/pantograph/graphs/contributors">contributors</a> for extending and improving <em>pantograph</em>.</p>
-<h2 id="metrics">Metrics</h2>
-<p><em>pantograph</em> tracks a few key metrics to understand how developers are using the tool and to help us know what areas need improvement. No personal/sensitive information is ever collected. Metrics that are collected include: </p>
-<ul>
-<li>The number of <em>pantograph</em> runs</li>
-<li>A salted hash of the app identifier or package name, which helps us anonymously identify unique usage of <em>pantograph</em></li>
-</ul>
-<p>You can easily opt-out of metrics collection by adding <code>opt_out_usage</code> at the top of your <code>Pantfile</code> or by setting the environment variable <code>PANTOGRAPH_OPT_OUT_USAGE</code>. <a href="https://github.com/johnknapprs/pantograph/tree/master/pantograph_core/lib/pantograph_core/analytics">Check out the metrics code on GitHub</a></p>
-<h2 id="license">License</h2>
-<p>This project is licensed under the terms of the MIT license. See the <a href="https://github.com/johnknapprs/pantograph/blob/master/LICENSE">LICENSE</a> file.</p>
-<hr />
-<p><!-- ### Where to go from here? -->
-<!--
-- <a href="getting-started/ios/setup.md">pantograph Getting Started guide for iOS</a>
-- <a href="getting-started/android/setup.md">pantograph Getting Started guide for Android</a>
---></p>
+Special thanks to all [contributors](https://github.com/johnknapprs/pantograph/graphs/contributors) for extending and improving _pantograph_.
+
+## Metrics
+
+_pantograph_ tracks a few key metrics to understand how developers are using the tool and to help us know what areas need improvement. No personal/sensitive information is ever collected. Metrics that are collected include: 
+
+* The number of _pantograph_ runs
+* A salted hash of the app identifier or package name, which helps us anonymously identify unique usage of _pantograph_
+
+You can easily opt-out of metrics collection by adding `opt_out_usage` at the top of your `Pantfile` or by setting the environment variable `PANTOGRAPH_OPT_OUT_USAGE`. [Check out the metrics code on GitHub](https://github.com/johnknapprs/pantograph/tree/master/pantograph_core/lib/pantograph_core/analytics)
+
+## License
+
+This project is licensed under the terms of the MIT license. See the [LICENSE](https://github.com/johnknapprs/pantograph/blob/master/LICENSE) file.
+
+----
                 
                   
                 

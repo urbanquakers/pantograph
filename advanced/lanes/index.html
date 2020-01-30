@@ -439,6 +439,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../actions/ensure_no_debug_code/" title="ensure_no_debug_code" class="md-nav__link">
+      ensure_no_debug_code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../actions/erb/" title="erb" class="md-nav__link">
       erb
     </a>
@@ -1518,7 +1530,7 @@ before the switch to <code>archive</code>, <code>sign</code>, and <code>upload</
 
 <h1 id="lane-properties">Lane Properties</h1>
 <p>It can be useful to dynamically access properties of the current lane. These are available in <code>lane_context</code>:</p>
-<div class="codehilite"><pre><span></span><span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">PLATFORM_NAME</span><span class="o">]</span>        <span class="c1"># Platform name, e.g. `:ios`, `:android` or empty (for root level lanes)</span>
+<div class="codehilite"><pre><span></span><span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">PLATFORM_NAME</span><span class="o">]</span>        <span class="c1"># Platform name, e.g. `:linux` or empty (for root level lanes)</span>
 <span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">LANE_NAME</span><span class="o">]</span>            <span class="c1"># The name of the current lane preceded by the platform name (stays the same when switching lanes)</span>
 <span class="n">lane_context</span><span class="o">[</span><span class="no">SharedValues</span><span class="o">::</span><span class="no">DEFAULT_PLATFORM</span><span class="o">]</span>     <span class="c1"># Default platform</span>
 </pre></div>
