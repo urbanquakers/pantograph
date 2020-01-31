@@ -14,23 +14,31 @@ module Pantograph
       PantographCore::PantographFolder.create_folder!
 
       self.append_lane([
+                          "desc 'Runs all the  tests'",
+                          "lane :pipeline do",
+                          "  test",
+                          "  build",
+                          "  publish",
+                          "end"
+                        ])
+      self.append_lane([
                          "desc 'Runs all the  tests'",
                          "lane :test do",
-                         "  ng(task: 'clean test')",
+                         "  puts 'this is the test lane'",
                          "end"
                        ])
 
       self.append_lane([
                          "desc 'Publish new version to Artifactory'",
                          "lane :build do",
-                         "  ng(task: 'clean build')",
+                         "  sh('npm install')",
                          "end"
                        ])
 
       self.append_lane([
                          "desc 'Deploy a new version to Artifactory'",
                          "lane :publish do",
-                         "  ng(task: 'clean artifactoryPublish')",
+                         "  next unless UI.confirm('Do you want to deploy')",
                          "end"
                        ])
 
