@@ -1,17 +1,17 @@
 module Pantograph
   module Actions
     module SharedValues
-      [[NAME_UP]]_CUSTOM_VALUE = :[[NAME_UP]]_CUSTOM_VALUE
+      BUILD_IMAGE_CUSTOM_VALUE = :BUILD_IMAGE_CUSTOM_VALUE
     end
 
-    class [[NAME_CLASS]] < Action
+    class BuildImageAction < Action
       def self.run(params)
         # pantograph will take care of reading in the parameter and fetching the environment variable:
         UI.message("Parameter API Token: #{params[:api_token]}")
 
-        # sh("shellcommand ./path")
+        `cowsay liatrio`
 
-        # Actions.lane_context[SharedValues::[[NAME_UP]]_CUSTOM_VALUE] = "my_val"
+        # Actions.lane_context[SharedValues::BUILD_IMAGE_CUSTOM_VALUE] = "my_val"
       end
 
       #####################################################
@@ -35,17 +35,17 @@ module Pantograph
         [
           PantographCore::ConfigItem.new(
             key: :api_token,
-            env_name: '[[NAME_UP]]_API_TOKEN', # The name of the environment variable
-            description: 'API Token for [[NAME_CLASS]]', # a short description of this parameter
+            env_name: 'BUILD_IMAGE_API_TOKEN', # The name of the environment variable
+            description: 'API Token for BuildImageAction', # a short description of this parameter
             verify_block: proc do |value|
-              unless value and !value.empty?
-                UI.user_error!('No API token for [[NAME_CLASS]] given, pass using `api_token: "token"`')
+              unless (value and not value.empty?)
+                UI.user_error!('No API token for BuildImageAction given, pass using `api_token: "token"`')
               end
             end
           ),
           PantographCore::ConfigItem.new(
             key: :development,
-            env_name: '[[NAME_UP]]_DEVELOPMENT',
+            env_name: 'BUILD_IMAGE_DEVELOPMENT',
             description: 'Create a development certificate instead of a distribution one',
             is_string: false, # true: verifies the input is a string, false: every kind of value
             default_value: false # the default value if the user didn't provide one
@@ -57,7 +57,7 @@ module Pantograph
         # Define the shared values you are going to provide
         # Example
         [
-          ['[[NAME_UP]]_CUSTOM_VALUE', 'A description of what this value contains']
+          ['BUILD_IMAGE_CUSTOM_VALUE', 'A description of what this value contains']
         ]
       end
 
@@ -91,10 +91,10 @@ module Pantograph
       # Returns an array of string of sample usage of this action
       def self.example_code
         [
-          '[[NAME]] # example 1',
+          'build_image # example 1',
 
           '# example 2
-           [[NAME]](
+           build_image(
            api_token: "myToken",
            development: "true"
           )'

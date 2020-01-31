@@ -8,11 +8,11 @@ module Pantograph
 
     def self.fetch_name
       puts("Must be lower case, and use a '_' between words. Do not use '.'".green)
-      puts("examples: 'testflight', 'upload_to_s3'".green)
-      name = UI.input("Name of your action: ")
+      puts("examples: 'gradle', 'upload_to_s3'".green)
+      name = UI.input('Name of your action: ')
       until name_valid?(name)
-        puts("Name is invalid. Please ensure the name is all lowercase, free of spaces and without special characters! Try again.")
-        name = UI.input("Name of your action: ")
+        puts('Name is invalid. Please ensure the name is all lowercase, free of spaces and without special characters! Try again.')
+        name = UI.input('Name of your action: ')
       end
       name
     end
@@ -23,7 +23,12 @@ module Pantograph
       template.gsub!('[[NAME_UP]]', name.upcase)
       template.gsub!('[[NAME_CLASS]]', name.pantograph_class + 'Action')
 
-      actions_path = File.join((PantographCore::PantographFolder.path || Dir.pwd), 'actions')
+      actions_path = if Dir.exist?('pantograph/lib/pantograph/actions')
+                       File.join(Dir.pwd, 'pantograph/lib/pantograph/actions')
+                     else
+                       File.join((PantographCore::PantographFolder.path || Dir.pwd), 'actions')
+                     end
+
       FileUtils.mkdir_p(actions_path) unless File.directory?(actions_path)
 
       path = File.join(actions_path, "#{name}.rb")
@@ -35,7 +40,7 @@ module Pantograph
       if name_valid?(new_action_name)
         new_action_name
       else
-        puts("Name is invalid. Please ensure the name is all lowercase, free of spaces and without special characters! Try again.")
+        puts('Name is invalid. Please ensure the name is all lowercase, free of spaces and without special characters! Try again.')
       end
     end
 
