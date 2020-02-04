@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/opt_out_usage.rb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/opt_out_usage.rb
 -->
 
 # opt_out_usage
@@ -11,7 +11,7 @@ This will stop uploading the information which actions were run
 
 
 
-> By default, _pantograph_ will track what actions are being used. No personal/sensitive information is recorded.<br>Learn more at [https://johnknapprs.github.io/pantograph/#metrics](https://johnknapprs.github.io/pantograph/#metrics).<br>Add `opt_out_usage` at the top of your Pantfile to disable metrics collection.
+> By default, _pantograph_ will track what actions are being used. No personal/sensitive information is recorded.<br>Learn more at [https://urbanquakers.github.io/pantograph/#metrics](https://urbanquakers.github.io/pantograph/#metrics).<br>Add `opt_out_usage` at the top of your Pantfile to disable metrics collection.
 
 
 opt_out_usage ||
@@ -68,7 +68,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/opt_out_usage.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/opt_out_usage.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

@@ -9,9 +9,9 @@ about: If something isn't working as expected 🤔
 ### New Issue Checklist
 
 - [ ] Updated pantograph to the latest version
-- [ ] I read the [Contribution Guidelines](https://github.com/johnknapprs/pantograph/blob/master/CONTRIBUTING.md)
-- [ ] I read [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)
-- [ ] I searched for [existing GitHub issues](https://github.com/johnknapprs/pantograph/issues)
+- [ ] I read the [Contribution Guidelines](https://github.com/urbanquakers/pantograph/blob/master/CONTRIBUTING.md)
+- [ ] I read [urbanquakers.github.io/pantograph](https://urbanquakers.github.io/pantograph)
+- [ ] I searched for [existing GitHub issues](https://github.com/urbanquakers/pantograph/issues)
 
 ### Issue Description
 <!-- Please include what's happening, expected behavior, and any relevant code samples -->

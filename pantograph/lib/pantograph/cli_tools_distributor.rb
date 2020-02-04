@@ -51,7 +51,7 @@ module Pantograph
 
         # Try to check UTF-8 with `locale`, fallback to environment variables
         unless utf8_locale?
-          warn = "WARNING: pantograph requires your locale to be set to UTF-8. To learn more go to https://johnknapprs.github.io/pantograph/getting-started/mac/setup/#set-up-environment-variables"
+          warn = "WARNING: pantograph requires your locale to be set to UTF-8. To learn more go to https://urbanquakers.github.io/pantograph/getting-started/mac/setup/#set-up-environment-variables"
           UI.error(warn)
           at_exit do
             # Repeat warning here so users hopefully see it
@@ -163,7 +163,7 @@ module Pantograph
           UI.message('')
           UI.important('After creating the Gemfile and Gemfile.lock, commit those files into version control')
         end
-        UI.important('Get started using a Gemfile for pantograph https://johnknapprs.github.io/pantograph/getting-started/mac/setup/#use-a-gemfile')
+        UI.important('Get started using a Gemfile for pantograph https://urbanquakers.github.io/pantograph/getting-started/mac/setup/#use-a-gemfile')
       end
 
       # Returns an array of symbols for the available lanes for the Pantfile

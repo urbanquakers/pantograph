@@ -16,7 +16,7 @@ module Pantograph
       def self.details
         [
           'More information about how the lane context works:',
-          '[https://johnknapprs.github.io/pantograph/advanced/#lane-context](https://johnknapprs.github.io/pantograph/advanced/#lane-context)'
+          '[https://urbanquakers.github.io/pantograph/advanced/#lane-context](https://urbanquakers.github.io/pantograph/advanced/#lane-context)'
         ].join(' ')
       end
 

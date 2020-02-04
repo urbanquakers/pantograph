@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/lane_context.rb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/lane_context.rb
 -->
 
 # lane_context
@@ -11,7 +11,7 @@ Access lane context values
 
 
 
-> More information about how the lane context works: [https://johnknapprs.github.io/pantograph/advanced/#lane-context](https://johnknapprs.github.io/pantograph/advanced/#lane-context)
+> More information about how the lane context works: [https://urbanquakers.github.io/pantograph/advanced/#lane-context](https://urbanquakers.github.io/pantograph/advanced/#lane-context)
 
 
 lane_context ||
@@ -70,7 +70,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/lane_context.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/lane_context.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

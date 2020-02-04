@@ -4,7 +4,7 @@ pantograph
 ============
 
 [![Twitter: @PantographTools](https://img.shields.io/badge/contact-@PantographTools-blue.svg?style=flat)](https://twitter.com/PantographTools){: .badge }
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/johnknapprs/pantograph/blob/master/LICENSE){: .badge }
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/urbanquakers/pantograph/blob/master/LICENSE){: .badge }
 [![Gem](https://img.shields.io/gem/v/pantograph.svg?style=flat)](https://rubygems.org/gems/pantograph){: .badge }
 
 _pantograph_ is another way to automate releases for your apps.
@@ -74,9 +74,9 @@ For more details about how to get up and running, check out the getting started 
 
 ## Questions and support
 
-Before submitting a new GitHub issue, please make sure to search for [existing GitHub issues](https://github.com/johnknapprs/pantograph/issues).
+Before submitting a new GitHub issue, please make sure to search for [existing GitHub issues](https://github.com/urbanquakers/pantograph/issues).
 
-If that doesn't help, please [submit an issue](https://github.com/johnknapprs/pantograph/issues) on GitHub and provide information
+If that doesn't help, please [submit an issue](https://github.com/urbanquakers/pantograph/issues) on GitHub and provide information
 about your setup, in particular the output of the `pantograph env` command.
 
 ## System requirements
@@ -90,12 +90,12 @@ But we are working on 🖥️ Windows support for parts of _pantograph_. Many ot
 <table>
 <tr>
 <td>
-<a href='https://twitter.com/petrosichor'><img src='https://github.com/johnknapprs.png?size=200' width=140></a>
+<a href='https://twitter.com/petrosichor'><img src='https://github.com/urbanquakers.png?size=200' width=140></a>
 <h4 align='center'><a href='https://twitter.com/petrosichor'>John Knapp</a></h4>
 </td>
 </table>
 
-Special thanks to all [contributors](https://github.com/johnknapprs/pantograph/graphs/contributors) for extending and improving _pantograph_.
+Special thanks to all [contributors](https://github.com/urbanquakers/pantograph/graphs/contributors) for extending and improving _pantograph_.
 
 ## Metrics
  
@@ -104,10 +104,10 @@ _pantograph_ tracks a few key metrics to understand how developers are using the
 * The number of _pantograph_ runs
 * A salted hash of the app identifier or package name, which helps us anonymously identify unique usage of _pantograph_
  
-You can easily opt-out of metrics collection by adding `opt_out_usage` at the top of your `Pantfile` or by setting the environment variable `PANTOGRAPH_OPT_OUT_USAGE`. [Check out the metrics code on GitHub](https://github.com/johnknapprs/pantograph/tree/master/pantograph_core/lib/pantograph_core/analytics)
+You can easily opt-out of metrics collection by adding `opt_out_usage` at the top of your `Pantfile` or by setting the environment variable `PANTOGRAPH_OPT_OUT_USAGE`. [Check out the metrics code on GitHub](https://github.com/urbanquakers/pantograph/tree/master/pantograph_core/lib/pantograph_core/analytics)
 
 ## License
 
-This project is licensed under the terms of the MIT license. See the [LICENSE](https://github.com/johnknapprs/pantograph/blob/master/LICENSE) file.
+This project is licensed under the terms of the MIT license. See the [LICENSE](https://github.com/urbanquakers/pantograph/blob/master/LICENSE) file.
 
 ----

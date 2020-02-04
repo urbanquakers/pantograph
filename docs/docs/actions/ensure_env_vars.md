@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/ensure_env_vars.rb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/ensure_env_vars.rb
 -->
 
 # ensure_env_vars
@@ -17,7 +17,7 @@ Raises an exception if the specified env vars are not set
 ensure_env_vars ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @johnknapprs
+Author | @urbanquakers
 
 
 
@@ -77,7 +77,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/ensure_env_vars.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/ensure_env_vars.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

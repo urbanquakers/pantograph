@@ -4,11 +4,11 @@
 
 Before submitting a new GitHub issue, please make sure to
 
-- Check out [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)
+- Check out [urbanquakers.github.io/pantograph](https://urbanquakers.github.io/pantograph)
 - Check out the README pages on [this repo](https://github.com/pantograph/pantograph)
-- Search for [existing GitHub issues](https://github.com/johnknapprs/pantograph/issues)
+- Search for [existing GitHub issues](https://github.com/urbanquakers/pantograph/issues)
 
-If the above doesn't help, please [submit an issue](https://github.com/johnknapprs/pantograph/issues)
+If the above doesn't help, please [submit an issue](https://github.com/urbanquakers/pantograph/issues)
 on GitHub and provide information about your setup, in particular the output of the `pantograph env` command.
 
 **Note**: If you want to report a regression in _pantograph_ (something that has worked before, but broke with a new release),
@@ -71,6 +71,6 @@ This project is licensed under the terms of the MIT license. See the [LICENSE][l
 [tools and debugging]: ToolsAndDebugging.md
 [vision]: VISION.md
 [responding to prs]: RespondingToIssuesAndPullRequests.md
-[plugins]: https://johnknapprs.github.io/pantograph/plugins/create-plugin/
+[plugins]: https://urbanquakers.github.io/pantograph/plugins/create-plugin/
 [firstpr]: YourFirstPR.md
-[submit action]: https://johnknapprs.github.io/pantograph/plugins/create-plugin/#submitting-the-action-to-the-pantograph-main-repo
+[submit action]: https://urbanquakers.github.io/pantograph/plugins/create-plugin/#submitting-the-action-to-the-pantograph-main-repo

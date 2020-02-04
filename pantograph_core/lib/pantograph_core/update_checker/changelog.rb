@@ -15,7 +15,7 @@ module PantographCore
 
           next unless index == 2
           puts("")
-          puts("To see all new releases, open https://github.com/johnknapprs/#{gem_name}/releases".green)
+          puts("To see all new releases, open https://github.com/urbanquakers/#{gem_name}/releases".green)
           break
         end
 
@@ -26,7 +26,7 @@ module PantographCore
       end
 
       def releases(gem_name)
-        url = "https://api.github.com/repos/johnknapprs/#{gem_name}/releases"
+        url = "https://api.github.com/repos/urbanquakers/#{gem_name}/releases"
         # We have to follow redirects, since some repos were moved away into a separate org
         server_response = Excon.get(url,
                                     middlewares: Excon.defaults[:middlewares] + [Excon::Middleware::RedirectFollower])

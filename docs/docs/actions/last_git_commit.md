@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/last_git_commit.rb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/last_git_commit.rb
 -->
 
 # last_git_commit
@@ -17,7 +17,7 @@ Return last git commit hash, abbreviated commit hash, commit message and author
 last_git_commit ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @ngutman, @johnknapprs
+Author | @ngutman, @urbanquakers
 Returns | Returns the following dict: {commit_hash: "commit hash", abbreviated_commit_hash: "abbreviated commit hash" author: "Author", author_email: "author email", message: "commit message"}
 
 
@@ -71,7 +71,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/last_git_commit.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/last_git_commit.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

@@ -4,21 +4,21 @@
     "path":"TEST_FILE.md",
     "sha":"33def9af0e8512d90b2e5b2857436e1e6213b4a7",
     "size":13,
-    "url":"https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md?ref=test-branch",
-    "html_url":"https://github.com/johnknapprs/pantograph/blob/test-branch/TEST_FILE.md",
-    "git_url":"https://api.github.com/repos/johnknapprs/pantograph/git/blobs/33def9af0e8512d90b2e5b2857436e1e6213b4a7",
-    "download_url":"https://raw.githubusercontent.com/johnknapprs/pantograph/test-branch/TEST_FILE.md?token=AABOBYcuttEPbItwO32pGc-Snz7XoCfXks5Y-ZCewA%3D%3D",
+    "url":"https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md?ref=test-branch",
+    "html_url":"https://github.com/urbanquakers/pantograph/blob/test-branch/TEST_FILE.md",
+    "git_url":"https://api.github.com/repos/urbanquakers/pantograph/git/blobs/33def9af0e8512d90b2e5b2857436e1e6213b4a7",
+    "download_url":"https://raw.githubusercontent.com/urbanquakers/pantograph/test-branch/TEST_FILE.md?token=AABOBYcuttEPbItwO32pGc-Snz7XoCfXks5Y-ZCewA%3D%3D",
     "type":"file",
     "_links":{
-      "self":"https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md?ref=test-branch",
-      "git":"https://api.github.com/repos/johnknapprs/pantograph/git/blobs/33def9af0e8512d90b2e5b2857436e1e6213b4a7",
-      "html":"https://github.com/johnknapprs/pantograph/blob/test-branch/TEST_FILE.md"
+      "self":"https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md?ref=test-branch",
+      "git":"https://api.github.com/repos/urbanquakers/pantograph/git/blobs/33def9af0e8512d90b2e5b2857436e1e6213b4a7",
+      "html":"https://github.com/urbanquakers/pantograph/blob/test-branch/TEST_FILE.md"
     }
   },
   "commit":{
     "sha":"faa361b0c282fca74e2170bcb4ac3ec577fd2922",
-    "url":"https://api.github.com/repos/johnknapprs/pantograph/git/commits/faa361b0c282fca74e2170bcb4ac3ec577fd2922",
-    "html_url":"https://github.com/johnknapprs/pantograph/commit/faa361b0c282fca74e2170bcb4ac3ec577fd2922",
+    "url":"https://api.github.com/repos/urbanquakers/pantograph/git/commits/faa361b0c282fca74e2170bcb4ac3ec577fd2922",
+    "html_url":"https://github.com/urbanquakers/pantograph/commit/faa361b0c282fca74e2170bcb4ac3ec577fd2922",
     "author":{
       "name":"Tom Meier",
       "email":"pantograph@venombytes.com",
@@ -31,14 +31,14 @@
     },
     "tree":{
       "sha":"c6397b6304893d1dca18d8c0cfd17a63ba8dc330",
-      "url":"https://api.github.com/repos/johnknapprs/pantograph/git/trees/c6397b6304893d1dca18d8c0cfd17a63ba8dc330"
+      "url":"https://api.github.com/repos/urbanquakers/pantograph/git/trees/c6397b6304893d1dca18d8c0cfd17a63ba8dc330"
     },
     "message":"File committed",
     "parents":[
       {
         "sha":"15a399ae95414ceb898c1de2ea5968c80b5dbf16",
-        "url":"https://api.github.com/repos/johnknapprs/pantograph/git/commits/15a399ae95414ceb898c1de2ea5968c80b5dbf16",
-        "html_url":"https://github.com/johnknapprs/pantograph/commit/15a399ae95414ceb898c1de2ea5968c80b5dbf16"
+        "url":"https://api.github.com/repos/urbanquakers/pantograph/git/commits/15a399ae95414ceb898c1de2ea5968c80b5dbf16",
+        "html_url":"https://github.com/urbanquakers/pantograph/commit/15a399ae95414ceb898c1de2ea5968c80b5dbf16"
       }
     ]
   }

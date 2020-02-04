@@ -8,7 +8,7 @@ To preview the updated documentation locally, just clone the repo, modify the fi
 mkdocs serve
 ```
 
-The live version is available on [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph).
+The live version is available on [urbanquakers.github.io/pantograph](https://urbanquakers.github.io/pantograph).
 
 ## Why new docs?
 
@@ -16,7 +16,7 @@ You can find more information [here](https://github.com/pantograph/docs/issues/5
 
 ## Deploy changes
 
-Once a PR is merged into master, the latest version will automatically be deployed to [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph) by one of the hard working pantograph bots. No need to do anything manually. The resulting HTML files are stored in the [`gh-pages`](https://github.com/pantograph/docs/tree/gh-pages) branch.
+Once a PR is merged into master, the latest version will automatically be deployed to [urbanquakers.github.io/pantograph](https://urbanquakers.github.io/pantograph) by one of the hard working pantograph bots. No need to do anything manually. The resulting HTML files are stored in the [`gh-pages`](https://github.com/pantograph/docs/tree/gh-pages) branch.
 
 ## Installation of [mkdocs](http://www.mkdocs.org/)
 

@@ -13,7 +13,7 @@ module Pantograph
       def self.details
         [
           'By default, _pantograph_ will track what actions are being used. No personal/sensitive information is recorded.',
-          'Learn more at [https://johnknapprs.github.io/pantograph/#metrics](https://johnknapprs.github.io/pantograph/#metrics).',
+          'Learn more at [https://urbanquakers.github.io/pantograph/#metrics](https://urbanquakers.github.io/pantograph/#metrics).',
           'Add `opt_out_usage` at the top of your Pantfile to disable metrics collection.'
         ].join("\n")
       end

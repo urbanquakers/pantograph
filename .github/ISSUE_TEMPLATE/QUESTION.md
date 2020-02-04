@@ -7,9 +7,9 @@ about: Not sure how something works or how to implement some functionality? Ask 
 ### Question Checklist
 
 - [ ] Updated pantograph to the latest version
-- [ ] I read the [Contribution Guidelines](https://github.com/johnknapprs/pantograph/blob/master/CONTRIBUTING.md)
-- [ ] I read [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph)
-- [ ] I searched for [existing GitHub issues](https://github.com/johnknapprs/pantograph/issues)
+- [ ] I read the [Contribution Guidelines](https://github.com/urbanquakers/pantograph/blob/master/CONTRIBUTING.md)
+- [ ] I read [urbanquakers.github.io/pantograph](https://urbanquakers.github.io/pantograph)
+- [ ] I searched for [existing GitHub issues](https://github.com/urbanquakers/pantograph/issues)
 
 ### Question Subject
 <!-- What tool/action do you have a question about? -->

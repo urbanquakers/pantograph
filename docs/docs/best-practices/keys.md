@@ -69,6 +69,6 @@ pantograph notify --env development
 and store the configuration in `.env.development` with all keys for the development environment.
 
 Install `gem install dotenv` or add `dotenv` to your `Gemfile`.
-More information about the [recommended way to install gems](https://johnknapprs.github.io/pantograph/getting-started/ios/setup/#use-a-gemfile).
+More information about the [recommended way to install gems](https://urbanquakers.github.io/pantograph/getting-started/ios/setup/#use-a-gemfile).
 
 To get the name of the available environment variables, run `pantograph action [action_name]`.

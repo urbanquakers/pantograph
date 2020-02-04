@@ -14,7 +14,7 @@ module Pantograph
         copy_to_clipboard(env_info)
         UI.success("Successfully copied markdown into your clipboard 🎨")
       end
-      UI.success("Open https://github.com/johnknapprs/pantograph/issues/new to submit a new issue ✅")
+      UI.success("Open https://github.com/urbanquakers/pantograph/issues/new to submit a new issue ✅")
     end
 
     def self.get

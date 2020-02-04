@@ -13,7 +13,7 @@ describe Pantograph do
 
       context 'successful' do
         before do
-          stub_request(:put, "https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md").
+          stub_request(:put, "https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md").
             with(headers: headers).
             to_return(status: 200, body: response_body, headers: {})
         end
@@ -25,7 +25,7 @@ describe Pantograph do
                 github_api(
                   api_token: '123456789',
                   http_method: 'PUT',
-                  path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                  path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                   body: {
                     path: 'TEST_FILE.md',
                     message: 'File committed',
@@ -49,7 +49,7 @@ describe Pantograph do
                 github_api(
                   api_token: '123456789',
                   http_method: 'PUT',
-                  path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                  path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                   body: %w(foo bar),
                 )
               end
@@ -68,7 +68,7 @@ describe Pantograph do
                 github_api(
                   api_token: '123456789',
                   http_method: 'PUT',
-                  path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                  path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                   body: '{
                       "path":"TEST_FILE.md",
                       "message":"File committed",
@@ -93,7 +93,7 @@ describe Pantograph do
                   server_url: 'https://api.github.com',
                   api_token: '123456789',
                   http_method: 'PUT',
-                  path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                  path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                   body: '{
                       "path":"TEST_FILE.md",
                       "message":"File committed",
@@ -123,7 +123,7 @@ describe Pantograph do
           end
 
           before do
-            stub_request(:post, "https://uploads.github.com/repos/johnknapprs/pantograph/releases/1/assets?name=TEST_FILE.md").
+            stub_request(:post, "https://uploads.github.com/repos/urbanquakers/pantograph/releases/1/assets?name=TEST_FILE.md").
               with(body: "test raw content of file",
                  headers: headers).
               to_return(status: 200, body: response_body, headers: {})
@@ -136,7 +136,7 @@ describe Pantograph do
                   github_api(
                     api_token: '123456789',
                     http_method: 'POST',
-                    url: 'https://uploads.github.com/repos/johnknapprs/pantograph/releases/1/assets?name=TEST_FILE.md',
+                    url: 'https://uploads.github.com/repos/urbanquakers/pantograph/releases/1/assets?name=TEST_FILE.md',
                     raw_body: 'test raw content of file'
                     )
                 end
@@ -169,7 +169,7 @@ describe Pantograph do
                       'Authorization' => 'custom',
                       'User-Agent' => 'pantograph-custom-user-agent'
                     },
-                    url: 'https://uploads.github.com/repos/johnknapprs/pantograph/releases/1/assets?name=TEST_FILE.md',
+                    url: 'https://uploads.github.com/repos/urbanquakers/pantograph/releases/1/assets?name=TEST_FILE.md',
                     raw_body: 'test raw content of file'
                     )
                 end
@@ -191,12 +191,12 @@ describe Pantograph do
                     github_api(
                       api_token: '123456789',
                       http_method: 'PUT',
-                      path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md'
+                      path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md'
                     )
                   end
                 ").runner.execute(:test)
                 expect(result[:status]).to eq(200)
-                expect(result[:html_url]).to eq("https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md")
+                expect(result[:html_url]).to eq("https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md")
               end
             end
           end
@@ -209,13 +209,13 @@ describe Pantograph do
                       github_api(
                         api_token: '123456789',
                         http_method: 'PUT',
-                        path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                        path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                         server_url: 'https://api.github.com'
                       )
                     end
                   ").runner.execute(:test)
                 expect(result[:status]).to eq(200)
-                expect(result[:html_url]).to eq("https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md")
+                expect(result[:html_url]).to eq("https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md")
               end
             end
           end
@@ -230,16 +230,16 @@ describe Pantograph do
                       github_api(
                         api_token: '123456789',
                         http_method: 'PUT',
-                        url: 'https://api.github.com/repos/johnknapprs/pantograph/contents/NONEXISTENT_TEST_FILE.md',
-                        path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                        url: 'https://api.github.com/repos/urbanquakers/pantograph/contents/NONEXISTENT_TEST_FILE.md',
+                        path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                         server_url: 'https://api.github.com'
                       )
                     end
                   ").runner.execute(:test)
 
                 expect(result[:status]).to eq(200)
-                expect(result[:html_url]).to eq("https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md")
-                expect(result[:html_url]).to_not(eq("https://api.github.com/repos/johnknapprs/pantograph/contents/NONEXISTENT_TEST_FILE.md"))
+                expect(result[:html_url]).to eq("https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md")
+                expect(result[:html_url]).to_not(eq("https://api.github.com/repos/urbanquakers/pantograph/contents/NONEXISTENT_TEST_FILE.md"))
               end
             end
           end
@@ -252,13 +252,13 @@ describe Pantograph do
                       github_api(
                         api_token: '123456789',
                         http_method: 'PUT',
-                        url: 'https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md'
+                        url: 'https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md'
                       )
                     end
                   ").runner.execute(:test)
 
                 expect(result[:status]).to eq(200)
-                expect(result[:html_url]).to eq("https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md")
+                expect(result[:html_url]).to eq("https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md")
               end
             end
           end
@@ -271,7 +271,7 @@ describe Pantograph do
                   github_api(
                     api_token: '123456789',
                     http_method: 'PUT',
-                    path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                    path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                     secure: false
                   )
                 end
@@ -290,7 +290,7 @@ describe Pantograph do
                   github_api(
                     api_token: '123456789',
                     http_method: 'PUT',
-                    path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                    path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                     secure: true
                   )
                 end
@@ -309,7 +309,7 @@ describe Pantograph do
                   github_api(
                     api_token: '123456789',
                     http_method: 'PUT',
-                    path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md'
+                    path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md'
                   )
                 end
               ").runner.execute(:test)
@@ -327,7 +327,7 @@ describe Pantograph do
         let(:error_response_body) { '{"message":"Bad credentials","documentation_url":"https://developer.github.com/v3"}' }
 
         before do
-          stub_request(:put, "https://api.github.com/repos/johnknapprs/pantograph/contents/TEST_FILE.md").
+          stub_request(:put, "https://api.github.com/repos/urbanquakers/pantograph/contents/TEST_FILE.md").
             with(headers: {
                     'Authorization' => 'Basic MTIzNDU2Nzg5',
                     'Host' => 'api.github.com:443',
@@ -343,7 +343,7 @@ describe Pantograph do
                 github_api(
                   api_token: '123456789',
                   http_method: 'PUT',
-                  path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                  path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                   body: {
                     path: 'TEST_FILE.md',
                     message: 'File committed',
@@ -367,7 +367,7 @@ describe Pantograph do
                 github_api(
                   api_token: '123456789',
                   http_method: 'PUT',
-                  path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                  path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                   body: {
                     path: 'TEST_FILE.md',
                     message: 'File committed',
@@ -399,7 +399,7 @@ describe Pantograph do
                 github_api(
                   api_token: '123456789',
                   http_method: 'PUT',
-                  path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                  path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                   body: {
                     path: 'TEST_FILE.md',
                     message: 'File committed',
@@ -430,7 +430,7 @@ describe Pantograph do
               github_api(
                 api_token: '123456789',
                 http_method: 'PUT',
-                path: 'repos/johnknapprs/pantograph/contents/TEST_FILE.md',
+                path: 'repos/urbanquakers/pantograph/contents/TEST_FILE.md',
                 body: {
                   path: 'TEST_FILE.md',
                   message: 'File committed',

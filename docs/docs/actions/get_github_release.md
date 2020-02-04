@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/get_github_release.rb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/get_github_release.rb
 -->
 
 # get_github_release
@@ -18,7 +18,7 @@ This will verify if a given release version is available on GitHub
   "url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713",
    "assets_url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713/assets",
    "upload_url"=>"https://uploads.github.com/repos/KrauseFx/pantograph/releases/1537713/assets{?name}",
-   "html_url"=>"https://github.com/johnknapprs/pantograph/releases/tag/1.8.0",
+   "html_url"=>"https://github.com/urbanquakers/pantograph/releases/tag/1.8.0",
    "id"=>1537713,
    "tag_name"=>"1.8.0",
    "target_commitish"=>"master",
@@ -65,7 +65,7 @@ Author | @KrauseFx, @czechboy0, @jaleksynas, @tommeier
 ## 1 Example
 
 ```ruby
-release = get_github_release(url: "johnknapprs/pantograph", version: "1.0.0")
+release = get_github_release(url: "urbanquakers/pantograph", version: "1.0.0")
 puts release["name"]
 ```
 
@@ -77,7 +77,7 @@ puts release["name"]
 
 Key | Description | Default
 ----|-------------|--------
-  `url` | The path to your repo, e.g. 'johnknapprs/pantograph' | 
+  `url` | The path to your repo, e.g. 'urbanquakers/pantograph' | 
   `server_url` | The server url. e.g. 'https://your.github.server/api/v3' (Default: 'https://api.github.com') | `https://api.github.com`
   `version` | The version tag of the release to check | 
   `api_token` | GitHub Personal Token (required for private repositories) | 
@@ -97,7 +97,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::GET_GITHUB_RELEASE_INFO` | Contains all the information about this release
 
-To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://urbanquakers.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 
@@ -132,7 +132,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/get_github_release.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/get_github_release.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

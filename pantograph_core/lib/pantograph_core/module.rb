@@ -10,7 +10,7 @@ module PantographCore
   # If you opt out, we will not send anything.
   # You can confirm this by observing how we use the environment variable: PANTOGRAPH_OPT_OUT_USAGE
   # Specifically, in AnalyticsSession.finalize_session
-  # Learn more at https://johnknapprs.github.io/pantograph/#metrics
+  # Learn more at https://urbanquakers.github.io/pantograph/#metrics
   def self.session
     @session ||= AnalyticsSession.new
   end

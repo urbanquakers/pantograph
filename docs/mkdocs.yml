@@ -1,6 +1,6 @@
 ---
 site_name: pantograph docs
-site_url: https://johnknapprs.github.io/pantograph/
+site_url: https://urbanquakers.github.io/pantograph/
 theme:
   name: material
   palette:
@@ -9,7 +9,7 @@ theme:
 copyright: Copyright &copy; 2019 <a href="https://pantograph.tools">pantograph</a>
 site_author: pantograph team
 site_description: Documentation for pantograph tools
-repo_url: https://github.com/johnknapprs/docs
+repo_url: https://github.com/urbanquakers/docs
 strict: true
 markdown_extensions:
 - markdown.extensions.attr_list

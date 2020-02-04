@@ -59,12 +59,12 @@ module Pantograph
         [
           ' # Simple import on master branch
             import_from_git(
-              url: "git@github.com:johnknapprs/pantograph.git"
+              url: "git@github.com:urbanquakers/pantograph.git"
             )
           ',
           ' # Import a Pantfile with an Optimistic version match operator
             import_from_git(
-              url: "git@github.com:johnknapprs/pantograph.git",
+              url: "git@github.com:urbanquakers/pantograph.git",
               branch: "master",
               path: "pantograph/Pantfile",
               version: "~> 1.0.0"
@@ -72,7 +72,7 @@ module Pantograph
           ',
           ' # Import a Pantfile with multiple version conditions
             import_from_git(
-              url: "git@github.com:johnknapprs/pantograph.git", # The URL of the repository to import the Pantfile from.
+              url: "git@github.com:urbanquakers/pantograph.git", # The URL of the repository to import the Pantfile from.
               branch: "development", # The branch to checkout on the repository
               version: [">= 1.1.0", "< 2.0.0"]
             )

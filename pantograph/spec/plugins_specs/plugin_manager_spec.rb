@@ -113,8 +113,8 @@ describe Pantograph do
 
         it "supports specifying a custom git URL" do
           expect(PantographCore::UI.ui_object).to receive(:select).and_return("Git URL")
-          expect(PantographCore::UI.ui_object).to receive(:input).and_return("https://github.com/johnknapprs/pantograph")
-          expect(plugin_manager.gem_dependency_suffix("pantograph")).to eq(", git: 'https://github.com/johnknapprs/pantograph'")
+          expect(PantographCore::UI.ui_object).to receive(:input).and_return("https://github.com/urbanquakers/pantograph")
+          expect(plugin_manager.gem_dependency_suffix("pantograph")).to eq(", git: 'https://github.com/urbanquakers/pantograph'")
         end
 
         it "supports falling back to RubyGems" do
@@ -207,7 +207,7 @@ describe Pantograph do
           result = Pantograph::PantFile.new.parse("lane :test do
             my_custom_plugin
           end").runner.execute(:test)
-        end.to raise_exception("Plugin 'my_custom_plugin' was not properly loaded, make sure to follow the plugin docs for troubleshooting: https://johnknapprs.github.io/pantograph/plugins/plugins-troubleshooting/")
+        end.to raise_exception("Plugin 'my_custom_plugin' was not properly loaded, make sure to follow the plugin docs for troubleshooting: https://urbanquakers.github.io/pantograph/plugins/plugins-troubleshooting/")
       end
 
       it "shows an appropriate error message when an action is not available, which is not a plugin" do
@@ -216,7 +216,7 @@ describe Pantograph do
           result = Pantograph::PantFile.new.parse("lane :test do
             my_custom_plugin
           end").runner.execute(:test)
-        end.to raise_exception("Could not find action, lane or variable 'my_custom_plugin'. Check out the documentation for more details: https://johnknapprs.github.io/pantograph/actions")
+        end.to raise_exception("Could not find action, lane or variable 'my_custom_plugin'. Check out the documentation for more details: https://urbanquakers.github.io/pantograph/actions")
       end
 
       it "shows an appropriate error message when a plugin is really broken" do
