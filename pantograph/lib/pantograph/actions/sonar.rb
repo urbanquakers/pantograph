@@ -49,9 +49,7 @@ module Pantograph
 
       def self.details
         [
-          'See [http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) for details.',
-          'It can process unit test results if formatted as junit report as shown in [xctest](https://johnknapprs.github.io/pantograph/actions/xctest/) action. It can also integrate coverage reports in Cobertura format, which can be transformed into by the [slather](https://johnknapprs.github.io/pantograph/actions/slather/) action.'
-        ].join("\n")
+          'See [http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) for details.'
       end
 
       def self.available_options
