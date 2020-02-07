@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for pantograph tools">
       
       
-        <link rel="canonical" href="https://johnknapprs.github.io/pantograph/actions/">
+        <link rel="canonical" href="https://urbanquakers.github.io/pantograph/actions/">
       
       
         <meta name="author" content="pantograph team">
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://johnknapprs.github.io/pantograph/" title="pantograph docs" class="md-header-nav__button md-logo">
+        <a href="https://urbanquakers.github.io/pantograph/" title="pantograph docs" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -159,7 +159,7 @@
 
   
 
-<a href="https://github.com/johnknapprs/docs/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/urbanquakers/docs/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -192,7 +192,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://johnknapprs.github.io/pantograph/" title="pantograph docs" class="md-nav__button md-logo">
+    <a href="https://urbanquakers.github.io/pantograph/" title="pantograph docs" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -206,7 +206,7 @@
 
   
 
-<a href="https://github.com/johnknapprs/docs/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/urbanquakers/docs/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -1302,12 +1302,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/johnknapprs/docs/edit/master/docs/actions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/urbanquakers/docs/edit/master/docs/actions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/assets/Actions.md.erb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/assets/Actions.md.erb
 -->
 
 <style type="text/css">
@@ -1596,11 +1596,6 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/git_pull_tags/">git_pull_tags</a></td>
-<td>Executes a simple <code>git fetch --tags</code> command</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
 <td><a href="/actions/github_api/">github_api</a></td>
 <td>Call a GitHub API endpoint and get the resulting JSON response</td>
 <td>mac, linux, windows</td>
@@ -1608,6 +1603,11 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <tr>
 <td><a href="/actions/git_submodule_update/">git_submodule_update</a></td>
 <td>Execute git submodule command</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/git_pull_tags/">git_pull_tags</a></td>
+<td>Executes a simple <code>git fetch --tags</code> command</td>
 <td>mac, linux, windows</td>
 </tr>
 </tbody>
@@ -1760,48 +1760,8 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
-<td><a href="/actions/opt_out_usage/">opt_out_usage</a></td>
-<td>This will stop uploading the information which actions were run</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
 <td><a href="/actions/min_pantograph_version/">min_pantograph_version</a></td>
 <td>Verifies the minimum pantograph version required</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/plugin_scores/">plugin_scores</a></td>
-<td>[31mNo description provided[0m</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/ruby_version/">ruby_version</a></td>
-<td>Verifies the minimum ruby version required</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
-<td>Raises an exception if the specified env vars are not set</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/is_verbose/">is_verbose</a></td>
-<td>Returns Boolean whether <code>--verbose</code> flag was set</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
-<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/echo/">echo</a></td>
-<td>Alias for the <code>puts</code> action</td>
-<td>mac, linux, windows</td>
-</tr>
-<tr>
-<td><a href="/actions/prompt_secure/">prompt_secure</a></td>
-<td>Ask the user for a value or for confirmation</td>
 <td>mac, linux, windows</td>
 </tr>
 <tr>
@@ -1810,8 +1770,48 @@ If you want to create your own action, check out the <a href="/create-action/#lo
 <td>mac, linux, windows</td>
 </tr>
 <tr>
+<td><a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a></td>
+<td>Raises an exception if not using <code>bundle exec</code> to run pantograph</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/ruby_version/">ruby_version</a></td>
+<td>Verifies the minimum ruby version required</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/prompt_secure/">prompt_secure</a></td>
+<td>Ask the user for a value or for confirmation</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/is_verbose/">is_verbose</a></td>
+<td>Returns Boolean whether <code>--verbose</code> flag was set</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
 <td><a href="/actions/sh/">sh</a></td>
 <td>Runs a shell command</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/ensure_env_vars/">ensure_env_vars</a></td>
+<td>Raises an exception if the specified env vars are not set</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/plugin_scores/">plugin_scores</a></td>
+<td>[31mNo description provided[0m</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/echo/">echo</a></td>
+<td>Alias for the <code>puts</code> action</td>
+<td>mac, linux, windows</td>
+</tr>
+<tr>
+<td><a href="/actions/opt_out_usage/">opt_out_usage</a></td>
+<td>This will stop uploading the information which actions were run</td>
 <td>mac, linux, windows</td>
 </tr>
 </tbody>
