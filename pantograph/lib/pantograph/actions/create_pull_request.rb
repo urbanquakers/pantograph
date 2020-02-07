@@ -157,7 +157,7 @@ module Pantograph
       end
 
       def self.author
-        ["seei", "tommeier", "marumemomo"]
+        ['seei', 'tommeier', 'marumemomo', 'johnknapprs']
       end
 
       def self.is_supported?(platform)
@@ -172,7 +172,7 @@ module Pantograph
         [
           'create_pull_request(
             api_token: "secret",                # optional, defaults to ENV["GITHUB_API_TOKEN"]
-            repo: "johnknapprs/pantograph",
+            repo: "urbanquakers/pantograph",
             title: "Amazing new feature",
             head: "my-feature",                 # optional, defaults to current branch name
             base: "master",                     # optional, defaults to "master"

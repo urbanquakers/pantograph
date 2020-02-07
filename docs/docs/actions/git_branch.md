@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/git_branch.rb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/git_branch.rb
 -->
 
 # git_branch
@@ -43,7 +43,7 @@ SharedValue | Description
 ------------|-------------
   `SharedValues::GIT_BRANCH_NAME` | The git branch name
 
-To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://urbanquakers.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 
@@ -78,7 +78,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/git_branch.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/git_branch.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

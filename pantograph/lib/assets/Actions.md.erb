@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/assets/Actions.md.erb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/assets/Actions.md.erb
 -->
 
 {!docs/includes/setup-pantograph-header.md!}

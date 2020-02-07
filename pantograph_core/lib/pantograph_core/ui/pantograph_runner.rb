@@ -117,7 +117,7 @@ module Commander
     end
 
     def action_completed(action_name, status: nil, exception: nil)
-      # https://github.com/johnknapprs/pantograph/issues/11913
+      # https://github.com/urbanquakers/pantograph/issues/11913
       # if exception.nil? || exception.pantograph_should_report_metrics?
       #   action_completion_context = PantographCore::ActionCompletionContext.context_for_action_name(action_name, args: ARGV, status: status)
       #   PantographCore.session.action_completed(completion_context: action_completion_context)
@@ -128,7 +128,7 @@ module Commander
       # We're also printing the new-lines, as otherwise the message is not very visible in-between the error and the stack trace
       puts("")
       PantographCore::UI.important("Error accessing file, this might be due to pantograph's directory handling")
-      PantographCore::UI.important("Check out https://johnknapprs.github.io/pantograph/advanced/#directory-behavior for more details")
+      PantographCore::UI.important("Check out https://urbanquakers.github.io/pantograph/advanced/#directory-behavior for more details")
       puts("")
       raise e
     end
@@ -165,7 +165,7 @@ module Commander
       # SSL errors are very common when the Ruby or OpenSSL installation is somehow broken
       # We want to show a nice error message to the user here
       # We have over 20 GitHub issues just for this one error:
-      #   https://github.com/johnknapprs/pantograph/search?q=errno%3D0+state%3DSSLv3+read+server&type=Issues
+      #   https://github.com/urbanquakers/pantograph/search?q=errno%3D0+state%3DSSLv3+read+server&type=Issues
       suggest_ruby_reinstall(e)
       display_user_error!(e, e.to_s)
     end
@@ -193,7 +193,7 @@ module Commander
       ui.error("-----------------------------------------------------------")
       ui.error("for more details on ways to install pantograph please refer the documentation:")
       ui.error("-----------------------------------------------------------")
-      ui.error("        🚀       https://johnknapprs.github.io/pantograph          🚀   ")
+      ui.error("        🚀       https://urbanquakers.github.io/pantograph          🚀   ")
       ui.error("-----------------------------------------------------------")
       ui.error("")
       ui.error("You can also install a new version of Ruby")

@@ -58,7 +58,7 @@ module PantographCore
       puts("# You should use the latest version.")
       puts("# Please update using `#{self.update_command(gem_name: gem_name)}`.")
 
-      puts("# To see what's new, open https://github.com/johnknapprs/#{gem_name}/releases.") if PantographCore::Env.truthy?("PANTOGRAPH_HIDE_CHANGELOG")
+      puts("# To see what's new, open https://github.com/urbanquakers/#{gem_name}/releases.") if PantographCore::Env.truthy?("PANTOGRAPH_HIDE_CHANGELOG")
 
       if !Helper.bundler? && !Helper.contained_pantograph? && Random.rand(5) == 1
         # We want to show this message from time to time, if the user doesn't use bundler, nor bundled pantograph

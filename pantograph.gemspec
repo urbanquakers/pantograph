@@ -20,10 +20,10 @@ Gem::Specification.new do |spec|
   spec.email         = ['knappj2@gmail.com']
   spec.summary       = Pantograph::SUMMARY
   spec.description   = Pantograph::DESCRIPTION
-  spec.homepage      = 'https://johnknapprs.github.io/pantograph/'
+  spec.homepage      = 'https://urbanquakers.github.io/pantograph/'
   spec.license       = 'MIT'
   spec.metadata      = {
-    'docs_url' => 'https://johnknapprs.github.io/pantograph'
+    'docs_url' => 'https://urbanquakers.github.io/pantograph'
   }
 
   spec.required_ruby_version = '>= 2.0.0'

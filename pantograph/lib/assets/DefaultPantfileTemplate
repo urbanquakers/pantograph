@@ -1,13 +1,13 @@
 # This file contains the pantograph.tools configuration
-# You can find the documentation at https://johnknapprs.github.io/pantograph
+# You can find the documentation at https://urbanquakers.github.io/pantograph
 #
 # For a list of all available actions, check out
 #
-#     https://johnknapprs.github.io/pantograph/actions
+#     https://urbanquakers.github.io/pantograph/actions
 #
 # For a list of all available plugins, check out
 #
-#     https://johnknapprs.github.io/pantograph/plugins/available-plugins
+#     https://urbanquakers.github.io/pantograph/plugins/available-plugins
 #
 
 # Uncomment the line if you want pantograph to automatically update itself

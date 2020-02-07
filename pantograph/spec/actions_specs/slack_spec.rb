@@ -142,7 +142,7 @@ describe Pantograph do
         expect(fields[1][:value]).to eq('Error')
       end
 
-      # https://github.com/johnknapprs/pantograph/issues/14234
+      # https://github.com/urbanquakers/pantograph/issues/14234
       it "parses default_payloads without adding extra fields for git" do
         channel = "#myChannel"
         message = "Custom Message"
@@ -166,7 +166,7 @@ describe Pantograph do
         expect(fields[1][:title]).to eq('Git Commit Hash')
       end
 
-      # https://github.com/johnknapprs/pantograph/issues/14141
+      # https://github.com/urbanquakers/pantograph/issues/14141
       it "prints line breaks on message parameter to slack" do
         channel = "#myChannel"
         # User is passing input_message through pantograph input parameter
@@ -194,7 +194,7 @@ describe Pantograph do
         expect(attachments[:text]).to eq(expected_message)
       end
 
-      # https://github.com/johnknapprs/pantograph/issues/14141
+      # https://github.com/urbanquakers/pantograph/issues/14141
       it "prints line breaks on pretext parameter to slack" do
         channel = "#myChannel"
         # User is passing input_message through pantograph input parameter

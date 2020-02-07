@@ -47,7 +47,7 @@ module PantographCore
 
     def show_message
       UI.message("Sending anonymous analytics information")
-      UI.message("Learn more at https://johnknapprs.github.io/pantograph/#metrics")
+      UI.message("Learn more at https://urbanquakers.github.io/pantograph/#metrics")
       UI.message("No personal or sensitive data is sent.")
       UI.message("You can disable this by adding `opt_out_usage` at the top of your Pantfile")
     end

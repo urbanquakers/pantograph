@@ -46,8 +46,8 @@ _pantograph_ changes a lot and is in constant flux. We usually merge multiple PR
 After your contribution is merged, it’s not immediately available to all users. Your change will be shipped as part of the next release, which is usually once per week. If your change is time critical, please let us know so we can schedule a release for your change.
 
 <!-- Links -->
-[you can do this]: https://github.com/johnknapprs/pantograph/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22complexity%3A+you+can+do+this%22+
-[pantograph repo]: https://github.com/johnknapprs/pantograph
+[you can do this]: https://github.com/urbanquakers/pantograph/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22complexity%3A+you+can+do+this%22+
+[pantograph repo]: https://github.com/urbanquakers/pantograph
 [pr template]: .github/PULL_REQUEST_TEMPLATE.md
 [bundler]: https://bundler.io
 [bundler help]: https://bundler.io/v1.12/#getting-started

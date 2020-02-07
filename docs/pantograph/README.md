@@ -44,4 +44,4 @@ pantograph update_available_plugins
 
 This README.md is auto-generated and will be re-generated every time [_pantograph_](https://pantograph.tools) is run.
 More information about pantograph can be found on [pantograph.tools](https://pantograph.tools).
-The documentation of pantograph can be found on [johnknapprs.github.io/pantograph](https://johnknapprs.github.io/pantograph).
+The documentation of pantograph can be found on [urbanquakers.github.io/pantograph](https://urbanquakers.github.io/pantograph).

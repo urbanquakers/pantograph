@@ -57,8 +57,8 @@ module PantographCore
                        "#{err}")
               UI.important("")
               UI.important("Please look at the following docs to see how to set a keychain password:")
-              UI.important(" - https://johnknapprs.github.io/pantograph/actions/sync_code_signing")
-              UI.important(" - https://johnknapprs.github.io/pantograph/actions/get_certificates")
+              UI.important(" - https://urbanquakers.github.io/pantograph/actions/sync_code_signing")
+              UI.important(" - https://urbanquakers.github.io/pantograph/actions/get_certificates")
             else
               UI.error(err)
             end

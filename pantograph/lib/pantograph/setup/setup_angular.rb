@@ -14,13 +14,13 @@ module Pantograph
       PantographCore::PantographFolder.create_folder!
 
       self.append_lane([
-                          "desc 'Runs all the  tests'",
-                          "lane :pipeline do",
-                          "  test",
-                          "  build",
-                          "  publish",
-                          "end"
-                        ])
+                         "desc 'Runs all the  tests'",
+                         "lane :pipeline do",
+                         "  test",
+                         "  build",
+                         "  publish",
+                         "end"
+                       ])
       self.append_lane([
                          "desc 'Runs all the  tests'",
                          "lane :test do",

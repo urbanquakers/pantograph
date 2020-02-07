@@ -58,7 +58,7 @@ module Pantograph
             "url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713",
              "assets_url"=>"https://api.github.com/repos/KrauseFx/pantograph/releases/1537713/assets",
              "upload_url"=>"https://uploads.github.com/repos/KrauseFx/pantograph/releases/1537713/assets{?name}",
-             "html_url"=>"https://github.com/johnknapprs/pantograph/releases/tag/1.8.0",
+             "html_url"=>"https://github.com/urbanquakers/pantograph/releases/tag/1.8.0",
              "id"=>1537713,
              "tag_name"=>"1.8.0",
              "target_commitish"=>"master",
@@ -110,7 +110,7 @@ module Pantograph
         [
           PantographCore::ConfigItem.new(key: :url,
                                        env_name: 'GET_GITHUB_RELEASE_URL',
-                                       description: "The path to your repo, e.g. 'johnknapprs/pantograph'",
+                                       description: "The path to your repo, e.g. 'urbanquakers/pantograph'",
                                        verify_block: proc do |value|
                                          UI.user_error!("Please only pass the path, e.g. 'KrauseFx/pantograph'") if value.include?('github.com')
                                          UI.user_error!("Please only pass the path, e.g. 'KrauseFx/pantograph'") if value.split('/').count != 2
@@ -144,7 +144,7 @@ module Pantograph
 
       def self.example_code
         [
-          'release = get_github_release(url: "johnknapprs/pantograph", version: "1.0.0")
+          'release = get_github_release(url: "urbanquakers/pantograph", version: "1.0.0")
           puts release["name"]'
         ]
       end

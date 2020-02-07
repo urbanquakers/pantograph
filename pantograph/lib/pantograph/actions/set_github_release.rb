@@ -157,10 +157,10 @@ module Pantograph
         [
           PantographCore::ConfigItem.new(key: :repository_name,
                                        env_name: 'SET_GITHUB_RELEASE_REPOSITORY_NAME',
-                                       description: "The path to your repo, e.g. 'johnknapprs/pantograph'",
+                                       description: "The path to your repo, e.g. 'urbanquakers/pantograph'",
                                        verify_block: proc do |value|
-                                         UI.user_error!("Please only pass the path, e.g. 'johnknapprs/pantograph'") if value.include?("github.com")
-                                         UI.user_error!("Please only pass the path, e.g. 'johnknapprs/pantograph'") if value.split('/').count != 2
+                                         UI.user_error!("Please only pass the path, e.g. 'urbanquakers/pantograph'") if value.include?("github.com")
+                                         UI.user_error!("Please only pass the path, e.g. 'urbanquakers/pantograph'") if value.split('/').count != 2
                                        end),
           PantographCore::ConfigItem.new(key: :server_url,
                                        env_name: 'GITHUB_RELEASE_SERVER_URL',
@@ -255,7 +255,7 @@ module Pantograph
       def self.example_code
         [
           'github_release = set_github_release(
-            repository_name: "johnknapprs/pantograph",
+            repository_name: "urbanquakers/pantograph",
             api_token: ENV["GITHUB_TOKEN"],
             name: "Super New actions",
             tag_name: "v1.22.0",

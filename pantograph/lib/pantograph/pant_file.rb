@@ -189,7 +189,7 @@ module Pantograph
     # Execute shell command
     # Accepts arguments with with and without the command named keyword so that sh
     # behaves like other actions with named keywords
-    # https://github.com/johnknapprs/pantograph/issues/14930
+    # https://github.com/urbanquakers/pantograph/issues/14930
     #
     # Example:
     #  sh("ls")

@@ -68,7 +68,7 @@ module Pantograph
           puts("==========================================\n".deprecated)
         end
 
-        puts("More information can be found on https://johnknapprs.github.io/pantograph/actions/#{filter}")
+        puts("More information can be found on https://urbanquakers.github.io/pantograph/actions/#{filter}")
         puts("")
       else
         puts("Couldn't find action for the given filter.".red)

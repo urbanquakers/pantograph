@@ -1,6 +1,6 @@
 <!--
 This file is auto-generated and will be re-generated every time the docs are updated.
-To modify it, go to its source at https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/set_github_release.rb
+To modify it, go to its source at https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/set_github_release.rb
 -->
 
 # set_github_release
@@ -26,7 +26,7 @@ Returns | A hash containing all relevant information of this release<br>Access t
 
 ```ruby
 github_release = set_github_release(
-  repository_name: "johnknapprs/pantograph",
+  repository_name: "urbanquakers/pantograph",
   api_token: ENV["GITHUB_TOKEN"],
   name: "Super New actions",
   tag_name: "v1.22.0",
@@ -44,7 +44,7 @@ github_release = set_github_release(
 
 Key | Description | Default
 ----|-------------|--------
-  `repository_name` | The path to your repo, e.g. 'johnknapprs/pantograph' | 
+  `repository_name` | The path to your repo, e.g. 'urbanquakers/pantograph' | 
   `server_url` | The server url. e.g. 'https://your.internal.github.host/api/v3' (Default: 'https://api.github.com') | `https://api.github.com`
   `api_token` | Personal API Token for GitHub - generate one at https://github.com/settings/tokens | [*](#parameters-legend-dynamic)
   `tag_name` | Pass in the tag name | 
@@ -72,7 +72,7 @@ SharedValue | Description
   `SharedValues::SET_GITHUB_RELEASE_RELEASE_ID` | Release id (useful for subsequent editing)
   `SharedValues::SET_GITHUB_RELEASE_JSON` | The whole release JSON object
 
-To get more information check the [Lanes documentation](https://johnknapprs.github.io/pantograph/advanced/lanes/#lane-context).
+To get more information check the [Lanes documentation](https://urbanquakers.github.io/pantograph/advanced/lanes/#lane-context).
 <hr />
 
 
@@ -107,7 +107,7 @@ It is recommended to add all _pantograph_ actions you use to your `Pantfile`.
 
 ## Source code
 
-This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/johnknapprs/pantograph/blob/master/pantograph/lib/pantograph/actions/set_github_release.rb" target="_blank">view the source code on GitHub</a>
+This action, just like the rest of _pantograph_, is fully open source, <a href="https://github.com/urbanquakers/pantograph/blob/master/pantograph/lib/pantograph/actions/set_github_release.rb" target="_blank">view the source code on GitHub</a>
 
 <hr />
 

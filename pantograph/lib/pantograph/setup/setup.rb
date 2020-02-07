@@ -204,7 +204,7 @@ module Pantograph
       UI.header("How to customize your Pantfile")
       UI.message("Use a text editor of your choice to open the newly created Pantfile and take a look")
       UI.message("You can now edit the available lanes and actions to customize the setup to fit your needs")
-      UI.message("To get a list of all the available actions, open " + "https://johnknapprs.github.io/pantograph/".cyan)
+      UI.message("To get a list of all the available actions, open " + "https://urbanquakers.github.io/pantograph/".cyan)
       continue_with_enter
     end
 
@@ -215,11 +215,11 @@ module Pantograph
     def suggest_next_steps
       UI.header("Where to go from here?")
       UI.message("📸  Learn more about Pantograph Official Actions")
-      UI.message("\t\thttps://johnknapprs.github.io/pantograph/actions/".cyan)
+      UI.message("\t\thttps://urbanquakers.github.io/pantograph/actions/".cyan)
       UI.message("👩‍✈️  Learn more about Pantograph Lane Features")
-      UI.message("\t\thttps://johnknapprs.github.io/pantograph/advanced/lanes/".cyan)
+      UI.message("\t\thttps://urbanquakers.github.io/pantograph/advanced/lanes/".cyan)
       UI.message("🚀  Check out the entire documentation site for Pantograph")
-      UI.message("\t\thttps://johnknapprs.github.io/pantograph/".cyan)
+      UI.message("\t\thttps://urbanquakers.github.io/pantograph/".cyan)
 
       # we crash here, so that this never happens when a new setup method is added
       return if self.lane_to_mention.to_s.length == 0
@@ -230,7 +230,7 @@ module Pantograph
 
     def show_analytics_note
       UI.message("pantograph will collect the number of errors for each action to detect integration issues")
-      UI.message("No sensitive/private information will be uploaded, more information: " + "https://johnknapprs.github.io/pantograph/#metrics".cyan)
+      UI.message("No sensitive/private information will be uploaded, more information: " + "https://urbanquakers.github.io/pantograph/#metrics".cyan)
     end
   end
 end

@@ -4,7 +4,7 @@
 require 'colored'
 
 class String
-  Colored::COLORS.keys.each do |color|
+  Colored::COLORS.each_key do |color|
     define_method(color) do
       self # do nothing with the string, but return it
     end

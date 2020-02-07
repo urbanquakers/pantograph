@@ -28,7 +28,7 @@ This content was moved and now lives [here](/create-action/#local-actions).
 
 ## Find a plugin
 
-Head over to [Available Plugins](https://johnknapprs.github.io/pantograph/plugins/available-plugins/) for a list of plugins you can use.
+Head over to [Available Plugins](https://urbanquakers.github.io/pantograph/plugins/available-plugins/) for a list of plugins you can use.
 
 List all available plugins using
 
@@ -67,7 +67,7 @@ You specify all dependencies, including the required version numbers:
 gem 'pantograph-plugin-maven'
 
 # Fetched from GitHub
-gem 'pantograph-plugin-maven', git: 'https://github.com/johnknapprs/pantograph-plugin-maven'
+gem 'pantograph-plugin-maven', git: 'https://github.com/urbanquakers/pantograph-plugin-maven'
 
 # Fetched from a local directory
 gem 'pantograph-plugin-maven', path: '../pantograph-plugin-maven'

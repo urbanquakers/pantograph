@@ -1,5 +1,5 @@
 <!--
-Auto generated, please only modify https://github.com/johnknapprs/pantograph/blob/master/pantograph/actions/plugin_scores.rb
+Auto generated, please only modify https://github.com/urbanquakers/pantograph/blob/master/pantograph/actions/plugin_scores.rb
 -->
 {!docs/includes/setup-pantograph-header.md!}
 # Available Plugins
@@ -1805,7 +1805,7 @@ tests | <b>9</b> | The more tests a plugin has, the better
 
 <div class="quality-index" style="color: #72CC1D">378</div>
 
-<h3 id="firebase_test_lab"><a href="https://github.com/johnknapprs/pantograph-plugin-firebase_test_lab" target="_blank"><code>firebase_test_lab</code></a></h3>
+<h3 id="firebase_test_lab"><a href="https://github.com/urbanquakers/pantograph-plugin-firebase_test_lab" target="_blank"><code>firebase_test_lab</code></a></h3>
 
 <p class="via-text">via Shihua Zheng</p>
 
@@ -1843,7 +1843,7 @@ tests | <b>0</b> | The more tests a plugin has, the better
 
 <p>
 
-  <a href="https://github.com/johnknapprs/pantograph-plugin-firebase_test_lab" target="_blank">Open on GitHub</a>
+  <a href="https://github.com/urbanquakers/pantograph-plugin-firebase_test_lab" target="_blank">Open on GitHub</a>
 
 </p>
 

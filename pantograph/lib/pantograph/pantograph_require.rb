@@ -45,7 +45,7 @@ module Pantograph
         # In special cases a gem is already preinstalled, e.g. YAML.
         # To find out we try to load a gem with that name in a child process
         # (so we don't actually load anything we don't want to load)
-        # See https://github.com/johnknapprs/pantograph/issues/6951
+        # See https://github.com/urbanquakers/pantograph/issues/6951
         require_tester = <<-RB.gsub(/^ */, '')
           begin
             require ARGV.first
