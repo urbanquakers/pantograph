@@ -17,7 +17,7 @@ Execute git submodule command
 git_submodule_update ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @urbanquakers
+Author | @johnknapprs
 
 
 

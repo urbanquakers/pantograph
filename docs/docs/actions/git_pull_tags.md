@@ -17,7 +17,7 @@ Executes a simple `git fetch --tags` command
 git_pull_tags ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @urbanquakers
+Author | @johnknapprs
 
 
 

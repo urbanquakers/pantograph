@@ -17,7 +17,7 @@ All gradle related actions, including building and testing your application
 gradle ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx, @lmirosevic, @urbanquakers
+Author | @KrauseFx, @lmirosevic, @johnknapprs
 Returns | The output of running the gradle task
 
 

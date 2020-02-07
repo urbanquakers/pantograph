@@ -17,7 +17,7 @@ Raises error if there are uncommitted git changes
 ensure_git_status_clean ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @lmirosevic, @antondomashnev, @urbanquakers
+Author | @lmirosevic, @antondomashnev, @johnknapprs
 
 
 

@@ -17,7 +17,7 @@ Generates a Code Count that can be read by Jenkins (xml format)
 cloc ||
 ---|---
 Supported platforms | mac
-Author | @urbanquakers
+Author | @johnknapprs
 
 
 

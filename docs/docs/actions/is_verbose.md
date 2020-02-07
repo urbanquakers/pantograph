@@ -17,7 +17,7 @@ Returns Boolean whether `--verbose` flag was set
 is_verbose ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @urbanquakers
+Author | @johnknapprs
 
 
 

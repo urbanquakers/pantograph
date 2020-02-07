@@ -17,7 +17,7 @@ Runs `danger` for the project
 danger ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx, @urbanquakers
+Author | @KrauseFx, @johnknapprs
 
 
 

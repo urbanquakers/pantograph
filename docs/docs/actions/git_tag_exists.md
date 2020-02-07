@@ -17,7 +17,7 @@ Checks if the git tag with the given name exists
 git_tag_exists ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @urbanquakers
+Author | @johnknapprs
 Returns | Returns Boolean value whether the tag exists
 
 

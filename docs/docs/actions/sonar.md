@@ -11,7 +11,7 @@ Invokes sonar-scanner to programmatically run SonarQube analysis
 
 
 
-> See [http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) for details.<br>It can process unit test results if formatted as junit report as shown in [xctest](https://urbanquakers.github.io/pantograph/actions/xctest/) action. It can also integrate coverage reports in Cobertura format, which can be transformed into by the [slather](https://urbanquakers.github.io/pantograph/actions/slather/) action.
+> See [http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) for details.
 
 
 sonar ||

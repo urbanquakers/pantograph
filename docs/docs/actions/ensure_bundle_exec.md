@@ -17,7 +17,7 @@ Raises an exception if not using `bundle exec` to run pantograph
 ensure_bundle_exec ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @rishabhtayal, @urbanquakers
+Author | @rishabhtayal, @johnknapprs
 
 
 

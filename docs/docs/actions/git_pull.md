@@ -17,7 +17,7 @@ Executes a simple git pull command
 git_pull ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @urbanquakers
+Author | @johnknapprs
 
 
 

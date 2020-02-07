@@ -17,7 +17,7 @@ Verifies the minimum pantograph version required
 min_pantograph_version ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx, @urbanquakers
+Author | @KrauseFx, @johnknapprs
 
 
 

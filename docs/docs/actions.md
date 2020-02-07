@@ -102,9 +102,9 @@ Action | Description | Supported Platforms
 <a href="/actions/set_github_release/">set_github_release</a> | This will create a new release on GitHub and upload assets for it | mac, linux, windows
 <a href="/actions/create_pull_request/">create_pull_request</a> | This will create a new pull request on GitHub | mac, linux, windows
 <a href="/actions/get_github_release/">get_github_release</a> | This will verify if a given release version is available on GitHub | mac, linux, windows
-<a href="/actions/git_pull_tags/">git_pull_tags</a> | Executes a simple `git fetch --tags` command | mac, linux, windows
 <a href="/actions/github_api/">github_api</a> | Call a GitHub API endpoint and get the resulting JSON response | mac, linux, windows
 <a href="/actions/git_submodule_update/">git_submodule_update</a> | Execute git submodule command | mac, linux, windows
+<a href="/actions/git_pull_tags/">git_pull_tags</a> | Executes a simple `git fetch --tags` command | mac, linux, windows
 
 
 
@@ -144,17 +144,17 @@ Action | Description | Supported Platforms
 <a href="/actions/rsync/">rsync</a> | Rsync files from :source to :destination | mac, linux, windows
 <a href="/actions/jira/">jira</a> | Leave a comment on JIRA tickets | mac, linux, windows
 <a href="/actions/ssh/">ssh</a> | Allows remote command execution using ssh | mac, linux, windows
-<a href="/actions/opt_out_usage/">opt_out_usage</a> | This will stop uploading the information which actions were run | mac, linux, windows
-<a href="/actions/println/">println</a> | Alias for the `puts` action | mac, linux, windows
-<a href="/actions/sh/">sh</a> | Runs a shell command | mac, linux, windows
-<a href="/actions/plugin_scores/">plugin_scores</a> | [31mNo description provided[0m | mac, linux, windows
-<a href="/actions/is_verbose/">is_verbose</a> | Returns Boolean whether `--verbose` flag was set | mac, linux, windows
-<a href="/actions/prompt_secure/">prompt_secure</a> | Ask the user for a value or for confirmation | mac, linux, windows
-<a href="/actions/ruby_version/">ruby_version</a> | Verifies the minimum ruby version required | mac, linux, windows
-<a href="/actions/ensure_env_vars/">ensure_env_vars</a> | Raises an exception if the specified env vars are not set | mac, linux, windows
 <a href="/actions/min_pantograph_version/">min_pantograph_version</a> | Verifies the minimum pantograph version required | mac, linux, windows
-<a href="/actions/echo/">echo</a> | Alias for the `puts` action | mac, linux, windows
+<a href="/actions/println/">println</a> | Alias for the `puts` action | mac, linux, windows
 <a href="/actions/ensure_bundle_exec/">ensure_bundle_exec</a> | Raises an exception if not using `bundle exec` to run pantograph | mac, linux, windows
+<a href="/actions/ruby_version/">ruby_version</a> | Verifies the minimum ruby version required | mac, linux, windows
+<a href="/actions/prompt_secure/">prompt_secure</a> | Ask the user for a value or for confirmation | mac, linux, windows
+<a href="/actions/is_verbose/">is_verbose</a> | Returns Boolean whether `--verbose` flag was set | mac, linux, windows
+<a href="/actions/sh/">sh</a> | Runs a shell command | mac, linux, windows
+<a href="/actions/ensure_env_vars/">ensure_env_vars</a> | Raises an exception if the specified env vars are not set | mac, linux, windows
+<a href="/actions/plugin_scores/">plugin_scores</a> | [31mNo description provided[0m | mac, linux, windows
+<a href="/actions/echo/">echo</a> | Alias for the `puts` action | mac, linux, windows
+<a href="/actions/opt_out_usage/">opt_out_usage</a> | This will stop uploading the information which actions were run | mac, linux, windows
 
 
 

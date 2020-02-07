@@ -17,7 +17,7 @@ Returns the name of the current git branch
 git_branch ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @urbanquakers
+Author | @johnknapprs
 
 
 

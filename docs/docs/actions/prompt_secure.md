@@ -17,7 +17,7 @@ Ask the user for a value or for confirmation
 prompt_secure ||
 ---|---
 Supported platforms | mac, linux, windows
-Author | @KrauseFx, @urbanquakers
+Author | @KrauseFx, @johnknapprs
 
 
 
