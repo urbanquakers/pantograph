@@ -29,4 +29,3 @@ error do |_, error|
   next unless is_ci?
   slack(success: false, message: error)
 end
-

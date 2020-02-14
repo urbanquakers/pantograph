@@ -14,7 +14,7 @@ module Pantograph
       PantographCore::PantographFolder.create_folder!
 
       self.append_lane([
-                         "desc 'Runs all the  tests'",
+                         "desc 'Execute `test`, `build`, and `publish` lanes'",
                          "lane :pipeline do",
                          "  test",
                          "  build",
@@ -22,16 +22,16 @@ module Pantograph
                          "end"
                        ])
       self.append_lane([
-                         "desc 'Runs all the  tests'",
+                         "desc 'Runs all the tests'",
                          "lane :test do",
                          "  puts 'this is the test lane'",
                          "end"
                        ])
 
       self.append_lane([
-                         "desc 'Publish new version to Artifactory'",
+                         "desc 'Build project with NPM'",
                          "lane :build do",
-                         "  sh('npm install')",
+                         "  puts 'this is the build lane'",
                          "end"
                        ])
 

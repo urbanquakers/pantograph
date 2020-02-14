@@ -38,6 +38,12 @@ module Pantograph
             optional: true
           ),
           PantographCore::ConfigItem.new(
+            key: :dependencies,
+            description: 'Array of additional Pantfiles in the repository',
+            default_value: [],
+            optional: true
+          ),
+          PantographCore::ConfigItem.new(
             key: :version,
             description: 'The version to checkout on the repository. Optimistic match operator or multiple conditions can be used to select the version within constraints',
             default_value: nil,

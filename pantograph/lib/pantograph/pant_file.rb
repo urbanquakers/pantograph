@@ -266,7 +266,7 @@ module Pantograph
     # @param branch [String] The branch to checkout in the repository
     # @param path [String] The path to the Pantfile
     # @param version [String, Array] Version requirement for repo tags
-    def import_from_git(url: nil, branch: 'master', path: 'pantograph/Pantfile', version: nil)
+    def import_from_git(url: nil, branch: 'master', path: 'pantograph/Pantfile', dependencies: [], version: nil)
       if url.to_s.length == 0
         UI.user_error!("Please pass the git url to the `import_from_git` action")
       end
@@ -283,6 +283,9 @@ module Pantograph
         Dir.mktmpdir('pant_clone') do |tmp_path|
           clone_folder = File.join(tmp_path, repo_name)
 
+          checkout_dependencies = dependencies.map(&:shellescape).join(" ")
+          checkout_path         = "#{path.shellescape} #{checkout_dependencies}"
+
           UI.message('Cloning remote git repo...')
           Helper.with_env_values('GIT_TERMINAL_PROMPT' => '0') do
             Actions.sh("git clone #{url.shellescape} #{clone_folder.shellescape} --depth 1 -n --branch #{branch}")
@@ -295,7 +298,7 @@ module Pantograph
             UI.user_error!("No tag found matching #{version.inspect}") if checkout_param.nil?
           end
 
-          Actions.sh("cd #{clone_folder.shellescape} && git checkout #{checkout_param.shellescape} #{path.shellescape}")
+          Actions.sh("cd #{clone_folder.shellescape} && git checkout #{checkout_param.shellescape} #{checkout_path}")
 
           # We also want to check out all the local actions of this pantograph setup
           containing     = path.split(File::SEPARATOR)[0..-2]
@@ -308,12 +311,21 @@ module Pantograph
             # We don't care about a failure here, as local actions are optional
           end
 
-          import(File.join(clone_folder, path))
+          return_value = nil
+
+          if dependencies.any?
+            return_value = [import(File.join(clone_folder, path))]
+            return_value += dependencies.map { |file_path| import(File.join(clone_folder, file_path)) }
+          else
+            return_value = import(File.join(clone_folder, path))
+          end
 
           action_completed(
             'import_from_git',
             status: PantographCore::ActionCompletionStatus::SUCCESS
           )
+
+          return return_value
         end
       end
     end
