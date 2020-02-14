@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency('plist', '>= 3.1.0', '< 4.0.0') # Needed for set_build_number_repository and get_info_plist_value actions
   spec.add_dependency('addressable', '>= 2.3', '< 3.0.0') # Support for URI templates
   spec.add_dependency('word_wrap', '~> 1.0.0') # to add line breaks for tables with long strings
-  spec.add_dependency('danger', '~>6.1.0')
+  spec.add_dependency('danger', '~>6.2.0')
 
   # TTY dependencies
   spec.add_dependency('tty-screen', '>= 0.6.3', '< 1.0.0') # detect the terminal width

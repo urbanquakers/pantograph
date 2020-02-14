@@ -11,19 +11,6 @@ if github.pr_body.length < 5
   warn("Please provide a changelog summary in the Pull Request description @#{github.pr_author}")
 end
 
-# To avoid "PR & Runs" for which tests don't pass, we want to make spec errors more visible
-# The code below will run on Circle, parses the results in JSON and posts them to the PR as comment
-containing_dir = ENV["CIRCLE_TEST_REPORTS"] || "." # for local testing
-file_path = File.join(containing_dir, "rspec", "pantograph-junit-results.xml")
-
-if File.exist?(file_path)
-  junit.parse(file_path)
-  junit.headers = [:name, :file]
-  junit.report
-else
-  puts("Couldn't find any test artifacts in path #{file_path}")
-end
-
 # PRs being made on a branch from a different owner should warn to allow maintainers access to modify
 head_owner = github.pr_json["head"]["repo"]["owner"]["login"]
 base_owner = github.pr_json["base"]["repo"]["owner"]["login"]

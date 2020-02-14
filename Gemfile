@@ -1,6 +1,5 @@
 source('https://rubygems.org')
 
-gem 'danger'
-gem 'danger-junit'
+# gem 'danger'
 
 gemspec(path: '.')
