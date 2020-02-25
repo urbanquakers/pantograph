@@ -431,24 +431,8 @@ lane :beta do
   sigh(app_identifier: "hi"
 end
 RUBY
-        expect(UI).to receive(:user_error!).with(%r{Syntax error in your Pantfile on line 17: pantograph/spec/fixtures/pantfiles/PantfileSytnaxError:17: syntax error, unexpected (keyword_end|end), expecting '\)'})
+        expect(UI).to receive(:user_error!).with("Syntax error in your Pantfile on line 17: pantograph/spec/fixtures/pantfiles/PantfileSytnaxError:17: syntax error, unexpected `end', expecting '\)'")
         ff = Pantograph::PantFile.new('./pantograph/spec/fixtures/pantfiles/PantfileSytnaxError')
-      end
-
-      it "properly shows an error message when there is a syntax error in the Pantfile from string" do
-        # ruby error message differs in 2.5 and earlier. We use a matcher
-        expect(UI).to receive(:content_error).with(<<-RUBY.chomp, "3")
-        lane :test do
-          cases = [:abc,
-        end
-        RUBY
-        expect(UI).to receive(:user_error!).with(/Syntax error in your Pantfile on line 3: \(eval\):3: syntax error, unexpected (keyword_end|end), expecting '\]'\n        end\n.*/)
-
-        ff = Pantograph::PantFile.new.parse(<<-RUBY.chomp)
-        lane :test do
-          cases = [:abc,
-        end
-        RUBY
       end
 
       it "properly shows an error message when there is a syntax error in the imported Pantfile" do
@@ -473,7 +457,7 @@ lane :beta do
   sigh(app_identifier: "hi"
 end
 RUBY
-        expect(UI).to receive(:user_error!).with(%r{Syntax error in your Pantfile on line 17: pantograph/spec/fixtures/pantfiles/PantfileSytnaxError:17: syntax error, unexpected (keyword_end|end), expecting '\)'})
+        expect(UI).to receive(:user_error!).with("Syntax error in your Pantfile on line 17: pantograph/spec/fixtures/pantfiles/PantfileSytnaxError:17: syntax error, unexpected `end', expecting '\)'")
         ff.import('./PantfileSytnaxError')
       end
 

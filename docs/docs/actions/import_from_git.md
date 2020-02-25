@@ -63,6 +63,7 @@ Key | Description | Default
   `url` | The URL of the repository to import the Pantfile from | 
   `branch` | The branch or tag to check-out on the repository | `master`
   `path` | The path of the Pantfile in the repository | `pantograph/Pantfile`
+  `dependencies` | Array of additional Pantfiles in the repository | `[]`
   `version` | The version to checkout on the repository. Optimistic match operator or multiple conditions can be used to select the version within constraints | 
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
