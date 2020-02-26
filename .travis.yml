@@ -14,9 +14,17 @@ jobs:
   include:
     - stage: rspec test
       script: bundle exec rspec
-    - stage: publish docs
+    - stage: generate docs
       if: branch = master
-      script: bundle exec pantograph pipeline --verbose
+      script: bundle exec pantograph generate_mkdocs_site --verbose
     # - stage: publish gem
       # if: branch = master
       # script: gem build pantograph.gemspec && gem push 
+deploy:
+  provider: pages
+  cleanup: false
+  github_token: $GITHUB_PAGES_TOKEN
+  keep_history: true
+  local_dir: docs/
+  on:
+    branch: master

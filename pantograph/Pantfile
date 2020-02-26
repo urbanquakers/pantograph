@@ -14,9 +14,9 @@ lane :pipeline do
   Pantograph::MarkdownDocsGenerator.new.generate!(target_path: File.expand_path(target_path))
 
 
-  Dir.chdir('../docs') do |path|
-    sh('mkdocs gh-deploy --clean --verbose') if UI.confirm('Push docs to GitHub.io')
-  end
+  # Dir.chdir('../docs') do |path|
+  #   sh('mkdocs gh-deploy --clean --verbose') if UI.confirm('Push docs to GitHub.io')
+  # end
 
   # UI.confirm("Publish pantograph gem v.#{Pantograph::VERSION}")
   # sh("gem build pantograph.gemspec && gem push pantograph-#{Pantograph::VERSION}.gem")
@@ -26,8 +26,14 @@ lane :pipeline do
   # end
 end
 
-# Test and Validate
+desc('Generate MKDocs Site')
+lane :generate_mkdocs_site do
+  target_path = '../docs'
+  require 'pantograph/documentation/markdown_docs_generator'
+  Pantograph::MarkdownDocsGenerator.new.generate!(target_path: File.expand_path(target_path))
+end
 
+# Test and Validate
 desc('Runs the unit tests and other verifications for the pantograph repo')
 lane :test do |options|
   validate_repo
