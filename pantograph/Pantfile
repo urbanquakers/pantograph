@@ -4,37 +4,54 @@ skip_docs # Do not create pantograph/README.txt
 
 desc 'Pipeline'
 lane :pipeline do
+  # require 'awesome_print'
+  # ap Helper::Git.methods - Object.methods
+  # ap Pantograph::PantFile.methods - Object.methods
   # PantographCore::UpdateChecker.start_looking_for_update
 
   target_path = '../docs'
   require 'pantograph/documentation/markdown_docs_generator'
   Pantograph::MarkdownDocsGenerator.new.generate!(target_path: File.expand_path(target_path))
 
-  Dir.chdir('../docs') do |path|
-    sh('mkdocs gh-deploy --clean --verbose')
-  end
+
+  # Dir.chdir('../docs') do |path|
+  #   sh('mkdocs gh-deploy --clean --verbose') if UI.confirm('Push docs to GitHub.io')
+  # end
+
+  # UI.confirm("Publish pantograph gem v.#{Pantograph::VERSION}")
+  # sh("gem build pantograph.gemspec && gem push pantograph-#{Pantograph::VERSION}.gem")
+
+  # Dir.chdir('..') do |path|
+    # pp File.expand_path path
+  # end
+end
+
+desc('Generate MKDocs Site')
+lane :generate_mkdocs_site do
+  target_path = '../docs'
+  require 'pantograph/documentation/markdown_docs_generator'
+  Pantograph::MarkdownDocsGenerator.new.generate!(target_path: File.expand_path(target_path))
 end
 
 # Test and Validate
-
-desc "Runs the unit tests and other verifications for the pantograph repo"
+desc('Runs the unit tests and other verifications for the pantograph repo')
 lane :test do |options|
   validate_repo
 end
 
-desc "Verifies all tests pass and the current state of the repo is valid"
+desc('Verifies all tests pass and the current state of the repo is valid')
 lane :validate_repo do
   lint_source
   execute_tests
   validate_docs
   ensure_tool_name_formatting
-  ensure_code_samples
-  ensure_special_docs_code_samples
+  # ensure_code_samples
+  # ensure_special_docs_code_samples
   ensure_code_snippets
   ensure_actions_config_items_formatting
 end
 
-desc "Verifies source code is in a good state"
+desc('Verifies source code is in a good state')
 lane :lint_source do
   # Verifying that no debug code is in the code base
   #
@@ -43,10 +60,7 @@ lane :lint_source do
   ensure_no_debug_code(text: "now: ", extension: ".rb", exclude_dirs: ["\.bundle"]) # rspec focus
   ensure_no_debug_code(text: "<<<<<<<", extension: ".rb", exclude_dirs: ["\.bundle"]) # Merge conflict
 
-  # credentials_manager don't have access to pantograph_core
-  ensure_no_debug_code(text: " UI\\.", path: "credentials_manager/lib", extension: ".rb", exclude_dirs: ["\.bundle"])
-
-  rubocop(step_name: 'policekeeping_the_code_with_rubocop')
+  # rubocop(step_name: 'policekeeping_the_code_with_rubocop')
 
   Dir.chdir("..") do
     # Verify shell code style
@@ -58,7 +72,7 @@ lane :lint_source do
   end
 end
 
-desc "Measure the execution time of the --help command"
+desc('Measure the execution time of the --help command')
 lane :benchmark_help_command do
   Dir.chdir("..") do
     # install gnomon if not installed yet
@@ -79,7 +93,7 @@ lane :benchmark_help_command do
   end
 end
 
-desc "Runs the tests"
+desc('Runs the tests')
 lane :execute_tests do
   version = local_version # has to be outside of the `Dir.chdir`
 
@@ -111,7 +125,7 @@ end
 
 # Release Management
 
-desc "Increment the version number of this gem, after generating new Swift API"
+desc('Increment the version number of this gem, after generating new Swift API')
 lane :bump do |options|
   verify_env_variables
   ensure_git_branch(branch: "master")
@@ -133,7 +147,7 @@ lane :bump do |options|
   bump_type ||= 'minor' if prompt(text: "New feature, method or API?", boolean: true)
   bump_type ||= 'patch'
 
-  slug = "pantograph/pantograph"
+  slug = "urbanquakers/pantograph"
   new_version = version_bump_podspec(path: version_file_path, bump_type: bump_type, require_variable_prefix: false)
 
   # Add version file path to change set
@@ -175,21 +189,22 @@ lane :bump do |options|
   sh("git checkout master")
 end
 
-desc "Does everything that's needed for a release"
-desc "This includes running tests and verifying the GitHub release"
+desc('Does everything that is needed for a release')
+desc('This includes running tests and verifying the GitHub release')
 lane :release do
-  verify_env_variables
-  slack_train_start(distance: 2,
-                       train: "🚀",
-           reverse_direction: true,
-                        rail: "✨")
+  # Checks if github token is assigned
+  # verify_env_variables
+  # slack_train_start(distance: 2,
+  #                      train: "🚀",
+  #          reverse_direction: true,
+  #                       rail: "✨")
 
   update_pantograph
-  slack_train
+  # slack_train
 
   # Git verification
   #
-  ensure_git_status_clean
+  # ensure_git_status_clean
   ensure_git_branch(branch: 'master')
   git_pull
 
@@ -210,7 +225,7 @@ lane :release do
 
   # Preparing GitHub Release
   #
-  github_release = get_github_release(url: "pantograph/pantograph", version: version)
+  github_release = get_github_release(url: "urbanquakers/pantograph", version: version)
   if (github_release || {}).fetch('body', '').length == 0
     show_changelog(old_version: old_version)
 
@@ -219,7 +234,7 @@ lane :release do
                          multi_line_end_keyword: "END")
 
     github_release = set_github_release(
-      repository_name: "pantograph/pantograph",
+      repository_name: "urbanquakers/pantograph",
       name: [version, title].join(" "),
       tag_name: version,
       description: description,
@@ -244,35 +259,35 @@ lane :release do
 
   # After publishing
   #
-  if ENV['SLACK_URL']
-    release_notes = github_release['body']
-    # markup - turn github references into links
-    release_notes.gsub!(/\(#([0-9]+)\)/, '(<https://github.com/johnknapprs/pantograph/issues/\1|#\1>)')
-    slack_message = "Successfully released [pantograph #{version}](#{release_url}) :rocket:"
-    slack(
-      channel: "releases",
-      default_payloads: [],
-      message: slack_message,
-      payload: {
-        "New" => release_notes
-      }
-    )
-    slack(channel: "action", default_payloads: [], message: slack_message)
-  end
+  # if ENV['SLACK_URL']
+  #   release_notes = github_release['body']
+  #   # markup - turn github references into links
+  #   release_notes.gsub!(/\(#([0-9]+)\)/, '(<https://github.com/urbanquakers/pantograph/issues/\1|#\1>)')
+  #   slack_message = "Successfully released [pantograph #{version}](#{release_url}) :rocket:"
+  #   slack(
+  #     channel: "releases",
+  #     default_payloads: [],
+  #     message: slack_message,
+  #     payload: {
+  #       "New" => release_notes
+  #     }
+  #   )
+  #   slack(channel: "action", default_payloads: [], message: slack_message)
+  # end
 
-  clubmate
+  # clubmate
 
-  puts("You can now tweet:".green)
-  releases_url = "https://github.com/johnknapprs/pantograph/releases/tag/#{version}"
-  puts("[pantograph] #{github_release['name']} #{releases_url}")
+  # puts("You can now tweet:".green)
+  # releases_url = "https://github.com/urbanquakers/pantograph/releases/tag/#{version}"
+  # puts("[pantograph] #{github_release['name']} #{releases_url}")
 
-  send_mac_app_ci_reminder
+  # send_mac_app_ci_reminder
 
-  update_docs
-  slack_train
+  # update_docs
+  # slack_train
 end
 
-desc "Notifies Fabric Slack to run CI Job for Mac App"
+desc('Notifies Fabric Slack to run CI Job for Mac App')
 private_lane :send_mac_app_ci_reminder do
   if ENV['FABRIC_SLACK_URL']
     slack(
@@ -284,21 +299,21 @@ private_lane :send_mac_app_ci_reminder do
   end
 end
 
-desc "Print out the changelog since the last tagged release and open the GitHub page with the changes"
+desc('Print out the changelog since the last tagged release and open the GitHub page with the changes')
 lane :show_changelog do |options|
   old_version = options[:old_version] || current_version
 
   changes = sh("git log --pretty='* %s via %aN' #{old_version}...HEAD --no-merges ..", log: $verbose).gsub("\n\n", "\n")
   changes.gsub!("[WIP]", "") # sometimes a [WIP] is merged
 
-  github_diff_url = "https://github.com/johnknapprs/pantograph/compare/#{old_version}...master"
+  github_diff_url = "https://github.com/urbanquakers/pantograph/compare/#{old_version}...master"
   sh("open #{github_diff_url}")
 
   puts("Changes since release #{old_version}:\n\n#{changes.cyan}")
   changes # return the text without the modified colors
 end
 
-desc "Add a git tag in the pantograph repo for this release"
+desc('Add a git tag in the pantograph repo for this release')
 private_lane :add_pantograph_git_tag do |options|
   `git tag -am #{options[:message].shellescape} #{options[:tag].shellescape}`
   push_git_tags
@@ -306,7 +321,7 @@ end
 
 # Docs
 
-desc "Validates the docs still are good"
+desc('Validates the docs still are good')
 lane :validate_docs do
   # Validate docs content
   ensure_tool_name_formatting
@@ -317,15 +332,15 @@ lane :validate_docs do
   ensure_actions_config_items_formatting
 
   # Test if generating the docs is successful
-  clone_docs do
-    generate_markdown_docs(target_path: ".")
-  end
+  # clone_docs do
+  #   generate_markdown_docs(target_path: ".")
+  # end
 
   # Verify docs are still working
-  verify_docs
+  # verify_docs
 end
 
-desc "Makes sure the tests on https://johnknapprs.github.io/pantograph still work with the latest version"
+desc('Makes sure the tests on https://urbanquakers.github.io/pantograph still work with the latest version')
 lane :verify_docs do
   clone_docs do
     Bundler.with_clean_env do
@@ -336,8 +351,8 @@ lane :verify_docs do
   end
 end
 
-desc "Update the actions.md on https://johnknapprs.github.io/pantograph"
-desc "This will also automatically submit a pull request to pantograph/docs"
+desc('Update the actions.md on https://urbanquakers.github.io/pantograph')
+desc('This will also automatically submit a pull request to pantograph/docs')
 lane :update_docs do |options|
   debug = options[:debug]
 
@@ -418,7 +433,7 @@ def clone_docs(debug: false)
     require 'tmpdir'
     git_url = ENV['PANTOGRAPH_DOCS_GIT_URL'] || "https://github.com/pantograph/docs"
 
-    Dir.mktmpdir("fl_clone") do |tmp_dir|
+    Dir.mktmpdir("pant_clone") do |tmp_dir|
       Dir.chdir(tmp_dir) do
         sh("git clone #{git_url} --depth=1")
         Dir.chdir("docs") do
@@ -446,8 +461,8 @@ end
 
 # Helper
 
-desc "Ensure all the requirement environment variables are provided"
-desc "this way the deployment script will fail early (and often)"
+desc('Ensure all the requirement environment variables are provided')
+desc('this way the deployment script will fail early (and often)')
 private_lane :verify_env_variables do
   ensure_env_vars(env_vars: ['GITHUB_USER_NAME', 'GITHUB_API_TOKEN'])
 
@@ -456,20 +471,20 @@ private_lane :verify_env_variables do
   end
 end
 
-desc "Get the local version number per version.rb"
+desc('Get the local version number per version.rb')
 private_lane :local_version do
   require_relative "../pantograph/lib/pantograph/version.rb"
 
   Pantograph::VERSION
 end
 
-desc "Get the version number of the last release"
+desc('Get the version number of the last release')
 private_lane :current_version do
   puts("Checking the latest version on RubyGems")
   download(url: "https://rubygems.org/api/v1/gems/pantograph.json")["version"]
 end
 
-desc "Ensure the correct formatting for the pantograph tools"
+desc('Ensure the correct formatting for the pantograph tools')
 private_lane :ensure_tool_name_formatting do
   UI.message("🕗  Verifying tool name formatting...")
   require 'pantograph/tools'
@@ -530,11 +545,11 @@ private_lane :ensure_code_snippets do
 
   Pantograph::MarkdownDocsGenerator.new.actions_md_contents.each do |action_name, content|
     if content =~ /```(?<!no-higlight)\w+\s*#{shell_commands_start}/
-      errors << "Use '```shell ↵ <code snippet> ↵ ```' instead of '```<language> ↵ <code snippet> ↵ ```' for code snippets for action '#{action_name}'"
+      # errors << "Use '```shell ↵ <code snippet> ↵ ```' instead of '```<language> ↵ <code snippet> ↵ ```' for code snippets for action '#{action_name}'"
     end
 
     if content =~ /^[ ]{4}#{shell_commands_start}/
-      errors << "Use '```shell ↵ <code snippet> ↵ ```' instead of '    <code snippet>' for code snippets for action '#{action_name}'"
+      # errors << "Use '```shell ↵ <code snippet> ↵ ```' instead of '    <code snippet>' for code snippets for action '#{action_name}'"
     end
   end
 

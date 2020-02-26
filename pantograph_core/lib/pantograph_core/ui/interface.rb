@@ -138,7 +138,7 @@ module PantographCore
     # Basically this should be used when you actively catch the error
     # and want to show a nice error message to the user
     def user_error!(error_message, options = {})
-      raise PantographError.new(options), error_message.to_s
+      raise PantographError.new(**options), error_message.to_s
     end
 
     # Use this method to exit the program because of a shell command
